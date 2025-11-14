@@ -83,9 +83,13 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
-        mono: ["var(--font-mono)"],
+        sans: ["Inter", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
+        subheading: ["Poppins", "sans-serif"],
+        mono: ["Roboto Mono", "monospace"],
+      },
+      backdropBlur: {
+        glass: '20px',
       },
       keyframes: {
         "accordion-down": {
