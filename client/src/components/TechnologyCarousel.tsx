@@ -1,14 +1,15 @@
 import { useEffect, useRef } from "react";
+import { Cpu, Layers, Box, Workflow, Cuboid, Binary, Zap, CircuitBoard } from "lucide-react";
 
 const technologies = [
-  "SolidWorks",
-  "ANSYS",
-  "AutoCAD",
-  "MATLAB",
-  "Altium Designer",
-  "CATIA",
-  "Fusion 360",
-  "Simulink",
+  { name: "SolidWorks", icon: Cuboid },
+  { name: "ANSYS", icon: Zap },
+  { name: "AutoCAD", icon: Box },
+  { name: "MATLAB", icon: Binary },
+  { name: "Altium Designer", icon: CircuitBoard },
+  { name: "CATIA", icon: Layers },
+  { name: "Fusion 360", icon: Box },
+  { name: "Simulink", icon: Workflow },
 ];
 
 export default function TechnologyCarousel() {
@@ -20,31 +21,33 @@ export default function TechnologyCarousel() {
 
     let scrollPosition = 0;
     const scroll = () => {
-      scrollPosition += 1;
+      scrollPosition += 0.5;
       if (scrollPosition >= scrollContainer.scrollWidth / 2) {
         scrollPosition = 0;
       }
       scrollContainer.scrollLeft = scrollPosition;
     };
 
-    const interval = setInterval(scroll, 30);
+    const interval = setInterval(scroll, 20);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden py-4">
       <div 
         ref={scrollRef}
         className="flex gap-8 overflow-x-hidden"
         style={{ scrollBehavior: 'auto' }}
       >
-        {[...technologies, ...technologies].map((tech, index) => (
+        {[...technologies, ...technologies, ...technologies].map((tech, index) => (
           <div
-            key={`${tech}-${index}`}
-            className="flex-shrink-0 px-8 py-6 backdrop-blur-xl bg-white/5 border border-primary/20 rounded-xl hover-elevate"
+            key={`${tech.name}-${index}`}
+            className="flex-shrink-0 px-10 py-8 backdrop-blur-xl bg-white/5 border border-primary/20 rounded-xl hover-elevate flex flex-col items-center gap-4"
+            data-testid={`tech-card-${tech.name.toLowerCase().replace(/\s+/g, '-')}`}
           >
-            <span className="text-lg font-subheading font-medium text-foreground whitespace-nowrap">
-              {tech}
+            <tech.icon className="text-5xl text-primary" />
+            <span className="text-base font-subheading font-medium text-foreground whitespace-nowrap">
+              {tech.name}
             </span>
           </div>
         ))}
