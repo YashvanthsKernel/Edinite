@@ -14,8 +14,8 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
     { href: "/portfolio", label: "Portfolio" },
+    { href: "/buying", label: "Pricing" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -88,11 +88,15 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="ghost" size="icon" data-testid="button-cart">
-              <ShoppingCart size={20} />
-            </Button>
+            <Link href="/buying">
+              <Button variant="ghost" size="icon" data-testid="button-cart">
+                <ShoppingCart size={20} />
+              </Button>
+            </Link>
 
-            <Button data-testid="button-request-quote">Request Quote</Button>
+            <Link href="/request-quote">
+              <Button data-testid="button-request-quote">Request Quote</Button>
+            </Link>
           </div>
 
           <button
@@ -141,7 +145,11 @@ export default function Header() {
                   Login / Register
                 </span>
               </Link>
-              <Button className="mt-2" data-testid="button-mobile-quote">Request Quote</Button>
+              <Link href="/request-quote">
+                <Button className="mt-2" onClick={() => setMobileMenuOpen(false)} data-testid="button-mobile-quote">
+                  Request Quote
+                </Button>
+              </Link>
             </nav>
           </div>
         )}

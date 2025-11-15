@@ -7,6 +7,7 @@ import ServiceCard from "@/components/ServiceCard";
 import StatsCard from "@/components/StatsCard";
 import ProjectCard from "@/components/ProjectCard";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
+import CompanyCarousel from "@/components/CompanyCarousel";
 import ProjectModal from "@/components/ProjectModal";
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
@@ -137,6 +138,16 @@ export default function Home() {
             Industry-leading tools and software we use
           </p>
           <TechnologyCarousel />
+          
+          <div className="mt-16">
+            <h3 className="text-3xl font-heading font-bold text-foreground text-center mb-4">
+              Our <span className="text-primary">Commitment</span>
+            </h3>
+            <p className="text-center text-muted-foreground mb-8">
+              What sets us apart in engineering excellence
+            </p>
+            <CompanyCarousel />
+          </div>
         </div>
       </section>
 
