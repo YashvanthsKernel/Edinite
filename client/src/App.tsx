@@ -8,6 +8,11 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import ServiceCAD from "@/pages/ServiceCAD";
+import ServiceMechanicalCAD from "@/pages/ServiceMechanicalCAD";
+import ServiceFEACFD from "@/pages/ServiceFEACFD";
+import Service3DPrinting from "@/pages/Service3DPrinting";
+import ServicePCBDesign from "@/pages/ServicePCBDesign";
+import ServiceMATLAB from "@/pages/ServiceMATLAB";
 import Portfolio from "@/pages/Portfolio";
 import Contact from "@/pages/Contact";
 import Auth from "@/pages/Auth";
@@ -33,6 +38,11 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/services" component={Services} />
         <Route path="/services/cad" component={ServiceCAD} />
+        <Route path="/services/mechanical-cad" component={ServiceMechanicalCAD} />
+        <Route path="/services/fea-cfd" component={ServiceFEACFD} />
+        <Route path="/services/3d-printing" component={Service3DPrinting} />
+        <Route path="/services/pcb-design" component={ServicePCBDesign} />
+        <Route path="/services/matlab" component={ServiceMATLAB} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/contact" component={Contact} />
         <Route path="/auth" component={Auth} />

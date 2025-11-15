@@ -15,9 +15,16 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/contact", label: "Contact" },
+  ];
+
+  const serviceLinks = [
+    { href: "/services/mechanical-cad", label: "Mechanical CAD Design" },
+    { href: "/services/fea-cfd", label: "FEA/CFD Simulation" },
+    { href: "/services/3d-printing", label: "3D Printing Services" },
+    { href: "/services/pcb-design", label: "PCB Design & Development" },
+    { href: "/services/matlab", label: "MATLAB-Based Simulation Projects" },
   ];
 
   return (
@@ -43,6 +50,24 @@ export default function Header() {
                 </span>
               </Link>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer bg-transparent border-none text-base font-normal p-0" data-testid="link-services">
+                  Services
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64">
+                {serviceLinks.map((service) => (
+                  <DropdownMenuItem key={service.href} asChild>
+                    <Link href={service.href}>
+                      <span className="w-full cursor-pointer" data-testid={`link-service-${service.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                        {service.label}
+                      </span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -93,6 +118,20 @@ export default function Header() {
                   </span>
                 </Link>
               ))}
+              <div className="border-t border-primary/20 pt-4 mt-2">
+                <span className="text-sm font-semibold text-muted-foreground mb-2 block">Services</span>
+                {serviceLinks.map((service) => (
+                  <Link key={service.href} href={service.href}>
+                    <span 
+                      className="text-foreground/80 hover:text-foreground transition-colors py-2 cursor-pointer block pl-4"
+                      onClick={() => setMobileMenuOpen(false)}
+                      data-testid={`link-mobile-service-${service.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {service.label}
+                    </span>
+                  </Link>
+                ))}
+              </div>
               <Link href="/auth">
                 <span 
                   className="text-foreground/80 hover:text-foreground transition-colors py-2 cursor-pointer block"

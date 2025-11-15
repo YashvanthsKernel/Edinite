@@ -24,9 +24,9 @@ export default function Footer() {
               {["Home", "About", "Services", "Portfolio", "Contact"].map((item) => (
                 <li key={item}>
                   <Link href={`/${item.toLowerCase()}`}>
-                    <a className="text-muted-foreground hover:text-foreground transition-colors text-sm" data-testid={`link-footer-${item.toLowerCase()}`}>
+                    <span className="text-muted-foreground hover:text-foreground transition-colors text-sm cursor-pointer" data-testid={`link-footer-${item.toLowerCase()}`}>
                       {item}
-                    </a>
+                    </span>
                   </Link>
                 </li>
               ))}
