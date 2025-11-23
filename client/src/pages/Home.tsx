@@ -7,7 +7,6 @@ import ServiceCard from "@/components/ServiceCard";
 import StatsCard from "@/components/StatsCard";
 import ProjectCard from "@/components/ProjectCard";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
-import CompanyCarousel from "@/components/CompanyCarousel";
 import ProjectModal from "@/components/ProjectModal";
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
@@ -59,13 +58,13 @@ export default function Home() {
       <section 
         className="relative min-h-[90vh] flex items-center justify-center"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url(${heroImage})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(1,0,48,0.7), rgba(1,0,48,0.3)), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <div className="max-w-4xl mx-auto px-6 text-center z-10">
-          <GlassPanel className="p-12 bg-white/90 dark:bg-card/90">
+          <GlassPanel className="p-12">
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
               Transforming Concepts Into{" "}
               <span className="text-primary">Real-World Engineering Solutions</span>
@@ -138,16 +137,6 @@ export default function Home() {
             Industry-leading tools and software we use
           </p>
           <TechnologyCarousel />
-          
-          <div className="mt-16">
-            <h3 className="text-3xl font-heading font-bold text-foreground text-center mb-4">
-              Our <span className="text-primary">Commitment</span>
-            </h3>
-            <p className="text-center text-muted-foreground mb-8">
-              What sets us apart in engineering excellence
-            </p>
-            <CompanyCarousel />
-          </div>
         </div>
       </section>
 

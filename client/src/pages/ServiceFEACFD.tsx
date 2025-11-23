@@ -73,9 +73,9 @@ export default function ServiceFEACFD() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex gap-4">
               <Button asChild size="lg" data-testid="button-get-quote-fea-cfd">
-                <Link href="/request-quote">
+                <Link href="/contact">
                   Get a Quote <ArrowRight className="ml-2" size={20} />
                 </Link>
               </Button>
