@@ -15,7 +15,6 @@ import ServicePCBDesign from "@/pages/ServicePCBDesign";
 import ServiceMATLAB from "@/pages/ServiceMATLAB";
 import Portfolio from "@/pages/Portfolio";
 import Contact from "@/pages/Contact";
-import Auth from "@/pages/Auth";
 import RequestQuote from "@/pages/RequestQuote";
 import Buying from "@/pages/Buying";
 import Header from "@/components/Header";
@@ -49,7 +48,6 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/request-quote" component={RequestQuote} />
         <Route path="/buying" component={Buying} />
-        <Route path="/auth" component={Auth} />
         <Route component={NotFound} />
       </Switch>
     </>
@@ -57,10 +55,6 @@ function Router() {
 }
 
 function App() {
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
