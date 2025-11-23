@@ -98,7 +98,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <h2 className="text-4xl font-heading font-bold text-foreground mb-6">
-                About <span className="text-primary">Edinite DesignWorks</span>
+                About <span className="text-primary">Edinite</span>
               </h2>
               <p className="text-muted-foreground mb-4">
                 We bridge the gap between concept and reality through cutting-edge design, simulation, and prototyping technologies. Our team of expert engineers delivers end-to-end solutions for your most challenging projects.

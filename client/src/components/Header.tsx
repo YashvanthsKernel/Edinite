@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, ShoppingCart } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { useState } from "react";
 import {
   DropdownMenu,
@@ -15,7 +15,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/portfolio", label: "Portfolio" },
+    { href: "/portfolio", label: "Portfolio (Under Development)" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -37,7 +37,7 @@ export default function Header() {
                 <span className="text-white font-bold text-xl">E</span>
               </div>
               <span className="text-xl font-heading font-bold text-foreground">
-                Edinite <span className="text-primary">DesignWorks</span>
+                Edinite
               </span>
             </div>
           </Link>
@@ -87,10 +87,6 @@ export default function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Button variant="ghost" size="icon" data-testid="button-cart">
-              <ShoppingCart size={20} />
-            </Button>
 
             <Button data-testid="button-request-quote">Request Quote</Button>
           </div>
