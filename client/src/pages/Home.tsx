@@ -59,13 +59,13 @@ export default function Home() {
       <section 
         className="relative min-h-[90vh] flex items-center justify-center"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(1,0,48,0.7), rgba(1,0,48,0.3)), url(${heroImage})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
         <div className="max-w-4xl mx-auto px-6 text-center z-10">
-          <GlassPanel className="p-12">
+          <GlassPanel className="p-12 bg-white/90 dark:bg-card/90">
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
               Transforming Concepts Into{" "}
               <span className="text-primary">Real-World Engineering Solutions</span>
