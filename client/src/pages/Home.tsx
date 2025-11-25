@@ -101,10 +101,10 @@ export default function Home() {
                 About <span className="text-primary">Edinite</span>
               </h2>
               <p className="text-muted-foreground mb-4">
-                We bridge the gap between concept and reality through cutting-edge design, simulation, and prototyping technologies. Our team of expert engineers delivers end-to-end solutions for your most challenging projects.
+                We help students, startups, and early-stage innovators convert ideas into research-backed designs, CAD models, simulations, and PCB layouts — without fabrication or manufacturing.
               </p>
               <p className="text-muted-foreground">
-                From initial concept to final production, we provide comprehensive engineering services that ensure your projects meet the highest standards of quality and innovation.
+                We believe innovation begins on the computer. Our work ensures products are perfect in the virtual world before anyone invests in production.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">

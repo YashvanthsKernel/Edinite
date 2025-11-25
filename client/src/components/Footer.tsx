@@ -11,10 +11,10 @@ export default function Footer() {
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">E</span>
               </div>
-              <span className="text-lg font-heading font-bold text-foreground">Edinite DesignWorks</span>
+              <span className="text-lg font-heading font-bold text-foreground">Edinite</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              Transforming concepts into real-world engineering solutions
+              Bridge between classroom learning and industry-grade product development
             </p>
           </div>
 
@@ -51,15 +51,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Mail size={16} className="text-primary" />
-                <a href="mailto:info@edinitedesignworks.com">info@edinitedesignworks.com</a>
-              </li>
-              <li className="flex items-center gap-2 text-muted-foreground text-sm">
-                <Phone size={16} className="text-primary" />
-                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                <a href="mailto:edinite.official@gmail.com" data-testid="link-footer-email">edinite.official@gmail.com</a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <MapPin size={16} className="text-primary" />
-                <span>Your City, Country</span>
+                <span>India</span>
               </li>
             </ul>
             <div className="flex gap-4 mt-4">
@@ -78,7 +74,7 @@ export default function Footer() {
 
         <div className="border-t border-primary/20 mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2025 Edinite DesignWorks. All rights reserved.
+            © 2025 Edinite. All rights reserved.
           </p>
         </div>
       </div>

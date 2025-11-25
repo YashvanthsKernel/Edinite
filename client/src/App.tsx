@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import About from "@/pages/About";
 import Services from "@/pages/Services";
 import ServiceCAD from "@/pages/ServiceCAD";
 import ServiceMechanicalCAD from "@/pages/ServiceMechanicalCAD";
@@ -36,6 +37,7 @@ function Router() {
       <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
         <Route path="/services/cad" component={ServiceCAD} />
         <Route path="/services/mechanical-cad" component={ServiceMechanicalCAD} />

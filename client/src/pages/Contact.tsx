@@ -31,20 +31,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-subheading font-semibold text-foreground mb-1">Email</h3>
-                      <a href="mailto:info@edinitedesignworks.com" className="text-muted-foreground hover:text-primary">
-                        info@edinitedesignworks.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone size={24} className="text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-subheading font-semibold text-foreground mb-1">Phone</h3>
-                      <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary">
-                        +1 (234) 567-890
+                      <a href="mailto:edinite.official@gmail.com" className="text-muted-foreground hover:text-primary" data-testid="link-contact-email">
+                        edinite.official@gmail.com
                       </a>
                     </div>
                   </div>
@@ -56,9 +44,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-subheading font-semibold text-foreground mb-1">Location</h3>
                       <p className="text-muted-foreground">
-                        123 Engineering Drive<br />
-                        Your City, State 12345<br />
-                        Country
+                        India
                       </p>
                     </div>
                   </div>
@@ -68,11 +54,10 @@ export default function Contact() {
                       <Clock size={24} className="text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-subheading font-semibold text-foreground mb-1">Business Hours</h3>
+                      <h3 className="font-subheading font-semibold text-foreground mb-1">Response Time</h3>
                       <p className="text-muted-foreground">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                        Saturday: 10:00 AM - 4:00 PM<br />
-                        Sunday: Closed
+                        We typically respond within 24 hours<br />
+                        For urgent inquiries, mention "Urgent" in subject
                       </p>
                     </div>
                   </div>
@@ -81,15 +66,15 @@ export default function Contact() {
 
               <GlassPanel className="p-8">
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                  Why Choose Us?
+                  Why Choose Edinite?
                 </h2>
                 <ul className="space-y-3">
                   {[
-                    "Expert engineering team with 10+ years experience",
-                    "State-of-the-art simulation and design tools",
-                    "Quick turnaround times and flexible scheduling",
-                    "Competitive pricing with no hidden fees",
-                    "Comprehensive support throughout your project"
+                    "No manufacturing - pure design, simulation, and optimization",
+                    "Industry-expert design and simulation standards",
+                    "Perfect your product in the virtual world first",
+                    "Professional documentation and comprehensive reports",
+                    "Accessible services for students, startups, and innovators"
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="text-primary mt-1">✓</span>

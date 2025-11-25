@@ -1,0 +1,296 @@
+import { Mail, Target, Eye, Lightbulb, CheckCircle, Users, Palette, Waves, Cpu, GraduationCap } from "lucide-react";
+import GlassPanel from "@/components/GlassPanel";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+export default function About() {
+  const teamMembers = [
+    {
+      name: "Founder",
+      role: "Founder & CEO",
+      initials: "FD",
+      description: "Visionary leader driving innovation in digital engineering solutions"
+    },
+    {
+      name: "Co-Founder",
+      role: "Co-Founder & COO",
+      initials: "CF",
+      description: "Strategic operations expert ensuring seamless project delivery"
+    },
+    {
+      name: "CFO",
+      role: "Chief Financial Officer",
+      initials: "CF",
+      description: "Financial strategist managing company growth and sustainability"
+    },
+    {
+      name: "CTO",
+      role: "Chief Technology Officer",
+      initials: "CT",
+      description: "Technology leader overseeing all engineering solutions and innovations"
+    },
+    {
+      name: "Team Member",
+      role: "CAD Design Specialist",
+      initials: "TM",
+      description: "Expert in 3D modeling and mechanical design"
+    },
+    {
+      name: "Team Member",
+      role: "Simulation Engineer",
+      initials: "TM",
+      description: "Specialist in FEA and CFD analysis"
+    },
+    {
+      name: "Team Member",
+      role: "PCB Design Engineer",
+      initials: "TM",
+      description: "Electronics and circuit design expert"
+    },
+    {
+      name: "Team Member",
+      role: "Training Coordinator",
+      initials: "TM",
+      description: "Edu-Tech specialist for student and institutional training"
+    }
+  ];
+
+  const services = [
+    {
+      title: "3D CAD Design & Rendering",
+      description: "Concept models, assemblies, design documentation, and photorealistic product rendering",
+      icon: Palette
+    },
+    {
+      title: "CFD & FEA Simulation",
+      description: "Aerodynamics, thermal study, load & stress analysis for optimal design validation",
+      icon: Waves
+    },
+    {
+      title: "Electronics & PCB Design",
+      description: "Circuit design, PCB layout, and MATLAB simulation for electronic systems",
+      icon: Cpu
+    },
+    {
+      title: "Edu-Tech Training",
+      description: "CAD, Simulation, MATLAB, and PCB basics for engineering students",
+      icon: GraduationCap
+    }
+  ];
+
+  const whyWeExist = [
+    {
+      title: "Clarity Before Spending",
+      description: "We ensure your design is perfect in the virtual world before any investment in fabrication"
+    },
+    {
+      title: "Professional Documentation",
+      description: "Comprehensive reports and design documentation that meet industry standards"
+    },
+    {
+      title: "Industry-Expert Standards",
+      description: "Advanced design and simulation standards used by professionals worldwide"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen pt-24">
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
+              About <span className="text-primary">Edinite</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              A Design & Simulation company specializing in digital engineering solutions
+            </p>
+            <Badge variant="outline" className="text-lg px-6 py-2 border-primary/50" data-testid="badge-company-status">
+              Bridging Classroom Learning & Industry-Grade Product Development
+            </Badge>
+          </div>
+
+          <GlassPanel className="p-12 mb-12">
+            <h2 className="text-3xl font-heading font-bold text-foreground mb-6 text-center">
+              Who We Are
+            </h2>
+            <p className="text-lg text-muted-foreground text-center max-w-4xl mx-auto mb-6">
+              Edinite helps students, startups, and early-stage innovators convert ideas into research-backed designs, CAD models, simulations, and PCB layouts — without fabrication or manufacturing.
+            </p>
+            <p className="text-lg text-foreground text-center font-medium">
+              We believe innovation begins on the computer
+            </p>
+            <p className="text-muted-foreground text-center mt-4">
+              Our work ensures products are perfect in the virtual world before anyone invests in production.
+            </p>
+            <div className="flex justify-center gap-4 mt-8 flex-wrap">
+              <Badge variant="secondary" className="text-sm" data-testid="badge-process-design">Design</Badge>
+              <span className="text-primary">→</span>
+              <Badge variant="secondary" className="text-sm" data-testid="badge-process-simulate">Simulate</Badge>
+              <span className="text-primary">→</span>
+              <Badge variant="secondary" className="text-sm" data-testid="badge-process-optimize">Optimize</Badge>
+              <span className="text-primary">→</span>
+              <Badge variant="secondary" className="text-sm" data-testid="badge-process-validate">Validate</Badge>
+            </div>
+          </GlassPanel>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <GlassPanel className="p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Target className="text-primary" size={24} />
+                </div>
+                <h2 className="text-2xl font-heading font-bold text-foreground">Our Mission</h2>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                To make advanced design, simulation, and engineering R&D accessible to students, startups, and innovators — and help them build smarter, optimized, and validated solutions.
+              </p>
+            </GlassPanel>
+
+            <GlassPanel className="p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Eye className="text-primary" size={24} />
+                </div>
+                <h2 className="text-2xl font-heading font-bold text-foreground">Our Vision</h2>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                To become India's leading digital engineering studio, where ideas evolve into validated engineering designs without touching manufacturing floors.
+              </p>
+            </GlassPanel>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-heading font-bold text-foreground mb-4">
+              What We <span className="text-primary">Do</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
+              End-to-end digital engineering services
+            </p>
+            <div className="flex justify-center items-center gap-4 flex-wrap">
+              <Badge variant="destructive" className="text-sm" data-testid="badge-no-manufacturing">✗ We do not manufacture</Badge>
+              <Badge variant="default" className="text-sm" data-testid="badge-what-we-do">✓ We design, analyze, optimize</Badge>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card key={index} className="hover-elevate" data-testid={`card-service-${index}`}>
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <IconComponent className="text-primary" size={24} />
+                      </div>
+                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">{service.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          <GlassPanel className="p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                <Lightbulb className="text-primary" size={24} />
+              </div>
+              <h3 className="text-2xl font-heading font-bold text-foreground">Why We Exist</h3>
+            </div>
+            <p className="text-muted-foreground mb-6">
+              Most engineering ideas fail not because of lack of potential — but because of lack of guidance on design, simulation, and feasibility. Edinite bridges that gap.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {whyWeExist.map((item, index) => (
+                <div key={index} className="space-y-2" data-testid={`reason-${index}`}>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="text-primary flex-shrink-0 mt-1" size={20} />
+                    <div>
+                      <h4 className="font-semibold text-foreground">{item.title}</h4>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </GlassPanel>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Users className="text-primary" size={32} />
+              <h2 className="text-4xl font-heading font-bold text-foreground">
+                Our <span className="text-primary">Team</span>
+              </h2>
+            </div>
+            <p className="text-xl text-muted-foreground">
+              Total of 8 dedicated members driving innovation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <Card key={index} className="hover-elevate" data-testid={`card-team-member-${index}`}>
+                <CardHeader className="text-center pb-4">
+                  <div className="flex justify-center mb-4">
+                    <Avatar className="w-24 h-24">
+                      <AvatarImage src="" alt={member.name} />
+                      <AvatarFallback className="bg-primary/10 text-primary text-2xl font-bold">
+                        {member.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <CardTitle className="text-lg" data-testid={`text-member-name-${index}`}>{member.name}</CardTitle>
+                  <CardDescription className="font-medium" data-testid={`text-member-role-${index}`}>{member.role}</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-sm text-muted-foreground">{member.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <GlassPanel className="p-12 text-center">
+            <Mail className="text-primary mx-auto mb-4" size={48} />
+            <h2 className="text-3xl font-heading font-bold text-foreground mb-4">
+              Get In Touch
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Ready to transform your engineering ideas into reality?
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-center justify-center gap-2">
+                <Mail className="text-primary" size={20} />
+                <a 
+                  href="mailto:edinite.official@gmail.com" 
+                  className="text-lg text-foreground hover:text-primary transition-colors"
+                  data-testid="link-email"
+                >
+                  edinite.official@gmail.com
+                </a>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Email us for consultations, project inquiries, or training workshops
+              </p>
+            </div>
+          </GlassPanel>
+        </div>
+      </section>
+    </div>
+  );
+}
