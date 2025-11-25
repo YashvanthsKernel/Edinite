@@ -96,68 +96,103 @@ export default function About() {
 
   return (
     <div className="min-h-screen pt-24">
-      <section className="py-20 px-6 bg-gradient-to-b from-background to-card/30">
+      <section className="py-20 px-6 bg-gradient-to-b from-background via-card/20 to-background">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
-              About <span className="text-primary">Edinite</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              A Design & Simulation company specializing in digital engineering solutions
-            </p>
-            <Badge variant="outline" className="text-lg px-6 py-2 border-primary/50" data-testid="badge-company-status">
-              Bridging Classroom Learning & Industry-Grade Product Development
-            </Badge>
+          <div className="text-center mb-16 relative">
+            <div className="absolute inset-0 -top-20 flex items-center justify-center opacity-10">
+              <div className="w-96 h-96 bg-gradient-to-br from-primary to-purple-600 rounded-full blur-3xl"></div>
+            </div>
+            <div className="relative">
+              <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground mb-6 tracking-tight">
+                About <span className="text-primary">Edinite</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 font-light">
+                A Design & Simulation company specializing in digital engineering solutions
+              </p>
+              <Badge variant="outline" className="text-base md:text-lg px-6 py-3 border-primary/50 backdrop-blur-sm bg-primary/5" data-testid="badge-company-status">
+                Bridging Classroom Learning & Industry-Grade Product Development
+              </Badge>
+            </div>
           </div>
 
-          <GlassPanel className="p-12 mb-12">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-6 text-center">
-              Who We Are
-            </h2>
-            <p className="text-lg text-muted-foreground text-center max-w-4xl mx-auto mb-6">
-              Edinite helps students, startups, and early-stage innovators convert ideas into research-backed designs, CAD models, simulations, and PCB layouts — without fabrication or manufacturing.
-            </p>
-            <p className="text-lg text-foreground text-center font-medium">
-              We believe innovation begins on the computer
-            </p>
-            <p className="text-muted-foreground text-center mt-4">
-              Our work ensures products are perfect in the virtual world before anyone invests in production.
-            </p>
-            <div className="flex justify-center gap-4 mt-8 flex-wrap">
-              <Badge variant="secondary" className="text-sm" data-testid="badge-process-design">Design</Badge>
-              <span className="text-primary">→</span>
-              <Badge variant="secondary" className="text-sm" data-testid="badge-process-simulate">Simulate</Badge>
-              <span className="text-primary">→</span>
-              <Badge variant="secondary" className="text-sm" data-testid="badge-process-optimize">Optimize</Badge>
-              <span className="text-primary">→</span>
-              <Badge variant="secondary" className="text-sm" data-testid="badge-process-validate">Validate</Badge>
+          <GlassPanel className="p-8 md:p-12 mb-12 relative overflow-hidden group hover-elevate transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-8 text-center">
+                Who We Are
+              </h2>
+              <div className="max-w-4xl mx-auto space-y-6">
+                <p className="text-lg md:text-xl text-muted-foreground text-center leading-relaxed">
+                  Edinite helps students, startups, and early-stage innovators convert ideas into research-backed designs, CAD models, simulations, and PCB layouts — <span className="text-foreground font-medium">without fabrication or manufacturing</span>.
+                </p>
+                <div className="py-6">
+                  <p className="text-xl md:text-2xl text-primary text-center font-semibold mb-2">
+                    We believe innovation begins on the computer
+                  </p>
+                  <p className="text-base md:text-lg text-muted-foreground text-center">
+                    Our work ensures products are perfect in the virtual world before anyone invests in production.
+                  </p>
+                </div>
+                <div className="flex justify-center items-center gap-3 md:gap-6 mt-10 flex-wrap">
+                  <div className="flex flex-col items-center gap-2">
+                    <Badge variant="default" className="text-sm md:text-base px-4 md:px-6 py-2" data-testid="badge-process-design">Design</Badge>
+                  </div>
+                  <span className="text-primary text-2xl">→</span>
+                  <div className="flex flex-col items-center gap-2">
+                    <Badge variant="default" className="text-sm md:text-base px-4 md:px-6 py-2" data-testid="badge-process-simulate">Simulate</Badge>
+                  </div>
+                  <span className="text-primary text-2xl">→</span>
+                  <div className="flex flex-col items-center gap-2">
+                    <Badge variant="default" className="text-sm md:text-base px-4 md:px-6 py-2" data-testid="badge-process-optimize">Optimize</Badge>
+                  </div>
+                  <span className="text-primary text-2xl">→</span>
+                  <div className="flex flex-col items-center gap-2">
+                    <Badge variant="default" className="text-sm md:text-base px-4 md:px-6 py-2" data-testid="badge-process-validate">Validate</Badge>
+                  </div>
+                </div>
+              </div>
             </div>
           </GlassPanel>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <GlassPanel className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Target className="text-primary" size={24} />
+          <div className="relative bg-gradient-to-r from-background via-card/50 to-background rounded-3xl p-12 md:p-16 mb-16 overflow-hidden border border-primary/20">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"></div>
+            
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
+              <div className="text-left space-y-4">
+                <div className="inline-block px-4 py-1 bg-primary/10 rounded-full border border-primary/30 mb-2">
+                  <span className="text-primary font-semibold text-sm">Vision</span>
                 </div>
-                <h2 className="text-2xl font-heading font-bold text-foreground">Our Mission</h2>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                  Our Vision
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  To become India's leading digital engineering studio, where ideas evolve into validated engineering designs without touching manufacturing floors.
+                </p>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                To make advanced design, simulation, and engineering R&D accessible to students, startups, and innovators — and help them build smarter, optimized, and validated solutions.
-              </p>
-            </GlassPanel>
 
-            <GlassPanel className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Eye className="text-primary" size={24} />
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 items-center justify-center">
+                <div className="relative w-full h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-full blur-2xl animate-pulse"></div>
+                  <div className="absolute inset-4 bg-gradient-to-tr from-primary/30 to-purple-500/30 rounded-full blur-xl"></div>
+                  <div className="absolute inset-8 flex items-center justify-center">
+                    <Target className="text-primary w-16 h-16 drop-shadow-[0_0_15px_rgba(114,38,255,0.5)]" />
+                    <Eye className="text-primary w-16 h-16 absolute opacity-50 drop-shadow-[0_0_15px_rgba(114,38,255,0.3)]" />
+                  </div>
                 </div>
-                <h2 className="text-2xl font-heading font-bold text-foreground">Our Vision</h2>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                To become India's leading digital engineering studio, where ideas evolve into validated engineering designs without touching manufacturing floors.
-              </p>
-            </GlassPanel>
+
+              <div className="text-left md:text-right space-y-4">
+                <div className="inline-block px-4 py-1 bg-primary/10 rounded-full border border-primary/30 mb-2">
+                  <span className="text-primary font-semibold text-sm">Mission</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                  Our Mission
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  To make advanced design, simulation, and engineering R&D accessible to students, startups, and innovators — and help them build smarter, optimized, and validated solutions.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
