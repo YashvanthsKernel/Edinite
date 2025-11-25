@@ -1,58 +1,30 @@
 import { Mail, Target, Eye, Lightbulb, CheckCircle, Users, Palette, Waves, Cpu, GraduationCap } from "lucide-react";
 import GlassPanel from "@/components/GlassPanel";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export default function About() {
-  const teamMembers = [
+  // TODO: Replace with actual names once provided by user
+  const leadership = [
     {
-      name: "Founder",
-      role: "Founder & CEO",
-      initials: "FD",
+      name: "Founder Name",
+      position: "Founder & CEO",
       description: "Visionary leader driving innovation in digital engineering solutions"
     },
     {
-      name: "Co-Founder",
-      role: "Co-Founder & COO",
-      initials: "CF",
+      name: "Co-Founder Name",
+      position: "Co-Founder & COO",
       description: "Strategic operations expert ensuring seamless project delivery"
     },
     {
-      name: "CFO",
-      role: "Chief Financial Officer",
-      initials: "CF",
+      name: "CFO Name",
+      position: "Chief Financial Officer",
       description: "Financial strategist managing company growth and sustainability"
     },
     {
-      name: "CTO",
-      role: "Chief Technology Officer",
-      initials: "CT",
+      name: "CTO Name",
+      position: "Chief Technology Officer",
       description: "Technology leader overseeing all engineering solutions and innovations"
-    },
-    {
-      name: "Team Member",
-      role: "CAD Design Specialist",
-      initials: "TM",
-      description: "Expert in 3D modeling and mechanical design"
-    },
-    {
-      name: "Team Member",
-      role: "Simulation Engineer",
-      initials: "TM",
-      description: "Specialist in FEA and CFD analysis"
-    },
-    {
-      name: "Team Member",
-      role: "PCB Design Engineer",
-      initials: "TM",
-      description: "Electronics and circuit design expert"
-    },
-    {
-      name: "Team Member",
-      role: "Training Coordinator",
-      initials: "TM",
-      description: "Edu-Tech specialist for student and institutional training"
     }
   ];
 
@@ -260,39 +232,37 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-card/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Users className="text-primary" size={32} />
               <h2 className="text-4xl font-heading font-bold text-foreground">
-                Our <span className="text-primary">Team</span>
+                Our <span className="text-primary">Leadership</span>
               </h2>
             </div>
             <p className="text-xl text-muted-foreground">
-              Total of 8 dedicated members driving innovation
+              Meet the visionaries behind Edinite
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="hover-elevate" data-testid={`card-team-member-${index}`}>
-                <CardHeader className="text-center pb-4">
-                  <div className="flex justify-center mb-4">
-                    <Avatar className="w-24 h-24">
-                      <AvatarImage src="" alt={member.name} />
-                      <AvatarFallback className="bg-primary/10 text-primary text-2xl font-bold">
-                        {member.initials}
-                      </AvatarFallback>
-                    </Avatar>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {leadership.map((leader, index) => (
+              <GlassPanel key={index} className="p-8 hover-elevate" data-testid={`card-leader-${index}`}>
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="text-2xl font-heading font-bold text-foreground mb-1" data-testid={`text-leader-name-${index}`}>
+                      {leader.name}
+                    </h3>
+                    <p className="text-primary font-semibold" data-testid={`text-leader-position-${index}`}>
+                      {leader.position}
+                    </p>
                   </div>
-                  <CardTitle className="text-lg" data-testid={`text-member-name-${index}`}>{member.name}</CardTitle>
-                  <CardDescription className="font-medium" data-testid={`text-member-role-${index}`}>{member.role}</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-sm text-muted-foreground">{member.description}</p>
-                </CardContent>
-              </Card>
+                  <p className="text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
+                    {leader.description}
+                  </p>
+                </div>
+              </GlassPanel>
             ))}
           </div>
         </div>
