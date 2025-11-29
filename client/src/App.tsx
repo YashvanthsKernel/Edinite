@@ -16,7 +16,6 @@ import ServicePCBDesign from "@/pages/ServicePCBDesign";
 import ServiceMATLAB from "@/pages/ServiceMATLAB";
 import Portfolio from "@/pages/Portfolio";
 import Contact from "@/pages/Contact";
-import Auth from "@/pages/Auth";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
@@ -47,7 +46,6 @@ function Router() {
         <Route path="/services/matlab" component={ServiceMATLAB} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/contact" component={Contact} />
-        <Route path="/auth" component={Auth} />
         <Route component={NotFound} />
       </Switch>
     </>

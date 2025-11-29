@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import {
   DropdownMenu,
@@ -71,23 +71,6 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" data-testid="button-user-menu">
-                  <User size={20} />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link href="/auth">
-                    <span className="w-full cursor-pointer" data-testid="link-login-register">
-                      Login / Register
-                    </span>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             <Button data-testid="button-request-quote">Request Quote</Button>
           </div>
 
@@ -128,15 +111,6 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
-              <Link href="/auth">
-                <span 
-                  className="text-foreground/80 hover:text-foreground transition-colors py-2 cursor-pointer block"
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-testid="link-mobile-login"
-                >
-                  Login / Register
-                </span>
-              </Link>
               <Button className="mt-2" data-testid="button-mobile-quote">Request Quote</Button>
             </nav>
           </div>
