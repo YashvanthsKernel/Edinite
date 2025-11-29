@@ -4,27 +4,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 
 export default function About() {
-  // TODO: Replace with actual names once provided by user
   const leadership = [
     {
-      name: "Founder Name",
+      name: "Karthikeyan R",
       position: "Founder & CEO",
-      description: "Visionary leader driving innovation in digital engineering solutions"
+      description: "A mechanical engineering innovator dedicated to making advanced design and simulation accessible to everyone, with experience leading projects for ISRO and building cutting-edge robotics and EV systems."
     },
     {
-      name: "Co-Founder Name",
-      position: "Co-Founder & COO",
-      description: "Strategic operations expert ensuring seamless project delivery"
+      name: "Shrivatsav Tamil Kumaran",
+      position: "COO & CSO",
+      description: "A mechanical engineer with a strong passion for designing and developing products, bringing creative problem-solving, proven leadership qualities, and dedication to impactful project execution."
     },
     {
-      name: "CFO Name",
-      position: "Chief Financial Officer",
-      description: "Financial strategist managing company growth and sustainability"
+      name: "Prasanth Kannan",
+      position: "CFO & Sales Director",
+      description: "Driving the company's financial vision and client strategy with precision, bridging technical needs with effective business solutions to deliver high-value engineering and digital solutions with excellence."
     },
     {
-      name: "CTO Name",
-      position: "Chief Technology Officer",
-      description: "Technology leader overseeing all engineering solutions and innovations"
+      name: "Dhinessh Raj S",
+      position: "Engineering Director",
+      description: "A mechanical engineer with strong expertise in FEA, rapid prototyping, and advanced CAD, transforming complex ideas into precise, manufacturable engineering solutions with industry-ready outcomes."
     }
   ];
 
