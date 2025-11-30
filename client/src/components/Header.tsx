@@ -2,7 +2,8 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import logoImage from '@assets/Edinite Logo PNG_1764531567335.png';
+import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
+import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,11 +34,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
+            <div className="flex items-center gap-3 cursor-pointer">
               <img src={logoImage} alt="Edinite Logo" className="h-10 w-auto" />
-              <span className="text-xl font-heading font-bold text-foreground">
-                Edinite
-              </span>
+              <img src={logoNameImage} alt="Edinite Name" className="h-8 w-auto" />
             </div>
           </Link>
 
