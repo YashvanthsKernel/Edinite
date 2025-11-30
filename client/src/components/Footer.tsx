@@ -1,5 +1,7 @@
 import { Link } from "wouter";
 import { Mail, Phone, MapPin, Linkedin, Github, Youtube } from "lucide-react";
+import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
+import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
 
 export default function Footer() {
   return (
@@ -7,11 +9,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">E</span>
-              </div>
-              <span className="text-lg font-heading font-bold text-foreground">Edinite</span>
+            <div className="flex items-center gap-3 mb-4">
+              <img src={logoImage} alt="Edinite Logo" className="h-8 w-auto" />
+              <img src={logoNameImage} alt="Edinite Name" className="h-6 w-auto" />
             </div>
             <p className="text-muted-foreground text-sm">
               Bridge between classroom learning and industry-grade product development
