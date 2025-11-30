@@ -67,7 +67,7 @@ export default function Home() {
           <GlassPanel className="p-12">
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
               Transforming Concepts Into{" "}
-              <span className="text-primary">Real-World Engineering Solutions</span>
+              <span className="text-white">Real-World Engineering Solutions</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Expert engineering design and simulation services for innovative product development
