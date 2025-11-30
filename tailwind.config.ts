@@ -87,6 +87,7 @@ export default {
         heading: ["Montserrat", "sans-serif"],
         subheading: ["Poppins", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
+        museo: ["Museo Moderno", "sans-serif"],
       },
       backdropBlur: {
         glass: '20px',
