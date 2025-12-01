@@ -31,54 +31,56 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-primary/20">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-end gap-8">
+      <div className="px-6 py-4">
+        <div className="flex items-center justify-center relative">
           <Link href="/">
-            <div className="flex items-center gap-3 cursor-pointer absolute left-6">
+            <div className="flex items-center gap-3 cursor-pointer">
               <img src={logoImage} alt="Edinite Logo" className="h-10 w-auto" />
               <img src={logoNameImage} alt="Edinite Name" className="h-8 w-auto" />
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <span className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer" data-testid={`link-${link.label.toLowerCase()}`}>
-                  {link.label}
-                </span>
-              </Link>
-            ))}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer bg-transparent border-none text-base font-normal p-0" data-testid="link-services">
-                  Services
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-64">
-                {serviceLinks.map((service) => (
-                  <DropdownMenuItem key={service.href} asChild>
-                    <Link href={service.href}>
-                      <span className="w-full cursor-pointer" data-testid={`link-service-${service.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                        {service.label}
-                      </span>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </nav>
+          <div className="absolute right-0 flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <span className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer" data-testid={`link-${link.label.toLowerCase()}`}>
+                    {link.label}
+                  </span>
+                </Link>
+              ))}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer bg-transparent border-none text-base font-normal p-0" data-testid="link-services">
+                    Services
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-64">
+                  {serviceLinks.map((service) => (
+                    <DropdownMenuItem key={service.href} asChild>
+                      <Link href={service.href}>
+                        <span className="w-full cursor-pointer" data-testid={`link-service-${service.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                          {service.label}
+                        </span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <Button data-testid="button-request-quote">Request Quote</Button>
+            <div className="hidden md:flex items-center gap-4">
+              <Button data-testid="button-request-quote">Request Quote</Button>
+            </div>
+
+            <button
+              className="md:hidden text-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
         {mobileMenuOpen && (
