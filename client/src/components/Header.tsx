@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-primary/20">
       <div className="px-6 py-4">
-        <div className="flex items-center justify-center relative">
+        <div className="flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
               <img src={logoImage} alt="Edinite Logo" className="h-10 w-auto" />
@@ -40,7 +40,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <div className="absolute right-0 flex items-center gap-8">
+          <div className="flex items-center gap-8">
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
