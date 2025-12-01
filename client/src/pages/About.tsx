@@ -178,7 +178,6 @@ export default function About() {
               End-to-end digital engineering services
             </p>
             <div className="flex justify-center items-center gap-4 flex-wrap">
-              <Badge variant="destructive" className="text-sm" data-testid="badge-no-manufacturing">✗ We do not manufacture</Badge>
               <Badge variant="default" className="text-sm" data-testid="badge-what-we-do">✓ We design, analyze, optimize</Badge>
             </div>
           </div>
