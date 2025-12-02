@@ -7,6 +7,7 @@ import StatsCard from "@/components/StatsCard";
 import ProjectCard from "@/components/ProjectCard";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
 import ProjectModal from "@/components/ProjectModal";
+import ScrollAnimation from "@/components/ScrollAnimation";
 import heroGearImage from '@assets/generated_images/dynamic_3d_mechanical_engineering_assembly.png';
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
@@ -175,20 +176,32 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <StatsCard value="50+" label="Successful Projects" />
-              <StatsCard value="10+" label="Industries Served" />
-              <StatsCard value="100%" label="On-Time Delivery" />
-              <StatsCard value="24/7" label="Support Available" />
+              <ScrollAnimation delay={0}>
+                <StatsCard value="50+" label="Successful Projects" />
+              </ScrollAnimation>
+              <ScrollAnimation delay={100}>
+                <StatsCard value="10+" label="Industries Served" />
+              </ScrollAnimation>
+              <ScrollAnimation delay={200}>
+                <StatsCard value="100%" label="On-Time Delivery" />
+              </ScrollAnimation>
+              <ScrollAnimation delay={300}>
+                <StatsCard value="24/7" label="Support Available" />
+              </ScrollAnimation>
             </div>
           </div>
 
           <div>
-            <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-12">
-              Our <span className="text-primary">Services</span>
-            </h2>
+            <ScrollAnimation>
+              <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-12">
+                Our <span className="text-primary">Services</span>
+              </h2>
+            </ScrollAnimation>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <ServiceCard key={service.title} {...service} />
+              {services.map((service, index) => (
+                <ScrollAnimation key={service.title} delay={index * 100}>
+                  <ServiceCard {...service} />
+                </ScrollAnimation>
               ))}
             </div>
           </div>
@@ -197,31 +210,38 @@ export default function Home() {
 
       <section className="py-20 px-6 bg-card/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-4">
-            Technology <span className="text-primary">Stack</span>
-          </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Industry-leading tools and software we use
-          </p>
-          <TechnologyCarousel />
+          <ScrollAnimation>
+            <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-4">
+              Technology <span className="text-primary">Stack</span>
+            </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Industry-leading tools and software we use
+            </p>
+          </ScrollAnimation>
+          <ScrollAnimation delay={200}>
+            <TechnologyCarousel />
+          </ScrollAnimation>
         </div>
       </section>
 
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-4">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <p className="text-center text-muted-foreground mb-12">
-            Explore our recent engineering successes
-          </p>
+          <ScrollAnimation>
+            <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-4">
+              Featured <span className="text-primary">Projects</span>
+            </h2>
+            <p className="text-center text-muted-foreground mb-12">
+              Explore our recent engineering successes
+            </p>
+          </ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                {...project}
-                onClick={() => setSelectedProject(index)}
-              />
+              <ScrollAnimation key={project.title} delay={index * 150}>
+                <ProjectCard
+                  {...project}
+                  onClick={() => setSelectedProject(index)}
+                />
+              </ScrollAnimation>
             ))}
           </div>
           <div className="text-center mt-12">
