@@ -115,7 +115,7 @@ export default function Services() {
 
   return (
     <div 
-      className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden px-4"
+      className="relative min-h-screen pt-24 flex overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(135deg, rgba(1,0,48,0.85), rgba(114,38,255,0.25)), url(${activeService.image})`,
         backgroundSize: 'cover',
@@ -138,96 +138,94 @@ export default function Services() {
       <div className="absolute left-0 top-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute right-10 bottom-20 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
-      <div className="flex w-full max-w-7xl gap-8 relative z-20">
-        {/* Services Navigation - Left Side */}
-        <div className="hidden lg:block w-96 flex-shrink-0">
-          <div className="sticky top-32">
-            <GlassPanel className="p-6 space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
-              <div className="mb-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="text-primary" size={20} />
-                  <h2 className="text-lg font-heading font-bold text-foreground">Services</h2>
-                </div>
-                <div className="h-1 w-12 bg-gradient-to-r from-primary to-purple-600 rounded-full" />
+      {/* Services Navigation - Fixed Left Side */}
+      <div className="hidden lg:flex fixed left-0 top-24 bottom-0 w-96 border-r border-primary/20 bg-background/50 backdrop-blur-xl z-30 overflow-y-auto">
+        <div className="w-full p-6">
+          <GlassPanel className="p-6 space-y-3">
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="text-primary" size={20} />
+                <h2 className="text-lg font-heading font-bold text-foreground">Services</h2>
               </div>
+              <div className="h-1 w-12 bg-gradient-to-r from-primary to-purple-600 rounded-full" />
+            </div>
 
-              {servicesDetails.map((service, idx) => {
-                const isActive = service.id === activeServiceId;
-                return (
-                  <ScrollAnimation key={service.id} delay={idx * 50}>
-                    <button
-                      onClick={() => handleServiceClick(service.id)}
-                      className={`w-full flex items-start gap-4 px-4 py-4 rounded-xl transition-all duration-300 group relative overflow-hidden ${
-                        isActive 
-                          ? "bg-gradient-to-r from-primary via-primary to-purple-600 text-primary-foreground shadow-lg" 
-                          : "text-foreground/70 hover:text-foreground hover:bg-white/5"
-                      }`}
-                      data-testid={`button-service-${service.id}`}
-                    >
-                      {/* Active background animation */}
-                      {isActive && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      )}
-                      
-                      <div className={`p-3 rounded-lg transition-all flex-shrink-0 ${
-                        isActive 
-                          ? "bg-white/20 group-hover:bg-white/30" 
-                          : "bg-primary/10 group-hover:bg-primary/20"
-                      }`}>
-                        <service.icon size={20} className="flex-shrink-0" />
-                      </div>
-                      
-                      <div className="text-left flex-1 relative z-10">
-                        <div className="font-subheading font-semibold text-sm leading-tight">{service.title}</div>
-                        <div className={`text-xs mt-1 transition-all ${
-                          isActive ? "text-white/80" : "text-foreground/50 group-hover:text-foreground/70"
-                        }`}>
-                          {activeServiceId === service.id && <Zap size={12} className="inline mr-1" />}
-                          Click to explore
-                        </div>
-                      </div>
-
-                      {isActive && (
-                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      )}
-                    </button>
-                  </ScrollAnimation>
-                );
-              })}
-            </GlassPanel>
-          </div>
-        </div>
-
-        {/* Services Navigation - Mobile Bottom */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-background via-background/95 to-transparent border-t border-primary/20 p-4">
-          <div className="flex gap-2 overflow-x-auto pb-2">
-            {servicesDetails.map((service) => {
+            {servicesDetails.map((service, idx) => {
               const isActive = service.id === activeServiceId;
               return (
-                <button
-                  key={service.id}
-                  onClick={() => handleServiceClick(service.id)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg whitespace-nowrap transition-all text-xs font-medium ${
-                    isActive 
-                      ? "bg-gradient-to-r from-primary to-purple-600 text-primary-foreground" 
-                      : "bg-white/5 text-foreground/70 hover:bg-primary/20"
-                  }`}
-                  data-testid={`button-mobile-service-${service.id}`}
-                >
-                  <service.icon size={14} />
-                  {service.title}
-                </button>
+                <ScrollAnimation key={service.id} delay={idx * 50}>
+                  <button
+                    onClick={() => handleServiceClick(service.id)}
+                    className={`w-full flex items-start gap-4 px-4 py-4 rounded-xl transition-all duration-300 group relative overflow-hidden ${
+                      isActive 
+                        ? "bg-gradient-to-r from-primary via-primary to-purple-600 text-primary-foreground shadow-lg" 
+                        : "text-foreground/70 hover:text-foreground hover:bg-white/5"
+                    }`}
+                    data-testid={`button-service-${service.id}`}
+                  >
+                    {isActive && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    )}
+                    
+                    <div className={`p-3 rounded-lg transition-all flex-shrink-0 ${
+                      isActive 
+                        ? "bg-white/20 group-hover:bg-white/30" 
+                        : "bg-primary/10 group-hover:bg-primary/20"
+                    }`}>
+                      <service.icon size={20} className="flex-shrink-0" />
+                    </div>
+                    
+                    <div className="text-left flex-1 relative z-10">
+                      <div className="font-subheading font-semibold text-sm leading-tight">{service.title}</div>
+                      <div className={`text-xs mt-1 transition-all ${
+                        isActive ? "text-white/80" : "text-foreground/50 group-hover:text-foreground/70"
+                      }`}>
+                        {activeServiceId === service.id && <Zap size={12} className="inline mr-1" />}
+                        Click to explore
+                      </div>
+                    </div>
+
+                    {isActive && (
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    )}
+                  </button>
+                </ScrollAnimation>
               );
             })}
-          </div>
+          </GlassPanel>
         </div>
+      </div>
 
-        {/* Main Content - Centered */}
+      {/* Services Navigation - Mobile Bottom */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-background via-background/95 to-transparent border-t border-primary/20 p-4">
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {servicesDetails.map((service) => {
+            const isActive = service.id === activeServiceId;
+            return (
+              <button
+                key={service.id}
+                onClick={() => handleServiceClick(service.id)}
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg whitespace-nowrap transition-all text-xs font-medium ${
+                  isActive 
+                    ? "bg-gradient-to-r from-primary to-purple-600 text-primary-foreground" 
+                    : "bg-white/5 text-foreground/70 hover:bg-primary/20"
+                }`}
+                data-testid={`button-mobile-service-${service.id}`}
+              >
+                <service.icon size={14} />
+                {service.title}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Main Content - Centered */}
+      <div className="flex-1 lg:ml-96 flex items-center justify-center px-6 pb-32 lg:pb-0 relative z-20">
         <ScrollAnimation>
-          <div className="flex-1 flex items-center justify-center mb-32 lg:mb-0">
-            <div className="w-full max-w-2xl">
+          <div className="w-full max-w-2xl">
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
               {/* Header with gradient background */}
               <div className="relative h-32 bg-gradient-to-br from-primary/20 to-purple-600/20 overflow-hidden">
@@ -313,7 +311,6 @@ export default function Services() {
                 </div>
               </div>
             </GlassPanel>
-            </div>
           </div>
         </ScrollAnimation>
       </div>
