@@ -167,83 +167,73 @@ export default function Services() {
         </div>
 
         <main className="flex-1 pb-32 lg:pb-0">
-          <section 
-            className="relative py-20 lg:py-32"
+          <div 
+            className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center px-6"
             style={{
-              backgroundImage: `linear-gradient(to bottom, rgba(1,0,48,0.85), rgba(1,0,48,0.7)), url(${activeService.image})`,
+              backgroundImage: `linear-gradient(135deg, rgba(1,0,48,0.75), rgba(114,38,255,0.15)), url(${activeService.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
+              backgroundAttachment: 'fixed'
             }}
           >
-            <div className="max-w-4xl mx-auto px-6">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <activeService.icon size={32} className="text-white" />
-                </div>
-                <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground">
-                  {activeService.title}
-                </h1>
-              </div>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                {activeService.description}
-              </p>
-            </div>
-          </section>
-
-          <section className="py-16 px-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-6">Key Features</h2>
-                  <ul className="space-y-4">
-                    {activeService.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="text-primary flex-shrink-0 mt-1" size={20} />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <GlassPanel className="w-full max-w-3xl">
+              <div className="p-8 md:p-12">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <activeService.icon size={32} className="text-white" />
+                  </div>
+                  <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                    {activeService.title}
+                  </h1>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-heading font-bold text-foreground mb-6">Software & Tools</h2>
-                  <div className="flex flex-wrap gap-3">
-                    {activeService.tools.map((tool, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg text-foreground text-sm"
-                      >
-                        {tool}
-                      </span>
-                    ))}
+                <p className="text-lg text-muted-foreground mb-8">
+                  {activeService.description}
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Key Features</h3>
+                    <ul className="space-y-3">
+                      {activeService.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle className="text-primary flex-shrink-0 mt-1" size={18} />
+                          <span className="text-sm text-muted-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Software & Tools</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {activeService.tools.map((tool, idx) => (
+                        <span 
+                          key={idx}
+                          className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-foreground text-xs"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="mt-12">
-                <GlassPanel className="overflow-hidden">
-                  <img 
-                    src={activeService.image} 
-                    alt={activeService.title} 
-                    className="w-full h-64 md:h-96 object-cover rounded-lg" 
-                  />
-                </GlassPanel>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact">
+                    <Button size="lg" data-testid="button-get-quote">
+                      Get a Quote
+                    </Button>
+                  </Link>
+                  <Link href="/portfolio">
+                    <Button variant="outline" size="lg" data-testid="button-view-portfolio">
+                      View Portfolio
+                    </Button>
+                  </Link>
+                </div>
               </div>
-
-              <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
-                  <Button size="lg" data-testid="button-get-quote">
-                    Get a Quote
-                  </Button>
-                </Link>
-                <Link href="/portfolio">
-                  <Button variant="outline" size="lg" data-testid="button-view-portfolio">
-                    View Portfolio
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </section>
+            </GlassPanel>
+          </div>
         </main>
       </div>
     </div>
