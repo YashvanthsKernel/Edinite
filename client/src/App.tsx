@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,12 +8,6 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
-import ServiceCAD from "@/pages/ServiceCAD";
-import ServiceMechanicalCAD from "@/pages/ServiceMechanicalCAD";
-import ServiceFEACFD from "@/pages/ServiceFEACFD";
-import Service3DPrinting from "@/pages/Service3DPrinting";
-import ServicePCBDesign from "@/pages/ServicePCBDesign";
-import ServiceMATLAB from "@/pages/ServiceMATLAB";
 import Portfolio from "@/pages/Portfolio";
 import Contact from "@/pages/Contact";
 import Header from "@/components/Header";
@@ -37,13 +31,8 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/services" component={Services} />
-        <Route path="/services/cad" component={ServiceCAD} />
-        <Route path="/services/mechanical-cad" component={ServiceMechanicalCAD} />
-        <Route path="/services/fea-cfd" component={ServiceFEACFD} />
-        <Route path="/services/3d-printing" component={Service3DPrinting} />
-        <Route path="/services/pcb-design" component={ServicePCBDesign} />
-        <Route path="/services/matlab" component={ServiceMATLAB} />
+        <Route path="/services" component={() => <Redirect to="/services/mechanical-cad" />} />
+        <Route path="/services/:serviceId" component={Services} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
