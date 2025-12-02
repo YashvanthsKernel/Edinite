@@ -36,7 +36,7 @@ export default function Header() {
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
               <img src={logoImage} alt="Edinite Logo" className="h-12 w-auto" />
-              <img src={logoNameImage} alt="Edinite Name" className="h-10 w-auto" />
+              <img src={logoNameImage} alt="Edinite Name" className="h-12 w-auto" />
             </div>
           </Link>
 
