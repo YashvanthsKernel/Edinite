@@ -182,10 +182,7 @@ export default function About() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                 <GlassPanel className="relative p-12 h-full flex flex-col justify-between hover-elevate transition-all duration-300">
-                  <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-600/30 backdrop-blur-xl mb-6">
-                      <span className="text-3xl font-bold text-primary">V</span>
-                    </div>
+                  <div>
                     <h3 className="text-3xl font-heading font-bold text-foreground mb-4">Vision</h3>
                     <p className="text-lg text-muted-foreground leading-relaxed">
                       To become India's leading digital engineering studio, where ideas evolve into validated designs with industry-standard precision and excellence.
@@ -199,10 +196,7 @@ export default function About() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                 <GlassPanel className="relative p-12 h-full flex flex-col justify-between hover-elevate transition-all duration-300">
-                  <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-600/30 backdrop-blur-xl mb-6">
-                      <span className="text-3xl font-bold text-primary">M</span>
-                    </div>
+                  <div>
                     <h3 className="text-3xl font-heading font-bold text-foreground mb-4">Mission</h3>
                     <p className="text-lg text-muted-foreground leading-relaxed">
                       Make advanced design, simulation, and engineering R&D accessible to all — enabling students, startups, and innovators to build smarter, optimized solutions.
