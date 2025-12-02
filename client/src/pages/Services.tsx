@@ -1,6 +1,7 @@
-import { Box, Wind, Printer, Microchip, Code, CheckCircle, ArrowRight, Zap, Sparkles, Lightbulb } from "lucide-react";
+import { Box, Wind, Printer, Microchip, Code, CheckCircle, ArrowRight, Zap, Sparkles, Lightbulb, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
+import { useEffect, useState } from "react";
 import GlassPanel from "@/components/GlassPanel";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
@@ -103,6 +104,8 @@ const servicesDetails: ServiceDetail[] = [
 
 export default function Services() {
   const [location, setLocation] = useLocation();
+  const [autoRotate, setAutoRotate] = useState(true);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
   
   const getActiveServiceId = () => {
     const path = location;
@@ -114,11 +117,26 @@ export default function Services() {
 
   const activeServiceId = getActiveServiceId();
   const activeService = servicesDetails.find(s => s.id === activeServiceId) || servicesDetails[0];
-  const activeIndex = servicesDetails.findIndex(s => s.id === activeServiceId) + 1;
+  const activeIndex = servicesDetails.findIndex(s => s.id === activeServiceId);
 
   const handleServiceClick = (serviceId: string) => {
+    const newIndex = servicesDetails.findIndex(s => s.id === serviceId);
+    setSlideDirection(newIndex > activeIndex ? 'left' : 'right');
     setLocation(`/services/${serviceId}`);
   };
+
+  // Auto-rotate services every 15 seconds
+  useEffect(() => {
+    if (!autoRotate) return;
+
+    const timer = setInterval(() => {
+      const nextIndex = (activeIndex + 1) % servicesDetails.length;
+      setSlideDirection('left');
+      setLocation(`/services/${servicesDetails[nextIndex].id}`);
+    }, 15000);
+
+    return () => clearInterval(timer);
+  }, [activeIndex, autoRotate, setLocation]);
 
   return (
     <div 
@@ -251,10 +269,12 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Main Content - Centered */}
+      {/* Main Content - Centered with Slide Animation */}
       <div className="flex-1 flex items-center justify-center px-6 pb-32 lg:pb-0 relative z-20">
         <ScrollAnimation>
-          <div className="w-full max-w-2xl">
+          <div key={activeServiceId} className={`w-full max-w-2xl transition-all duration-700 ${
+            slideDirection === 'left' ? 'animate-in slide-in-from-right fade-in' : 'animate-in slide-in-from-left fade-in'
+          }`}>
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
               {/* Header with animated gradient background */}
               <div className="relative h-40 bg-gradient-to-br from-primary/20 via-purple-600/15 to-transparent overflow-hidden">
@@ -262,11 +282,22 @@ export default function Services() {
                 <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-pulse" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-600/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 animate-pulse delay-700" />
                 
-                {/* Service number badge */}
-                <div className="absolute top-4 right-6 flex items-center gap-2">
-                  <span className="text-sm font-bold text-primary/60">Service</span>
+                {/* Service number badge and Auto-rotate button */}
+                <div className="absolute top-4 right-6 flex items-center gap-3">
+                  <button
+                    onClick={() => setAutoRotate(!autoRotate)}
+                    className={`p-2 rounded-lg transition-all transform hover:scale-110 ${
+                      autoRotate
+                        ? "bg-primary/20 text-primary"
+                        : "bg-primary/10 text-primary/50"
+                    }`}
+                    data-testid="button-auto-rotate"
+                    title={autoRotate ? "Pause auto-rotation" : "Resume auto-rotation"}
+                  >
+                    {autoRotate ? <Pause size={18} /> : <Play size={18} />}
+                  </button>
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                    {activeIndex}/{servicesDetails.length}
+                    {(activeIndex + 1)}/{servicesDetails.length}
                   </div>
                 </div>
               </div>
