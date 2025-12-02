@@ -125,7 +125,6 @@ export default function Services() {
       {/* Fixed Services Navigation - Desktop */}
       <div className="hidden lg:block fixed left-6 top-32 z-30 w-72">
         <GlassPanel className="p-6">
-          <h2 className="text-lg font-heading font-bold text-foreground mb-6">Our Services</h2>
           <nav className="space-y-2">
             {servicesDetails.map((service) => {
               const isActive = service.id === activeServiceId;
