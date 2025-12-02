@@ -1,7 +1,8 @@
-import { Box, Wind, Printer, Microchip, Code, CheckCircle } from "lucide-react";
+import { Box, Wind, Printer, Microchip, Code, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import GlassPanel from "@/components/GlassPanel";
+import ScrollAnimation from "@/components/ScrollAnimation";
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
@@ -114,42 +115,60 @@ export default function Services() {
 
   return (
     <div 
-      className="relative min-h-screen pt-24 flex items-center justify-center px-6"
+      className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(1,0,48,0.75), rgba(114,38,255,0.15)), url(${activeService.image})`,
+        backgroundImage: `linear-gradient(135deg, rgba(1,0,48,0.8), rgba(114,38,255,0.2)), url(${activeService.image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Fixed Services Navigation - Desktop */}
-      <div className="hidden lg:block fixed left-6 top-32 z-30 w-72">
-        <GlassPanel className="p-6">
-          <nav className="space-y-2">
-            {servicesDetails.map((service) => {
-              const isActive = service.id === activeServiceId;
-              return (
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      />
+
+      {/* Services Navigation - Right Corner - Desktop */}
+      <div className="hidden lg:block fixed right-6 top-1/2 transform -translate-y-1/2 z-30 w-80">
+        <GlassPanel className="p-6 space-y-3 max-h-[70vh] overflow-y-auto">
+          {servicesDetails.map((service, idx) => {
+            const isActive = service.id === activeServiceId;
+            return (
+              <ScrollAnimation key={service.id} delay={idx * 50}>
                 <button
-                  key={service.id}
                   onClick={() => handleServiceClick(service.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                  className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 group ${
                     isActive 
-                      ? "bg-primary text-primary-foreground" 
-                      : "text-foreground/70 hover:bg-accent hover:text-foreground"
+                      ? "bg-gradient-to-r from-primary to-purple-600 text-primary-foreground shadow-lg scale-105" 
+                      : "text-foreground/70 hover:text-foreground hover:bg-white/5 hover:backdrop-blur-md"
                   }`}
                   data-testid={`button-service-${service.id}`}
                 >
-                  <service.icon size={20} className="flex-shrink-0" />
-                  <span className="text-sm font-medium">{service.title}</span>
+                  <div className={`p-3 rounded-lg transition-all ${
+                    isActive 
+                      ? "bg-white/20" 
+                      : "bg-primary/10 group-hover:bg-primary/20"
+                  }`}>
+                    <service.icon size={22} className="flex-shrink-0" />
+                  </div>
+                  <div className="text-left flex-1">
+                    <div className="font-subheading font-semibold text-sm">{service.title}</div>
+                  </div>
+                  {isActive && <ArrowRight size={18} className="flex-shrink-0" />}
                 </button>
-              );
-            })}
-          </nav>
+              </ScrollAnimation>
+            );
+          })}
         </GlassPanel>
       </div>
 
-      {/* Fixed Services Navigation - Mobile */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-primary/20 p-4">
+      {/* Services Navigation - Mobile Bottom */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-t from-background via-background/95 to-transparent border-t border-primary/20 p-4">
         <div className="flex gap-2 overflow-x-auto pb-2">
           {servicesDetails.map((service) => {
             const isActive = service.id === activeServiceId;
@@ -160,12 +179,12 @@ export default function Services() {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg whitespace-nowrap transition-all ${
                   isActive 
                     ? "bg-primary text-primary-foreground" 
-                    : "bg-accent text-foreground/70"
+                    : "bg-white/5 text-foreground/70"
                 }`}
                 data-testid={`button-mobile-service-${service.id}`}
               >
                 <service.icon size={16} />
-                <span className="text-sm font-medium">{service.title}</span>
+                <span className="text-xs font-medium">{service.title}</span>
               </button>
             );
           })}
@@ -173,58 +192,85 @@ export default function Services() {
       </div>
 
       {/* Main Content - Centered Glass Panel */}
-      <GlassPanel className="w-full max-w-3xl mb-32 lg:mb-0">
-        <div className="p-8 md:p-12">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-              <activeService.icon size={32} className="text-white" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-              {activeService.title}
-            </h1>
-          </div>
-
-          <p className="text-lg text-muted-foreground mb-8">
-            {activeService.description}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Key Features</h3>
-              <ul className="space-y-3">
-                {activeService.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle className="text-primary flex-shrink-0 mt-1" size={18} />
-                    <span className="text-sm text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Software & Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                {activeService.tools.map((tool, idx) => (
-                  <span 
-                    key={idx}
-                    className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-foreground text-xs"
-                  >
-                    {tool}
-                  </span>
-                ))}
+      <ScrollAnimation>
+        <div className="w-full max-w-2xl mx-auto px-6 mb-32 lg:mb-0 relative z-20">
+          <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl">
+          <div className="p-8 md:p-12">
+            {/* Icon and Title */}
+            <div className="flex items-start gap-6 mb-8">
+              <div className="relative flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-2xl blur-xl opacity-50" />
+                <div className="relative w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center">
+                  <activeService.icon size={40} className="text-white" />
+                </div>
+              </div>
+              <div className="flex-1 pt-2">
+                <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
+                  {activeService.title}
+                </h1>
+                <div className="h-1 w-16 bg-gradient-to-r from-primary to-purple-600 rounded-full" />
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button size="lg" data-testid="button-get-quote">
-                Get a Quote
-              </Button>
-            </Link>
+            {/* Description */}
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+              {activeService.description}
+            </p>
+
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+              {/* Key Features */}
+              <div>
+                <h3 className="text-lg font-subheading font-bold text-foreground mb-5 flex items-center gap-2">
+                  <div className="w-1 h-5 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
+                  Key Features
+                </h3>
+                <ul className="space-y-4">
+                  {activeService.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 group">
+                      <div className="flex-shrink-0 mt-1 p-1 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all">
+                        <CheckCircle className="text-primary" size={18} />
+                      </div>
+                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Software & Tools */}
+              <div>
+                <h3 className="text-lg font-subheading font-bold text-foreground mb-5 flex items-center gap-2">
+                  <div className="w-1 h-5 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
+                  Software & Tools
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {activeService.tools.map((tool, idx) => (
+                    <span 
+                      key={idx}
+                      className="px-4 py-2 bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl text-foreground text-xs font-medium hover:border-primary/50 hover:bg-primary/15 transition-all"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-6 border-t border-primary/20">
+              <Link href="/contact">
+                <Button size="lg" className="w-full group" data-testid="button-get-quote">
+                  <span className="flex items-center justify-center gap-2">
+                    Get a Quote
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Button>
+              </Link>
+            </div>
           </div>
+          </GlassPanel>
         </div>
-      </GlassPanel>
+      </ScrollAnimation>
     </div>
   );
 }
