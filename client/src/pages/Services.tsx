@@ -138,10 +138,10 @@ export default function Services() {
       <div className="absolute left-0 top-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute right-10 bottom-20 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
-      {/* Services Navigation - Fixed Left Side */}
-      <div className="hidden lg:flex fixed left-0 top-24 bottom-0 w-96 border-r border-primary/20 bg-background/50 backdrop-blur-xl z-30 overflow-y-auto">
-        <div className="w-full p-6">
-          <GlassPanel className="p-6 space-y-3">
+      {/* Services Navigation - Middle Left */}
+      <div className="hidden lg:flex fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
+        <div className="w-96">
+          <GlassPanel className="p-6 space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-2">
                 <Sparkles className="text-primary" size={20} />
@@ -223,7 +223,7 @@ export default function Services() {
       </div>
 
       {/* Main Content - Centered */}
-      <div className="flex-1 lg:ml-96 flex items-center justify-center px-6 pb-32 lg:pb-0 relative z-20">
+      <div className="flex-1 flex items-center justify-center px-6 pb-32 lg:pb-0 relative z-20">
         <ScrollAnimation>
           <div className="w-full max-w-2xl">
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
