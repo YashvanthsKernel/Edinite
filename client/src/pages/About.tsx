@@ -160,27 +160,96 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      <section className="py-20 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
             <ScrollAnimation>
-              <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 rounded-3xl p-10 border border-primary/20">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  To become India's leading digital engineering studio, where ideas evolve into validated designs with industry-standard precision and excellence.
-                </p>
+              <h2 className="text-4xl font-heading font-bold text-foreground mb-4">
+                Our <span className="text-primary">Vision & Mission</span>
+              </h2>
+            </ScrollAnimation>
+            <ScrollAnimation delay={100}>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Guiding principles that drive every decision and innovation
+              </p>
+            </ScrollAnimation>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 lg:mb-0">
+            <ScrollAnimation>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                <GlassPanel className="relative p-12 h-full flex flex-col justify-between hover-elevate transition-all duration-300">
+                  <div className="mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-600/30 backdrop-blur-xl mb-6">
+                      <span className="text-3xl font-bold text-primary">V</span>
+                    </div>
+                    <h3 className="text-3xl font-heading font-bold text-foreground mb-4">Vision</h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      To become India's leading digital engineering studio, where ideas evolve into validated designs with industry-standard precision and excellence.
+                    </p>
+                  </div>
+                  <div className="pt-6 border-t border-primary/10">
+                    <p className="text-sm font-semibold text-primary">Aspiration for Excellence</p>
+                  </div>
+                </GlassPanel>
               </div>
             </ScrollAnimation>
 
-            <ScrollAnimation delay={100}>
-              <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 rounded-3xl p-10 border border-primary/20">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Make advanced design, simulation, and engineering R&D accessible to all — enabling students, startups, and innovators to build smarter, optimized solutions.
-                </p>
+            <ScrollAnimation delay={150}>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                <GlassPanel className="relative p-12 h-full flex flex-col justify-between hover-elevate transition-all duration-300">
+                  <div className="mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-600/30 backdrop-blur-xl mb-6">
+                      <span className="text-3xl font-bold text-primary">M</span>
+                    </div>
+                    <h3 className="text-3xl font-heading font-bold text-foreground mb-4">Mission</h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Make advanced design, simulation, and engineering R&D accessible to all — enabling students, startups, and innovators to build smarter, optimized solutions.
+                    </p>
+                  </div>
+                  <div className="pt-6 border-t border-primary/10">
+                    <p className="text-sm font-semibold text-primary">Empowering Innovation</p>
+                  </div>
+                </GlassPanel>
               </div>
             </ScrollAnimation>
           </div>
+
+          <ScrollAnimation delay={200}>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="group p-6 rounded-2xl bg-card/30 border border-primary/10 hover:border-primary/30 hover-elevate transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-sm font-bold text-primary">01</span>
+                  </div>
+                  <h4 className="font-semibold text-foreground">Innovation First</h4>
+                </div>
+                <p className="text-sm text-muted-foreground">Cutting-edge tools and methodologies for breakthrough solutions</p>
+              </div>
+              <div className="group p-6 rounded-2xl bg-card/30 border border-primary/10 hover:border-primary/30 hover-elevate transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-sm font-bold text-primary">02</span>
+                  </div>
+                  <h4 className="font-semibold text-foreground">Quality Driven</h4>
+                </div>
+                <p className="text-sm text-muted-foreground">Industry standards and rigorous validation processes</p>
+              </div>
+              <div className="group p-6 rounded-2xl bg-card/30 border border-primary/10 hover:border-primary/30 hover-elevate transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-sm font-bold text-primary">03</span>
+                  </div>
+                  <h4 className="font-semibold text-foreground">Accessibility</h4>
+                </div>
+                <p className="text-sm text-muted-foreground">Making advanced engineering accessible to everyone</p>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
