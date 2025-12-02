@@ -115,29 +115,31 @@ export default function Services() {
   return (
     <div className="min-h-screen pt-24">
       <div className="flex">
-        <aside className="hidden lg:block w-72 flex-shrink-0 border-r border-primary/20 min-h-[calc(100vh-6rem)] sticky top-24">
-          <div className="p-6">
-            <h2 className="text-lg font-heading font-bold text-foreground mb-6">Our Services</h2>
-            <nav className="space-y-2">
-              {servicesDetails.map((service) => {
-                const isActive = service.id === activeServiceId;
-                return (
-                  <button
-                    key={service.id}
-                    onClick={() => handleServiceClick(service.id)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
-                      isActive 
-                        ? "bg-primary text-primary-foreground" 
-                        : "text-foreground/70 hover:bg-accent hover:text-foreground"
-                    }`}
-                    data-testid={`button-service-${service.id}`}
-                  >
-                    <service.icon size={20} className="flex-shrink-0" />
-                    <span className="text-sm font-medium">{service.title}</span>
-                  </button>
-                );
-              })}
-            </nav>
+        <aside className="hidden lg:block w-72 flex-shrink-0">
+          <div className="fixed top-24 left-0 w-72 h-[calc(100vh-6rem)] border-r border-primary/20 bg-background/80 backdrop-blur-xl z-30">
+            <div className="p-6">
+              <h2 className="text-lg font-heading font-bold text-foreground mb-6">Our Services</h2>
+              <nav className="space-y-2">
+                {servicesDetails.map((service) => {
+                  const isActive = service.id === activeServiceId;
+                  return (
+                    <button
+                      key={service.id}
+                      onClick={() => handleServiceClick(service.id)}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
+                        isActive 
+                          ? "bg-primary text-primary-foreground" 
+                          : "text-foreground/70 hover:bg-accent hover:text-foreground"
+                      }`}
+                      data-testid={`button-service-${service.id}`}
+                    >
+                      <service.icon size={20} className="flex-shrink-0" />
+                      <span className="text-sm font-medium">{service.title}</span>
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
           </div>
         </aside>
 
