@@ -11,17 +11,21 @@ import ProjectModal from "@/components/ProjectModal";
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
+import printingImage from '@assets/generated_images/3D_printing_service_background_5fcbe0f4.png';
+import pcbImage from '@assets/generated_images/PCB_design_service_background_f2880d46.png';
+import matlabImage from '@assets/generated_images/MATLAB_Simulink_background_26512f57.png';
+import optimizationImage from '@assets/generated_images/Product_optimization_background_2334833a.png';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   const services = [
-    { icon: Box, title: "3D CAD Design", description: "Professional mechanical design services using industry-leading CAD software", href: "/services/cad" },
-    { icon: Wind, title: "FEA/CFD Simulation", description: "Advanced structural and fluid dynamics analysis for optimal performance", href: "/services/fea" },
-    { icon: Printer, title: "3D Printing", description: "Rapid prototyping and additive manufacturing solutions", href: "/services/printing" },
-    { icon: Microchip, title: "PCB Design", description: "Custom circuit board design and layout for electronic systems", href: "/services/pcb" },
-    { icon: Code, title: "MATLAB & Simulink", description: "Control systems, data analysis, and simulation modeling", href: "/services/matlab" },
-    { icon: Zap, title: "Product Optimization", description: "Performance enhancement through advanced engineering analysis", href: "/services/optimization" },
+    { icon: Box, title: "3D CAD Design", description: "Professional mechanical design services using industry-leading CAD software", href: "/services/cad", backgroundImage: cadImage },
+    { icon: Wind, title: "FEA/CFD Simulation", description: "Advanced structural and fluid dynamics analysis for optimal performance", href: "/services/fea", backgroundImage: feaImage },
+    { icon: Printer, title: "3D Printing", description: "Rapid prototyping and additive manufacturing solutions", href: "/services/printing", backgroundImage: printingImage },
+    { icon: Microchip, title: "PCB Design", description: "Custom circuit board design and layout for electronic systems", href: "/services/pcb", backgroundImage: pcbImage },
+    { icon: Code, title: "MATLAB & Simulink", description: "Control systems, data analysis, and simulation modeling", href: "/services/matlab", backgroundImage: matlabImage },
+    { icon: Zap, title: "Product Optimization", description: "Performance enhancement through advanced engineering analysis", href: "/services/optimization", backgroundImage: optimizationImage },
   ];
 
   const projects = [
