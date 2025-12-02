@@ -312,13 +312,6 @@ export default function About() {
                     <p className="text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
                       {leader.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {leader.specialties.map((specialty, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
-                          {specialty}
-                        </Badge>
-                      ))}
-                    </div>
                   </div>
                 </GlassPanel>
               </ScrollAnimation>
