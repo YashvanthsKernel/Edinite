@@ -1,4 +1,4 @@
-import { Mail, Target, Eye, Users, Palette, Waves, Cpu, GraduationCap, Zap, Trophy, Code, Rocket } from "lucide-react";
+import { Palette, Waves, Cpu, GraduationCap, Zap, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import GlassPanel from "@/components/GlassPanel";
@@ -62,10 +62,10 @@ export default function About() {
   ];
 
   const stats = [
-    { value: "50+", label: "Projects Delivered", icon: Trophy },
-    { value: "10+", label: "Industries Served", icon: Zap },
-    { value: "100%", label: "Client Satisfaction", icon: Target },
-    { value: "4", label: "Expert Leaders", icon: Users }
+    { value: "50+", label: "Projects Delivered" },
+    { value: "10+", label: "Industries Served" },
+    { value: "100%", label: "Client Satisfaction" },
+    { value: "4", label: "Expert Leaders" }
   ];
 
   return (
@@ -89,7 +89,6 @@ export default function About() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
             {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
               return (
                 <ScrollAnimation key={index} delay={index * 75}>
                   <div className="group cursor-pointer">
@@ -124,8 +123,8 @@ export default function About() {
                 </p>
                 <div className="pt-4">
                   <Link href="/services">
-                    <Button size="lg" className="gap-2" data-testid="button-explore-our-services">
-                      <Rocket size={18} /> Explore Our Services
+                    <Button size="lg" data-testid="button-explore-our-services">
+                      Explore Our Services
                     </Button>
                   </Link>
                 </div>
@@ -166,12 +165,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             <ScrollAnimation>
               <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 rounded-3xl p-10 border border-primary/20">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Target className="text-primary" size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Our Vision</h3>
-                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   To become India's leading digital engineering studio, where ideas evolve into validated designs with industry-standard precision and excellence.
                 </p>
@@ -180,12 +174,7 @@ export default function About() {
 
             <ScrollAnimation delay={100}>
               <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 rounded-3xl p-10 border border-primary/20">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Rocket className="text-primary" size={24} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Our Mission</h3>
-                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Make advanced design, simulation, and engineering R&D accessible to all — enabling students, startups, and innovators to build smarter, optimized solutions.
                 </p>
@@ -239,12 +228,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <ScrollAnimation>
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Users className="text-primary" size={32} />
-                <h2 className="text-4xl font-heading font-bold text-foreground">
-                  Meet Our <span className="text-primary">Leadership</span>
-                </h2>
-              </div>
+              <h2 className="text-4xl font-heading font-bold text-foreground mb-4">
+                Meet Our <span className="text-primary">Leadership</span>
+              </h2>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
               <p className="text-xl text-muted-foreground">
@@ -288,7 +274,6 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <ScrollAnimation>
             <GlassPanel className="p-12 text-center">
-              <Mail className="text-primary mx-auto mb-6" size={48} />
               <h2 className="text-4xl font-heading font-bold text-foreground mb-4">
                 Ready to Collaborate?
               </h2>
@@ -306,7 +291,6 @@ export default function About() {
                   className="inline-flex items-center justify-center"
                 >
                   <Button size="lg" variant="outline" data-testid="link-email-button">
-                    <Mail size={18} className="mr-2" />
                     Get In Touch
                   </Button>
                 </a>
