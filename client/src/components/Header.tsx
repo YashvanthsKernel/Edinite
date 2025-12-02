@@ -14,10 +14,13 @@ import {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
+  const navLinksBefore = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/portfolio", label: "Portfolio (Under Development)" },
+  ];
+
+  const navLinksAfter = [
     { href: "/contact", label: "Contact" },
   ];
 
@@ -42,7 +45,7 @@ export default function Header() {
 
           <div className="flex items-center gap-8">
             <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
+              {navLinksBefore.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <span className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer" data-testid={`link-${link.label.toLowerCase()}`}>
                     {link.label}
@@ -67,6 +70,13 @@ export default function Header() {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+              {navLinksAfter.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <span className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer" data-testid={`link-${link.label.toLowerCase()}`}>
+                    {link.label}
+                  </span>
+                </Link>
+              ))}
             </nav>
 
             <div className="hidden md:flex items-center gap-4">
@@ -86,7 +96,7 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 backdrop-blur-xl bg-card/95 rounded-xl border border-primary/20 p-6">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
+              {navLinksBefore.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <span 
                     className="text-foreground/80 hover:text-foreground transition-colors py-2 cursor-pointer block"
@@ -111,6 +121,17 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
+              {navLinksAfter.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <span 
+                    className="text-foreground/80 hover:text-foreground transition-colors py-2 cursor-pointer block"
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </span>
+                </Link>
+              ))}
               <Button className="mt-2" data-testid="button-mobile-quote">Request Quote</Button>
             </nav>
           </div>
