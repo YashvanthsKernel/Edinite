@@ -2,6 +2,7 @@ import { Box, Wind, Printer, Microchip, Code, CheckCircle, Zap } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import GlassPanel from "@/components/GlassPanel";
+import ScrollAnimation from "@/components/ScrollAnimation";
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
@@ -126,7 +127,8 @@ export default function Services() {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto space-y-20">
           {servicesDetails.map((service, index) => (
-            <div key={service.title} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollAnimation key={service.title} delay={index * 100}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {index % 2 === 0 ? (
                 <>
                   <div>
@@ -248,7 +250,8 @@ export default function Services() {
                   </div>
                 </>
               )}
-            </div>
+              </div>
+            </ScrollAnimation>
           ))}
         </div>
       </section>

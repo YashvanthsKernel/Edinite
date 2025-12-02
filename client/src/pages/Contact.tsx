@@ -1,6 +1,7 @@
 import ContactForm from "@/components/ContactForm";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import GlassPanel from "@/components/GlassPanel";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 export default function Contact() {
   return (
@@ -17,10 +18,13 @@ export default function Contact() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <ContactForm />
+            <ScrollAnimation>
+              <ContactForm />
+            </ScrollAnimation>
 
             <div className="space-y-6">
-              <GlassPanel className="p-8">
+              <ScrollAnimation delay={100}>
+                <GlassPanel className="p-8">
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
                   Contact Information
                 </h2>
@@ -63,8 +67,10 @@ export default function Contact() {
                   </div>
                 </div>
               </GlassPanel>
+              </ScrollAnimation>
 
-              <GlassPanel className="p-8">
+              <ScrollAnimation delay={200}>
+                <GlassPanel className="p-8">
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
                   Why Choose Edinite?
                 </h2>
@@ -83,6 +89,7 @@ export default function Contact() {
                   ))}
                 </ul>
               </GlassPanel>
+              </ScrollAnimation>
             </div>
           </div>
         </div>

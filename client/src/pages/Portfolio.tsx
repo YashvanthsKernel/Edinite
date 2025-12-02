@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
+import ScrollAnimation from "@/components/ScrollAnimation";
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
 import printingImage from '@assets/generated_images/3D_printing_service_background_5fcbe0f4.png';
@@ -79,11 +80,12 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                {...project}
-                onClick={() => setSelectedProject(index)}
-              />
+              <ScrollAnimation key={project.title} delay={index * 100}>
+                <ProjectCard
+                  {...project}
+                  onClick={() => setSelectedProject(index)}
+                />
+              </ScrollAnimation>
             ))}
           </div>
         </div>

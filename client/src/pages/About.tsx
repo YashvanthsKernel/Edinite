@@ -2,6 +2,7 @@ import { Mail, Target, Eye, Lightbulb, CheckCircle, Users, Palette, Waves, Cpu, 
 import GlassPanel from "@/components/GlassPanel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 export default function About() {
   const leadership = [
@@ -186,7 +187,8 @@ export default function About() {
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <Card key={index} className="hover-elevate" data-testid={`card-service-${index}`}>
+                <ScrollAnimation key={index} delay={index * 100}>
+                  <Card className="hover-elevate" data-testid={`card-service-${index}`}>
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -199,6 +201,7 @@ export default function About() {
                     <CardDescription className="text-base">{service.description}</CardDescription>
                   </CardContent>
                 </Card>
+                </ScrollAnimation>
               );
             })}
           </div>
