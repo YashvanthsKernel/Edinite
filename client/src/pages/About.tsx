@@ -94,11 +94,6 @@ export default function About() {
                 <ScrollAnimation key={index} delay={index * 75}>
                   <div className="group cursor-pointer">
                     <GlassPanel className="p-6 text-center hover-elevate transition-all duration-300">
-                      <div className="flex justify-center mb-3">
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <IconComponent className="text-primary" size={24} />
-                        </div>
-                      </div>
                       <p className="text-2xl md:text-3xl font-bold text-foreground mb-1">{stat.value}</p>
                       <p className="text-sm text-muted-foreground">{stat.label}</p>
                     </GlassPanel>
