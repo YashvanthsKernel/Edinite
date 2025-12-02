@@ -3,7 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -19,6 +19,8 @@ import Contact from "@/pages/Contact";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
+import ScrollPopup from "@/components/ScrollPopup";
+import { useScrollPopup } from "@/hooks/useScrollPopup";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -28,6 +30,17 @@ function ScrollToTop() {
   }, [location]);
   
   return null;
+}
+
+function ScrollPopupContainer() {
+  const { showPopup, setShowPopup } = useScrollPopup(0.5);
+
+  return (
+    <ScrollPopup 
+      isOpen={showPopup} 
+      onClose={() => setShowPopup(false)} 
+    />
+  );
 }
 
 function Router() {
@@ -69,6 +82,7 @@ function App() {
             </main>
             <Footer />
           </div>
+          <ScrollPopupContainer />
         </div>
         <Toaster />
       </TooltipProvider>
