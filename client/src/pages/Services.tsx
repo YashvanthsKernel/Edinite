@@ -113,129 +113,124 @@ export default function Services() {
   };
 
   return (
-    <div className="min-h-screen pt-24">
-      <div className="flex">
-        <aside className="hidden lg:block w-72 flex-shrink-0">
-          <div className="fixed top-24 left-0 w-72 h-[calc(100vh-6rem)] border-r border-primary/20 bg-background/80 backdrop-blur-xl z-30">
-            <div className="p-6">
-              <h2 className="text-lg font-heading font-bold text-foreground mb-6">Our Services</h2>
-              <nav className="space-y-2">
-                {servicesDetails.map((service) => {
-                  const isActive = service.id === activeServiceId;
-                  return (
-                    <button
-                      key={service.id}
-                      onClick={() => handleServiceClick(service.id)}
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
-                        isActive 
-                          ? "bg-primary text-primary-foreground" 
-                          : "text-foreground/70 hover:bg-accent hover:text-foreground"
-                      }`}
-                      data-testid={`button-service-${service.id}`}
-                    >
-                      <service.icon size={20} className="flex-shrink-0" />
-                      <span className="text-sm font-medium">{service.title}</span>
-                    </button>
-                  );
-                })}
-              </nav>
-            </div>
-          </div>
-        </aside>
-
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-primary/20 p-4">
-          <div className="flex gap-2 overflow-x-auto pb-2">
+    <div 
+      className="relative min-h-screen pt-24 flex items-center justify-center px-6"
+      style={{
+        backgroundImage: `linear-gradient(135deg, rgba(1,0,48,0.75), rgba(114,38,255,0.15)), url(${activeService.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Fixed Services Navigation - Desktop */}
+      <div className="hidden lg:block fixed left-6 top-32 z-30 w-72">
+        <GlassPanel className="p-6">
+          <h2 className="text-lg font-heading font-bold text-foreground mb-6">Our Services</h2>
+          <nav className="space-y-2">
             {servicesDetails.map((service) => {
               const isActive = service.id === activeServiceId;
               return (
                 <button
                   key={service.id}
                   onClick={() => handleServiceClick(service.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg whitespace-nowrap transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${
                     isActive 
                       ? "bg-primary text-primary-foreground" 
-                      : "bg-accent text-foreground/70"
+                      : "text-foreground/70 hover:bg-accent hover:text-foreground"
                   }`}
-                  data-testid={`button-mobile-service-${service.id}`}
+                  data-testid={`button-service-${service.id}`}
                 >
-                  <service.icon size={16} />
+                  <service.icon size={20} className="flex-shrink-0" />
                   <span className="text-sm font-medium">{service.title}</span>
                 </button>
               );
             })}
+          </nav>
+        </GlassPanel>
+      </div>
+
+      {/* Fixed Services Navigation - Mobile */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-xl border-t border-primary/20 p-4">
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {servicesDetails.map((service) => {
+            const isActive = service.id === activeServiceId;
+            return (
+              <button
+                key={service.id}
+                onClick={() => handleServiceClick(service.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg whitespace-nowrap transition-all ${
+                  isActive 
+                    ? "bg-primary text-primary-foreground" 
+                    : "bg-accent text-foreground/70"
+                }`}
+                data-testid={`button-mobile-service-${service.id}`}
+              >
+                <service.icon size={16} />
+                <span className="text-sm font-medium">{service.title}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Main Content - Centered Glass Panel */}
+      <GlassPanel className="w-full max-w-3xl mb-32 lg:mb-0">
+        <div className="p-8 md:p-12">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <activeService.icon size={32} className="text-white" />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+              {activeService.title}
+            </h1>
+          </div>
+
+          <p className="text-lg text-muted-foreground mb-8">
+            {activeService.description}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Key Features</h3>
+              <ul className="space-y-3">
+                {activeService.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle className="text-primary flex-shrink-0 mt-1" size={18} />
+                    <span className="text-sm text-muted-foreground">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Software & Tools</h3>
+              <div className="flex flex-wrap gap-2">
+                {activeService.tools.map((tool, idx) => (
+                  <span 
+                    key={idx}
+                    className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-foreground text-xs"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
+              <Button size="lg" data-testid="button-get-quote">
+                Get a Quote
+              </Button>
+            </Link>
+            <Link href="/portfolio">
+              <Button variant="outline" size="lg" data-testid="button-view-portfolio">
+                View Portfolio
+              </Button>
+            </Link>
           </div>
         </div>
-
-        <main className="flex-1 pb-32 lg:pb-0">
-          <div 
-            className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center px-6"
-            style={{
-              backgroundImage: `linear-gradient(135deg, rgba(1,0,48,0.75), rgba(114,38,255,0.15)), url(${activeService.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundAttachment: 'fixed'
-            }}
-          >
-            <GlassPanel className="w-full max-w-3xl">
-              <div className="p-8 md:p-12">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <activeService.icon size={32} className="text-white" />
-                  </div>
-                  <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-                    {activeService.title}
-                  </h1>
-                </div>
-
-                <p className="text-lg text-muted-foreground mb-8">
-                  {activeService.description}
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Key Features</h3>
-                    <ul className="space-y-3">
-                      {activeService.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="text-primary flex-shrink-0 mt-1" size={18} />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-subheading font-bold text-foreground mb-4">Software & Tools</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {activeService.tools.map((tool, idx) => (
-                        <span 
-                          key={idx}
-                          className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-lg text-foreground text-xs"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact">
-                    <Button size="lg" data-testid="button-get-quote">
-                      Get a Quote
-                    </Button>
-                  </Link>
-                  <Link href="/portfolio">
-                    <Button variant="outline" size="lg" data-testid="button-view-portfolio">
-                      View Portfolio
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </GlassPanel>
-          </div>
-        </main>
-      </div>
+      </GlassPanel>
     </div>
   );
 }
