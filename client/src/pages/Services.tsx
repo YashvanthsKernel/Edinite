@@ -222,11 +222,6 @@ export default function Services() {
                 Get a Quote
               </Button>
             </Link>
-            <Link href="/portfolio">
-              <Button variant="outline" size="lg" data-testid="button-view-portfolio">
-                View Portfolio
-              </Button>
-            </Link>
           </div>
         </div>
       </GlassPanel>
