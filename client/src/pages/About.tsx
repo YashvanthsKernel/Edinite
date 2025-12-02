@@ -191,9 +191,6 @@ export default function About() {
                       To become India's leading digital engineering studio, where ideas evolve into validated designs with industry-standard precision and excellence.
                     </p>
                   </div>
-                  <div className="pt-6 border-t border-primary/10">
-                    <p className="text-sm font-semibold text-primary">Aspiration for Excellence</p>
-                  </div>
                 </GlassPanel>
               </div>
             </ScrollAnimation>
