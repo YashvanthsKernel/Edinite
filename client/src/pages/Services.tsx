@@ -1,4 +1,4 @@
-import { Box, Wind, Printer, Microchip, Code, CheckCircle, ArrowRight, Zap, Sparkles } from "lucide-react";
+import { Box, Wind, Printer, Microchip, Code, CheckCircle, ArrowRight, Zap, Sparkles, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import GlassPanel from "@/components/GlassPanel";
@@ -15,6 +15,7 @@ interface ServiceDetail {
   features: string[];
   tools: string[];
   image: string;
+  badge: string;
 }
 
 const servicesDetails: ServiceDetail[] = [
@@ -31,7 +32,8 @@ const servicesDetails: ServiceDetail[] = [
       "Product visualization and rendering"
     ],
     tools: ["SolidWorks", "CATIA V5/V6", "Fusion 360", "AutoCAD", "Inventor"],
-    image: cadImage
+    image: cadImage,
+    badge: "CORE"
   },
   {
     id: "fea-cfd",
@@ -46,7 +48,8 @@ const servicesDetails: ServiceDetail[] = [
       "Optimization for performance and cost"
     ],
     tools: ["ANSYS Workbench", "ANSYS Fluent", "CFX", "Abaqus", "COMSOL"],
-    image: feaImage
+    image: feaImage,
+    badge: "ADVANCED"
   },
   {
     id: "3d-printing",
@@ -61,7 +64,8 @@ const servicesDetails: ServiceDetail[] = [
       "Post-processing and finishing"
     ],
     tools: ["CAD to STL conversion", "Cura", "Formlabs Software", "EOS Software", "Slicing algorithms"],
-    image: cadImage
+    image: cadImage,
+    badge: "RAPID"
   },
   {
     id: "pcb-design",
@@ -76,7 +80,8 @@ const servicesDetails: ServiceDetail[] = [
       "Manufacturing coordination and support"
     ],
     tools: ["Altium Designer", "KiCad", "Eagle", "OrCAD", "LTspice"],
-    image: feaImage
+    image: feaImage,
+    badge: "PRECISION"
   },
   {
     id: "matlab",
@@ -91,7 +96,8 @@ const servicesDetails: ServiceDetail[] = [
       "Algorithm development and optimization"
     ],
     tools: ["MATLAB", "Simulink", "Control System Toolbox", "Signal Processing", "Machine Learning Toolbox"],
-    image: heroImage
+    image: heroImage,
+    badge: "SMART"
   }
 ];
 
@@ -108,6 +114,7 @@ export default function Services() {
 
   const activeServiceId = getActiveServiceId();
   const activeService = servicesDetails.find(s => s.id === activeServiceId) || servicesDetails[0];
+  const activeIndex = servicesDetails.findIndex(s => s.id === activeServiceId) + 1;
 
   const handleServiceClick = (serviceId: string) => {
     setLocation(`/services/${serviceId}`);
@@ -141,32 +148,45 @@ export default function Services() {
       {/* Services Navigation - Left Corner */}
       <div className="hidden lg:flex fixed left-6 top-32 z-30">
         <div className="w-80">
-          <GlassPanel className="p-6 space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
-            <div className="mb-6">
+          <GlassPanel className="p-6 space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
+            {/* Header */}
+            <div className="mb-6 pb-4 border-b border-primary/20">
               <div className="flex items-center gap-2 mb-2">
-                <Sparkles className="text-primary" size={20} />
-                <h2 className="text-lg font-heading font-bold text-foreground">Services</h2>
+                <div className="p-2 bg-gradient-to-br from-primary to-purple-600 rounded-lg">
+                  <Sparkles className="text-white" size={18} />
+                </div>
+                <div>
+                  <h2 className="text-lg font-heading font-bold text-foreground">Services</h2>
+                  <p className="text-xs text-muted-foreground mt-1">Select a service to explore</p>
+                </div>
               </div>
-              <div className="h-1 w-12 bg-gradient-to-r from-primary to-purple-600 rounded-full" />
             </div>
 
+            {/* Service Items */}
             {servicesDetails.map((service, idx) => {
               const isActive = service.id === activeServiceId;
               return (
                 <ScrollAnimation key={service.id} delay={idx * 50}>
                   <button
                     onClick={() => handleServiceClick(service.id)}
-                    className={`w-full flex items-start gap-4 px-4 py-4 rounded-xl transition-all duration-300 group relative overflow-hidden ${
+                    className={`w-full flex items-start gap-4 px-4 py-4 rounded-xl transition-all duration-300 group relative overflow-hidden transform hover:scale-105 ${
                       isActive 
-                        ? "bg-gradient-to-r from-primary via-primary to-purple-600 text-primary-foreground shadow-lg" 
-                        : "text-foreground/70 hover:text-foreground hover:bg-white/5"
+                        ? "bg-gradient-to-r from-primary via-primary to-purple-600 text-primary-foreground shadow-xl scale-105" 
+                        : "text-foreground/70 hover:text-foreground hover:bg-white/5 hover:shadow-md"
                     }`}
                     data-testid={`button-service-${service.id}`}
                   >
+                    {/* Active indicator line */}
+                    {isActive && (
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/50" />
+                    )}
+
+                    {/* Shine effect on hover */}
                     {isActive && (
                       <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     )}
                     
+                    {/* Icon with background */}
                     <div className={`p-3 rounded-lg transition-all flex-shrink-0 ${
                       isActive 
                         ? "bg-white/20 group-hover:bg-white/30" 
@@ -175,16 +195,25 @@ export default function Services() {
                       <service.icon size={20} className="flex-shrink-0" />
                     </div>
                     
-                    <div className="text-left flex-1 relative z-10">
-                      <div className="font-subheading font-semibold text-sm leading-tight">{service.title}</div>
+                    {/* Text content */}
+                    <div className="text-left flex-1 relative z-10 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <div className="font-subheading font-semibold text-sm leading-tight truncate">{service.title}</div>
+                        {isActive && (
+                          <span className="text-xs px-2 py-0.5 bg-white/20 rounded-full whitespace-nowrap">
+                            {service.badge}
+                          </span>
+                        )}
+                      </div>
                       <div className={`text-xs mt-1 transition-all ${
                         isActive ? "text-white/80" : "text-foreground/50 group-hover:text-foreground/70"
                       }`}>
-                        {activeServiceId === service.id && <Zap size={12} className="inline mr-1" />}
-                        Click to explore
+                        {activeServiceId === service.id && <Lightbulb size={12} className="inline mr-1" />}
+                        {activeServiceId === service.id ? "Active" : "Click to explore"}
                       </div>
                     </div>
 
+                    {/* Chevron indicator */}
                     {isActive && (
                       <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -207,9 +236,9 @@ export default function Services() {
               <button
                 key={service.id}
                 onClick={() => handleServiceClick(service.id)}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg whitespace-nowrap transition-all text-xs font-medium ${
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg whitespace-nowrap transition-all text-xs font-medium transform hover:scale-105 ${
                   isActive 
-                    ? "bg-gradient-to-r from-primary to-purple-600 text-primary-foreground" 
+                    ? "bg-gradient-to-r from-primary to-purple-600 text-primary-foreground shadow-lg scale-105" 
                     : "bg-white/5 text-foreground/70 hover:bg-primary/20"
                 }`}
                 data-testid={`button-mobile-service-${service.id}`}
@@ -227,34 +256,47 @@ export default function Services() {
         <ScrollAnimation>
           <div className="w-full max-w-2xl">
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
-              {/* Header with gradient background */}
-              <div className="relative h-32 bg-gradient-to-br from-primary/20 to-purple-600/20 overflow-hidden">
-                <div className="absolute inset-0 opacity-30">
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-primary/30 rounded-full blur-3xl" />
+              {/* Header with animated gradient background */}
+              <div className="relative h-40 bg-gradient-to-br from-primary/20 via-purple-600/15 to-transparent overflow-hidden">
+                {/* Animated gradient shapes */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-pulse" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-600/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 animate-pulse delay-700" />
+                
+                {/* Service number badge */}
+                <div className="absolute top-4 right-6 flex items-center gap-2">
+                  <span className="text-sm font-bold text-primary/60">Service</span>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                    {activeIndex}/{servicesDetails.length}
+                  </div>
                 </div>
               </div>
 
-              <div className="p-8 md:p-12 relative -mt-16">
-                {/* Icon and Title */}
+              <div className="p-8 md:p-12 relative -mt-8">
+                {/* Icon and Title Section */}
                 <div className="flex items-start gap-6 mb-8">
                   <div className="relative flex-shrink-0 z-10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center shadow-xl">
-                      <activeService.icon size={48} className="text-white" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity animate-pulse" />
+                    <div className="relative w-28 h-28 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform transition-transform hover:scale-110">
+                      <activeService.icon size={56} className="text-white" />
                     </div>
                   </div>
-                  <div className="flex-1 pt-4">
-                    <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-                      {activeService.title}
-                    </h1>
-                    <div className="h-1 w-20 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full" />
+                  <div className="flex-1 pt-2">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                        {activeService.title}
+                      </h1>
+                      <span className="px-3 py-1 bg-gradient-to-r from-primary/20 to-purple-600/20 border border-primary/30 rounded-full text-xs font-semibold text-primary">
+                        {activeService.badge}
+                      </span>
+                    </div>
+                    <div className="h-1.5 w-24 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full" />
                   </div>
                 </div>
 
-                {/* Description with icon */}
-                <div className="mb-10">
+                {/* Description with enhanced styling */}
+                <div className="mb-10 p-5 bg-gradient-to-r from-primary/5 to-purple-600/5 border border-primary/10 rounded-xl">
                   <p className="text-lg text-muted-foreground leading-relaxed flex items-start gap-3">
-                    <Sparkles className="text-primary flex-shrink-0 mt-1" size={20} />
+                    <Sparkles className="text-primary flex-shrink-0 mt-1 animate-pulse" size={20} />
                     {activeService.description}
                   </p>
                 </div>
@@ -264,13 +306,13 @@ export default function Services() {
                   {/* Key Features */}
                   <div className="group">
                     <h3 className="text-lg font-subheading font-bold text-foreground mb-5 flex items-center gap-2">
-                      <div className="w-1.5 h-6 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
+                      <div className="w-2 h-7 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
                       Key Features
                     </h3>
                     <ul className="space-y-4">
                       {activeService.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3 group/item">
-                          <div className="flex-shrink-0 mt-1 p-1.5 bg-primary/10 rounded-lg group-hover/item:bg-primary/20 transition-all">
+                        <li key={idx} className="flex items-start gap-3 group/item transform transition-transform hover:translate-x-1">
+                          <div className="flex-shrink-0 mt-1 p-2 bg-primary/10 rounded-lg group-hover/item:bg-primary/20 transition-all">
                             <CheckCircle className="text-primary" size={16} />
                           </div>
                           <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">{feature}</span>
@@ -282,14 +324,14 @@ export default function Services() {
                   {/* Software & Tools */}
                   <div className="group">
                     <h3 className="text-lg font-subheading font-bold text-foreground mb-5 flex items-center gap-2">
-                      <div className="w-1.5 h-6 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
+                      <div className="w-2 h-7 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
                       Software & Tools
                     </h3>
                     <div className="flex flex-wrap gap-3">
                       {activeService.tools.map((tool, idx) => (
                         <span 
                           key={idx}
-                          className="px-4 py-2 bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl text-foreground text-xs font-medium hover:border-primary/50 hover:bg-primary/15 hover:shadow-lg transition-all"
+                          className="px-4 py-2 bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl text-foreground text-xs font-medium hover:border-primary/50 hover:bg-primary/20 hover:shadow-lg transition-all transform hover:scale-105 cursor-default"
                         >
                           {tool}
                         </span>
@@ -298,11 +340,12 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button with enhanced styling */}
                 <div className="pt-6 border-t border-primary/20">
                   <Link href="/contact">
-                    <Button size="lg" className="w-full group bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90" data-testid="button-get-quote">
+                    <Button size="lg" className="w-full group bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 transform transition-all hover:shadow-lg hover:scale-105" data-testid="button-get-quote">
                       <span className="flex items-center justify-center gap-2">
+                        <Zap size={18} className="group-hover:rotate-12 transition-transform" />
                         Start Your Project
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </span>
