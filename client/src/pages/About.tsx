@@ -211,9 +211,6 @@ export default function About() {
                       Make advanced design, simulation, and engineering R&D accessible to all — enabling students, startups, and innovators to build smarter, optimized solutions.
                     </p>
                   </div>
-                  <div className="pt-6 border-t border-primary/10">
-                    <p className="text-sm font-semibold text-primary">Empowering Innovation</p>
-                  </div>
                 </GlassPanel>
               </div>
             </ScrollAnimation>
