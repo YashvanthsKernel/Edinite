@@ -505,45 +505,43 @@ export default function About() {
             </ScrollAnimation>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {leadership.map((leader, index) => (
               <ScrollAnimation key={index} delay={index * 100}>
                 <div className="group relative" data-testid={`card-leader-${index}`}>
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                  <GlassPanel className="relative p-8 hover:border-primary/40 transition-colors">
-                    <div className="flex items-start gap-6">
-                      <div className="relative">
-                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg" data-testid={`avatar-leader-${index}`}>
-                          {leader.initials}
+                  <GlassPanel className="relative p-8 hover:border-primary/40 transition-colors overflow-hidden">
+                    <div className="flex items-stretch gap-8">
+                      <div className="flex-1 space-y-4 py-4">
+                        <div className="relative">
+                          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg" data-testid={`avatar-leader-${index}`}>
+                            {leader.initials}
+                          </div>
+                          <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-green-500 border-2 border-background" data-testid={`status-leader-${index}`} />
                         </div>
-                        <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 border-2 border-background" data-testid={`status-leader-${index}`} />
-                      </div>
-                      
-                      <div className="flex-1 space-y-3">
-                        <div>
-                          <h3 className="text-xl font-heading font-bold text-foreground" data-testid={`text-leader-name-${index}`}>
+                        
+                        <div className="space-y-2">
+                          <h3 className="text-2xl font-heading font-bold text-foreground" data-testid={`text-leader-name-${index}`}>
                             {leader.name}
                           </h3>
-                          <p className="text-primary font-semibold" data-testid={`text-leader-position-${index}`}>
+                          <p className="text-primary font-semibold text-lg" data-testid={`text-leader-position-${index}`}>
                             {leader.position}
                           </p>
                         </div>
                         
-                        <p className="text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
+                        <p className="text-lg text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
                           {leader.description}
                         </p>
-                        
-                        <div className="flex flex-wrap gap-2" data-testid={`container-leader-specialties-${index}`}>
-                          {leader.specialties.map((specialty, i) => (
-                            <Badge 
-                              key={i} 
-                              variant="outline" 
-                              className="bg-primary/5 border-primary/20"
-                              data-testid={`badge-specialty-${index}-${i}`}
-                            >
-                              {specialty}
-                            </Badge>
-                          ))}
+                      </div>
+
+                      <div className="w-56 h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0" data-testid={`photo-column-leader-${index}`}>
+                        <div className="text-center">
+                          <div className="w-32 h-32 rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
+                            <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-4">Professional Photo</p>
                         </div>
                       </div>
                     </div>
