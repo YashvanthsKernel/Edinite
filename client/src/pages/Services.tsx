@@ -282,8 +282,8 @@ export default function Services() {
                 <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-pulse" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-600/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 animate-pulse delay-700" />
                 
-                {/* Service number badge and Auto-rotate button */}
-                <div className="absolute top-4 right-6 flex items-center gap-3">
+                {/* Auto-rotate button */}
+                <div className="absolute top-4 right-6">
                   <button
                     onClick={() => setAutoRotate(!autoRotate)}
                     className={`p-2 rounded-lg transition-all transform hover:scale-110 ${
@@ -296,9 +296,6 @@ export default function Services() {
                   >
                     {autoRotate ? <Pause size={18} /> : <Play size={18} />}
                   </button>
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                    {(activeIndex + 1)}/{servicesDetails.length}
-                  </div>
                 </div>
               </div>
 
