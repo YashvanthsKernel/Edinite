@@ -226,16 +226,10 @@ export default function About() {
           <ScrollAnimation delay={400}>
             <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {stats.map((stat, index) => {
-                const IconComponent = stat.icon;
                 const statId = stat.label.toLowerCase().replace(/\s+/g, '-');
                 return (
                   <div key={index} className="group" data-testid={`card-stat-${statId}`}>
                     <GlassPanel className="p-6 text-center hover-elevate transition-all duration-300">
-                      <div className="flex justify-center mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <IconComponent className="w-5 h-5 text-primary" />
-                        </div>
-                      </div>
                       <p className="text-3xl md:text-4xl font-bold text-foreground mb-1" data-testid={`text-counter-${statId}`}>
                         <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                       </p>
