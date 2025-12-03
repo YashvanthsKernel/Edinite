@@ -277,25 +277,17 @@ export default function Services() {
           }`}>
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
               <div className="p-8 md:p-12">
-                {/* Icon and Title Section */}
-                <div className="flex items-start gap-6 mb-8">
-                  <div className="relative flex-shrink-0 z-10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity animate-pulse" />
-                    <div className="relative w-28 h-28 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform transition-transform hover:scale-110">
-                      <activeService.icon size={56} className="text-white" />
-                    </div>
+                {/* Title Section */}
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                      {activeService.title}
+                    </h1>
+                    <span className="px-3 py-1 bg-gradient-to-r from-primary/20 to-purple-600/20 border border-primary/30 rounded-full text-xs font-semibold text-primary">
+                      {activeService.badge}
+                    </span>
                   </div>
-                  <div className="flex-1 pt-2">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-                        {activeService.title}
-                      </h1>
-                      <span className="px-3 py-1 bg-gradient-to-r from-primary/20 to-purple-600/20 border border-primary/30 rounded-full text-xs font-semibold text-primary">
-                        {activeService.badge}
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-24 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full" />
-                  </div>
+                  <div className="h-1.5 w-24 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full" />
                 </div>
 
                 {/* Description with enhanced styling */}
