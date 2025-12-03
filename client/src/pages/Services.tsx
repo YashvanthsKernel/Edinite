@@ -313,6 +313,33 @@ export default function Services() {
                   </div>
                 </div>
 
+                {/* Deliverables & Process */}
+                <div className="mb-8 p-6 bg-gradient-to-r from-primary/5 to-purple-600/5 border border-primary/10 rounded-2xl">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="text-sm font-subheading font-bold text-foreground mb-3 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        Quality Assurance
+                      </h4>
+                      <p className="text-xs text-foreground font-medium leading-relaxed">Industry-standard testing and validation protocols to ensure accuracy and reliability of all deliverables</p>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-subheading font-bold text-foreground mb-3 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        Documentation
+                      </h4>
+                      <p className="text-xs text-foreground font-medium leading-relaxed">Comprehensive technical documentation including specifications, drawings, and implementation guides</p>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-subheading font-bold text-foreground mb-3 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        Support & Consultation
+                      </h4>
+                      <p className="text-xs text-foreground font-medium leading-relaxed">Ongoing expert guidance and consultation throughout the project lifecycle</p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* CTA Button */}
                 <div className="pt-6 border-t border-primary/20">
                   <Link href="/contact">
