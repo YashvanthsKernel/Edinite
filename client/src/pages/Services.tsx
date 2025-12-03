@@ -276,14 +276,7 @@ export default function Services() {
             slideDirection === 'left' ? 'animate-in slide-in-from-right fade-in' : 'animate-in slide-in-from-left fade-in'
           }`}>
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
-              {/* Header with animated gradient background */}
-              <div className="relative h-40 bg-gradient-to-br from-primary/20 via-purple-600/15 to-transparent overflow-hidden">
-                {/* Animated gradient shapes */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-pulse" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-600/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 animate-pulse delay-700" />
-              </div>
-
-              <div className="p-8 md:p-12 relative -mt-8">
+              <div className="p-8 md:p-12">
                 {/* Icon and Title Section */}
                 <div className="flex items-start gap-6 mb-8">
                   <div className="relative flex-shrink-0 z-10">
