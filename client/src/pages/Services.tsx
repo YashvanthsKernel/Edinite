@@ -191,15 +191,6 @@ export default function Services() {
                       <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     )}
                     
-                    {/* Icon with background */}
-                    <div className={`p-3 rounded-lg transition-all flex-shrink-0 ${
-                      isActive 
-                        ? "bg-white/20 group-hover:bg-white/30" 
-                        : "bg-primary/10 group-hover:bg-primary/20"
-                    }`}>
-                      <service.icon size={20} className="flex-shrink-0" />
-                    </div>
-                    
                     {/* Text content */}
                     <div className="text-left flex-1 relative z-10 min-w-0">
                       <div className="font-subheading font-semibold text-sm leading-tight truncate">{service.title}</div>
