@@ -164,7 +164,7 @@ export default function Services() {
       <div className="absolute right-10 bottom-20 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
 
       {/* Services Navigation - Left Corner */}
-      <div className="hidden lg:flex fixed left-6 top-32 z-30">
+      <div className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 z-30">
         <div className="w-80">
           <GlassPanel className="p-6 space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
             {/* Service Items */}
