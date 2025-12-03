@@ -202,14 +202,7 @@ export default function Services() {
                     
                     {/* Text content */}
                     <div className="text-left flex-1 relative z-10 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <div className="font-subheading font-semibold text-sm leading-tight truncate">{service.title}</div>
-                        {isActive && (
-                          <span className="text-xs px-2 py-0.5 bg-white/20 rounded-full whitespace-nowrap">
-                            {service.badge}
-                          </span>
-                        )}
-                      </div>
+                      <div className="font-subheading font-semibold text-sm leading-tight truncate">{service.title}</div>
                       <div className={`text-xs mt-1 transition-all ${
                         isActive ? "text-white/80" : "text-foreground/50 group-hover:text-foreground/70"
                       }`}>
