@@ -13,6 +13,7 @@ import Contact from "@/pages/Contact";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -58,6 +59,7 @@ function App() {
             </main>
             <Footer />
           </div>
+          <ScrollToTopButton />
         </div>
         <Toaster />
       </TooltipProvider>
