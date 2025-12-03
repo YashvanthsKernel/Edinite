@@ -167,19 +167,6 @@ export default function Services() {
       <div className="hidden lg:flex fixed left-6 top-32 z-30">
         <div className="w-80">
           <GlassPanel className="p-6 space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto">
-            {/* Header */}
-            <div className="mb-6 pb-4 border-b border-primary/20">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="p-2 bg-gradient-to-br from-primary to-purple-600 rounded-lg">
-                  <Sparkles className="text-white" size={18} />
-                </div>
-                <div>
-                  <h2 className="text-lg font-heading font-bold text-foreground">Services</h2>
-                  <p className="text-xs text-muted-foreground mt-1">Select a service to explore</p>
-                </div>
-              </div>
-            </div>
-
             {/* Service Items */}
             {servicesDetails.map((service, idx) => {
               const isActive = service.id === activeServiceId;
