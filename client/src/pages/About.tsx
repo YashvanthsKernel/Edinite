@@ -513,18 +513,11 @@ export default function About() {
                   <GlassPanel className="relative p-8 hover:border-primary/40 transition-colors overflow-hidden">
                     <div className="flex items-stretch gap-8">
                       <div className="flex-1 space-y-4 py-4">
-                        <div className="relative">
-                          <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg" data-testid={`avatar-leader-${index}`}>
-                            {leader.initials}
-                          </div>
-                          <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-green-500 border-2 border-background" data-testid={`status-leader-${index}`} />
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <h3 className="text-2xl font-heading font-bold text-foreground" data-testid={`text-leader-name-${index}`}>
+                        <div className="space-y-3">
+                          <h3 className="text-5xl font-heading font-bold text-foreground leading-tight" data-testid={`text-leader-name-${index}`}>
                             {leader.name}
                           </h3>
-                          <p className="text-primary font-semibold text-lg" data-testid={`text-leader-position-${index}`}>
+                          <p className="text-primary font-semibold text-xl" data-testid={`text-leader-position-${index}`}>
                             {leader.position}
                           </p>
                         </div>
