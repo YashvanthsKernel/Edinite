@@ -268,7 +268,7 @@ export default function Services() {
                     </span>
                   </div>
                   <div className="h-1.5 w-24 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full mb-4" />
-                  <p className="text-lg text-muted-foreground leading-relaxed flex items-start gap-3">
+                  <p className="text-lg text-foreground leading-relaxed flex items-start gap-3 font-medium">
                     <Sparkles className="text-primary flex-shrink-0 mt-1 animate-pulse" size={20} />
                     {activeService.description}
                   </p>
@@ -288,7 +288,7 @@ export default function Services() {
                           <div className="flex-shrink-0 mt-1 p-2 bg-primary/10 rounded-lg group-hover/item:bg-primary/20 transition-all">
                             <CheckCircle className="text-primary" size={16} />
                           </div>
-                          <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">{feature}</span>
+                          <span className="text-sm font-semibold text-foreground group-hover/item:text-primary transition-colors">{feature}</span>
                         </li>
                       ))}
                     </ul>
