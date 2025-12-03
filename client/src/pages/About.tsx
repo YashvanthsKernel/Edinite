@@ -353,9 +353,6 @@ export default function About() {
               <div className="relative group h-full" data-testid="card-vision">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
                 <GlassPanel className="relative p-10 h-full flex flex-col">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center mb-6">
-                    <Target className="w-7 h-7 text-white" />
-                  </div>
                   <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-vision-title">Vision</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed flex-grow" data-testid="text-vision-description">
                     To become India's leading digital engineering studio, where ideas evolve into 
