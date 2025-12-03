@@ -259,14 +259,14 @@ export default function Services() {
       {/* Main Content - Centered with Slide Animation */}
       <div className="flex-1 flex items-center justify-center px-6 pb-32 lg:pb-0 relative z-20">
         <ScrollAnimation>
-          <div key={activeServiceId} className={`w-full max-w-2xl transition-all duration-700 ${
+          <div key={activeServiceId} className={`w-full max-w-6xl transition-all duration-700 ${
             slideDirection === 'left' ? 'animate-in slide-in-from-right fade-in' : 'animate-in slide-in-from-left fade-in'
           }`}>
             <GlassPanel className="backdrop-blur-xl bg-white/5 border border-primary/30 shadow-2xl overflow-hidden">
               <div className="p-8 md:p-12">
-                {/* Title Section */}
-                <div className="mb-8">
-                  <div className="flex items-center gap-3 mb-2">
+                {/* Header Section */}
+                <div className="mb-8 pb-8 border-b border-primary/20">
+                  <div className="flex items-center gap-3 mb-3">
                     <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
                       {activeService.title}
                     </h1>
@@ -274,26 +274,22 @@ export default function Services() {
                       {activeService.badge}
                     </span>
                   </div>
-                  <div className="h-1.5 w-24 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full" />
-                </div>
-
-                {/* Description with enhanced styling */}
-                <div className="mb-10 p-5 bg-gradient-to-r from-primary/5 to-purple-600/5 border border-primary/10 rounded-xl">
+                  <div className="h-1.5 w-24 bg-gradient-to-r from-primary via-purple-600 to-primary rounded-full mb-4" />
                   <p className="text-lg text-muted-foreground leading-relaxed flex items-start gap-3">
                     <Sparkles className="text-primary flex-shrink-0 mt-1 animate-pulse" size={20} />
                     {activeService.description}
                   </p>
                 </div>
 
-                {/* Content Grid with enhanced styling */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+                {/* Horizontal Content Layout */}
+                <div className="flex gap-12 mb-8">
                   {/* Key Features */}
-                  <div className="group">
+                  <div className="flex-1">
                     <h3 className="text-lg font-subheading font-bold text-foreground mb-5 flex items-center gap-2">
                       <div className="w-2 h-7 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
                       Key Features
                     </h3>
-                    <ul className="space-y-4">
+                    <ul className="space-y-3">
                       {activeService.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 group/item transform transition-transform hover:translate-x-1">
                           <div className="flex-shrink-0 mt-1 p-2 bg-primary/10 rounded-lg group-hover/item:bg-primary/20 transition-all">
@@ -306,16 +302,16 @@ export default function Services() {
                   </div>
 
                   {/* Software & Tools */}
-                  <div className="group">
+                  <div className="flex-1">
                     <h3 className="text-lg font-subheading font-bold text-foreground mb-5 flex items-center gap-2">
                       <div className="w-2 h-7 bg-gradient-to-b from-primary to-purple-600 rounded-full" />
                       Software & Tools
                     </h3>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {activeService.tools.map((tool, idx) => (
                         <span 
                           key={idx}
-                          className="px-4 py-2 bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl text-foreground text-xs font-medium hover:border-primary/50 hover:bg-primary/20 hover:shadow-lg transition-all transform hover:scale-105 cursor-default"
+                          className="px-3 py-2 bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-lg text-foreground text-xs font-medium hover:border-primary/50 hover:bg-primary/20 hover:shadow-lg transition-all transform hover:scale-105 cursor-default"
                         >
                           {tool}
                         </span>
@@ -324,7 +320,7 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* CTA Button with enhanced styling */}
+                {/* CTA Button */}
                 <div className="pt-6 border-t border-primary/20">
                   <Link href="/contact">
                     <Button size="lg" className="w-full group bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 transform transition-all hover:shadow-lg hover:scale-105" data-testid="button-get-quote">
