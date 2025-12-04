@@ -531,7 +531,7 @@ export default function About() {
                           <div className="flex items-center gap-3 pt-2">
                             {leader.email && (
                               <a
-                                href={`mailto:${leader.email}`}
+                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${leader.email}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
