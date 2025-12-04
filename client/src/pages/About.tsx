@@ -1,7 +1,7 @@
 import { 
   Palette, Waves, Cpu, GraduationCap, Target, Lightbulb, 
   Users, Award, ArrowRight, ChevronRight, Sparkles,
-  TrendingUp, Shield, Clock, CheckCircle2, Mail
+  TrendingUp, Shield, Clock, CheckCircle2, Mail, Layers, Pen
 } from "lucide-react";
 import { SiLinkedin, SiInstagram } from "react-icons/si";
 import { Button } from "@/components/ui/button";
@@ -441,39 +441,94 @@ export default function About() {
 
       <section className="py-24 px-6 bg-gradient-to-b from-card/30 via-card/50 to-card/30">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <ScrollAnimation>
-              <Badge variant="outline" className="mb-4">Our Expertise</Badge>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                What We <span className="text-primary">Specialize In</span>
-              </h2>
-            </ScrollAnimation>
-            <ScrollAnimation delay={100}>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                End-to-end digital engineering services tailored to your unique needs
-              </p>
-            </ScrollAnimation>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <ScrollAnimation>
+                <div className="inline-block">
+                  <span className="text-primary font-medium border-l-2 border-primary pl-3">What We Offer</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground leading-tight mt-4">
+                  Bringing Ideas to Life Through <span className="text-primary">3D Innovation</span>
+                </h2>
+              </ScrollAnimation>
+              <ScrollAnimation delay={100}>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  From everyday items to custom projects, we handle every stage of creation. Whether you need a unique design, 3D print, or expert design support we've got you covered.
+                </p>
+              </ScrollAnimation>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <ScrollAnimation key={index} delay={index * 100}>
-                  <Card 
-                    className="group hover-elevate transition-all cursor-pointer border-primary/10 hover:border-primary/30 overflow-visible" 
-                    data-testid={`card-service-${index}`}
-                  >
-                    <CardContent className="p-8">
-                      <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-foreground" data-testid={`text-service-title-${index}`}>{service.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed" data-testid={`text-service-desc-${index}`}>{service.description}</p>
+            <div className="grid grid-cols-2 gap-4">
+              <ScrollAnimation delay={100}>
+                <Card className="col-span-1 row-span-2 border-primary/10 overflow-hidden" data-testid="card-service-0">
+                  <CardContent className="p-6 h-full flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-bold text-foreground" data-testid="text-service-title-0">Custom 3D Printing</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed" data-testid="text-service-desc-0">
+                        Already have a 3D model? Upload it, choose your material, and we'll handle the rest. print, finish, and deliver.
+                      </p>
+                    </div>
+                    <Link href="/contact">
+                      <Button className="mt-4" data-testid="button-upload-model">Upload Model</Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </ScrollAnimation>
+
+              <ScrollAnimation delay={200}>
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-40" data-testid="card-service-1">
+                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div className="absolute inset-0 [backface-visibility:hidden]">
+                      <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-2xl flex items-center justify-center">
+                        <div className="text-center p-4">
+                          <Layers className="w-10 h-10 text-primary mx-auto mb-2" />
+                          <span className="text-foreground font-semibold">3D Printed Products</span>
+                        </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </ScrollAnimation>
-              );
-            })}
+                    </div>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
+                      <p className="text-white text-sm text-center">Custom 3D printed products tailored to your specifications</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation delay={300}>
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-48" data-testid="card-service-2">
+                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div className="absolute inset-0 [backface-visibility:hidden]">
+                      <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl flex items-center justify-center">
+                        <div className="text-center p-4">
+                          <GraduationCap className="w-10 h-10 text-primary mx-auto mb-2" />
+                          <span className="text-white font-semibold">Academic Projects</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
+                      <p className="text-white text-sm text-center">Professional support for academic and research projects</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation delay={400}>
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-48" data-testid="card-service-3">
+                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div className="absolute inset-0 [backface-visibility:hidden]">
+                      <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-2xl flex items-center justify-center">
+                        <div className="text-center p-4">
+                          <Pen className="w-10 h-10 text-primary mx-auto mb-2" />
+                          <span className="text-foreground font-semibold">3D Design Request</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
+                      <p className="text-white text-sm text-center">Request custom 3D designs from our expert team</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollAnimation>
+            </div>
           </div>
         </div>
       </section>
