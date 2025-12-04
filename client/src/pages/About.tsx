@@ -91,7 +91,10 @@ export default function About() {
       position: "COO & CSO",
       description: "Product design expert with strong passion for engineering solutions",
       specialties: ["Product Design", "Leadership", "Strategy"],
-      initials: "ST"
+      initials: "ST",
+      email: "shrivatsavt2906@gmail.com",
+      linkedin: "https://www.linkedin.com/in/shrivatsav-t-160a0a257/",
+      instagram: "https://www.instagram.com/captain7_vatsav_"
     },
     {
       name: "Prasanth Kannan",
