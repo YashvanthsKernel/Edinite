@@ -108,7 +108,10 @@ export default function About() {
       position: "Engineering Director",
       description: "FEA, prototyping, and CAD expert transforming complex ideas into solutions",
       specialties: ["FEA Analysis", "Prototyping", "CAD Expertise"],
-      initials: "DR"
+      initials: "DR",
+      email: "dhinesshraj10@gmail.com",
+      linkedin: "https://www.linkedin.com/in/dhinessh-raj-07271323b/",
+      instagram: "https://www.instagram.com/dhinesshraj_sundar?igsh=MXFuenRxbGZ3c2ZuNA=="
     }
   ];
 
