@@ -472,10 +472,6 @@ export default function About() {
                         <div className="flex-1 space-y-3">
                           <h3 className="text-xl font-bold text-foreground" data-testid={`text-service-title-${index}`}>{service.title}</h3>
                           <p className="text-muted-foreground leading-relaxed" data-testid={`text-service-desc-${index}`}>{service.description}</p>
-                          <div className="flex items-center text-primary font-medium group-hover:gap-2 transition-all">
-                            <span>Learn more</span>
-                            <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          </div>
                         </div>
                       </div>
                     </CardContent>
