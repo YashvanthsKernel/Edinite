@@ -1,8 +1,9 @@
 import { 
   Palette, Waves, Cpu, GraduationCap, Target, Lightbulb, 
   Users, Award, ArrowRight, ChevronRight, Sparkles,
-  TrendingUp, Shield, Clock, CheckCircle2
+  TrendingUp, Shield, Clock, CheckCircle2, Mail
 } from "lucide-react";
+import { SiLinkedin, SiInstagram, SiPatreon } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import GlassPanel from "@/components/GlassPanel";
@@ -80,7 +81,11 @@ export default function About() {
       position: "Founder & CEO",
       description: "Mechanical engineering innovator dedicated to making advanced design accessible",
       specialties: ["CAD Design", "ISRO Projects", "EV Systems"],
-      initials: "KR"
+      initials: "KR",
+      email: "rkarthikeyan135@gmail.com",
+      linkedin: "https://www.linkedin.com/in/karthikeyan-r-6414a9258/",
+      instagram: "https://www.instagram.com/karthik_designer26/",
+      portfolio: "https://www.patreon.com/KarthiK26?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link"
     },
     {
       name: "Shrivatsav Tamil Kumaran",
@@ -513,6 +518,59 @@ export default function About() {
                         <p className="text-lg text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
                           {leader.description}
                         </p>
+
+                        {(leader.linkedin || leader.instagram || leader.portfolio || leader.email) && (
+                          <div className="flex items-center gap-3 pt-2">
+                            {leader.email && (
+                              <a
+                                href={`mailto:${leader.email}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                                data-testid={`link-leader-email-${index}`}
+                                aria-label="Email"
+                              >
+                                <Mail className="w-5 h-5 text-primary" />
+                              </a>
+                            )}
+                            {leader.linkedin && (
+                              <a
+                                href={leader.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                                data-testid={`link-leader-linkedin-${index}`}
+                                aria-label="LinkedIn"
+                              >
+                                <SiLinkedin className="w-5 h-5 text-primary" />
+                              </a>
+                            )}
+                            {leader.instagram && (
+                              <a
+                                href={leader.instagram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                                data-testid={`link-leader-instagram-${index}`}
+                                aria-label="Instagram"
+                              >
+                                <SiInstagram className="w-5 h-5 text-primary" />
+                              </a>
+                            )}
+                            {leader.portfolio && (
+                              <a
+                                href={leader.portfolio}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                                data-testid={`link-leader-portfolio-${index}`}
+                                aria-label="Portfolio"
+                              >
+                                <SiPatreon className="w-5 h-5 text-primary" />
+                              </a>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       <div className="w-56 h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0" data-testid={`photo-column-leader-${index}`}>
