@@ -101,7 +101,10 @@ export default function About() {
       position: "CFO & Sales Director",
       description: "Driving financial vision and bridging technical needs with business solutions",
       specialties: ["Financial Planning", "Client Strategy", "Business Growth"],
-      initials: "PK"
+      initials: "PK",
+      email: "prasanthkannan0921@gmail.com",
+      linkedin: "https://www.linkedin.com/in/prasanthkanna03/",
+      instagram: "https://www.instagram.com/prasanth__kannan03?igsh=MXQwNmw5YTJ3eWY2ag=="
     },
     {
       name: "Dhinessh Raj S",
