@@ -458,74 +458,68 @@ export default function About() {
               </ScrollAnimation>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 auto-rows-max">
               <ScrollAnimation delay={100}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-[calc(100%-1rem)]" data-testid="card-service-0">
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-80" data-testid="card-service-0">
                   <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/20 border border-primary/20 rounded-2xl flex items-center justify-center">
-                        <div className="text-center p-4">
-                          <Cpu className="w-10 h-10 text-primary mx-auto mb-2" />
-                          <span className="text-foreground font-semibold">Custom 3D Printing</span>
+                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="dots" x="20" y="20" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="400" height="300" fill="url(%23dots)"/><path d="M100,150 Q200,100 300,150" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></svg>\')'}}>
+                        <div className="text-center">
+                          <h3 className="text-2xl font-bold text-white mb-2">Custom 3D Printing</h3>
                         </div>
+                        <Cpu className="w-12 h-12 text-white opacity-80" />
                       </div>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
-                      <p className="text-white text-sm text-center">Already have a 3D model? Upload it, choose your material, and we'll handle the rest</p>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-6">
+                      <p className="text-white text-sm text-center leading-relaxed">Already have a 3D model? Upload it, choose your material, and we'll handle the rest. Print, finish, and deliver.</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={200}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-40" data-testid="card-service-1">
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-44" data-testid="card-service-1">
                   <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-2xl flex items-center justify-center">
-                        <div className="text-center p-4">
-                          <Layers className="w-10 h-10 text-primary mx-auto mb-2" />
-                          <span className="text-foreground font-semibold">3D Printed Products</span>
-                        </div>
+                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(59, 130, 246, 0.4)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="cubes" x="40" y="40" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M20,20 L40,10 L60,20 L40,30Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/></pattern></defs><rect width="400" height="300" fill="url(%23cubes)"/></svg>\')'}}>
+                        <h3 className="text-xl font-bold text-white">3D Printed Products</h3>
+                        <Layers className="w-10 h-10 text-white opacity-80" />
                       </div>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
-                      <p className="text-white text-sm text-center">Custom 3D printed products tailored to your specifications</p>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-6">
+                      <p className="text-white text-sm text-center">Custom 3D printed products tailored to your specifications and requirements</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={300}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-48" data-testid="card-service-2">
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-56" data-testid="card-service-2">
                   <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl flex items-center justify-center">
-                        <div className="text-center p-4">
-                          <GraduationCap className="w-10 h-10 text-primary mx-auto mb-2" />
-                          <span className="text-white font-semibold">Academic Projects</span>
-                        </div>
+                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(59, 130, 246, 0.5)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="books" x="50" y="50" width="100" height="100" patternUnits="userSpaceOnUse"><rect x="20" y="20" width="15" height="60" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/><rect x="40" y="25" width="15" height="60" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.2)"/><rect x="60" y="30" width="15" height="60" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/></pattern></defs><rect width="400" height="300" fill="url(%23books)"/></svg>\')'}}>
+                        <h3 className="text-xl font-bold text-white">Academic Projects</h3>
+                        <GraduationCap className="w-10 h-10 text-white opacity-80" />
                       </div>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
-                      <p className="text-white text-sm text-center">Professional support for academic and research projects</p>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-6">
+                      <p className="text-white text-sm text-center">Professional support for academic and research projects from concept to completion</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={400}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-48" data-testid="card-service-3">
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-56" data-testid="card-service-3">
                   <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-2xl flex items-center justify-center">
-                        <div className="text-center p-4">
-                          <Pen className="w-10 h-10 text-primary mx-auto mb-2" />
-                          <span className="text-foreground font-semibold">3D Design Request</span>
-                        </div>
+                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(249, 115, 22, 0.4), rgba(139, 92, 246, 0.4)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="sketches" x="40" y="40" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M30,30 Q40,20 50,30 T70,30" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/></pattern></defs><rect width="400" height="300" fill="url(%23sketches)"/></svg>\')'}}>
+                        <h3 className="text-xl font-bold text-white">3D Design Request</h3>
+                        <Pen className="w-10 h-10 text-white opacity-80" />
                       </div>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
-                      <p className="text-white text-sm text-center">Request custom 3D designs from our expert team</p>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-6">
+                      <p className="text-white text-sm text-center">Request custom 3D designs from our expert team tailored to your vision</p>
                     </div>
                   </div>
                 </div>
