@@ -465,14 +465,9 @@ export default function About() {
                     data-testid={`card-service-${index}`}
                   >
                     <CardContent className="p-8">
-                      <div className="flex items-start gap-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className="text-white" size={28} />
-                        </div>
-                        <div className="flex-1 space-y-3">
-                          <h3 className="text-xl font-bold text-foreground" data-testid={`text-service-title-${index}`}>{service.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed" data-testid={`text-service-desc-${index}`}>{service.description}</p>
-                        </div>
+                      <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-foreground" data-testid={`text-service-title-${index}`}>{service.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed" data-testid={`text-service-desc-${index}`}>{service.description}</p>
                       </div>
                     </CardContent>
                   </Card>
