@@ -460,19 +460,21 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-4">
               <ScrollAnimation delay={100}>
-                <Card className="col-span-1 row-span-2 border-primary/10 overflow-hidden" data-testid="card-service-0">
-                  <CardContent className="p-6 h-full flex flex-col justify-between">
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-bold text-foreground" data-testid="text-service-title-0">Custom 3D Printing</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed" data-testid="text-service-desc-0">
-                        Already have a 3D model? Upload it, choose your material, and we'll handle the rest. print, finish, and deliver.
-                      </p>
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-[calc(100%-1rem)]" data-testid="card-service-0">
+                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div className="absolute inset-0 [backface-visibility:hidden]">
+                      <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/20 border border-primary/20 rounded-2xl flex items-center justify-center">
+                        <div className="text-center p-4">
+                          <Cpu className="w-10 h-10 text-primary mx-auto mb-2" />
+                          <span className="text-foreground font-semibold">Custom 3D Printing</span>
+                        </div>
+                      </div>
                     </div>
-                    <Link href="/contact">
-                      <Button className="mt-4" data-testid="button-upload-model">Upload Model</Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center p-4">
+                      <p className="text-white text-sm text-center">Already have a 3D model? Upload it, choose your material, and we'll handle the rest</p>
+                    </div>
+                  </div>
+                </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={200}>
