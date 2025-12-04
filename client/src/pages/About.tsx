@@ -441,7 +441,7 @@ export default function About() {
 
       <section className="py-24 px-6 bg-gradient-to-b from-card/30 via-card/50 to-card/30">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <ScrollAnimation>
                 <div className="inline-block">
