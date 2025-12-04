@@ -3,7 +3,7 @@ import {
   Users, Award, ArrowRight, ChevronRight, Sparkles,
   TrendingUp, Shield, Clock, CheckCircle2, Mail
 } from "lucide-react";
-import { SiLinkedin, SiInstagram, SiPatreon } from "react-icons/si";
+import { SiLinkedin, SiInstagram } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import GlassPanel from "@/components/GlassPanel";
@@ -84,8 +84,7 @@ export default function About() {
       initials: "KR",
       email: "rkarthikeyan135@gmail.com",
       linkedin: "https://www.linkedin.com/in/karthikeyan-r-6414a9258/",
-      instagram: "https://www.instagram.com/karthik_designer26/",
-      portfolio: "https://www.patreon.com/KarthiK26?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=creatorshare_creator&utm_content=join_link"
+      instagram: "https://www.instagram.com/karthik_designer26/"
     },
     {
       name: "Shrivatsav Tamil Kumaran",
@@ -519,7 +518,7 @@ export default function About() {
                           {leader.description}
                         </p>
 
-                        {(leader.linkedin || leader.instagram || leader.portfolio || leader.email) && (
+                        {(leader.linkedin || leader.instagram || leader.email) && (
                           <div className="flex items-center gap-3 pt-2">
                             {leader.email && (
                               <a
@@ -555,18 +554,6 @@ export default function About() {
                                 aria-label="Instagram"
                               >
                                 <SiInstagram className="w-5 h-5 text-primary" />
-                              </a>
-                            )}
-                            {leader.portfolio && (
-                              <a
-                                href={leader.portfolio}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                                data-testid={`link-leader-portfolio-${index}`}
-                                aria-label="Portfolio"
-                              >
-                                <SiPatreon className="w-5 h-5 text-primary" />
                               </a>
                             )}
                           </div>
