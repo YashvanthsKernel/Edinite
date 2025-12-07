@@ -241,7 +241,7 @@ export default function Services() {
       </div>
 
       {/* Main Content - Centered with Slide Animation */}
-      <div className="flex-1 flex items-center justify-center px-6 pb-32 lg:pb-0 relative z-20">
+      <div className="flex-1 flex items-center justify-center px-6 pb-32 lg:pb-0 lg:pl-96 relative z-20">
         <ScrollAnimation>
           <div key={activeServiceId} className={`w-full max-w-6xl transition-all duration-700 ${
             slideDirection === 'left' ? 'animate-in slide-in-from-right fade-in' : 'animate-in slide-in-from-left fade-in'
