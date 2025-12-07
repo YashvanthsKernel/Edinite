@@ -142,7 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-primary py-8">
+      <section className="bg-primary py-8 -mt-px">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {features.map((feature) => (
