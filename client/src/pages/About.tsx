@@ -74,6 +74,97 @@ function HexagonGrid() {
   );
 }
 
+function TimelineConnector() {
+  return (
+    <div className="hidden lg:block absolute top-[6px] left-0 right-0 h-16 pointer-events-none">
+      <svg 
+        className="w-full h-full" 
+        viewBox="0 0 1000 60" 
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <defs>
+          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+            <stop offset="25%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+            <stop offset="50%" stopColor="#a855f7" stopOpacity="0.8" />
+            <stop offset="75%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+          </linearGradient>
+          
+          <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+            <stop offset="40%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+            <stop offset="60%" stopColor="#a855f7" stopOpacity="1" />
+            <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+          </linearGradient>
+          
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          
+          <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <path
+          d="M 125 30 
+             C 200 30, 220 8, 290 8
+             L 375 8
+             C 420 8, 440 30, 500 30
+             C 560 30, 580 52, 625 52
+             L 710 52
+             C 780 52, 800 30, 875 30"
+          stroke="url(#lineGradient)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+          filter="url(#glow)"
+        />
+        
+        <path
+          d="M 125 30 
+             C 200 30, 220 8, 290 8
+             L 375 8
+             C 420 8, 440 30, 500 30
+             C 560 30, 580 52, 625 52
+             L 710 52
+             C 780 52, 800 30, 875 30"
+          stroke="url(#pulseGradient)"
+          strokeWidth="3"
+          fill="none"
+          strokeLinecap="round"
+          filter="url(#strongGlow)"
+          strokeDasharray="80 920"
+          className="animate-timeline-pulse"
+        />
+        
+        <circle cx="125" cy="30" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s' }} />
+        <circle cx="125" cy="30" r="3" fill="white" />
+        
+        <circle cx="375" cy="8" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
+        <circle cx="375" cy="8" r="3" fill="white" />
+        
+        <circle cx="625" cy="52" r="6" fill="#a855f7" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '1s' }} />
+        <circle cx="625" cy="52" r="3" fill="white" />
+        
+        <circle cx="875" cy="30" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '1.5s' }} />
+        <circle cx="875" cy="30" r="3" fill="white" />
+      </svg>
+    </div>
+  );
+}
+
 export default function About() {
   const leadership = [
     {
@@ -409,16 +500,15 @@ export default function About() {
           </div>
 
           <div className="relative py-12">
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden lg:block" />
+            <TimelineConnector />
             
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:pt-16">
               {timeline.map((item, index) => {
                 const timelineId = item.year.toLowerCase();
                 return (
                   <ScrollAnimation key={index} delay={index * 100}>
                     <div className="relative" data-testid={`card-timeline-${timelineId}`}>
-                      <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-                      <div className="lg:pt-8 text-center">
+                      <div className="text-center">
                         <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-3" data-testid={`badge-timeline-${timelineId}`}>
                           {item.year}
                         </span>
