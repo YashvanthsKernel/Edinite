@@ -253,15 +253,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-card/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <ScrollAnimation>
-            <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-4">
-              Technology <span className="text-primary">Stack</span>
-            </h2>
-            <p className="text-center text-muted-foreground mb-12">
-              Industry-leading tools and software we use
-            </p>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-primary">Our Tools</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
+                Technology <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">Stack</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Industry-leading tools and software we use to deliver exceptional results
+              </p>
+              <div className="flex justify-center mt-6 gap-1">
+                <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full" />
+                <div className="w-3 h-1 bg-purple-500 rounded-full animate-pulse" />
+                <div className="w-1 h-1 bg-cyan-400 rounded-full" />
+              </div>
+            </div>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
             <TechnologyCarousel />
