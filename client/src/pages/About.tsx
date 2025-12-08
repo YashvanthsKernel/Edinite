@@ -1076,7 +1076,6 @@ export default function About() {
                   <div className="absolute inset-4 rounded-full border border-primary/20" />
                   
                   <div className="absolute inset-0">
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '1s', transform: 'translateX(-50%) translateY(50%)' }} />
                     <div className="absolute left-0 top-1/2 w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s', transform: 'translateX(-50%) translateY(-50%)' }} />
                     <div className="absolute right-0 top-1/2 w-3 h-3 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '1.5s', transform: 'translateX(50%) translateY(-50%)' }} />
                   </div>
