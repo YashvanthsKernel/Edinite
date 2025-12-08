@@ -39,9 +39,12 @@ export default function Home() {
     {
       title: "Automotive Suspension Design",
       category: "Mechanical Design",
-      description: "Complete suspension system design and optimization for high-performance vehicle applications.",
+      description: "Complete suspension system design and optimization for high-performance vehicle applications with advanced kinematics analysis.",
       image: cadImage,
       tools: ["SolidWorks", "ANSYS", "MATLAB"],
+      metrics: [
+        { label: "Design Accuracy", value: "0.05mm" }
+      ],
       details: [
         "Detailed 3D CAD modeling of suspension components",
         "Finite Element Analysis for stress optimization",
@@ -52,9 +55,12 @@ export default function Home() {
     {
       title: "Heat Exchanger CFD Analysis",
       category: "Thermal Engineering",
-      description: "Computational fluid dynamics study for optimizing heat transfer efficiency.",
+      description: "Computational fluid dynamics study for optimizing heat transfer efficiency and reducing pressure drop.",
       image: feaImage,
       tools: ["ANSYS Fluent", "SolidWorks"],
+      metrics: [
+        { label: "Flow Optimization", value: "+27%" }
+      ],
       details: [
         "3D flow simulation and thermal analysis",
         "Pressure drop optimization",
@@ -263,17 +269,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-20 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <ScrollAnimation>
-            <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-4">
-              Featured <span className="text-primary">Projects</span>
-            </h2>
-            <p className="text-center text-muted-foreground mb-12">
-              Explore our recent engineering successes
-            </p>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-sm font-medium text-primary">Engineering Excellence</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
+                Featured <span className="bg-gradient-to-r from-primary via-purple-500 to-cyan-400 bg-clip-text text-transparent">Projects</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Explore our recent engineering successes and see how we transform complex challenges into elegant solutions
+              </p>
+              <div className="flex justify-center mt-6 gap-1">
+                <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full" />
+                <div className="w-3 h-1 bg-purple-500 rounded-full animate-pulse" />
+                <div className="w-1 h-1 bg-cyan-400 rounded-full" />
+              </div>
+            </div>
           </ScrollAnimation>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <ScrollAnimation key={project.title} delay={index * 150}>
                 <ProjectCard
@@ -283,13 +304,25 @@ export default function Home() {
               </ScrollAnimation>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link href="/portfolio">
-              <Button variant="outline" data-testid="button-view-all">
-                View All Projects
-              </Button>
-            </Link>
-          </div>
+          
+          <ScrollAnimation delay={400}>
+            <div className="mt-16 flex justify-center">
+              <Link href="/portfolio">
+                <div className="group relative cursor-pointer">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
+                  <div className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                    <div className="absolute inset-0 rounded-full overflow-hidden">
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                    </div>
+                    <span className="text-lg font-semibold text-foreground group-hover:text-white transition-colors">View All Projects</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 group-hover:scale-110 transition-all">
+                      <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
