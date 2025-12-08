@@ -10,7 +10,7 @@ import GlassPanel from "@/components/GlassPanel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -161,6 +161,528 @@ function TimelineConnector() {
         <circle cx="875" cy="30" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '1.5s' }} />
         <circle cx="875" cy="30" r="3" fill="white" />
       </svg>
+    </div>
+  );
+}
+
+interface RoadmapValue {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+function RoadmapSection({ values }: { values: RoadmapValue[] }) {
+  const [activeStep, setActiveStep] = useState(0);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        setActiveStep(prev => Math.max(0, prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        setActiveStep(prev => Math.min(values.length - 1, prev + 1));
+      } else if (e.key === 'Enter') {
+        setDetailOpen(true);
+      } else if (e.key === 'Escape') {
+        setDetailOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [values.length]);
+
+  const stepDetails = [
+    {
+      deliverables: ["Initial concept sketches", "Requirements analysis", "Feasibility study"],
+      timeframe: "1-2 weeks",
+      image: "Concept development phase"
+    },
+    {
+      deliverables: ["Detailed CAD models", "Technical specifications", "Quality validation"],
+      timeframe: "2-4 weeks",
+      image: "Precision engineering"
+    },
+    {
+      deliverables: ["Weekly progress reviews", "Design iterations", "Client feedback integration"],
+      timeframe: "Ongoing",
+      image: "Team collaboration"
+    },
+    {
+      deliverables: ["Production-ready files", "Documentation package", "Manufacturing support"],
+      timeframe: "1-2 weeks",
+      image: "Final delivery"
+    }
+  ];
+
+  return (
+    <div className="mt-16" ref={sectionRef}>
+      <ScrollAnimation>
+        <div className="text-center mb-8">
+          <Badge variant="outline" className="mb-4">Our Core Values</Badge>
+          <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
+            The Roadmap to <span className="text-primary">Excellence</span>
+          </h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Four predictable stages — one reliable delivery. See how we take an idea to production-ready CAD.
+          </p>
+        </div>
+      </ScrollAnimation>
+
+      <div className="hidden md:block relative max-w-[1200px] mx-auto px-4">
+        <svg 
+          className="absolute top-1/2 left-0 right-0 w-full h-24 -translate-y-1/2 pointer-events-none z-0"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 100"
+        >
+          <defs>
+            <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#6B3DF2" stopOpacity="0.4" />
+              <stop offset="33%" stopColor="#a855f7" stopOpacity="0.5" />
+              <stop offset="66%" stopColor="#00D4FF" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#6B3DF2" stopOpacity="0.4" />
+            </linearGradient>
+            <filter id="connectorGlow" x="-20%" y="-100%" width="140%" height="300%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          
+          <path
+            d="M 100 50 
+               C 200 50, 250 25, 350 25
+               S 450 75, 550 75
+               S 650 25, 750 25
+               S 850 50, 950 50
+               L 1100 50"
+            stroke="url(#connectorGradient)"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+            filter="url(#connectorGlow)"
+            className="opacity-60"
+          />
+          
+          <path
+            d="M 100 50 
+               C 200 50, 250 25, 350 25
+               S 450 75, 550 75
+               S 650 25, 750 25
+               S 850 50, 950 50
+               L 1100 50"
+            stroke="rgba(255,255,255,0.1)"
+            strokeWidth="1"
+            fill="none"
+            strokeLinecap="round"
+          />
+
+          {[0, 1, 2].map((i) => (
+            <circle key={`particle-${i}`} r="3" fill="#00D4FF" opacity="0.9" filter="url(#connectorGlow)">
+              <animateMotion
+                dur="4s"
+                repeatCount="indefinite"
+                begin={`${i * 1.33}s`}
+                path="M 100 50 C 200 50, 250 25, 350 25 S 450 75, 550 75 S 650 25, 750 25 S 850 50, 950 50 L 1100 50"
+              />
+              <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite" begin={`${i * 1.33}s`} />
+            </circle>
+          ))}
+        </svg>
+
+        <div className="relative flex items-start justify-between gap-8 py-8 z-10" style={{ perspective: '1000px' }}>
+          {values.map((value, index) => {
+            const IconComponent = value.icon;
+            const isActive = index === activeStep;
+            const isCenter = index === 1 || index === 2;
+            const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
+            
+            return (
+              <div
+                key={index}
+                className={`
+                  relative flex-1 transition-all duration-500 ease-out cursor-pointer
+                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
+                `}
+                style={{ 
+                  transitionDelay: `${index * 80}ms`,
+                  marginTop: isCenter ? '40px' : '0',
+                  transform: isActive ? 'translateY(-8px) scale(1.06)' : 'translateY(0) scale(1)',
+                  zIndex: isActive ? 10 : 1
+                }}
+                onClick={() => {
+                  setActiveStep(index);
+                  setDetailOpen(true);
+                }}
+                onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
+                tabIndex={0}
+                role="button"
+                aria-label={`Step ${index + 1}: ${value.title}`}
+                data-testid={`card-value-${valueId}`}
+              >
+                <div 
+                  className={`
+                    relative p-7 rounded-[18px] min-h-[200px]
+                    backdrop-blur-lg
+                    transition-all duration-500
+                    ${isActive 
+                      ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
+                      : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
+                    }
+                  `}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
+                    border: isActive 
+                      ? '1px solid rgba(160,80,255,0.35)' 
+                      : '1px solid rgba(255,255,255,0.06)',
+                  }}
+                >
+                  {isActive && (
+                    <div 
+                      className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full"
+                      style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
+                    />
+                  )}
+
+                  <div className="flex items-start justify-between mb-4 gap-3">
+                    <div 
+                      className={`
+                        w-12 h-12 rounded-xl flex items-center justify-center
+                        transition-all duration-300
+                        ${isActive 
+                          ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
+                          : 'bg-white/5 border border-white/10'
+                        }
+                      `}
+                    >
+                      <IconComponent className={`w-6 h-6 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
+                    </div>
+                    
+                    <div 
+                      className={`
+                        relative w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg
+                        ${isActive 
+                          ? 'text-white' 
+                          : 'text-[#B9A9FF] border border-[#6B3DF2]/30'
+                        }
+                      `}
+                      style={{
+                        background: isActive 
+                          ? 'linear-gradient(135deg, #6B3DF2, #a855f7)' 
+                          : 'rgba(107,61,242,0.1)'
+                      }}
+                    >
+                      {isActive && (
+                        <div 
+                          className="absolute inset-[-3px] rounded-full animate-pulse"
+                          style={{ 
+                            background: 'linear-gradient(135deg, #6B3DF2, #00D4FF)',
+                            filter: 'blur(8px)',
+                            opacity: 0.6,
+                            animationDuration: '2s'
+                          }}
+                        />
+                      )}
+                      <span className="relative z-10">{index + 1}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <span 
+                      className="inline-block text-xs font-semibold uppercase tracking-[1px]"
+                      style={{ color: '#B9A9FF' }}
+                    >
+                      Step {index + 1}
+                    </span>
+                    <h4 
+                      className="text-xl font-semibold transition-colors"
+                      style={{ color: isActive ? '#fff' : '#D7D3F6' }}
+                      data-testid={`text-value-title-${valueId}`}
+                    >
+                      {value.title}
+                    </h4>
+                    <p 
+                      className="text-sm leading-relaxed"
+                      style={{ color: '#D7D3F6' }}
+                      data-testid={`text-value-desc-${valueId}`}
+                    >
+                      {value.description}
+                    </p>
+                  </div>
+
+                  <button
+                    className="mt-4 text-sm font-medium text-[#B9A9FF] hover:text-white transition-colors group/link"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveStep(index);
+                      setDetailOpen(true);
+                    }}
+                    data-testid={`button-readmore-${valueId}`}
+                  >
+                    Read more 
+                    <span className="inline-block ml-1 transition-transform group-hover/link:translate-x-1">
+                      <ArrowRight className="w-3 h-3 inline" />
+                    </span>
+                  </button>
+
+                  {isActive && (
+                    <div className="absolute top-3 right-3">
+                      <Sparkles className="w-4 h-4 text-[#00D4FF] animate-pulse" style={{ animationDuration: '1.5s' }} />
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 backdrop-blur-sm border border-white/10">
+            <span className="text-sm text-[#B9A9FF]">Step</span>
+            <span className="text-lg font-bold text-white">{activeStep + 1}</span>
+            <span className="text-sm text-[#B9A9FF]">/ {values.length}</span>
+          </div>
+          <div className="flex gap-1">
+            {values.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className={`
+                  h-2 rounded-full transition-all duration-300
+                  ${index === activeStep 
+                    ? 'w-8 bg-gradient-to-r from-[#6B3DF2] to-[#00D4FF]' 
+                    : 'w-2 bg-white/20 hover:bg-white/40'
+                  }
+                `}
+                aria-label={`Go to step ${index + 1}`}
+                data-testid={`button-progress-${index}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="md:hidden px-4">
+        <div className="relative">
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6B3DF2] via-[#a855f7] to-[#00D4FF] opacity-30" />
+          
+          <div className="space-y-4">
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              const isActive = index === activeStep;
+              const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
+              
+              return (
+                <div
+                  key={index}
+                  className={`
+                    relative pl-12 transition-all duration-500 ease-out
+                    ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
+                  `}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div 
+                    className={`
+                      absolute left-4 w-5 h-5 rounded-full flex items-center justify-center
+                      transition-all duration-300 z-10
+                      ${isActive 
+                        ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/40 scale-125' 
+                        : 'bg-white/10 border border-white/20'
+                      }
+                    `}
+                    style={{ top: '28px' }}
+                  >
+                    <span className="text-[10px] font-bold text-white">{index + 1}</span>
+                  </div>
+
+                  <button
+                    onClick={() => setActiveStep(isActive ? -1 : index)}
+                    className={`
+                      w-full text-left p-5 rounded-2xl backdrop-blur-lg
+                      transition-all duration-300
+                      ${isActive 
+                        ? 'shadow-[0_8px_30px_rgba(107,61,242,0.3)]' 
+                        : 'shadow-[0_4px_20px_rgba(10,0,30,0.4)]'
+                      }
+                    `}
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
+                      border: isActive 
+                        ? '1px solid rgba(160,80,255,0.35)' 
+                        : '1px solid rgba(255,255,255,0.06)',
+                    }}
+                    data-testid={`card-value-mobile-${valueId}`}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div 
+                        className={`
+                          w-10 h-10 rounded-xl flex items-center justify-center
+                          ${isActive 
+                            ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF]' 
+                            : 'bg-white/5 border border-white/10'
+                          }
+                        `}
+                      >
+                        <IconComponent className={`w-5 h-5 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-[10px] font-semibold uppercase tracking-[1px] text-[#B9A9FF]">
+                          Step {index + 1}
+                        </span>
+                        <h4 className="text-base font-semibold text-white">{value.title}</h4>
+                      </div>
+                      <ChevronRight 
+                        className={`w-5 h-5 text-[#B9A9FF] transition-transform duration-300 ${isActive ? 'rotate-90' : ''}`}
+                      />
+                    </div>
+                    
+                    {isActive && (
+                      <div className="mt-3 pt-3 border-t border-white/10 space-y-3">
+                        <p className="text-sm text-[#D7D3F6] leading-relaxed">{value.description}</p>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setDetailOpen(true);
+                          }}
+                          className="text-sm font-medium text-[#00D4FF] flex items-center gap-1"
+                          data-testid={`button-details-mobile-${valueId}`}
+                        >
+                          View details <ArrowRight className="w-3 h-3" />
+                        </button>
+                      </div>
+                    )}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {detailOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4"
+          onClick={() => setDetailOpen(false)}
+        >
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            style={{ animation: 'fadeIn 320ms ease-out' }}
+          />
+          <div 
+            className="relative w-full max-w-lg bg-gradient-to-br from-[#0b0710] to-[#1a1025] rounded-t-3xl md:rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+            style={{ animation: 'slideUp 320ms ease-out' }}
+          >
+            <div 
+              className="absolute top-0 left-0 right-0 h-1"
+              style={{ background: 'linear-gradient(90deg, #6B3DF2, #a855f7, #00D4FF)' }}
+            />
+            
+            <div className="p-6 md:p-8">
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] flex items-center justify-center">
+                    {(() => {
+                      const IconComponent = values[activeStep].icon;
+                      return <IconComponent className="w-6 h-6 text-white" />;
+                    })()}
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-[1px] text-[#B9A9FF]">
+                      Step {activeStep + 1}
+                    </span>
+                    <h3 className="text-xl font-bold text-white">{values[activeStep].title}</h3>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setDetailOpen(false)}
+                  className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/20 transition-colors"
+                  data-testid="button-close-detail"
+                >
+                  <span className="sr-only">Close</span>
+                  <span aria-hidden>×</span>
+                </button>
+              </div>
+
+              <p className="text-[#D7D3F6] mb-6">{values[activeStep].description}</p>
+
+              <div className="space-y-4 mb-6">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-[#B9A9FF]">Deliverables</h4>
+                <ul className="space-y-2">
+                  {stepDetails[activeStep].deliverables.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-[#D7D3F6]">
+                      <CheckCircle2 className="w-4 h-4 text-[#00D4FF] flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex items-center gap-4 mb-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <Clock className="w-5 h-5 text-[#B9A9FF]" />
+                <div>
+                  <span className="text-xs text-[#B9A9FF]">Timeframe</span>
+                  <p className="text-sm font-medium text-white">{stepDetails[activeStep].timeframe}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button 
+                  className="flex-1 bg-gradient-to-r from-[#6B3DF2] to-[#a855f7] hover:from-[#7c4ff5] hover:to-[#b366f9] text-white border-0"
+                  data-testid="button-talk-engineer"
+                >
+                  <Mail className="w-4 h-4 mr-2" />
+                  Talk to an engineer
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="flex-1 border-white/20 text-white hover:bg-white/10"
+                  data-testid="button-see-samples"
+                >
+                  See Samples
+                </Button>
+              </div>
+
+              <p className="text-center text-xs text-[#B9A9FF] mt-4">
+                We reply within 1 business day
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }
@@ -587,156 +1109,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="mt-16">
-            <ScrollAnimation>
-              <div className="text-center mb-16">
-                <Badge variant="outline" className="mb-4">Our Core Values</Badge>
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-                  The Roadmap to <span className="text-primary">Excellence</span>
-                </h3>
-              </div>
-            </ScrollAnimation>
-
-            <div className="relative min-h-[600px] md:min-h-[700px]">
-              <svg 
-                className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" 
-                preserveAspectRatio="xMidYMid meet"
-                viewBox="0 0 1000 700"
-              >
-                <defs>
-                  <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
-                    <stop offset="50%" stopColor="#a855f7" stopOpacity="0.9" />
-                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
-                  </linearGradient>
-                  <filter id="glowPath" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
-                
-                <path
-                  d="M 150 120 
-                     C 300 120, 350 180, 350 250
-                     S 400 380, 500 380
-                     C 600 380, 650 320, 650 250
-                     S 700 120, 850 120"
-                  stroke="url(#pathGradient)"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeDasharray="12 8"
-                  filter="url(#glowPath)"
-                  className="animate-pulse"
-                  style={{ animationDuration: '4s' }}
-                />
-                
-                <path
-                  d="M 150 120 
-                     C 300 120, 350 180, 350 250
-                     S 400 380, 500 380
-                     C 600 380, 650 320, 650 250
-                     S 700 120, 850 120"
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeOpacity="0.3"
-                />
-
-                <circle cx="150" cy="120" r="8" fill="hsl(var(--primary))" filter="url(#glowPath)">
-                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="350" cy="250" r="8" fill="#a855f7" filter="url(#glowPath)">
-                  <animate attributeName="r" values="8;12;8" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="650" cy="250" r="8" fill="#06b6d4" filter="url(#glowPath)">
-                  <animate attributeName="r" values="8;12;8" dur="2s" begin="1s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="850" cy="120" r="8" fill="hsl(var(--primary))" filter="url(#glowPath)">
-                  <animate attributeName="r" values="8;12;8" dur="2s" begin="1.5s" repeatCount="indefinite" />
-                </circle>
-
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <circle key={i} r="4" fill="white" opacity="0.8" filter="url(#glowPath)">
-                    <animateMotion
-                      dur="6s"
-                      repeatCount="indefinite"
-                      begin={`${i * 1.2}s`}
-                      path="M 150 120 C 300 120, 350 180, 350 250 S 400 380, 500 380 C 600 380, 650 320, 650 250 S 700 120, 850 120"
-                    />
-                    <animate attributeName="opacity" values="0;1;1;0" dur="6s" repeatCount="indefinite" begin={`${i * 1.2}s`} />
-                  </circle>
-                ))}
-              </svg>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-                {values.map((value, index) => {
-                  const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
-                  const IconComponent = value.icon;
-                  const colors = [
-                    { bg: 'from-primary/20 to-primary/5', border: 'border-primary/40', glow: 'shadow-primary/20', accent: 'bg-primary', text: 'text-primary' },
-                    { bg: 'from-purple-500/20 to-purple-500/5', border: 'border-purple-500/40', glow: 'shadow-purple-500/20', accent: 'bg-purple-500', text: 'text-purple-400' },
-                    { bg: 'from-cyan-500/20 to-cyan-500/5', border: 'border-cyan-500/40', glow: 'shadow-cyan-500/20', accent: 'bg-cyan-500', text: 'text-cyan-400' },
-                    { bg: 'from-primary/20 to-purple-500/5', border: 'border-primary/40', glow: 'shadow-primary/20', accent: 'bg-gradient-to-r from-primary to-purple-500', text: 'text-primary' },
-                  ];
-                  const color = colors[index];
-                  
-                  return (
-                    <ScrollAnimation key={index} delay={index * 200}>
-                      <div 
-                        className={`group relative h-full`}
-                        data-testid={`card-value-${valueId}`}
-                        style={{ 
-                          marginTop: index === 1 || index === 2 ? '80px' : '0',
-                        }}
-                      >
-                        <div className={`absolute -inset-0.5 bg-gradient-to-br ${color.bg} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                        
-                        <div className={`relative h-full p-6 rounded-2xl bg-gradient-to-br from-card/90 to-card/60 border ${color.border} backdrop-blur-sm transition-all duration-500 group-hover:border-opacity-80 shadow-lg ${color.glow}`}>
-                          <div className="flex items-start justify-between mb-4 gap-2">
-                            <div className={`w-12 h-12 rounded-xl ${color.accent} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                              <IconComponent className="w-6 h-6 text-white" />
-                            </div>
-                            <div className={`w-10 h-10 rounded-full ${color.accent} flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
-                              {index + 1}
-                            </div>
-                          </div>
-                          
-                          <div className="space-y-3">
-                            <span className={`inline-block text-xs font-semibold ${color.text} uppercase tracking-wider`}>
-                              Step {index + 1}
-                            </span>
-                            <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors" data-testid={`text-value-title-${valueId}`}>
-                              {value.title}
-                            </h4>
-                            <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-value-desc-${valueId}`}>
-                              {value.description}
-                            </p>
-                          </div>
-
-                          <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden rounded-b-2xl">
-                            <div className={`h-full ${color.accent} transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700`} />
-                          </div>
-
-                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <Sparkles className={`w-4 h-4 ${color.text} animate-pulse`} />
-                          </div>
-                        </div>
-                      </div>
-                    </ScrollAnimation>
-                  );
-                })}
-              </div>
-
-              <div className="absolute -top-8 left-1/4 w-20 h-20 rounded-full bg-primary/5 blur-2xl animate-pulse hidden lg:block" style={{ animationDuration: '4s' }} />
-              <div className="absolute top-1/2 right-1/4 w-32 h-32 rounded-full bg-purple-500/5 blur-3xl animate-pulse hidden lg:block" style={{ animationDuration: '5s', animationDelay: '1s' }} />
-              <div className="absolute bottom-0 left-1/3 w-24 h-24 rounded-full bg-cyan-500/5 blur-2xl animate-pulse hidden lg:block" style={{ animationDuration: '6s', animationDelay: '2s' }} />
-            </div>
-          </div>
+          <RoadmapSection values={values} />
         </div>
       </section>
       <section className="py-24 px-6 bg-gradient-to-b from-card/30 via-card/50 to-card/30">

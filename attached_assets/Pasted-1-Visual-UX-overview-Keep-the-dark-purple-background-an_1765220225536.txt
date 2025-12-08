@@ -1,0 +1,135 @@
+1) Visual & UX overview
+
+Keep the dark purple background and glass cards style (backdrop-filter blur + semi-transparent panels), but add depth, motion, and clear hierarchy.
+
+Make each step a card with: small step label (01 / STEP 1), an icon, short title, 1–2 line summary, and a micro “read more” action that opens a focused detail pane/modal.
+
+Layout: a horizontal carousel/timeline on desktop with a central active card that’s visually highlighted; on mobile switch to a vertical stacked stepper with expandable sections.
+
+2) Layout & composition (desktop)
+
+Container width: max 1200px, centered.
+
+Visual center: display 4 cards in a horizontal row but with the center two visually elevated; use perspective + subtle parallax so center card appears closest. If odd number of steps, center the active step.
+
+Card spacing: 28–36px horizontal gutter.
+
+Connectors: thin animated SVG lines/arcs between cards. Lines glow softly on hover and animate a subtle traveling particle (small dot) to indicate flow from left → right.
+
+Accent ring: each card has a circular step badge (small number inside). The active card’s badge uses a gradient neon border and subtle radial glow.
+
+3) Card design (glass details)
+
+Card base:
+
+backdrop-filter: blur(8px)
+
+background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))
+
+border: 1px solid rgba(255,255,255,0.06) plus box-shadow: 0 8px 30px rgba(10, 0, 30, 0.6)
+
+corner radius: 18px
+
+padding: 28px
+
+min-height: 200px (desktop)
+
+Active card (center):
+
+scale: 1.06 transform on desktop
+
+border: 1px solid rgba(160, 80, 255, 0.35) with inner neon accent line (2px) on bottom edge
+
+background highlight: faint conic-gradient overlay (very subtle, 3–5% opacity)
+
+Typography inside card:
+
+Step label (small caps): 12px, letter-spacing 1px, color #b9a9ff
+
+Title: 20–22px semi-bold, color #fff
+
+Body: 14px regular, color #d7d3f6 (soft contrast)
+
+CTA “Read more” link: underline animation on hover
+
+Icons:
+
+Use thin line icons (stroke 1.5–2px) filled with subtle accent color on active card. Keep icon set consistent.
+
+4) Color & design tokens
+
+Primary palette (dark glass theme):
+
+Background dark: #0b0710
+
+Deep purple accent: #6B3DF2 (use for neon outlines)
+
+Secondary cyan accent: #00D4FF (for step 3 etc.)
+
+Soft text: #D7D3F6
+
+Muted label: #B9A9FF
+
+Connector glow: rgba(107,61,242,0.18)
+
+Accessibility:
+
+Ensure text contrast ratio >= 4.5:1 for titles; body text should remain >= 3:1 with slightly larger size if needed. Provide hover/focus states that increase contrast.
+
+5) Motion & interactions
+
+Entrance: when roadmap enters viewport, animate cards with a staggered vertical reveal (translateY 20px → 0) and fade (opacity 0 → 1). Stagger = 80ms. Duration = 600ms, easing = cubic-bezier(.2,.9,.2,1).
+
+Hover: card raises on hover (translateY -8px), subtle shadow intensifies. Active card (or focused) gently scales to 1.06.
+
+Connector animation: SVG stroke-dashoffset animation to create a flowing line; a small moving particle travels the connector when the corresponding card becomes active. Particle movement duration = 1.6s, infinite subtle loop when hovered.
+
+Click: clicking a card centers it (animate translate and scale) and opens a detail panel (slide-up modal or side drawer) with additional deliverables, timeline, examples, CTA. Drawer animation = 320ms slide + fade.
+
+Keyboard & focus: arrow keys left/right cycle active card; Enter opens details. Focus ring visible (2px outline in accent color).
+
+Recommended libs: GSAP for complex timeline animations, or Framer Motion for React. For lightweight, use IntersectionObserver + CSS transitions + small JS for transforms.
+
+6) Detail panel (on click / tap)
+
+Lightweight pane that overlays page with blurred background (increase backdrop blur for focus).
+
+Content: larger title, 2–3 bullets of deliverables, 1 image thumbnail or animated micro-gif of CAD/mesh, timeframe, CTA buttons Request Quote and See Samples.
+
+Include downloadable sample button (STEP/ZIP).
+
+7) Mobile behavior
+
+Convert to vertical stepper: stacked cards with thin vertical line on left showing progress.
+
+The active step expands to reveal full copy; collapsed steps show title + 1-line summary.
+
+Swipe left/right to change active step if in horizontal mode (for smaller tablets).
+
+Keep tap targets >= 44px.
+
+8) Copy + microcopy (ready to paste)
+
+Section title: The Roadmap to Excellence
+Intro line: Four predictable stages — one reliable delivery. See how we take an idea to production-ready CAD.
+
+Steps (short):
+
+Innovation First — Cutting-edge tools and methods to crystallize your idea into a testable concept.
+
+Precision Driven — Industry processes ensuring accuracy in every deliverable.
+
+Collaborative Spirit — We work with your team to align engineering and business goals.
+
+Excellence Standard — Committed to delivering manufacturable, production-ready designs.
+
+Active CTA in card detail: Talk to an engineer
+Confirmation microcopy: We reply within 1 business day (display near CTA)
+
+9) Micro-interaction details (tiny polish that sells)
+
+On active card reveal, show a subtle particle burst behind the step badge (very low opacity) for 450ms.
+
+Floating faint orbital curve behind the center cards (SVG path) gently animates to suggest motion.
+
+Add a “progress indicator” below the roadmap showing 25% 50% 75% 100% as you move across steps (or display the step number like Step 2 / 4).
