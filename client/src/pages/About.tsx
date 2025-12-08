@@ -446,7 +446,7 @@ export default function About() {
                           </div>
                         </div>
 
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/40 z-10 ring-4 ring-background">
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/40 z-10">
                           {index + 1}
                         </div>
 
