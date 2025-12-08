@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import { useToast } from "@/hooks/use-toast";
 import { 
   Palette, Waves, Cpu, GraduationCap, Mail, MapPin, Clock, 
   CheckCircle2, ArrowRight, Upload, X, Users, Quote, Star,
@@ -60,13 +61,27 @@ export default function Contact() {
   });
   const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     console.log('Form submitted:', { ...formData, service: selectedService, files });
-    setTimeout(() => setIsSubmitting(false), 1000);
+    
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      toast({
+        title: "Request Submitted Successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      setSelectedService(null);
+      setFiles([]);
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }, 1500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -343,29 +358,30 @@ export default function Contact() {
                           )}
                         </div>
 
-                        <div className="relative">
-                          <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-2xl opacity-70 blur-lg group-hover:opacity-100 transition-all" />
-                          <Button 
-                            type="submit" 
-                            size="lg"
-                            className="relative w-full h-16 text-lg font-bold bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 border-0 group"
-                            disabled={isSubmitting || !selectedService}
-                            data-testid="button-submit"
-                          >
-                            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <span className="relative flex items-center justify-center gap-3">
-                              {isSubmitting ? (
-                                <>Sending your request...</>
-                              ) : (
-                                <>
-                                  <Send className="w-5 h-5" />
-                                  Submit Project Request
-                                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </>
-                              )}
+                        <Button 
+                          type="submit" 
+                          size="lg"
+                          className="w-full h-14 text-base font-semibold group"
+                          disabled={isSubmitting || !selectedService}
+                          data-testid="button-submit"
+                        >
+                          {isSubmitting ? (
+                            <span className="flex items-center gap-2">
+                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              Sending...
                             </span>
-                          </Button>
-                        </div>
+                          ) : isSubmitted ? (
+                            <span className="flex items-center gap-2">
+                              <CheckCircle2 className="w-5 h-5" />
+                              Submitted!
+                            </span>
+                          ) : (
+                            <span className="flex items-center gap-2">
+                              Submit Project Request
+                              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                          )}
+                        </Button>
                       </form>
                     </div>
                     
