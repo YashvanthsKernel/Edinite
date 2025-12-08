@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { useState, useEffect, useRef } from "react";
+import karthikeyanImage from "@assets/Karthikeyan_Image_1765222199201.png";
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -755,7 +756,8 @@ export default function About() {
       initials: "KR",
       email: "rkarthikeyan135@gmail.com",
       linkedin: "https://www.linkedin.com/in/karthikeyan-r-6414a9258/",
-      instagram: "https://www.instagram.com/karthik_designer26/"
+      instagram: "https://www.instagram.com/karthik_designer26/",
+      image: karthikeyanImage
     },
     {
       name: "Shrivatsav Tamil Kumaran",
@@ -1345,15 +1347,25 @@ export default function About() {
                         )}
                       </div>
 
-                      <div className="w-full md:w-56 h-48 md:h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0" data-testid={`photo-column-leader-${index}`}>
-                        <div className="text-center">
-                          <div className="w-32 h-32 rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
-                            <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                      <div className="w-full md:w-56 h-48 md:h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0 overflow-hidden" data-testid={`photo-column-leader-${index}`}>
+                        {leader.image ? (
+                          <img 
+                            src={leader.image} 
+                            alt={leader.name}
+                            className="w-full h-full object-cover object-top"
+                            style={{ objectPosition: '50% 15%' }}
+                            data-testid={`img-leader-${index}`}
+                          />
+                        ) : (
+                          <div className="text-center">
+                            <div className="w-32 h-32 rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
+                              <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                              </svg>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-4">Professional Photo</p>
                           </div>
-                          <p className="text-sm text-muted-foreground mt-4">Professional Photo</p>
-                        </div>
+                        )}
                       </div>
                     </div>
                   </GlassPanel>
