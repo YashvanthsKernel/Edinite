@@ -208,7 +208,7 @@ export default function Contact() {
 
             <div className="lg:col-span-3">
               <ScrollAnimation delay={200}>
-                <Card className="p-6 md:p-8 border-border/50">
+                <Card className="p-6 md:p-8 border-border/50 bg-[#2c154b]">
                   <div className="mb-6">
                     <h2 className="text-xl font-bold text-foreground mb-2">Share your project details</h2>
                     <p className="text-muted-foreground text-sm">
