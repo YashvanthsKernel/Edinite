@@ -421,42 +421,32 @@ export default function About() {
             <div className="relative">
               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-purple-500/50 to-primary/50" />
               
-              <div className="space-y-8 md:space-y-0">
+              <div className="space-y-12 md:space-y-16">
                 {values.map((value, index) => {
-                  const IconComponent = value.icon;
                   const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
                   const isEven = index % 2 === 0;
                   
                   return (
                     <ScrollAnimation key={index} delay={index * 150}>
                       <div 
-                        className={`relative flex flex-col md:flex-row items-center gap-4 md:gap-8 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                        className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                         data-testid={`card-value-${valueId}`}
                       >
                         <div className={`flex-1 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
-                          <GlassPanel className={`p-6 group hover:border-primary/40 transition-all ${isEven ? 'md:mr-8' : 'md:ml-8'}`}>
-                            <div className={`flex items-start gap-4 ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:from-primary/30 group-hover:to-purple-500/30 transition-colors">
-                                <IconComponent className="w-7 h-7 text-primary" />
-                              </div>
-                              <div className={`flex-1 ${isEven ? 'md:text-right' : ''}`}>
-                                <div className="flex items-center gap-2 mb-2">
-                                  <span className={`text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full ${isEven ? 'md:order-2' : ''}`}>
-                                    Phase {index + 1}
-                                  </span>
-                                </div>
-                                <h4 className="text-xl font-bold text-foreground mb-2" data-testid={`text-value-title-${valueId}`}>
-                                  {value.title}
-                                </h4>
-                                <p className="text-muted-foreground leading-relaxed" data-testid={`text-value-desc-${valueId}`}>
-                                  {value.description}
-                                </p>
-                              </div>
-                            </div>
-                          </GlassPanel>
+                          <div className={`p-6 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 border border-primary/20 hover:border-primary/40 transition-all ${isEven ? 'md:mr-12' : 'md:ml-12'}`}>
+                            <span className="inline-block text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
+                              Step {index + 1}
+                            </span>
+                            <h4 className="text-2xl font-bold text-foreground mb-3" data-testid={`text-value-title-${valueId}`}>
+                              {value.title}
+                            </h4>
+                            <p className="text-muted-foreground leading-relaxed" data-testid={`text-value-desc-${valueId}`}>
+                              {value.description}
+                            </p>
+                          </div>
                         </div>
 
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 z-10">
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/40 z-10 ring-4 ring-background">
                           {index + 1}
                         </div>
 
