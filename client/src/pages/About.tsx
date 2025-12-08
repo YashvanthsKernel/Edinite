@@ -589,7 +589,7 @@ export default function About() {
 
           <div className="mt-16">
             <ScrollAnimation>
-              <div className="text-center mb-12">
+              <div className="text-center mb-16">
                 <Badge variant="outline" className="mb-4">Our Core Values</Badge>
                 <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
                   The Roadmap to <span className="text-primary">Excellence</span>
@@ -597,44 +597,144 @@ export default function About() {
               </div>
             </ScrollAnimation>
 
-            <div className="relative">
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-purple-500/50 to-primary/50" />
-              
-              <div className="space-y-12 md:space-y-16">
+            <div className="relative min-h-[600px] md:min-h-[700px]">
+              <svg 
+                className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" 
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 1000 700"
+              >
+                <defs>
+                  <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+                    <stop offset="50%" stopColor="#a855f7" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+                  </linearGradient>
+                  <filter id="glowPath" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                
+                <path
+                  d="M 150 120 
+                     C 300 120, 350 180, 350 250
+                     S 400 380, 500 380
+                     C 600 380, 650 320, 650 250
+                     S 700 120, 850 120"
+                  stroke="url(#pathGradient)"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeDasharray="12 8"
+                  filter="url(#glowPath)"
+                  className="animate-pulse"
+                  style={{ animationDuration: '4s' }}
+                />
+                
+                <path
+                  d="M 150 120 
+                     C 300 120, 350 180, 350 250
+                     S 400 380, 500 380
+                     C 600 380, 650 320, 650 250
+                     S 700 120, 850 120"
+                  stroke="white"
+                  strokeWidth="1"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeOpacity="0.3"
+                />
+
+                <circle cx="150" cy="120" r="8" fill="hsl(var(--primary))" filter="url(#glowPath)">
+                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="350" cy="250" r="8" fill="#a855f7" filter="url(#glowPath)">
+                  <animate attributeName="r" values="8;12;8" dur="2s" begin="0.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="650" cy="250" r="8" fill="#06b6d4" filter="url(#glowPath)">
+                  <animate attributeName="r" values="8;12;8" dur="2s" begin="1s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="850" cy="120" r="8" fill="hsl(var(--primary))" filter="url(#glowPath)">
+                  <animate attributeName="r" values="8;12;8" dur="2s" begin="1.5s" repeatCount="indefinite" />
+                </circle>
+
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <circle key={i} r="4" fill="white" opacity="0.8" filter="url(#glowPath)">
+                    <animateMotion
+                      dur="6s"
+                      repeatCount="indefinite"
+                      begin={`${i * 1.2}s`}
+                      path="M 150 120 C 300 120, 350 180, 350 250 S 400 380, 500 380 C 600 380, 650 320, 650 250 S 700 120, 850 120"
+                    />
+                    <animate attributeName="opacity" values="0;1;1;0" dur="6s" repeatCount="indefinite" begin={`${i * 1.2}s`} />
+                  </circle>
+                ))}
+              </svg>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
                 {values.map((value, index) => {
                   const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
-                  const isEven = index % 2 === 0;
+                  const IconComponent = value.icon;
+                  const colors = [
+                    { bg: 'from-primary/20 to-primary/5', border: 'border-primary/40', glow: 'shadow-primary/20', accent: 'bg-primary', text: 'text-primary' },
+                    { bg: 'from-purple-500/20 to-purple-500/5', border: 'border-purple-500/40', glow: 'shadow-purple-500/20', accent: 'bg-purple-500', text: 'text-purple-400' },
+                    { bg: 'from-cyan-500/20 to-cyan-500/5', border: 'border-cyan-500/40', glow: 'shadow-cyan-500/20', accent: 'bg-cyan-500', text: 'text-cyan-400' },
+                    { bg: 'from-primary/20 to-purple-500/5', border: 'border-primary/40', glow: 'shadow-primary/20', accent: 'bg-gradient-to-r from-primary to-purple-500', text: 'text-primary' },
+                  ];
+                  const color = colors[index];
                   
                   return (
-                    <ScrollAnimation key={index} delay={index * 150}>
+                    <ScrollAnimation key={index} delay={index * 200}>
                       <div 
-                        className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                        className={`group relative h-full`}
                         data-testid={`card-value-${valueId}`}
+                        style={{ 
+                          marginTop: index === 1 || index === 2 ? '80px' : '0',
+                        }}
                       >
-                        <div className={`flex-1 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
-                          <div className={`p-6 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 border border-primary/20 hover:border-primary/40 transition-all ${isEven ? 'md:mr-12' : 'md:ml-12'}`}>
-                            <span className="inline-block text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
+                        <div className={`absolute -inset-0.5 bg-gradient-to-br ${color.bg} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                        
+                        <div className={`relative h-full p-6 rounded-2xl bg-gradient-to-br from-card/90 to-card/60 border ${color.border} backdrop-blur-sm transition-all duration-500 group-hover:border-opacity-80 shadow-lg ${color.glow}`}>
+                          <div className="flex items-start justify-between mb-4 gap-2">
+                            <div className={`w-12 h-12 rounded-xl ${color.accent} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                              <IconComponent className="w-6 h-6 text-white" />
+                            </div>
+                            <div className={`w-10 h-10 rounded-full ${color.accent} flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
+                              {index + 1}
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-3">
+                            <span className={`inline-block text-xs font-semibold ${color.text} uppercase tracking-wider`}>
                               Step {index + 1}
                             </span>
-                            <h4 className="text-2xl font-bold text-foreground mb-3" data-testid={`text-value-title-${valueId}`}>
+                            <h4 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors" data-testid={`text-value-title-${valueId}`}>
                               {value.title}
                             </h4>
-                            <p className="text-muted-foreground leading-relaxed" data-testid={`text-value-desc-${valueId}`}>
+                            <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-value-desc-${valueId}`}>
                               {value.description}
                             </p>
                           </div>
-                        </div>
 
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/40 z-10">
-                          {index + 1}
-                        </div>
+                          <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden rounded-b-2xl">
+                            <div className={`h-full ${color.accent} transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700`} />
+                          </div>
 
-                        <div className="flex-1 hidden md:block" />
+                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <Sparkles className={`w-4 h-4 ${color.text} animate-pulse`} />
+                          </div>
+                        </div>
                       </div>
                     </ScrollAnimation>
                   );
                 })}
               </div>
+
+              <div className="absolute -top-8 left-1/4 w-20 h-20 rounded-full bg-primary/5 blur-2xl animate-pulse hidden lg:block" style={{ animationDuration: '4s' }} />
+              <div className="absolute top-1/2 right-1/4 w-32 h-32 rounded-full bg-purple-500/5 blur-3xl animate-pulse hidden lg:block" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+              <div className="absolute bottom-0 left-1/3 w-24 h-24 rounded-full bg-cyan-500/5 blur-2xl animate-pulse hidden lg:block" style={{ animationDuration: '6s', animationDelay: '2s' }} />
             </div>
           </div>
         </div>
