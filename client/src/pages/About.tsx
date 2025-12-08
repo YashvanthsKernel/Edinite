@@ -183,7 +183,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen pt-16 overflow-hidden">
+    <div className="min-h-screen pt-20 overflow-hidden">
       <section className="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-600/5" />
         <HexagonGrid />
