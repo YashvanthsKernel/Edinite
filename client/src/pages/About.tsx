@@ -445,58 +445,123 @@ export default function About() {
             </ScrollAnimation>
           </div>
 
-          <div className="relative max-w-5xl mx-auto mb-20">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-purple-500 to-primary opacity-30" />
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="relative max-w-6xl mx-auto mb-20">
+            <div className="relative flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-0">
               <ScrollAnimation>
-                <div className="relative group p-8 md:pr-16" data-testid="card-vision">
-                  <div className="md:text-right">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-purple-600 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-primary/30">
-                      <Target className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-vision-title">
-                      Our Vision
-                    </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-vision-description">
-                      To become India's leading digital engineering studio, where ideas evolve into 
-                      validated designs with industry-standard precision, setting new benchmarks for 
-                      engineering excellence across the nation.
-                    </p>
-                    <div className="mt-6 flex md:justify-end gap-2">
-                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Innovation</span>
-                      <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-sm">Excellence</span>
+                <div className="relative group lg:w-[400px]" data-testid="card-vision">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card/90 to-card/50 border border-primary/20 backdrop-blur-sm">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl" />
+                    
+                    <div className="relative">
+                      <div className="relative inline-flex mb-6">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-2xl blur-lg opacity-60 animate-pulse" style={{ animationDuration: '3s' }} />
+                        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/40">
+                          <Target className="w-8 h-8 text-white" />
+                        </div>
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-ping" style={{ animationDuration: '2s' }} />
+                      </div>
+                      
+                      <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-vision-title">
+                        Our Vision
+                      </h3>
+                      <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-vision-description">
+                        To become India's leading digital engineering studio, where ideas evolve into 
+                        validated designs with industry-standard precision, setting new benchmarks for 
+                        engineering excellence across the nation.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">Innovation</span>
+                        <span className="px-3 py-1.5 rounded-full bg-purple-500/10 text-purple-400 text-sm font-medium border border-purple-500/20">Excellence</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
-              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center z-10 shadow-xl shadow-primary/40">
-                <Sparkles className="w-10 h-10 text-white" />
+              <div className="relative lg:mx-8 flex items-center justify-center">
+                <div className="relative w-32 h-32 lg:w-40 lg:h-40">
+                  <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30 animate-spin" style={{ animationDuration: '20s' }} />
+                  <div className="absolute inset-2 rounded-full border-2 border-dashed border-purple-500/30 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
+                  <div className="absolute inset-4 rounded-full border border-primary/20" />
+                  
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute w-full h-full">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-lg shadow-primary/50 animate-pulse" style={{ animationDuration: '2s' }} />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '1s' }} />
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
+                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '1.5s' }} />
+                    </div>
+                  </div>
+                  
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-primary/20 via-purple-500/20 to-primary/20 rounded-full blur-xl animate-pulse" style={{ animationDuration: '4s' }} />
+                    <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary via-purple-500 to-primary flex items-center justify-center shadow-2xl shadow-primary/50">
+                      <Sparkles className="w-10 h-10 lg:w-12 lg:h-12 text-white animate-pulse" style={{ animationDuration: '2s' }} />
+                    </div>
+                  </div>
+                  
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 160 160">
+                    <defs>
+                      <linearGradient id="arcGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                        <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="75" fill="none" stroke="url(#arcGradient1)" strokeWidth="2" strokeDasharray="100 370" className="animate-spin origin-center" style={{ animationDuration: '8s' }} />
+                  </svg>
+                </div>
+                
+                <div className="hidden lg:block absolute left-full top-1/2 w-16 h-px">
+                  <div className="w-full h-full bg-gradient-to-r from-purple-500 to-transparent" />
+                  <div className="absolute top-0 left-0 w-4 h-px bg-purple-500 animate-pulse" style={{ animationDuration: '1s' }} />
+                </div>
+                <div className="hidden lg:block absolute right-full top-1/2 w-16 h-px">
+                  <div className="w-full h-full bg-gradient-to-l from-primary to-transparent" />
+                  <div className="absolute top-0 right-0 w-4 h-px bg-primary animate-pulse" style={{ animationDuration: '1s' }} />
+                </div>
               </div>
 
               <ScrollAnimation delay={150}>
-                <div className="relative group p-8 md:pl-16" data-testid="card-mission">
-                  <div className="md:text-left">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-primary mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-purple-500/30">
-                      <Lightbulb className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-mission-title">
-                      Our Mission
-                    </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-mission-description">
-                      Make advanced design, simulation, and engineering R&D accessible to all — 
-                      enabling students, startups, and innovators to build smarter, optimized 
-                      solutions that shape the future of technology.
-                    </p>
-                    <div className="mt-6 flex gap-2">
-                      <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm">Accessible</span>
-                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Empowering</span>
+                <div className="relative group lg:w-[400px]" data-testid="card-mission">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-cyan-400 to-purple-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card/90 to-card/50 border border-purple-500/20 backdrop-blur-sm">
+                    <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl" />
+                    <div className="absolute bottom-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl" />
+                    
+                    <div className="relative">
+                      <div className="relative inline-flex mb-6">
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-cyan-400 rounded-2xl blur-lg opacity-60 animate-pulse" style={{ animationDuration: '3s', animationDelay: '1.5s' }} />
+                        <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-purple-500/40">
+                          <Lightbulb className="w-8 h-8 text-white" />
+                        </div>
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-ping" style={{ animationDuration: '2s', animationDelay: '1s' }} />
+                      </div>
+                      
+                      <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-mission-title">
+                        Our Mission
+                      </h3>
+                      <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-mission-description">
+                        Make advanced design, simulation, and engineering R&D accessible to all — 
+                        enabling students, startups, and innovators to build smarter, optimized 
+                        solutions that shape the future of technology.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20">Accessible</span>
+                        <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">Empowering</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
             </div>
+            
+            <div className="absolute top-1/4 left-10 w-2 h-2 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3s' }} />
+            <div className="absolute top-3/4 left-20 w-1.5 h-1.5 bg-purple-500/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
+            <div className="absolute top-1/3 right-16 w-2 h-2 bg-cyan-400/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2s', animationDelay: '1s' }} />
+            <div className="absolute bottom-1/4 right-8 w-1.5 h-1.5 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
           </div>
 
           <div className="relative py-12">
