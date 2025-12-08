@@ -1086,8 +1086,13 @@ export default function About() {
                   
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="absolute w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-primary/20 via-purple-500/20 to-primary/20 rounded-full blur-xl animate-pulse" style={{ animationDuration: '4s' }} />
-                    <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary via-purple-500 to-primary flex items-center justify-center shadow-2xl shadow-primary/50 p-3">
-                      <img src={ediniteLogoCenter} alt="Edinite Logo" className="w-full h-full object-contain" />
+                    <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary via-purple-500 to-primary flex items-center justify-center shadow-2xl shadow-primary/50 overflow-hidden">
+                      <img 
+                        src={ediniteLogoCenter} 
+                        alt="Edinite Logo" 
+                        className="w-[60%] h-[60%] object-contain"
+                        style={{ margin: 'auto' }}
+                      />
                     </div>
                   </div>
                   
