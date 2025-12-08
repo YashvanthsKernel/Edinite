@@ -1,0 +1,109 @@
+1️⃣ Contact Page Copy (you can paste this into your page)
+
+Main Hero
+
+Heading:
+Let’s Build Something That Actually Works
+
+Sub-text:
+We help teams turn rough ideas into reliable designs through engineering simulations and validation.
+Tell us what you’re working on, and we’ll get back to you within 1–2 business days.
+
+“Talk to a Human” section (left side content)
+
+Section title:
+Prefer talking to a person?
+
+Body text:
+Whether you’re exploring a new product, debugging a design, or just want a second opinion on your simulation workflow, we’re happy to listen first and suggest next steps — no hard sell.
+
+Contact details (replace with real ones):
+
+📧 Email: hello@edinite.com
+
+☎️ Phone / WhatsApp: +91-98XXX-XXXXX
+
+🕒 Hours: Mon–Fri · 9:00 AM – 6:00 PM IST
+
+📍 Location (optional): Chennai, India · Working with teams worldwide
+
+Contact Form Text (right side)
+
+Form title:
+
+Share your project details
+
+Short helper text under the title:
+
+A few lines about your project help us route your message to the right engineer.
+
+Form fields (labels + placeholders):
+
+Name
+Placeholder: Your full name
+
+Work email
+Placeholder: you@company.com
+
+Company / Organization (optional)
+Placeholder: Your company or team name
+
+What do you need help with? (dropdown options)
+
+Design & simulation consultation
+
+Validating an existing design
+
+Performance / failure analysis
+
+Long-term engineering partnership
+
+Something else
+
+Project / message details (textarea)
+Placeholder:
+Tell us about your product, constraints, timelines, and any files or tools you’re already using.
+
+Timeline (optional short text)
+Placeholder: Example: Prototype in 3 months, launch in 6 months
+
+Budget range (optional)
+Placeholder: Rough range is okay (e.g. 1–2L, 5–10L, etc.)
+
+CTA button text:
+Send to Edinite
+or
+Request a callback
+
+After Submit Messages
+
+Success message:
+
+✅ Message received!
+Thanks for reaching out to Edinite. An engineer will review your details and respond within 1–2 business days.
+
+Error message (if validation fails):
+
+⚠️ Something went wrong. Please check the form and try again. If the issue persists, email us at hello@edinite.com
+.
+
+2️⃣ Optional: Layout + Style Prompt (for your own use)
+
+You can use this as an internal “design brief” when editing your Replit project:
+
+Design a clean, human-feeling contact page for Edinite – Engineering Design & Simulation Excellence.
+The layout has:
+
+A hero at the top with the heading: “Let’s Build Something That Actually Works”, and sub-text about turning ideas into validated designs with a 1–2 business day response promise.
+
+Below that, a two-column layout:
+
+Left column: “Talk to a human” block with short friendly copy, email, phone/WhatsApp, hours, and location. It should feel approachable, like you’re messaging a real engineer, not a corporate bot.
+
+Right column: A structured contact form with fields for Name, Work email, Company, “What do you need help with?” dropdown, Project details textarea, Timeline, and Budget range, plus a CTA button “Send to Edinite”.
+
+Use plenty of whitespace, subtle card borders or soft shadows, and typography that matches the rest of the Edinite site.
+
+No stock-photo overload, no AI-ish gradients everywhere; just a small, subtle line illustration or icon related to engineering/simulation if needed.
+
+Fully responsive: on mobile, the form stacks under the contact info with good padding and large tap targets
