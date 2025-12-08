@@ -249,158 +249,93 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
         </div>
       </ScrollAnimation>
 
-      <div className="hidden md:block relative max-w-[1200px] mx-auto px-4">
-        <svg 
-          className="absolute top-1/2 left-0 right-0 w-full h-24 -translate-y-1/2 pointer-events-none z-0"
-          preserveAspectRatio="none"
-          viewBox="0 0 1200 100"
-        >
-          <defs>
-            <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#6B3DF2" stopOpacity="0.4" />
-              <stop offset="33%" stopColor="#a855f7" stopOpacity="0.5" />
-              <stop offset="66%" stopColor="#00D4FF" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#6B3DF2" stopOpacity="0.4" />
-            </linearGradient>
-            <filter id="connectorGlow" x="-20%" y="-100%" width="140%" height="300%">
-              <feGaussianBlur stdDeviation="2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+      <div className="relative max-w-4xl mx-auto px-4">
+        <div className="absolute left-1/2 md:left-8 top-0 bottom-0 w-0.5 -translate-x-1/2 md:translate-x-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#6B3DF2] via-[#a855f7] to-[#00D4FF] opacity-40" />
           
-          <path
-            d="M 100 50 
-               C 200 50, 250 25, 350 25
-               S 450 75, 550 75
-               S 650 25, 750 25
-               S 850 50, 950 50
-               L 1100 50"
-            stroke="url(#connectorGradient)"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-            filter="url(#connectorGlow)"
-            className="opacity-60"
-          />
-          
-          <path
-            d="M 100 50 
-               C 200 50, 250 25, 350 25
-               S 450 75, 550 75
-               S 650 25, 750 25
-               S 850 50, 950 50
-               L 1100 50"
-            stroke="rgba(255,255,255,0.1)"
-            strokeWidth="1"
-            fill="none"
-            strokeLinecap="round"
-          />
+          <svg 
+            className="absolute inset-0 w-full h-full overflow-visible" 
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <filter id="particleGlow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            {[0, 1, 2].map((i) => (
+              <circle 
+                key={`particle-v-${i}`} 
+                cx="1" 
+                r="4" 
+                fill="#00D4FF" 
+                filter="url(#particleGlow)"
+              >
+                <animate
+                  attributeName="cy"
+                  values="0%;100%"
+                  dur="4s"
+                  repeatCount="indefinite"
+                  begin={`${i * 1.33}s`}
+                />
+                <animate 
+                  attributeName="opacity" 
+                  values="0;1;1;0" 
+                  dur="4s" 
+                  repeatCount="indefinite" 
+                  begin={`${i * 1.33}s`} 
+                />
+              </circle>
+            ))}
+          </svg>
+        </div>
 
-          {[0, 1, 2].map((i) => (
-            <circle key={`particle-${i}`} r="3" fill="#00D4FF" opacity="0.9" filter="url(#connectorGlow)">
-              <animateMotion
-                dur="4s"
-                repeatCount="indefinite"
-                begin={`${i * 1.33}s`}
-                path="M 100 50 C 200 50, 250 25, 350 25 S 450 75, 550 75 S 650 25, 750 25 S 850 50, 950 50 L 1100 50"
-              />
-              <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite" begin={`${i * 1.33}s`} />
-            </circle>
-          ))}
-        </svg>
-
-        <div className="relative flex items-start justify-between gap-8 py-8 z-10" style={{ perspective: '1000px' }}>
+        <div className="relative space-y-8 md:space-y-12">
           {values.map((value, index) => {
             const IconComponent = value.icon;
             const isActive = index === activeStep;
-            const isCenter = index === 1 || index === 2;
             const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
+            const isEven = index % 2 === 0;
             
             return (
               <div
                 key={index}
                 className={`
-                  relative flex-1 transition-all duration-500 ease-out cursor-pointer
-                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}
+                  relative transition-all duration-700 ease-out
+                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
-                style={{ 
-                  transitionDelay: `${index * 80}ms`,
-                  marginTop: isCenter ? '40px' : '0',
-                  transform: isActive ? 'translateY(-8px) scale(1.06)' : 'translateY(0) scale(1)',
-                  zIndex: isActive ? 10 : 1
-                }}
-                onClick={() => {
-                  setActiveStep(index);
-                  setDetailOpen(true);
-                }}
-                onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
-                tabIndex={0}
-                role="button"
-                aria-label={`Step ${index + 1}: ${value.title}`}
-                data-testid={`card-value-${valueId}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div 
-                  className={`
-                    relative p-7 rounded-[18px] min-h-[200px]
-                    backdrop-blur-lg
-                    transition-all duration-500
-                    ${isActive 
-                      ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
-                      : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
-                    }
-                  `}
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
-                    border: isActive 
-                      ? '1px solid rgba(160,80,255,0.35)' 
-                      : '1px solid rgba(255,255,255,0.06)',
-                  }}
-                >
-                  {isActive && (
-                    <div 
-                      className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full"
-                      style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
-                    />
-                  )}
-
-                  <div className="flex items-start justify-between mb-4 gap-3">
+                <div className={`flex items-start gap-6 md:gap-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                  <div className="hidden md:block flex-1" />
+                  
+                  <div className="absolute left-1/2 md:left-8 -translate-x-1/2 md:translate-x-0 z-20">
                     <div 
                       className={`
-                        w-12 h-12 rounded-xl flex items-center justify-center
-                        transition-all duration-300
+                        relative w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg
+                        transition-all duration-500 cursor-pointer
                         ${isActive 
-                          ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
-                          : 'bg-white/5 border border-white/10'
-                        }
-                      `}
-                    >
-                      <IconComponent className={`w-6 h-6 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
-                    </div>
-                    
-                    <div 
-                      className={`
-                        relative w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg
-                        ${isActive 
-                          ? 'text-white' 
-                          : 'text-[#B9A9FF] border border-[#6B3DF2]/30'
+                          ? 'text-white scale-110' 
+                          : 'text-[#B9A9FF] border-2 border-[#6B3DF2]/40 hover:scale-105'
                         }
                       `}
                       style={{
                         background: isActive 
                           ? 'linear-gradient(135deg, #6B3DF2, #a855f7)' 
-                          : 'rgba(107,61,242,0.1)'
+                          : 'rgba(11, 7, 16, 0.9)'
                       }}
+                      onClick={() => setActiveStep(index)}
                     >
                       {isActive && (
                         <div 
-                          className="absolute inset-[-3px] rounded-full animate-pulse"
+                          className="absolute inset-[-4px] rounded-full animate-pulse"
                           style={{ 
                             background: 'linear-gradient(135deg, #6B3DF2, #00D4FF)',
-                            filter: 'blur(8px)',
-                            opacity: 0.6,
+                            filter: 'blur(10px)',
+                            opacity: 0.7,
                             animationDuration: '2s'
                           }}
                         />
@@ -409,56 +344,110 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <span 
-                      className="inline-block text-xs font-semibold uppercase tracking-[1px]"
-                      style={{ color: '#B9A9FF' }}
-                    >
-                      Step {index + 1}
-                    </span>
-                    <h4 
-                      className="text-xl font-semibold transition-colors"
-                      style={{ color: isActive ? '#fff' : '#D7D3F6' }}
-                      data-testid={`text-value-title-${valueId}`}
-                    >
-                      {value.title}
-                    </h4>
-                    <p 
-                      className="text-sm leading-relaxed"
-                      style={{ color: '#D7D3F6' }}
-                      data-testid={`text-value-desc-${valueId}`}
-                    >
-                      {value.description}
-                    </p>
-                  </div>
-
-                  <button
-                    className="mt-4 text-sm font-medium text-[#B9A9FF] hover:text-white transition-colors group/link"
-                    onClick={(e) => {
-                      e.stopPropagation();
+                  <div 
+                    className={`
+                      flex-1 ml-16 md:ml-0 cursor-pointer
+                      transition-all duration-500 ease-out
+                      ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
+                    `}
+                    onClick={() => {
                       setActiveStep(index);
                       setDetailOpen(true);
                     }}
-                    data-testid={`button-readmore-${valueId}`}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
+                    data-testid={`card-value-${valueId}`}
                   >
-                    Read more 
-                    <span className="inline-block ml-1 transition-transform group-hover/link:translate-x-1">
-                      <ArrowRight className="w-3 h-3 inline" />
-                    </span>
-                  </button>
+                    <div 
+                      className={`
+                        relative p-6 md:p-8 rounded-[18px]
+                        backdrop-blur-lg
+                        transition-all duration-500
+                        ${isActive 
+                          ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
+                          : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
+                        }
+                      `}
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
+                        border: isActive 
+                          ? '1px solid rgba(160,80,255,0.35)' 
+                          : '1px solid rgba(255,255,255,0.06)',
+                      }}
+                    >
+                      {isActive && (
+                        <div 
+                          className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full"
+                          style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
+                        />
+                      )}
 
-                  {isActive && (
-                    <div className="absolute top-3 right-3">
-                      <Sparkles className="w-4 h-4 text-[#00D4FF] animate-pulse" style={{ animationDuration: '1.5s' }} />
+                      <div className="flex items-start justify-between mb-4 gap-4">
+                        <div 
+                          className={`
+                            w-14 h-14 rounded-xl flex items-center justify-center
+                            transition-all duration-300
+                            ${isActive 
+                              ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
+                              : 'bg-white/5 border border-white/10'
+                            }
+                          `}
+                        >
+                          <IconComponent className={`w-7 h-7 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
+                        </div>
+                        
+                        {isActive && (
+                          <div className="flex items-center gap-2">
+                            <Sparkles className="w-5 h-5 text-[#00D4FF] animate-pulse" style={{ animationDuration: '1.5s' }} />
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="space-y-3">
+                        <span 
+                          className="inline-block text-xs font-semibold uppercase tracking-[1.5px]"
+                          style={{ color: '#B9A9FF' }}
+                        >
+                          Step {index + 1}
+                        </span>
+                        <h4 
+                          className="text-2xl font-bold transition-colors"
+                          style={{ color: isActive ? '#fff' : '#D7D3F6' }}
+                          data-testid={`text-value-title-${valueId}`}
+                        >
+                          {value.title}
+                        </h4>
+                        <p 
+                          className="text-base leading-relaxed"
+                          style={{ color: '#D7D3F6' }}
+                          data-testid={`text-value-desc-${valueId}`}
+                        >
+                          {value.description}
+                        </p>
+                      </div>
+
+                      <button
+                        className="mt-5 text-sm font-medium text-[#B9A9FF] hover:text-white transition-colors group/link flex items-center gap-1"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveStep(index);
+                          setDetailOpen(true);
+                        }}
+                        data-testid={`button-readmore-${valueId}`}
+                      >
+                        Read more 
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                      </button>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="flex items-center justify-center gap-4 mt-10">
+        <div className="flex items-center justify-center gap-4 mt-12">
           <button
             onClick={() => setActiveStep(prev => Math.max(0, prev - 1))}
             disabled={activeStep === 0}
@@ -519,7 +508,7 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
         </div>
       </div>
 
-      <div className="md:hidden px-4">
+      <div className="hidden px-4">
         <div className="relative">
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6B3DF2] via-[#a855f7] to-[#00D4FF] opacity-30" />
           
