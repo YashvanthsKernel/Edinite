@@ -553,7 +553,7 @@ export default function About() {
                 <div className="group relative" data-testid={`card-leader-${index}`}>
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
                   <GlassPanel className="relative p-8 hover:border-primary/40 transition-colors overflow-hidden">
-                    <div className="flex items-stretch gap-8">
+                    <div className="flex flex-col-reverse md:flex-row items-stretch gap-8">
                       <div className="flex-1 space-y-4 py-4">
                         <div className="space-y-3">
                           <h3 className="text-5xl font-heading font-bold text-foreground leading-tight" data-testid={`text-leader-name-${index}`}>
@@ -610,7 +610,7 @@ export default function About() {
                         )}
                       </div>
 
-                      <div className="w-56 h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0" data-testid={`photo-column-leader-${index}`}>
+                      <div className="w-full md:w-56 h-48 md:h-56 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0" data-testid={`photo-column-leader-${index}`}>
                         <div className="text-center">
                           <div className="w-32 h-32 rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
                             <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
