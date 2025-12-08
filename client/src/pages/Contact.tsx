@@ -185,7 +185,7 @@ export default function Contact() {
                         </div>
                       </div>
 
-                      <form onSubmit={handleSubmit} className="space-y-8">
+                      <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                           <div className="flex items-center gap-2 mb-4">
                             <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center">
@@ -361,8 +361,8 @@ export default function Contact() {
                         <Button 
                           type="submit" 
                           size="lg"
-                          className="w-full h-14 text-base font-semibold group"
-                          disabled={isSubmitting || !selectedService}
+                          className="w-full h-14 text-base font-semibold group mt-2"
+                          disabled={isSubmitting}
                           data-testid="button-submit"
                         >
                           {isSubmitting ? (
