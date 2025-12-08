@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Mail, MapPin, Clock, Palette, Waves, Cpu, GraduationCap, CheckCircle2, ArrowRight, Sparkles, Users, Award, TrendingUp } from "lucide-react";
+import { useState, useRef } from "react";
+import { Mail, MapPin, Clock, Palette, Waves, Cpu, GraduationCap, CheckCircle2, ArrowRight, Sparkles, Users, Award, TrendingUp, Upload, X } from "lucide-react";
 import GlassPanel from "@/components/GlassPanel";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { Button } from "@/components/ui/button";
@@ -59,12 +59,14 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log('Form submitted:', { ...formData, service: selectedService });
+    console.log('Form submitted:', { ...formData, service: selectedService, files });
     setTimeout(() => setIsSubmitting(false), 1000);
   };
 
@@ -73,6 +75,29 @@ export default function Contact() {
       ...prev,
       [e.target.name]: e.target.value
     }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    if (e.dataTransfer.files) {
+      const newFiles = Array.from(e.dataTransfer.files);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const removeFile = (index: number) => {
+    setFiles(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -197,6 +222,55 @@ export default function Contact() {
                         data-testid="input-message"
                         required
                       />
+                    </div>
+
+                    <div>
+                      <Label className="text-foreground">5. Upload Files (Optional)</Label>
+                      <div 
+                        className="mt-2 border-2 border-dashed border-primary/30 rounded-xl p-6 text-center hover:border-primary/50 cursor-pointer transition-all bg-background/30"
+                        onClick={() => fileInputRef.current?.click()}
+                        onDrop={handleDrop}
+                        onDragOver={handleDragOver}
+                        data-testid="dropzone-file-upload"
+                      >
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          multiple
+                          accept=".step,.stp,.stl,.pdf,.iges,.igs"
+                          onChange={handleFileChange}
+                          className="hidden"
+                          data-testid="input-file"
+                        />
+                        <Upload size={28} className="mx-auto text-primary mb-2" />
+                        <p className="text-muted-foreground text-sm">
+                          Drop files here or click to upload
+                        </p>
+                        <p className="text-muted-foreground text-xs mt-1">
+                          STEP, STL, IGES, PDF files accepted
+                        </p>
+                      </div>
+                      {files.length > 0 && (
+                        <div className="mt-3 space-y-2">
+                          {files.map((file, index) => (
+                            <div 
+                              key={index} 
+                              className="flex items-center justify-between p-2 bg-primary/10 rounded-lg"
+                              data-testid={`file-item-${index}`}
+                            >
+                              <span className="text-sm text-foreground truncate">{file.name}</span>
+                              <button
+                                type="button"
+                                onClick={() => removeFile(index)}
+                                className="p-1 hover:bg-primary/20 rounded"
+                                data-testid={`button-remove-file-${index}`}
+                              >
+                                <X size={16} className="text-muted-foreground" />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <Button 
