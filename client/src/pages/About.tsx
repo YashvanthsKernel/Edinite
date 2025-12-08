@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { useState, useEffect, useRef } from "react";
 import karthikeyanImage from "@assets/Karthikeyan_Image_1765222199201.png";
+import shrivatsavImage from "@assets/Shrivatsav_Image_1765222427299.jpg";
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -767,7 +768,8 @@ export default function About() {
       initials: "ST",
       email: "shrivatsavt2906@gmail.com",
       linkedin: "https://www.linkedin.com/in/shrivatsav-t-160a0a257/",
-      instagram: "https://www.instagram.com/captain7_vatsav_"
+      instagram: "https://www.instagram.com/captain7_vatsav_",
+      image: shrivatsavImage
     },
     {
       name: "Prasanth Kannan",
