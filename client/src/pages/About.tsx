@@ -13,6 +13,7 @@ import ScrollAnimation from "@/components/ScrollAnimation";
 import { useState, useEffect, useRef } from "react";
 import karthikeyanImage from "@assets/Karthikeyan_Image_1765222199201.png";
 import shrivatsavImage from "@assets/Shrivatsav_Image_1765222427299.jpg";
+import prasanthImage from "@assets/Prasanth_Image_1765222789557.jpg";
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -779,7 +780,8 @@ export default function About() {
       initials: "PK",
       email: "prasanthkannan0921@gmail.com",
       linkedin: "https://www.linkedin.com/in/prasanthkanna03/",
-      instagram: "https://www.instagram.com/prasanth__kannan03?igsh=MXQwNmw5YTJ3eWY2ag=="
+      instagram: "https://www.instagram.com/prasanth__kannan03?igsh=MXQwNmw5YTJ3eWY2ag==",
+      image: prasanthImage
     },
     {
       name: "Dhinessh Raj S",
