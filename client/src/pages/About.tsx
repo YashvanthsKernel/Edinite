@@ -307,7 +307,77 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
             const IconComponent = value.icon;
             const isActive = index === activeStep;
             const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
-            const isEven = index % 2 === 0;
+            const isLeft = index % 2 === 0;
+            
+            const CardContent = () => (
+              <div 
+                className={`
+                  cursor-pointer transition-all duration-500 ease-out
+                  ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
+                `}
+                onClick={() => {
+                  setActiveStep(index);
+                  setDetailOpen(true);
+                }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
+                data-testid={`card-value-${valueId}`}
+              >
+                <div 
+                  className={`
+                    relative p-6 rounded-[18px] backdrop-blur-lg transition-all duration-500
+                    ${isActive 
+                      ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
+                      : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
+                    }
+                  `}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
+                    border: isActive 
+                      ? '1px solid rgba(160,80,255,0.35)' 
+                      : '1px solid rgba(255,255,255,0.06)',
+                  }}
+                >
+                  {isActive && (
+                    <div 
+                      className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full"
+                      style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
+                    />
+                  )}
+                  <div className="flex items-start justify-between mb-4 gap-4">
+                    <div 
+                      className={`
+                        w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300
+                        ${isActive 
+                          ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
+                          : 'bg-white/5 border border-white/10'
+                        }
+                      `}
+                    >
+                      <IconComponent className={`w-6 h-6 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
+                    </div>
+                    {isActive && <Sparkles className="w-5 h-5 text-[#00D4FF] animate-pulse" style={{ animationDuration: '1.5s' }} />}
+                  </div>
+                  <span className="inline-block text-xs font-semibold uppercase tracking-[1.5px] mb-2" style={{ color: '#B9A9FF' }}>
+                    Step {index + 1}
+                  </span>
+                  <h4 className="text-xl font-bold transition-colors mb-2" style={{ color: isActive ? '#fff' : '#D7D3F6' }} data-testid={`text-value-title-${valueId}`}>
+                    {value.title}
+                  </h4>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: '#D7D3F6' }} data-testid={`text-value-desc-${valueId}`}>
+                    {value.description}
+                  </p>
+                  <button
+                    className="text-sm font-medium text-[#B9A9FF] hover:text-white transition-colors group/link flex items-center gap-1"
+                    onClick={(e) => { e.stopPropagation(); setActiveStep(index); setDetailOpen(true); }}
+                    data-testid={`button-readmore-${valueId}`}
+                  >
+                    Read more <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                  </button>
+                </div>
+              </div>
+            );
             
             return (
               <div
@@ -318,80 +388,12 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                 `}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className={`flex items-center gap-4 md:gap-0 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className={`hidden md:block flex-1 ${isEven ? 'pr-12' : 'pl-12'}`}>
-                    {isEven && (
-                      <div 
-                        className={`
-                          cursor-pointer transition-all duration-500 ease-out
-                          ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
-                        `}
-                        onClick={() => {
-                          setActiveStep(index);
-                          setDetailOpen(true);
-                        }}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
-                        data-testid={`card-value-${valueId}`}
-                      >
-                        <div 
-                          className={`
-                            relative p-6 rounded-[18px] backdrop-blur-lg transition-all duration-500
-                            ${isActive 
-                              ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
-                              : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
-                            }
-                          `}
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
-                            border: isActive 
-                              ? '1px solid rgba(160,80,255,0.35)' 
-                              : '1px solid rgba(255,255,255,0.06)',
-                          }}
-                        >
-                          {isActive && (
-                            <div 
-                              className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full"
-                              style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
-                            />
-                          )}
-                          <div className="flex items-start justify-between mb-4 gap-4">
-                            <div 
-                              className={`
-                                w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300
-                                ${isActive 
-                                  ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
-                                  : 'bg-white/5 border border-white/10'
-                                }
-                              `}
-                            >
-                              <IconComponent className={`w-6 h-6 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
-                            </div>
-                            {isActive && <Sparkles className="w-5 h-5 text-[#00D4FF] animate-pulse" style={{ animationDuration: '1.5s' }} />}
-                          </div>
-                          <span className="inline-block text-xs font-semibold uppercase tracking-[1.5px] mb-2" style={{ color: '#B9A9FF' }}>
-                            Step {index + 1}
-                          </span>
-                          <h4 className="text-xl font-bold transition-colors mb-2" style={{ color: isActive ? '#fff' : '#D7D3F6' }} data-testid={`text-value-title-${valueId}`}>
-                            {value.title}
-                          </h4>
-                          <p className="text-sm leading-relaxed mb-4" style={{ color: '#D7D3F6' }} data-testid={`text-value-desc-${valueId}`}>
-                            {value.description}
-                          </p>
-                          <button
-                            className="text-sm font-medium text-[#B9A9FF] hover:text-white transition-colors group/link flex items-center gap-1"
-                            onClick={(e) => { e.stopPropagation(); setActiveStep(index); setDetailOpen(true); }}
-                            data-testid={`button-readmore-${valueId}`}
-                          >
-                            Read more <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-                          </button>
-                        </div>
-                      </div>
-                    )}
+                <div className="flex items-center gap-4 md:gap-0">
+                  <div className="hidden md:block flex-1 pr-10">
+                    {isLeft && <CardContent />}
                   </div>
                   
-                  <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 z-20">
+                  <div className="absolute left-4 md:relative md:left-auto md:flex-shrink-0 z-20">
                     <div 
                       className={`
                         relative w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg
@@ -423,76 +425,8 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                     </div>
                   </div>
 
-                  <div className={`hidden md:block flex-1 ${isEven ? 'pl-12' : 'pr-12'}`}>
-                    {!isEven && (
-                      <div 
-                        className={`
-                          cursor-pointer transition-all duration-500 ease-out
-                          ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
-                        `}
-                        onClick={() => {
-                          setActiveStep(index);
-                          setDetailOpen(true);
-                        }}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
-                        data-testid={`card-value-${valueId}`}
-                      >
-                        <div 
-                          className={`
-                            relative p-6 rounded-[18px] backdrop-blur-lg transition-all duration-500
-                            ${isActive 
-                              ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
-                              : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
-                            }
-                          `}
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
-                            border: isActive 
-                              ? '1px solid rgba(160,80,255,0.35)' 
-                              : '1px solid rgba(255,255,255,0.06)',
-                          }}
-                        >
-                          {isActive && (
-                            <div 
-                              className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full"
-                              style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
-                            />
-                          )}
-                          <div className="flex items-start justify-between mb-4 gap-4">
-                            <div 
-                              className={`
-                                w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300
-                                ${isActive 
-                                  ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
-                                  : 'bg-white/5 border border-white/10'
-                                }
-                              `}
-                            >
-                              <IconComponent className={`w-6 h-6 ${isActive ? 'text-white' : 'text-[#B9A9FF]'}`} />
-                            </div>
-                            {isActive && <Sparkles className="w-5 h-5 text-[#00D4FF] animate-pulse" style={{ animationDuration: '1.5s' }} />}
-                          </div>
-                          <span className="inline-block text-xs font-semibold uppercase tracking-[1.5px] mb-2" style={{ color: '#B9A9FF' }}>
-                            Step {index + 1}
-                          </span>
-                          <h4 className="text-xl font-bold transition-colors mb-2" style={{ color: isActive ? '#fff' : '#D7D3F6' }} data-testid={`text-value-title-${valueId}`}>
-                            {value.title}
-                          </h4>
-                          <p className="text-sm leading-relaxed mb-4" style={{ color: '#D7D3F6' }} data-testid={`text-value-desc-${valueId}`}>
-                            {value.description}
-                          </p>
-                          <button
-                            className="text-sm font-medium text-[#B9A9FF] hover:text-white transition-colors group/link flex items-center gap-1"
-                            onClick={(e) => { e.stopPropagation(); setActiveStep(index); setDetailOpen(true); }}
-                            data-testid={`button-readmore-${valueId}`}
-                          >
-                            Read more <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-                          </button>
-                        </div>
-                      </div>
-                    )}
+                  <div className="hidden md:block flex-1 pl-10">
+                    {!isLeft && <CardContent />}
                   </div>
 
                   <div 
