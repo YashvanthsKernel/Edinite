@@ -15,6 +15,7 @@ import karthikeyanImage from "@assets/Karthikeyan_Image_1765222199201.png";
 import shrivatsavImage from "@assets/Shrivatsav_Image_1765222427299.jpg";
 import prasanthImage from "@assets/Prasanth_Image_1765222789557.jpg";
 import dhinesshImage from "@assets/Gemini_Generated_Image_s5ca9xs5ca9xs5ca_1765222998494.png";
+import ediniteLogoCenter from "@assets/Edinite_Logo_PNG_1764532314215_1765223217301.png";
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -1085,8 +1086,8 @@ export default function About() {
                   
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="absolute w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-primary/20 via-purple-500/20 to-primary/20 rounded-full blur-xl animate-pulse" style={{ animationDuration: '4s' }} />
-                    <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary via-purple-500 to-primary flex items-center justify-center shadow-2xl shadow-primary/50">
-                      <Sparkles className="w-10 h-10 lg:w-12 lg:h-12 text-white animate-pulse" style={{ animationDuration: '2s' }} />
+                    <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary via-purple-500 to-primary flex items-center justify-center shadow-2xl shadow-primary/50 p-3">
+                      <img src={ediniteLogoCenter} alt="Edinite Logo" className="w-full h-full object-contain" />
                     </div>
                   </div>
                   
