@@ -39,7 +39,7 @@ export default function Header() {
             </nav>
 
             <div className="hidden md:flex items-center gap-4">
-              <Button data-testid="button-request-quote">Request Quote</Button>
+              <Button data-testid="button-request-quote">More</Button>
             </div>
 
             <button
