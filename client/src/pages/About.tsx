@@ -408,27 +408,66 @@ export default function About() {
             </div>
           </div>
 
-          <ScrollAnimation delay={200}>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => {
-                const IconComponent = value.icon;
-                const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
-                return (
-                  <div 
-                    key={index}
-                    className="group p-6 rounded-2xl bg-card/50 border border-primary/10 hover:border-primary/30 hover-elevate transition-all"
-                    data-testid={`card-value-${valueId}`}
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <IconComponent className="w-6 h-6 text-primary" />
-                    </div>
-                    <h4 className="text-lg font-bold text-foreground mb-2" data-testid={`text-value-title-${valueId}`}>{value.title}</h4>
-                    <p className="text-sm text-muted-foreground" data-testid={`text-value-desc-${valueId}`}>{value.description}</p>
-                  </div>
-                );
-              })}
+          <div className="mt-16">
+            <ScrollAnimation>
+              <div className="text-center mb-12">
+                <Badge variant="outline" className="mb-4">Our Core Values</Badge>
+                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+                  The Roadmap to <span className="text-primary">Excellence</span>
+                </h3>
+              </div>
+            </ScrollAnimation>
+
+            <div className="relative">
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-purple-500/50 to-primary/50" />
+              
+              <div className="space-y-8 md:space-y-0">
+                {values.map((value, index) => {
+                  const IconComponent = value.icon;
+                  const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
+                  const isEven = index % 2 === 0;
+                  
+                  return (
+                    <ScrollAnimation key={index} delay={index * 150}>
+                      <div 
+                        className={`relative flex flex-col md:flex-row items-center gap-4 md:gap-8 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                        data-testid={`card-value-${valueId}`}
+                      >
+                        <div className={`flex-1 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+                          <GlassPanel className={`p-6 group hover:border-primary/40 transition-all ${isEven ? 'md:mr-8' : 'md:ml-8'}`}>
+                            <div className={`flex items-start gap-4 ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:from-primary/30 group-hover:to-purple-500/30 transition-colors">
+                                <IconComponent className="w-7 h-7 text-primary" />
+                              </div>
+                              <div className={`flex-1 ${isEven ? 'md:text-right' : ''}`}>
+                                <div className="flex items-center gap-2 mb-2">
+                                  <span className={`text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded-full ${isEven ? 'md:order-2' : ''}`}>
+                                    Phase {index + 1}
+                                  </span>
+                                </div>
+                                <h4 className="text-xl font-bold text-foreground mb-2" data-testid={`text-value-title-${valueId}`}>
+                                  {value.title}
+                                </h4>
+                                <p className="text-muted-foreground leading-relaxed" data-testid={`text-value-desc-${valueId}`}>
+                                  {value.description}
+                                </p>
+                              </div>
+                            </div>
+                          </GlassPanel>
+                        </div>
+
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary/30 z-10">
+                          {index + 1}
+                        </div>
+
+                        <div className="flex-1 hidden md:block" />
+                      </div>
+                    </ScrollAnimation>
+                  );
+                })}
+              </div>
             </div>
-          </ScrollAnimation>
+          </div>
         </div>
       </section>
       <section className="py-24 px-6 bg-gradient-to-b from-card/30 via-card/50 to-card/30">
