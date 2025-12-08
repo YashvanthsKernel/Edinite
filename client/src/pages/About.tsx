@@ -14,6 +14,7 @@ import { useState, useEffect, useRef } from "react";
 import karthikeyanImage from "@assets/Karthikeyan_Image_1765222199201.png";
 import shrivatsavImage from "@assets/Shrivatsav_Image_1765222427299.jpg";
 import prasanthImage from "@assets/Prasanth_Image_1765222789557.jpg";
+import dhinesshImage from "@assets/Gemini_Generated_Image_s5ca9xs5ca9xs5ca_1765222998494.png";
 
 function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -791,7 +792,8 @@ export default function About() {
       initials: "DR",
       email: "dhinesshraj10@gmail.com",
       linkedin: "https://www.linkedin.com/in/dhinessh-raj-07271323b/",
-      instagram: "https://www.instagram.com/dhinesshraj_sundar?igsh=MXFuenRxbGZ3c2ZuNA=="
+      instagram: "https://www.instagram.com/dhinesshraj_sundar?igsh=MXFuenRxbGZ3c2ZuNA==",
+      image: dhinesshImage
     }
   ];
 
