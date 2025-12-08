@@ -354,34 +354,58 @@ export default function About() {
             </ScrollAnimation>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-            <ScrollAnimation>
-              <div className="relative group h-full" data-testid="card-vision">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
-                <GlassPanel className="relative p-10 h-full flex flex-col">
-                  <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-vision-title">Vision</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed flex-grow" data-testid="text-vision-description">
-                    To become India's leading digital engineering studio, where ideas evolve into 
-                    validated designs with industry-standard precision, setting new benchmarks for 
-                    engineering excellence across the nation.
-                  </p>
-                </GlassPanel>
-              </div>
-            </ScrollAnimation>
+          <div className="relative max-w-5xl mx-auto mb-20">
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-purple-500 to-primary opacity-30" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+              <ScrollAnimation>
+                <div className="relative group p-8 md:pr-16" data-testid="card-vision">
+                  <div className="md:text-right">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-purple-600 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-primary/30">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-vision-title">
+                      Our Vision
+                    </h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-vision-description">
+                      To become India's leading digital engineering studio, where ideas evolve into 
+                      validated designs with industry-standard precision, setting new benchmarks for 
+                      engineering excellence across the nation.
+                    </p>
+                    <div className="mt-6 flex md:justify-end gap-2">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Innovation</span>
+                      <span className="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-sm">Excellence</span>
+                    </div>
+                  </div>
+                </div>
+              </ScrollAnimation>
 
-            <ScrollAnimation delay={150}>
-              <div className="relative group h-full" data-testid="card-mission">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-primary rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
-                <GlassPanel className="relative p-10 h-full flex flex-col">
-                  <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-mission-title">Mission</h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed flex-grow" data-testid="text-mission-description">
-                    Make advanced design, simulation, and engineering R&D accessible to all — 
-                    enabling students, startups, and innovators to build smarter, optimized 
-                    solutions that shape the future of technology.
-                  </p>
-                </GlassPanel>
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-600 items-center justify-center z-10 shadow-xl shadow-primary/40">
+                <Sparkles className="w-10 h-10 text-white" />
               </div>
-            </ScrollAnimation>
+
+              <ScrollAnimation delay={150}>
+                <div className="relative group p-8 md:pl-16" data-testid="card-mission">
+                  <div className="md:text-left">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-primary mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-purple-500/30">
+                      <Lightbulb className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-mission-title">
+                      Our Mission
+                    </h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-mission-description">
+                      Make advanced design, simulation, and engineering R&D accessible to all — 
+                      enabling students, startups, and innovators to build smarter, optimized 
+                      solutions that shape the future of technology.
+                    </p>
+                    <div className="mt-6 flex gap-2">
+                      <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm">Accessible</span>
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Empowering</span>
+                    </div>
+                  </div>
+                </div>
+              </ScrollAnimation>
+            </div>
           </div>
 
           <div className="relative py-12">
