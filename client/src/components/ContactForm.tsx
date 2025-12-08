@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import GlassPanel from "./GlassPanel";
-import { Upload } from "lucide-react";
+import { Upload, X } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,10 +13,12 @@ export default function ContactForm() {
     service: "",
     message: "",
   });
+  const [files, setFiles] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log('Form submitted:', formData, files);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,6 +26,29 @@ export default function ContactForm() {
       ...prev,
       [e.target.name]: e.target.value
     }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    if (e.dataTransfer.files) {
+      const newFiles = Array.from(e.dataTransfer.files);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const removeFile = (index: number) => {
+    setFiles(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -85,7 +110,22 @@ export default function ContactForm() {
 
         <div>
           <Label className="text-foreground">File Upload</Label>
-          <div className="mt-2 border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover-elevate cursor-pointer transition-all">
+          <div 
+            className="mt-2 border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover:border-primary/50 cursor-pointer transition-all"
+            onClick={() => fileInputRef.current?.click()}
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            data-testid="dropzone-file-upload"
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              multiple
+              accept=".step,.stp,.stl,.pdf"
+              onChange={handleFileChange}
+              className="hidden"
+              data-testid="input-file"
+            />
             <Upload size={32} className="mx-auto text-primary mb-2" />
             <p className="text-muted-foreground text-sm">
               Drop files here or click to upload
@@ -94,6 +134,27 @@ export default function ContactForm() {
               STEP, STL, PDF files accepted
             </p>
           </div>
+          {files.length > 0 && (
+            <div className="mt-3 space-y-2">
+              {files.map((file, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-center justify-between p-2 bg-primary/10 rounded-lg"
+                  data-testid={`file-item-${index}`}
+                >
+                  <span className="text-sm text-foreground truncate">{file.name}</span>
+                  <button
+                    type="button"
+                    onClick={() => removeFile(index)}
+                    className="p-1 hover:bg-primary/20 rounded"
+                    data-testid={`button-remove-file-${index}`}
+                  >
+                    <X size={16} className="text-muted-foreground" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <Button 
