@@ -196,7 +196,7 @@ export default function About() {
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <ScrollAnimation>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mt-[18px] mb-[18px]">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mt-[21px] mb-[21px]">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">About Edinite</span>
             </div>
