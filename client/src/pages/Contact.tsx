@@ -1,55 +1,62 @@
 import { useState, useRef } from "react";
-import { Mail, MapPin, Clock, Palette, Waves, Cpu, GraduationCap, CheckCircle2, ArrowRight, Sparkles, Users, Award, TrendingUp, Upload, X } from "lucide-react";
-import GlassPanel from "@/components/GlassPanel";
-import ScrollAnimation from "@/components/ScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import { 
+  Palette, Waves, Cpu, GraduationCap, Mail, MapPin, Clock, 
+  CheckCircle2, ArrowRight, Upload, X, Users, Quote, Star,
+  Briefcase, Target, Zap
+} from "lucide-react";
 
 const services = [
   {
     id: "cad",
     title: "3D CAD Design",
-    description: "Professional modeling & rendering",
+    description: "We turn rough sketches into fully engineered 3D CAD models, ready for manufacturing.",
     icon: Palette,
-    gradient: "from-blue-500 to-cyan-500"
   },
   {
     id: "simulation",
     title: "CFD & FEA",
-    description: "Simulation & analysis",
+    description: "Advanced structural and thermal simulations to optimize your product before production.",
     icon: Waves,
-    gradient: "from-cyan-500 to-teal-500"
   },
   {
     id: "pcb",
     title: "Electronics & PCB",
-    description: "Circuit & PCB design",
+    description: "Custom PCB design and layout for electronic products that work flawlessly.",
     icon: Cpu,
-    gradient: "from-purple-500 to-pink-500"
   },
   {
     id: "training",
     title: "Edu-Tech",
-    description: "Training & workshops",
+    description: "Workshops and training to upskill your team in CAD, simulation, and design.",
     icon: GraduationCap,
-    gradient: "from-orange-500 to-amber-500"
   }
 ];
 
-const stats = [
-  { value: "50+", label: "Projects Delivered", icon: TrendingUp },
-  { value: "24h", label: "Response Time", icon: Clock },
-  { value: "100%", label: "Client Satisfaction", icon: Award },
+const testimonials = [
+  {
+    quote: "Edinite delivered our suspension design ahead of schedule with incredible precision. Truly professional work.",
+    author: "Mechanical Engineer",
+    company: "Automotive Startup",
+    rating: 5
+  },
+  {
+    quote: "The CFD analysis helped us optimize our heat exchanger efficiency by 27%. Highly recommended.",
+    author: "Product Manager",
+    company: "Energy Solutions",
+    rating: 5
+  }
 ];
 
-const trustPoints = [
-  "Industry-expert design and simulation standards",
-  "Perfect your product in the virtual world first",
-  "Professional documentation and reports",
-  "Accessible for students, startups & enterprises"
+const trustStats = [
+  { value: "46+", label: "Projects Completed", icon: Briefcase },
+  { value: "17+", label: "Engineering Clients", icon: Users },
+  { value: "24h", label: "Average Response", icon: Clock },
 ];
 
 export default function Contact() {
@@ -101,38 +108,55 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen pt-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-600/5 pointer-events-none" />
-      <div className="absolute top-40 left-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
-      <div className="absolute bottom-40 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[150px] animate-pulse pointer-events-none" style={{ animationDuration: '12s' }} />
+    <div className="min-h-screen pt-20">
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+        style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+        }}
+      />
 
-      <section className="py-16 px-6 relative">
+      <section className="py-12 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Let's Build Together</span>
-              </div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
+              <p className="text-sm font-medium uppercase tracking-widest text-primary mb-4">Let's Build Together</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6">
                 Start Your <span className="text-primary">Project</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Select your service, tell us about your vision, and let's create something extraordinary
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+                Tell us about your engineering challenge. We'll help you bring it to life with precision and expertise.
               </p>
             </div>
           </ScrollAnimation>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            <div className="lg:col-span-3">
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            {trustStats.map((stat, index) => (
+              <ScrollAnimation key={index} delay={index * 100}>
+                <div className="flex items-center gap-3 px-6 py-3 bg-card/50 border border-border rounded-xl">
+                  <stat.icon className="w-5 h-5 text-primary" />
+                  <div>
+                    <span className="text-xl font-bold text-foreground">{stat.value}</span>
+                    <span className="text-sm text-muted-foreground ml-2">{stat.label}</span>
+                  </div>
+                </div>
+              </ScrollAnimation>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-8">
               <ScrollAnimation delay={150}>
-                <GlassPanel className="p-8">
+                <div className="bg-card/50 border border-border rounded-2xl p-8 md:p-10">
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div>
-                      <Label className="text-foreground text-lg font-semibold mb-4 block">
-                        1. Select Your Service
+                      <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">Step 1</p>
+                      <Label className="text-foreground text-lg font-bold mb-2 block">
+                        What can we help you with?
                       </Label>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Select the service that best matches your project needs.
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {services.map((service) => {
                           const IconComponent = service.icon;
                           const isSelected = selectedService === service.id;
@@ -141,23 +165,25 @@ export default function Contact() {
                               key={service.id}
                               type="button"
                               onClick={() => setSelectedService(service.id)}
-                              className={`relative p-4 rounded-xl border-2 transition-all duration-300 text-left group ${
+                              className={`relative p-5 rounded-xl border-2 transition-all duration-300 text-left group ${
                                 isSelected 
-                                  ? 'border-primary bg-primary/10 scale-[1.02]' 
-                                  : 'border-primary/20 hover:border-primary/40 bg-background/50'
+                                  ? 'border-primary bg-primary/5' 
+                                  : 'border-border hover:border-primary/40 bg-background/50'
                               }`}
                               data-testid={`service-card-${service.id}`}
                             >
                               {isSelected && (
-                                <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
-                                  <CheckCircle2 className="w-3 h-3 text-white" />
+                                <div className="absolute top-3 right-3">
+                                  <CheckCircle2 className="w-5 h-5 text-primary" />
                                 </div>
                               )}
-                              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-                                <IconComponent className="w-5 h-5 text-white" />
+                              <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-colors ${
+                                isSelected ? 'bg-primary text-white' : 'bg-muted text-foreground'
+                              }`}>
+                                <IconComponent className="w-5 h-5" />
                               </div>
-                              <h3 className="font-semibold text-foreground text-sm">{service.title}</h3>
-                              <p className="text-xs text-muted-foreground mt-1">{service.description}</p>
+                              <h3 className="font-bold text-foreground mb-1">{service.title}</h3>
+                              <p className="text-xs text-muted-foreground leading-relaxed">{service.description}</p>
                             </button>
                           );
                         })}
@@ -166,28 +192,30 @@ export default function Contact() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="name" className="text-foreground">2. Your Name</Label>
+                        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">Step 2</p>
+                        <Label htmlFor="name" className="text-foreground font-bold">Your Name</Label>
                         <Input
                           id="name"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="John Doe"
-                          className="mt-2 bg-background/50 border-primary/20"
+                          placeholder="eg: Pranav Suresh"
+                          className="mt-2 bg-background border-border h-12"
                           data-testid="input-name"
                           required
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email" className="text-foreground">3. Email Address</Label>
+                        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">Step 3</p>
+                        <Label htmlFor="email" className="text-foreground font-bold">Email Address</Label>
                         <Input
                           id="email"
                           name="email"
                           type="email"
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="john@example.com"
-                          className="mt-2 bg-background/50 border-primary/20"
+                          placeholder="eg: pranav@company.com"
+                          className="mt-2 bg-background border-border h-12"
                           data-testid="input-email"
                           required
                         />
@@ -195,24 +223,32 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="message" className="text-foreground">4. Tell Us About Your Project</Label>
+                      <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">Step 4</p>
+                      <Label htmlFor="message" className="text-foreground font-bold">Tell us about your project</Label>
+                      <p className="text-sm text-muted-foreground mt-1 mb-3">
+                        What are you building? What challenges are you facing? Any timeline in mind?
+                      </p>
                       <Textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Describe your project requirements, goals, and timeline..."
+                        placeholder="eg: We're developing a new heat exchanger and need CFD analysis to optimize the flow rate and reduce pressure drop. Target completion in 3 weeks."
                         rows={5}
-                        className="mt-2 bg-background/50 border-primary/20 resize-none"
+                        className="bg-background border-border resize-none"
                         data-testid="input-message"
                         required
                       />
                     </div>
 
                     <div>
-                      <Label className="text-foreground">5. Upload Files (Optional)</Label>
+                      <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-2">Step 5 (Optional)</p>
+                      <Label className="text-foreground font-bold">Upload Reference Files</Label>
+                      <p className="text-sm text-muted-foreground mt-1 mb-3">
+                        Share sketches, CAD files, or any reference documents.
+                      </p>
                       <div 
-                        className="mt-2 border-2 border-dashed border-primary/30 rounded-xl p-6 text-center hover:border-primary/50 cursor-pointer transition-all bg-background/30"
+                        className="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/50 cursor-pointer transition-all bg-background/50"
                         onClick={() => fileInputRef.current?.click()}
                         onDrop={handleDrop}
                         onDragOver={handleDragOver}
@@ -222,17 +258,17 @@ export default function Contact() {
                           ref={fileInputRef}
                           type="file"
                           multiple
-                          accept=".step,.stp,.stl,.pdf,.iges,.igs"
+                          accept=".step,.stp,.stl,.pdf,.iges,.igs,.jpg,.jpeg,.png"
                           onChange={handleFileChange}
                           className="hidden"
                           data-testid="input-file"
                         />
-                        <Upload size={28} className="mx-auto text-primary mb-2" />
-                        <p className="text-muted-foreground text-sm">
-                          Drop files here or click to upload
+                        <Upload className="w-8 h-8 mx-auto text-muted-foreground mb-2" />
+                        <p className="text-foreground font-medium">
+                          Drop files here or click to browse
                         </p>
                         <p className="text-muted-foreground text-xs mt-1">
-                          STEP, STL, IGES, PDF files accepted
+                          STEP, STL, IGES, PDF, JPG, PNG accepted
                         </p>
                       </div>
                       {files.length > 0 && (
@@ -240,17 +276,17 @@ export default function Contact() {
                           {files.map((file, index) => (
                             <div 
                               key={index} 
-                              className="flex items-center justify-between p-2 bg-primary/10 rounded-lg"
+                              className="flex items-center justify-between p-3 bg-muted/50 rounded-lg border border-border"
                               data-testid={`file-item-${index}`}
                             >
                               <span className="text-sm text-foreground truncate">{file.name}</span>
                               <button
                                 type="button"
                                 onClick={() => removeFile(index)}
-                                className="p-1 hover:bg-primary/20 rounded"
+                                className="p-1 hover:bg-muted rounded ml-2"
                                 data-testid={`button-remove-file-${index}`}
                               >
-                                <X size={16} className="text-muted-foreground" />
+                                <X className="w-4 h-4 text-muted-foreground" />
                               </button>
                             </div>
                           ))}
@@ -261,106 +297,128 @@ export default function Contact() {
                     <Button 
                       type="submit" 
                       size="lg"
-                      className="w-full group"
+                      className="w-full h-14 text-base font-bold group"
                       disabled={isSubmitting || !selectedService}
                       data-testid="button-submit"
                     >
-                      {isSubmitting ? "Sending..." : "Submit Your Request"}
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      {isSubmitting ? "Sending your request..." : "Submit Project Request"}
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
-
-                    {!selectedService && (
-                      <p className="text-center text-sm text-muted-foreground">
-                        Please select a service to continue
-                      </p>
-                    )}
+                    
+                    <p className="text-center text-xs text-muted-foreground">
+                      We typically respond within 24 hours. Your information is kept confidential.
+                    </p>
                   </form>
-                </GlassPanel>
+                </div>
               </ScrollAnimation>
             </div>
 
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-4 space-y-6">
               <ScrollAnimation delay={200}>
-                <GlassPanel className="p-6 relative overflow-visible">
-                  <div className="absolute -top-3 -right-3">
-                    <Badge className="bg-gradient-to-r from-primary to-purple-600 text-white border-0">
-                      Quick Response
-                    </Badge>
+                <div className="bg-card/50 border border-border rounded-2xl p-6">
+                  <div className="flex items-center gap-2 mb-6">
+                    <Badge variant="outline" className="text-xs uppercase tracking-wider">Quick Response</Badge>
                   </div>
-                  <h2 className="text-xl font-heading font-bold text-foreground mb-6">
+                  <h2 className="text-lg font-bold text-foreground mb-6">
                     Contact Information
                   </h2>
-                  <div className="space-y-5">
+                  <div className="space-y-4">
                     <a 
                       href="mailto:edinite.official@gmail.com" 
-                      className="flex items-center gap-4 p-3 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors group"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-background/50 border border-border hover:border-primary/30 transition-all group"
                       data-testid="link-contact-email"
                     >
-                      <div className="w-11 h-11 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <Mail size={20} className="text-white" />
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <Mail className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground text-sm">Email Us</h3>
-                        <p className="text-muted-foreground text-sm">edinite.official@gmail.com</p>
+                        <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Email Us</p>
+                        <p className="font-medium text-foreground text-sm">edinite.official@gmail.com</p>
                       </div>
                     </a>
 
-                    <div className="flex items-center gap-4 p-3 rounded-xl bg-primary/5">
-                      <div className="w-11 h-11 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <MapPin size={20} className="text-white" />
+                    <div className="flex items-center gap-4 p-4 rounded-xl bg-background/50 border border-border">
+                      <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-5 h-5 text-cyan-500" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground text-sm">Location</h3>
-                        <p className="text-muted-foreground text-sm">India</p>
+                        <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Location</p>
+                        <p className="font-medium text-foreground text-sm">India</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 p-3 rounded-xl bg-primary/5">
-                      <div className="w-11 h-11 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Clock size={20} className="text-white" />
+                    <div className="flex items-center gap-4 p-4 rounded-xl bg-background/50 border border-border">
+                      <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-5 h-5 text-orange-500" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground text-sm">Response Time</h3>
-                        <p className="text-muted-foreground text-sm">Within 24 hours</p>
+                        <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Response Time</p>
+                        <p className="font-medium text-foreground text-sm">Within 24 hours</p>
                       </div>
                     </div>
                   </div>
-                </GlassPanel>
+                </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={300}>
-                <GlassPanel className="p-6">
+                <div className="bg-card/50 border border-border rounded-2xl p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    <Users className="w-5 h-5 text-primary" />
-                    <h2 className="text-xl font-heading font-bold text-foreground">
-                      Why Edinite?
+                    <Target className="w-5 h-5 text-primary" />
+                    <h2 className="text-lg font-bold text-foreground">
+                      Why Work With Us?
                     </h2>
                   </div>
                   <div className="space-y-3">
-                    {trustPoints.map((point, index) => (
+                    {[
+                      "Industry-standard design & simulation expertise",
+                      "Perfect your product virtually before production",
+                      "Comprehensive documentation & reports",
+                      "Trusted by students, startups & enterprises"
+                    ].map((point, index) => (
                       <div 
                         key={index} 
-                        className="flex items-start gap-3 p-2 rounded-lg hover:bg-primary/5 transition-colors"
+                        className="flex items-start gap-3"
                       >
-                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <CheckCircle2 className="w-3 h-3 text-primary" />
-                        </div>
-                        <span className="text-muted-foreground text-sm">{point}</span>
+                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-muted-foreground">{point}</span>
                       </div>
                     ))}
                   </div>
-                </GlassPanel>
+                </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={400}>
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 text-center">
-                  <Sparkles className="w-8 h-8 text-primary mx-auto mb-3" />
-                  <h3 className="font-bold text-foreground mb-2">Have an urgent project?</h3>
+                <div className="bg-gradient-to-br from-primary/5 to-purple-500/5 border border-primary/20 rounded-2xl p-6">
+                  <Quote className="w-6 h-6 text-primary mb-4" />
+                  <p className="text-sm text-foreground leading-relaxed mb-4 italic">
+                    "{testimonials[0].quote}"
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Users className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">{testimonials[0].author}</p>
+                      <p className="text-xs text-muted-foreground">{testimonials[0].company}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5 mt-3">
+                    {[...Array(testimonials[0].rating)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation delay={500}>
+                <div className="bg-card/50 border border-border rounded-2xl p-6 text-center">
+                  <Zap className="w-8 h-8 text-orange-500 mx-auto mb-3" />
+                  <h3 className="font-bold text-foreground mb-2">Urgent Project?</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Mention "Urgent" in your message for priority response
+                    Add "Urgent" in your message for priority handling
                   </p>
                   <a href="mailto:edinite.official@gmail.com?subject=Urgent%20Project%20Inquiry">
-                    <Button variant="outline" size="sm" data-testid="button-urgent-email">
+                    <Button variant="outline" size="sm" className="w-full" data-testid="button-urgent-email">
                       Send Urgent Request
                     </Button>
                   </a>
