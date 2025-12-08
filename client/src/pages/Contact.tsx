@@ -123,21 +123,6 @@ export default function Contact() {
             </div>
           </ScrollAnimation>
 
-          <ScrollAnimation delay={100}>
-            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-16">
-              {stats.map((stat, index) => {
-                const IconComponent = stat.icon;
-                return (
-                  <GlassPanel key={index} className="p-4 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                    <IconComponent className="w-5 h-5 text-primary mx-auto mb-2" />
-                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
-                    <p className="text-xs text-muted-foreground">{stat.label}</p>
-                  </GlassPanel>
-                );
-              })}
-            </div>
-          </ScrollAnimation>
-
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-3">
               <ScrollAnimation delay={150}>
