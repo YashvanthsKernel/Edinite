@@ -196,7 +196,7 @@ export default function About() {
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <ScrollAnimation>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mt-[17px] mb-[17px]">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">About Edinite</span>
             </div>
@@ -256,7 +256,6 @@ export default function About() {
         </div>
 
       </section>
-
       <section className="py-24 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
         
@@ -337,7 +336,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className="py-24 px-6 relative overflow-hidden">
         <HexagonGrid />
         
@@ -433,7 +431,6 @@ export default function About() {
           </ScrollAnimation>
         </div>
       </section>
-
       <section className="py-24 px-6 bg-gradient-to-b from-card/30 via-card/50 to-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -527,7 +524,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[150px]" />
@@ -628,7 +624,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className="py-24 px-6 relative overflow-hidden" data-testid="section-cta">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
