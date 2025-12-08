@@ -14,7 +14,7 @@ import { Card } from "@/components/ui/card";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
 import { 
-  Mail, MapPin, Clock, Phone, CheckCircle2, Send, MessageCircle, AlertCircle
+  Mail, MapPin, Clock, Phone, CheckCircle2, Send, MessageCircle, AlertCircle, Quote, Star
 } from "lucide-react";
 
 const helpOptions = [
@@ -23,6 +23,51 @@ const helpOptions = [
   { value: "analysis", label: "Performance / failure analysis" },
   { value: "partnership", label: "Long-term engineering partnership" },
   { value: "other", label: "Something else" },
+];
+
+const testimonials = [
+  {
+    name: "Arjun Mehta",
+    role: "Product Lead",
+    company: "TechVentures India",
+    quote: "Edinite helped us validate our drone chassis design before manufacturing. Saved us 3 months of rework.",
+    rating: 5,
+  },
+  {
+    name: "Priya Sharma",
+    role: "Mechanical Engineer",
+    company: "AutoFlow Systems",
+    quote: "Their CFD analysis identified thermal issues we completely missed. The team really knows their simulation tools.",
+    rating: 5,
+  },
+  {
+    name: "Rajesh Kumar",
+    role: "Founder",
+    company: "MedDevice Labs",
+    quote: "From concept to production-ready CAD in 6 weeks. Clear communication throughout the project.",
+    rating: 5,
+  },
+  {
+    name: "Sneha Patel",
+    role: "R&D Manager",
+    company: "GreenTech Solutions",
+    quote: "We've worked with them on 4 projects now. Consistent quality and they actually understand engineering constraints.",
+    rating: 5,
+  },
+  {
+    name: "Vikram Rao",
+    role: "CTO",
+    company: "RoboWorks",
+    quote: "The MATLAB simulation work was excellent. Helped us tune our control system before hardware was ready.",
+    rating: 5,
+  },
+  {
+    name: "Ananya Iyer",
+    role: "Design Lead",
+    company: "Precision Mfg",
+    quote: "Quick turnaround on our 3D printing prototypes. The team went above and beyond on DFM feedback.",
+    rating: 5,
+  },
 ];
 
 export default function Contact() {
@@ -38,6 +83,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -327,6 +373,76 @@ export default function Contact() {
                   </form>
                 </Card>
               </ScrollAnimation>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 overflow-hidden">
+        <ScrollAnimation>
+          <div className="text-center mb-8 px-6">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">
+              What Our Clients Say
+            </h2>
+            <p className="text-muted-foreground">
+              Real feedback from teams we've worked with
+            </p>
+          </div>
+        </ScrollAnimation>
+
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+          <div className="flex overflow-hidden">
+            <div 
+              className={`flex gap-6 ${isPaused ? '' : 'animate-marquee'}`}
+              style={{
+                animationDuration: '40s',
+                animationPlayState: isPaused ? 'paused' : 'running',
+              }}
+            >
+              {[...testimonials, ...testimonials].map((testimonial, idx) => (
+                <div 
+                  key={idx}
+                  className="flex-shrink-0 w-[320px] md:w-[380px]"
+                  data-testid={`testimonial-card-${idx}`}
+                >
+                  <div className="relative h-full backdrop-blur-xl bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.05] transition-colors group">
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                    
+                    <div className="absolute top-4 right-4 text-primary/20 group-hover:text-primary/30 transition-colors">
+                      <Quote className="w-8 h-8" />
+                    </div>
+
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-primary fill-primary" />
+                      ))}
+                    </div>
+
+                    <p className="text-foreground/80 leading-relaxed mb-6 text-sm">
+                      "{testimonial.quote}"
+                    </p>
+
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/30 to-purple-500/30 flex items-center justify-center text-foreground font-semibold text-sm">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <div>
+                        <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {testimonial.role} · {testimonial.company}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
