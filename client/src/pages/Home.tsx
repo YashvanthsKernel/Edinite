@@ -191,19 +191,58 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          <div className="relative">
+            <div className="absolute top-20 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute bottom-20 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 to-purple-500/5 rounded-full blur-[200px] pointer-events-none" />
+            
+            <div className="absolute top-32 left-20 w-2 h-2 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3s' }} />
+            <div className="absolute top-48 right-32 w-1.5 h-1.5 bg-purple-500/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
+            <div className="absolute bottom-40 left-40 w-2 h-2 bg-cyan-400/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2s', animationDelay: '1s' }} />
+            <div className="absolute bottom-32 right-20 w-1.5 h-1.5 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
+            
             <ScrollAnimation>
-              <h2 className="text-4xl font-heading font-bold text-foreground text-center mb-12">
-                Our <span className="text-primary">Services</span>
-              </h2>
+              <div className="text-center mb-16 relative">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                  <span className="text-sm font-medium text-primary">What We Offer</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
+                  Our <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">Services</span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Comprehensive engineering solutions from concept to validated design
+                </p>
+                
+                <div className="flex justify-center mt-6 gap-1">
+                  <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full" />
+                  <div className="w-3 h-1 bg-purple-500 rounded-full animate-pulse" />
+                  <div className="w-1 h-1 bg-cyan-400 rounded-full" />
+                </div>
+              </div>
             </ScrollAnimation>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
               {services.map((service, index) => (
-                <ScrollAnimation key={service.title} delay={index * 100}>
+                <ScrollAnimation key={service.title} delay={index * 80}>
                   <ServiceCard {...service} />
                 </ScrollAnimation>
               ))}
             </div>
+            
+            <ScrollAnimation delay={600}>
+              <div className="mt-12 flex justify-center">
+                <Link href="/services">
+                  <div className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/30 hover:border-primary/50 transition-all duration-300 cursor-pointer">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                    <span className="text-foreground font-medium">Explore All Services</span>
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                      <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
