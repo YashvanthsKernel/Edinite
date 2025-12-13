@@ -10,6 +10,8 @@ import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Portfolio from "@/pages/Portfolio";
 import Contact from "@/pages/Contact";
+import Login from "@/pages/Login";
+import Signup from "@/pages/Signup";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
@@ -36,6 +38,8 @@ function Router() {
         <Route path="/services/:serviceId" component={Services} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
         <Route component={NotFound} />
       </Switch>
     </>

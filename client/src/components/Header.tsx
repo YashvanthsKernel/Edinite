@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, UserCircle } from "lucide-react";
 import { useState } from "react";
 import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
 import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
@@ -40,6 +40,11 @@ export default function Header() {
 
             <div className="hidden md:flex items-center gap-4">
               <Button data-testid="button-request-quote">More</Button>
+              <Link href="/login">
+                <Button size="icon" variant="ghost" className="text-foreground/80 hover:text-foreground" data-testid="button-user-login">
+                  <UserCircle className="h-5 w-5" />
+                </Button>
+              </Link>
             </div>
 
             <button
@@ -67,6 +72,17 @@ export default function Header() {
                 </Link>
               ))}
               <Button className="mt-2" data-testid="button-mobile-quote">Request Quote</Button>
+              <Link href="/login">
+                <Button 
+                  variant="outline" 
+                  className="mt-2 w-full"
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="button-mobile-login"
+                >
+                  <UserCircle className="h-4 w-4 mr-2" />
+                  Login / Sign Up
+                </Button>
+              </Link>
             </nav>
           </div>
         )}
