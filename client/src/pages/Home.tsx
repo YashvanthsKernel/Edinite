@@ -263,13 +263,13 @@ export default function Home() {
             <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="text-sm font-medium text-primary">Our Tools</span>
+                <span className="text-sm font-medium text-primary">Our Work</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-                Technology <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">Stack</span>
+                Legacy <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">Voices</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Industry-leading tools and software we use to deliver exceptional results
+                Showcasing our engineering excellence through innovative projects
               </p>
               <div className="flex justify-center mt-6 gap-1">
                 <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full" />
