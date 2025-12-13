@@ -46,14 +46,10 @@ export default function TechnologyCarousel() {
   return (
     <div className="space-y-2">
       <div className="relative overflow-hidden py-2">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
         {renderCarousel('animate-marquee')}
       </div>
 
       <div className="relative overflow-hidden py-2">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
         {renderCarousel('animate-marquee-reverse')}
       </div>
     </div>
