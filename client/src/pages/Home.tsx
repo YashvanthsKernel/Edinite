@@ -253,14 +253,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 px-6 relative overflow-hidden">
+      <section className="py-12 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollAnimation>
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 <span className="text-sm font-medium text-primary">Our Tools</span>

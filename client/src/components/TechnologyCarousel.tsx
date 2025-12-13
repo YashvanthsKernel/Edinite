@@ -21,7 +21,7 @@ export default function TechnologyCarousel() {
 
   const renderCarousel = (animationClass: string) => (
     <div 
-      className={`flex gap-4 ${animationClass}`}
+      className={`flex gap-2 ${animationClass}`}
       style={{ width: 'fit-content' }}
     >
       {duplicatedImages.map((image, index) => (
@@ -30,7 +30,7 @@ export default function TechnologyCarousel() {
           className="group relative flex-shrink-0"
           data-testid={`gallery-image-${image.id}-${index}`}
         >
-          <div className="relative w-[200px] h-[180px] rounded-2xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+          <div className="relative w-[260px] h-[200px] rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
             <img 
               src={image.src} 
               alt={image.alt}
@@ -45,13 +45,13 @@ export default function TechnologyCarousel() {
 
   return (
     <div className="space-y-2">
-      <div className="relative overflow-hidden py-8">
+      <div className="relative overflow-hidden py-2">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
         {renderCarousel('animate-marquee')}
       </div>
 
-      <div className="relative overflow-hidden py-8">
+      <div className="relative overflow-hidden py-2">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
         {renderCarousel('animate-marquee-reverse')}
