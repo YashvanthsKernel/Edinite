@@ -1,21 +1,19 @@
-import image1 from "@assets/image_1765168512747.png";
-import image2 from "@assets/image_1765168528456.png";
-import image3 from "@assets/image_1765168738660.png";
-import image4 from "@assets/image_1765168901726.png";
-import image5 from "@assets/image_1765169488975.png";
-import image6 from "@assets/image_1765169673555.png";
-import image7 from "@assets/image_1765169953978.png";
-import image8 from "@assets/image_1765190753226.png";
+import image1 from "@assets/3D-Printing-Services-3_1765612582309.jpg";
+import image2 from "@assets/3d-printing-services-miami-01b_(1)_1765612582310.jpg";
+import image3 from "@assets/1000_F_539188436_WYHqq4PKFjGoDlZfFKSoaeabLQMfcYHd_1765612582311.jpg";
+import image4 from "@assets/model-based-design-wp-landing-page-thumbnail_1765612582312.jpg";
+import image5 from "@assets/pcb-design-basics-zuken-us_1765612582318.webp";
+import image6 from "@assets/Rapid-Prototyping-printing_1765612582320.jpg";
+import image7 from "@assets/Untitled-design-54-1-1-1024x683_1765612582321.jpg";
 
 const galleryImages = [
-  { id: 1, src: image1, alt: "3D Print Project 1" },
-  { id: 2, src: image2, alt: "3D Print Project 2" },
-  { id: 3, src: image3, alt: "3D Print Project 3" },
-  { id: 4, src: image4, alt: "3D Print Project 4" },
-  { id: 5, src: image5, alt: "3D Print Project 5" },
-  { id: 6, src: image6, alt: "3D Print Project 6" },
-  { id: 7, src: image7, alt: "3D Print Project 7" },
-  { id: 8, src: image8, alt: "3D Print Project 8" },
+  { id: 1, src: image1, alt: "3D Printing Services" },
+  { id: 2, src: image2, alt: "3D Printing Process" },
+  { id: 3, src: image3, alt: "CAD Design & Modeling" },
+  { id: 4, src: image4, alt: "Model-Based Design" },
+  { id: 5, src: image5, alt: "PCB Design" },
+  { id: 6, src: image6, alt: "Rapid Prototyping" },
+  { id: 7, src: image7, alt: "PCB Manufacturing" },
 ];
 
 export default function TechnologyCarousel() {
