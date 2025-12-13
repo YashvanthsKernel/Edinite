@@ -1,27 +1,25 @@
-import { 
-  Zap, 
-  Layers, 
-  Box, 
-  Binary, 
-  CircuitBoard, 
-  Workflow, 
-  PenTool,
-  Cpu
-} from "lucide-react";
+import image1 from "@assets/image_1765168512747.png";
+import image2 from "@assets/image_1765168528456.png";
+import image3 from "@assets/image_1765168738660.png";
+import image4 from "@assets/image_1765168901726.png";
+import image5 from "@assets/image_1765169488975.png";
+import image6 from "@assets/image_1765169673555.png";
+import image7 from "@assets/image_1765169953978.png";
+import image8 from "@assets/image_1765190753226.png";
 
-const technologies = [
-  { name: "ANSYS", icon: Zap, description: "Simulation" },
-  { name: "AutoCAD", icon: PenTool, description: "2D/3D Design" },
-  { name: "MATLAB", icon: Binary, description: "Computing" },
-  { name: "Altium Designer", icon: CircuitBoard, description: "PCB Design" },
-  { name: "CATIA", icon: Layers, description: "3D Modeling" },
-  { name: "Fusion 360", icon: Box, description: "CAD/CAM" },
-  { name: "SolidWorks", icon: Cpu, description: "Mechanical" },
-  { name: "Simulink", icon: Workflow, description: "Systems" },
+const galleryImages = [
+  { id: 1, src: image1, alt: "3D Print Project 1" },
+  { id: 2, src: image2, alt: "3D Print Project 2" },
+  { id: 3, src: image3, alt: "3D Print Project 3" },
+  { id: 4, src: image4, alt: "3D Print Project 4" },
+  { id: 5, src: image5, alt: "3D Print Project 5" },
+  { id: 6, src: image6, alt: "3D Print Project 6" },
+  { id: 7, src: image7, alt: "3D Print Project 7" },
+  { id: 8, src: image8, alt: "3D Print Project 8" },
 ];
 
 export default function TechnologyCarousel() {
-  const duplicatedTechnologies = [...technologies, ...technologies];
+  const duplicatedImages = [...galleryImages, ...galleryImages];
 
   return (
     <div className="relative overflow-hidden py-8">
@@ -29,30 +27,22 @@ export default function TechnologyCarousel() {
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
       
       <div 
-        className="flex gap-6 animate-marquee"
+        className="flex gap-4 animate-marquee"
         style={{ width: 'fit-content' }}
       >
-        {duplicatedTechnologies.map((tech, index) => (
+        {duplicatedImages.map((image, index) => (
           <div
-            key={`${tech.name}-${index}`}
+            key={`${image.id}-${index}`}
             className="group relative flex-shrink-0"
-            data-testid={`tech-card-${tech.name.toLowerCase().replace(/\s+/g, '-')}-${index}`}
+            data-testid={`gallery-image-${image.id}-${index}`}
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-2xl opacity-0 group-hover:opacity-50 blur-sm transition-all duration-500" />
-            
-            <div className="absolute -inset-px bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
-            
-            <div className="relative w-[160px] h-[140px] backdrop-blur-xl bg-card/80 dark:bg-white/[0.03] border border-primary/20 dark:border-white/10 rounded-2xl flex flex-col items-center justify-center gap-4 transition-all duration-300 group-hover:border-primary/40 group-hover:bg-card dark:group-hover:bg-white/[0.06]">
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-purple-500/10 dark:from-primary/20 dark:to-purple-500/20 flex items-center justify-center border border-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-300">
-                  <tech.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
-                </div>
-              </div>
-              
-              <span className="text-sm font-medium text-foreground whitespace-nowrap group-hover:text-primary transition-colors duration-300">
-                {tech.name}
-              </span>
+            <div className="relative w-[200px] h-[180px] rounded-2xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+              <img 
+                src={image.src} 
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         ))}
