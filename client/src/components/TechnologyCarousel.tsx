@@ -21,31 +21,42 @@ const galleryImages = [
 export default function TechnologyCarousel() {
   const duplicatedImages = [...galleryImages, ...galleryImages];
 
-  return (
-    <div className="relative overflow-hidden py-8">
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
-      
-      <div 
-        className="flex gap-4 animate-marquee"
-        style={{ width: 'fit-content' }}
-      >
-        {duplicatedImages.map((image, index) => (
-          <div
-            key={`${image.id}-${index}`}
-            className="group relative flex-shrink-0"
-            data-testid={`gallery-image-${image.id}-${index}`}
-          >
-            <div className="relative w-[200px] h-[180px] rounded-2xl overflow-hidden transition-all duration-300 group-hover:scale-105">
-              <img 
-                src={image.src} 
-                alt={image.alt}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+  const renderCarousel = (animationClass: string) => (
+    <div 
+      className={`flex gap-4 ${animationClass}`}
+      style={{ width: 'fit-content' }}
+    >
+      {duplicatedImages.map((image, index) => (
+        <div
+          key={`${image.id}-${index}`}
+          className="group relative flex-shrink-0"
+          data-testid={`gallery-image-${image.id}-${index}`}
+        >
+          <div className="relative w-[200px] h-[180px] rounded-2xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+            <img 
+              src={image.src} 
+              alt={image.alt}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
-        ))}
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="space-y-8">
+      <div className="relative overflow-hidden py-8">
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        {renderCarousel('animate-marquee')}
+      </div>
+
+      <div className="relative overflow-hidden py-8">
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        {renderCarousel('animate-marquee-reverse')}
       </div>
     </div>
   );
