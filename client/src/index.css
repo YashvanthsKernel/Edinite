@@ -348,11 +348,11 @@ html, body {
     }
 
     .animate-marquee {
-      animation: marquee 60s linear infinite;
+      animation: marquee 100s linear infinite;
     }
 
     .animate-marquee-reverse {
-      animation: marquee-reverse 60s linear infinite;
+      animation: marquee-reverse 100s linear infinite;
     }
   }
 
