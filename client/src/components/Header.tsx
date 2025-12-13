@@ -42,7 +42,7 @@ export default function Header() {
               <Button data-testid="button-request-quote">More</Button>
               <Link href="/login">
                 <Button size="icon" variant="ghost" className="text-foreground/80 hover:text-foreground" data-testid="button-user-login">
-                  <UserCircle className="h-5 w-5" />
+                  <UserCircle className="h-7 w-7" />
                 </Button>
               </Link>
             </div>
