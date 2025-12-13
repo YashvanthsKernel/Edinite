@@ -354,6 +354,32 @@ html, body {
     .animate-marquee-reverse {
       animation: marquee-reverse 100s linear infinite;
     }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-33.333%);
+      }
+    }
+
+    @keyframes scroll-right {
+      0% {
+        transform: translateX(-33.333%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-scroll-left {
+      animation: scroll-left 30s linear infinite;
+    }
+
+    .animate-scroll-right {
+      animation: scroll-right 30s linear infinite;
+    }
   }
 
   html {

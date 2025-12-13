@@ -12,6 +12,7 @@ import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
 import FloatingOrbs from "@/components/FloatingOrbs";
+import ScrollingImageBackground from "@/components/ScrollingImageBackground";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -44,9 +45,8 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-20 px-4 relative overflow-hidden">
+      <ScrollingImageBackground />
       <FloatingOrbs />
-      
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
       
       <div className="relative z-10 w-full max-w-md">
         <div className="text-center mb-8">
