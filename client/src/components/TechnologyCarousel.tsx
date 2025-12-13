@@ -44,7 +44,7 @@ export default function TechnologyCarousel() {
   );
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 w-screen relative left-1/2 -translate-x-1/2">
       <div className="relative overflow-hidden py-2">
         {renderCarousel('animate-marquee')}
       </div>
