@@ -28,7 +28,7 @@ function ScrollingRow({ direction, rowIndex }: { direction: 'left' | 'right'; ro
         {duplicatedImages.map((img, idx) => (
           <div
             key={`${rowIndex}-${idx}`}
-            className="flex-shrink-0 w-72 h-48 rounded-lg overflow-hidden opacity-60"
+            className="flex-shrink-0 w-96 h-64 rounded-lg overflow-hidden opacity-60"
           >
             <img
               src={img}
@@ -44,10 +44,10 @@ function ScrollingRow({ direction, rowIndex }: { direction: 'left' | 'right'; ro
 
 export default function ScrollingImageBackground() {
   return (
-    <div className="absolute inset-0 flex flex-col justify-center gap-6 overflow-hidden">
+    <div className="absolute inset-0 flex flex-col justify-center gap-8 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/60 to-secondary/10 z-10" />
-      <div className="flex flex-col gap-6">
-        {[0, 1, 2, 3, 4].map((rowIndex) => (
+      <div className="flex flex-col gap-8">
+        {[0, 1, 2, 3].map((rowIndex) => (
           <ScrollingRow
             key={rowIndex}
             direction={rowIndex % 2 === 0 ? 'left' : 'right'}

@@ -47,6 +47,9 @@ function Router() {
 }
 
 function App() {
+  const [location] = useLocation();
+  const isAuthPage = location === '/login' || location === '/signup';
+
   useEffect(() => {
     document.documentElement.classList.add('dark');
   }, []);
@@ -55,13 +58,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="relative min-h-screen bg-background text-foreground">
-          <FloatingOrbs />
+          {!isAuthPage && <FloatingOrbs />}
           <div className="relative z-10">
-            <Header />
+            {!isAuthPage && <Header />}
             <main>
               <Router />
             </main>
-            <Footer />
+            {!isAuthPage && <Footer />}
           </div>
           <ScrollToTopButton />
         </div>

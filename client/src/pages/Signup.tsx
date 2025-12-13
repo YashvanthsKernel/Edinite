@@ -11,6 +11,7 @@ import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
 import FloatingOrbs from "@/components/FloatingOrbs";
+import ScrollingImageBackground from "@/components/ScrollingImageBackground";
 
 const signupSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -62,10 +63,9 @@ export default function Signup() {
   const strengthScore = Object.values(passwordStrength).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-20 px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 relative overflow-hidden">
+      <ScrollingImageBackground />
       <FloatingOrbs />
-      
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/10" />
       
       <div className="relative z-10 w-full max-w-md">
         <div className="text-center mb-8">
