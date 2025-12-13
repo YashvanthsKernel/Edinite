@@ -72,65 +72,97 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[90vh] pt-24 overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
-              linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px'
-          }}
-        />
+      <section className="relative min-h-[90vh] bg-gradient-to-br from-[#0a0a1a] via-[#0d0d24] to-[#0a0a1a] overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute top-1/2 right-0 w-[70%] h-[140%] -translate-y-1/2 translate-x-[10%]"
+            style={{
+              background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(265 100% 45%) 50%, hsl(220 100% 50%) 100%)',
+              clipPath: 'ellipse(80% 60% at 70% 50%)',
+              opacity: 0.9
+            }}
+          />
+          <div 
+            className="absolute top-1/2 right-0 w-[65%] h-[130%] -translate-y-1/2 translate-x-[15%]"
+            style={{
+              background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(265 100% 50%) 100%)',
+              clipPath: 'ellipse(75% 55% at 65% 50%)',
+              opacity: 0.8
+            }}
+          />
+          <div 
+            className="absolute top-[20%] right-[25%] w-24 h-24 rounded-full border-4 border-cyan-400/60"
+          />
+          <div 
+            className="absolute bottom-[25%] right-[45%] w-16 h-16 rounded-full border-2 border-primary/40"
+          />
+        </div>
         
-        <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 pt-32 pb-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 bg-muted/50 dark:bg-white/5 border border-primary/20 rounded-full px-4 py-2">
-                <span className="text-sm text-muted-foreground">Need a Quote?</span>
-                <Link href="/contact">
-                  <span className="text-sm font-semibold text-primary hover:underline cursor-pointer flex items-center gap-1" data-testid="link-get-quote-badge">
-                    Get Now <ArrowRight size={14} />
-                  </span>
-                </Link>
-              </div>
-
               <div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-tight">
-                  BRING YOUR{" "}
-                  <span className="text-primary">IDEAS</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
+                  <span className="text-white">Transform Your</span>
                   <br />
-                  TO REALITY
+                  <span className="bg-gradient-to-r from-cyan-400 via-primary to-purple-400 bg-clip-text text-transparent">Engineering Vision</span>
                 </h1>
               </div>
 
-              <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
+              <p className="text-base md:text-lg text-gray-300/80 max-w-md leading-relaxed">
                 Where engineering excellence meets innovation. From bold concepts to detailed designs, 
                 we transform your vision into professional CAD models, simulations, and prototypes.
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                <Link href="/services">
-                  <Button size="lg" className="gap-2 px-8" data-testid="button-explore-services">
-                    Explore Services <ArrowRight size={18} />
-                  </Button>
-                </Link>
+              <div className="pt-2 space-y-4 max-w-sm">
+                <div className="flex gap-3">
+                  <input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-md text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 transition-colors"
+                    data-testid="input-hero-name"
+                  />
+                </div>
+                <div className="flex gap-3">
+                  <input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-md text-white placeholder:text-gray-500 focus:outline-none focus:border-primary/50 transition-colors"
+                    data-testid="input-hero-email"
+                  />
+                </div>
                 <Link href="/contact">
-                  <Button size="lg" variant="secondary" className="gap-2 px-8" data-testid="button-upload-project">
-                    <Upload size={18} /> Submit Project
+                  <Button size="lg" className="gap-2 px-8 w-full mt-2" data-testid="button-get-started">
+                    Get Started <ArrowRight size={18} />
                   </Button>
                 </Link>
               </div>
+
+              <div className="flex flex-wrap gap-6 pt-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-400" />
+                  <span className="text-sm text-gray-400">50+ Projects</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-cyan-400" />
+                  <span className="text-sm text-gray-400">10+ Industries</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-purple-400" />
+                  <span className="text-sm text-gray-400">24/7 Support</span>
+                </div>
+              </div>
             </div>
 
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center lg:justify-end">
               <div className="relative">
-                <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-purple-500/10 to-transparent rounded-full blur-3xl" />
                 <img 
                   src={heroGearImage} 
                   alt="3D Engineering Visualization" 
-                  className="relative z-10 w-full max-w-lg mx-auto drop-shadow-2xl animate-float"
+                  className="relative z-10 w-full max-w-md mx-auto drop-shadow-2xl animate-float"
+                  style={{
+                    filter: 'drop-shadow(0 0 40px rgba(139, 92, 246, 0.3))'
+                  }}
                   data-testid="img-hero"
                 />
               </div>
