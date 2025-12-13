@@ -148,19 +148,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-primary py-8 -mt-px">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {features.map((feature) => (
+      <section className="relative py-16 -mt-px overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-purple-600 to-primary" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.1)_0%,_transparent_60%)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
               <div 
                 key={feature.label} 
-                className="flex items-center gap-4 text-primary-foreground group cursor-pointer"
+                className="group relative"
                 data-testid={`feature-${feature.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <feature.icon size={24} />
+                <div className="relative p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/25 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-gradient-to-br from-white/20 to-white/5 border border-white/20 flex items-center justify-center shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon size={28} className="text-white" />
+                  </div>
+                  
+                  <div className="mt-6 text-center">
+                    <h3 className="text-lg font-semibold text-white mb-2">{feature.label}</h3>
+                    <div className="w-8 h-0.5 bg-gradient-to-r from-white/0 via-white/50 to-white/0 mx-auto" />
+                  </div>
+                  
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <span className="font-medium text-sm md:text-base">{feature.label}</span>
               </div>
             ))}
           </div>
