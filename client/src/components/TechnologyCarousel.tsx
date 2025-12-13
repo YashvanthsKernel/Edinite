@@ -30,7 +30,7 @@ export default function TechnologyCarousel() {
           className="group relative flex-shrink-0"
           data-testid={`gallery-image-${image.id}-${index}`}
         >
-          <div className="relative w-[260px] h-[200px] rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
+          <div className="relative w-[320px] h-[240px] rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105">
             <img 
               src={image.src} 
               alt={image.alt}
