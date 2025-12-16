@@ -579,13 +579,6 @@ export default function Login() {
             </div>
           </Card>
         </div>
-
-        <p className="text-center text-xs text-muted-foreground mt-6">
-          By {isSignup ? "signing up" : "signing in"}, you agree to our{" "}
-          <span className="text-primary/80 hover:text-primary cursor-pointer" data-testid="link-terms-footer">Terms of Service</span>
-          {" "}and{" "}
-          <span className="text-primary/80 hover:text-primary cursor-pointer" data-testid="link-privacy-footer">Privacy Policy</span>
-        </p>
       </div>
     </div>
   );
