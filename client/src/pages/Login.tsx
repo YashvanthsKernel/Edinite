@@ -86,8 +86,12 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 relative overflow-hidden">
-      <ScrollingImageBackground />
-      <FloatingOrbs />
+      <div className="absolute inset-0 opacity-20">
+        <ScrollingImageBackground />
+      </div>
+      <div className="absolute inset-0 opacity-15">
+        <FloatingOrbs />
+      </div>
       
       <div className="relative z-10 w-full max-w-5xl">
         <div className="text-center mb-8">
@@ -101,7 +105,7 @@ export default function Login() {
           </Link>
         </div>
 
-        <div className="relative h-[600px] md:h-[550px]">
+        <div className="relative h-[700px] md:h-[700px]">
           <Card className="w-full h-full backdrop-blur-xl bg-card/50 border-primary/20 shadow-[0_8px_32px_0_rgba(114,38,255,0.15)] overflow-hidden">
             <div className="flex h-full relative">
               {/* Left Side - Sign In Form / Promo */}
