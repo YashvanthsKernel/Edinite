@@ -270,18 +270,18 @@ export default function Login() {
                     </CardContent>
                   </div>
                 ) : (
-                  <div className="w-full flex flex-col items-center justify-center text-center bg-primary rounded-l-lg py-12 px-6" data-testid="div-left-promo-box">
-                    <h2 className="text-3xl font-bold text-primary-foreground mb-4">Hey There!</h2>
-                    <p className="text-primary-foreground/90 mb-8 text-sm">
-                      Enter your personal details and start your journey with us today. It only takes a few moments.
+                  <div className="w-full flex flex-col items-center justify-center text-center">
+                    <h2 className="text-3xl font-bold text-foreground mb-4">Welcome Back!</h2>
+                    <p className="text-muted-foreground mb-8 text-sm">
+                      Already connected to logging in with your credentials on login.
                     </p>
                     <Button 
-                      variant="outline" 
-                      className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
-                      onClick={() => setIsSignup(true)}
-                      data-testid="button-left-promo-signup"
+                      variant="default"
+                      className="border-primary-foreground/30"
+                      onClick={() => setIsSignup(false)}
+                      data-testid="button-left-promo-signin"
                     >
-                      Sign Up
+                      Sign In
                     </Button>
                   </div>
                 )}
@@ -536,18 +536,18 @@ export default function Login() {
                     </CardContent>
                   </div>
                 ) : (
-                  <div className="w-full flex flex-col items-center justify-center text-center">
-                    <h2 className="text-3xl font-bold text-foreground mb-4">Welcome Back!</h2>
-                    <p className="text-muted-foreground mb-8 text-sm">
-                      Already connected to logging in with your credentials on login.
+                  <div className="w-full flex flex-col items-center justify-center text-center bg-primary rounded-r-lg py-12 px-6" data-testid="div-promo-box">
+                    <h2 className="text-3xl font-bold text-primary-foreground mb-4">Hey There!</h2>
+                    <p className="text-primary-foreground/90 mb-8 text-sm">
+                      Enter your personal details and start your journey with us today. It only takes a few moments.
                     </p>
                     <Button 
-                      variant="default"
-                      className="border-primary-foreground/30"
-                      onClick={() => setIsSignup(false)}
-                      data-testid="button-right-promo-signin"
+                      variant="outline" 
+                      className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                      onClick={() => setIsSignup(true)}
+                      data-testid="button-right-promo-signup"
                     >
-                      Sign In
+                      Sign Up
                     </Button>
                   </div>
                 )}
