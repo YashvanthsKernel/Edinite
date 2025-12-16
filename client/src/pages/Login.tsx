@@ -106,7 +106,7 @@ export default function Login() {
             <div className="flex h-full relative">
               {/* Left Side - Sign In Form / Promo */}
               <motion.div
-                animate={{ x: isSignup ? "100%" : "0%" }}
+                animate={{ x: isSignup ? "-100%" : "0%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="w-1/2 flex items-center justify-center px-6 py-8"
               >
@@ -292,7 +292,7 @@ export default function Login() {
 
               {/* Right Side - Sign Up Form / Promo */}
               <motion.div
-                animate={{ x: isSignup ? "0%" : "-100%" }}
+                animate={{ x: isSignup ? "0%" : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="w-1/2 flex items-center justify-center px-6 py-8"
               >
@@ -535,7 +535,22 @@ export default function Login() {
                       </p>
                     </CardContent>
                   </div>
-                ) : null}
+                ) : (
+                  <div className="w-full flex flex-col items-center justify-center text-center bg-primary rounded-r-lg py-12 px-6" data-testid="div-promo-box">
+                    <h2 className="text-3xl font-bold text-primary-foreground mb-4">Hey There!</h2>
+                    <p className="text-primary-foreground/90 mb-8 text-sm">
+                      Enter your personal details and start your journey with us today. It only takes a few moments.
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                      onClick={() => setIsSignup(true)}
+                      data-testid="button-right-promo-signup"
+                    >
+                      Sign Up
+                    </Button>
+                  </div>
+                )}
               </motion.div>
             </div>
           </Card>
