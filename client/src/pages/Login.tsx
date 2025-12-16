@@ -112,7 +112,7 @@ export default function Login() {
               <motion.div
                 animate={{ x: isSignup ? "-100%" : "0%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="w-1/2 flex items-center justify-center px-6 py-8"
+                className={`flex items-center justify-center px-6 py-8 ${isSignup ? "w-1/2" : "w-1/2"}`}
               >
                 {!isSignup ? (
                   <div className="w-full">
@@ -292,16 +292,16 @@ export default function Login() {
               </motion.div>
 
               {/* Divider */}
-              <div className="w-px bg-primary/20" />
+              {!isSignup && <div className="w-px bg-primary/20" />}
 
               {/* Right Side - Sign Up Form / Promo */}
               <motion.div
                 animate={{ x: isSignup ? "0%" : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="w-1/2 flex items-center justify-center px-6 py-8"
+                className={`flex items-center justify-center px-6 py-8 ${isSignup ? "w-full" : "w-1/2"}`}
               >
                 {isSignup ? (
-                  <div className="w-full max-h-[550px] overflow-y-auto">
+                  <div className="w-full overflow-y-auto">
                     <CardHeader className="space-y-1 pb-4 px-0">
                       <CardTitle className="text-xl font-semibold text-center">Create Account</CardTitle>
                       <CardDescription className="text-center">
