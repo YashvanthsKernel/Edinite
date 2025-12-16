@@ -274,19 +274,21 @@ export default function Login() {
                     </CardContent>
                   </div>
                 ) : (
-                  <div className="w-full flex flex-col items-center justify-center text-center bg-primary rounded-l-lg py-12 px-6" data-testid="div-promo-box">
-                    <h2 className="text-3xl font-bold text-primary-foreground mb-4">Welcome Back!</h2>
-                    <p className="text-primary-foreground/90 mb-8 text-sm">
-                      Already connected to logging in with your credentials? Join us now.
-                    </p>
-                    <Button 
-                      variant="outline" 
-                      className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
-                      onClick={() => setIsSignup(false)}
-                      data-testid="button-left-promo-signin"
-                    >
-                      Sign In
-                    </Button>
+                  <div className="w-full h-full flex flex-col items-center justify-center text-center bg-primary rounded-l-lg py-12 px-6" data-testid="div-promo-box">
+                    <div className="flex-1 flex flex-col items-center justify-center">
+                      <h2 className="text-4xl font-bold text-primary-foreground mb-4">Welcome Back!</h2>
+                      <p className="text-primary-foreground/90 mb-8 text-base max-w-xs">
+                        Already connected to logging in with your credentials? Join us now.
+                      </p>
+                      <Button 
+                        variant="outline" 
+                        className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                        onClick={() => setIsSignup(false)}
+                        data-testid="button-left-promo-signin"
+                      >
+                        Sign In
+                      </Button>
+                    </div>
                   </div>
                 )}
               </motion.div>
@@ -540,19 +542,21 @@ export default function Login() {
                     </CardContent>
                   </div>
                 ) : (
-                  <div className="w-full flex flex-col items-center justify-center text-center bg-primary rounded-r-lg py-12 px-6" data-testid="div-promo-box">
-                    <h2 className="text-3xl font-bold text-primary-foreground mb-4">Hey There!</h2>
-                    <p className="text-primary-foreground/90 mb-8 text-sm">
-                      Enter your personal details and start your journey with us today. It only takes a few moments.
-                    </p>
-                    <Button 
-                      variant="outline" 
-                      className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
-                      onClick={() => setIsSignup(true)}
-                      data-testid="button-right-promo-signup"
-                    >
-                      Sign Up
-                    </Button>
+                  <div className="w-full h-full flex flex-col items-center justify-center text-center bg-primary rounded-r-lg py-12 px-6" data-testid="div-promo-box">
+                    <div className="flex-1 flex flex-col items-center justify-center">
+                      <h2 className="text-4xl font-bold text-primary-foreground mb-4">Hey There!</h2>
+                      <p className="text-primary-foreground/90 mb-8 text-base max-w-xs">
+                        Enter your personal details and start your journey with us today. It only takes a few moments.
+                      </p>
+                      <Button 
+                        variant="outline" 
+                        className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                        onClick={() => setIsSignup(true)}
+                        data-testid="button-right-promo-signup"
+                      >
+                        Sign Up
+                      </Button>
+                    </div>
                   </div>
                 )}
               </motion.div>
