@@ -106,7 +106,7 @@ export default function Login() {
             <div className="flex h-full relative">
               {/* Left Side - Sign In Form / Promo */}
               <motion.div
-                animate={{ x: isSignup ? 0 : 0 }}
+                animate={{ x: isSignup ? "-100%" : "0%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="w-1/2 flex items-center justify-center px-6 py-8"
               >
@@ -292,7 +292,7 @@ export default function Login() {
 
               {/* Right Side - Sign Up Form / Promo */}
               <motion.div
-                animate={{ x: isSignup ? 0 : 0 }}
+                animate={{ x: isSignup ? "0%" : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 className="w-1/2 flex items-center justify-center px-6 py-8"
               >
