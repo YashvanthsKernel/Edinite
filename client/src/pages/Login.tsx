@@ -28,7 +28,6 @@ const signupSchema = z.object({
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
     .regex(/[0-9]/, "Password must contain at least one number"),
   confirmPassword: z.string(),
-  agreeTerms: z.boolean().refine(val => val === true, "You must agree to the terms"),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
   path: ["confirmPassword"],
@@ -60,7 +59,6 @@ export default function Login() {
       company: "",
       password: "",
       confirmPassword: "",
-      agreeTerms: false,
     },
   });
 
@@ -465,28 +463,6 @@ export default function Login() {
                                   </div>
                                 </FormControl>
                                 <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-
-                          <FormField
-                            control={signupForm.control}
-                            name="agreeTerms"
-                            render={({ field }) => (
-                              <FormItem className="flex items-start space-x-2 space-y-0 pt-2">
-                                <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                    data-testid="checkbox-terms"
-                                  />
-                                </FormControl>
-                                <FormLabel className="text-sm font-normal leading-relaxed cursor-pointer">
-                                  I agree to the{" "}
-                                  <span className="text-primary hover:text-primary/80 cursor-pointer" data-testid="link-terms-signup">Terms of Service</span>
-                                  {" "}and{" "}
-                                  <span className="text-primary hover:text-primary/80 cursor-pointer" data-testid="link-privacy-signup">Privacy Policy</span>
-                                </FormLabel>
                               </FormItem>
                             )}
                           />
