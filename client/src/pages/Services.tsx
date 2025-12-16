@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "wouter";
 import { useEffect, useState } from "react";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import { motion } from "framer-motion";
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
@@ -222,52 +223,91 @@ export default function Services() {
           </ScrollAnimation>
 
           <ScrollAnimation delay={100}>
-            <div className="relative mb-10">
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-cyan-400/20 rounded-3xl blur-2xl opacity-60 animate-pulse" style={{ animationDuration: '4s' }} />
+            <motion.div className="relative mb-10">
+              <motion.div 
+                className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-cyan-400/20 rounded-3xl blur-2xl opacity-60 animate-pulse" 
+                style={{ animationDuration: '4s' }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 0.6 }}
+                transition={{ duration: 0.8 }}
+              />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-cyan-500/5 rounded-2xl" />
               
               <div className="relative backdrop-blur-2xl bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
                 
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div 
+                  className="absolute inset-0 overflow-hidden pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                >
                   <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-conic from-primary/10 via-transparent to-transparent animate-spin" style={{ animationDuration: '20s' }} />
-                </div>
+                </motion.div>
                 
                 <div className="relative grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
                   {metrics.map((metric, idx) => (
-                    <div 
-                      key={idx} 
+                    <motion.div 
+                      key={idx}
                       className="relative group p-6 md:p-8 transition-all duration-500 hover:bg-white/[0.03]"
                       data-testid={`metric-${metric.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: idx * 0.15 }}
+                      viewport={{ once: true, margin: "-100px" }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       
                       <div className="relative flex flex-col items-center text-center gap-4">
-                        <div className="relative">
+                        <motion.div 
+                          className="relative"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
                           <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-purple-500/15 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                            <metric.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                          </div>
-                        </div>
+                          <motion.div 
+                            className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-purple-500/15 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
+                            whileHover={{ rotate: 5 }}
+                          >
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              whileInView={{ scale: 1 }}
+                              transition={{ duration: 0.4, delay: idx * 0.15 + 0.2 }}
+                              viewport={{ once: true }}
+                            >
+                              <metric.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                            </motion.div>
+                          </motion.div>
+                        </motion.div>
                         
-                        <div className="space-y-1">
+                        <motion.div 
+                          className="space-y-1"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ duration: 0.5, delay: idx * 0.15 + 0.1 }}
+                          viewport={{ once: true }}
+                        >
                           <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-[length:200%_100%] bg-clip-text text-transparent group-hover:animate-pulse" style={{ animationDuration: '2s' }}>
                             {metric.value}
                           </div>
                           <div className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide uppercase">
                             {metric.label}
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gradient-to-r from-primary/50 to-purple-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
+                      <motion.div 
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gradient-to-r from-primary/50 to-purple-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        whileHover={{ width: 80 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      />
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </ScrollAnimation>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
