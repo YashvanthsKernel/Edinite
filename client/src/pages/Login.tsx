@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Lock, ArrowRight, Eye, EyeOff, User, Building2 } from "lucide-react";
+import { Mail, Lock, ArrowRight, Eye, EyeOff, User, Building2, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -94,15 +94,26 @@ export default function Login() {
       </div>
       
       <div className="relative z-10 w-full max-w-5xl">
-        <div className="text-center mb-8">
+        <div className="flex items-center justify-between mb-8">
+          <Link href="/">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="rounded-full"
+              data-testid="button-back"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          </Link>
           <Link href="/">
             <img 
               src={logoImage} 
               alt="Edinite Logo" 
-              className="h-16 w-auto mx-auto mb-4 cursor-pointer" 
+              className="h-16 w-auto cursor-pointer" 
               data-testid="img-logo"
             />
           </Link>
+          <div className="w-10" />
         </div>
 
         <div className="relative h-[700px] md:h-[700px]">
