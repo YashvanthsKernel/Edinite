@@ -427,7 +427,7 @@ export default function Login() {
                 initial={false}
                 animate={{ x: isSignup ? "0%" : "100%" }}
                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-b from-primary to-purple-600 rounded-2xl flex items-center justify-center p-8 text-center z-10 border-2 border-primary-foreground/30 shadow-lg"
+                className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-b from-primary to-purple-600 rounded-2xl flex items-center justify-center p-8 text-center z-10 border-[3px] border-white/50 shadow-[0_0_20px_rgba(255,255,255,0.25),0_8px_32px_rgba(0,0,0,0.3)]"
                 data-testid="div-overlay-panel"
               >
                 <div className="space-y-6">
