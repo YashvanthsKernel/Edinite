@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User } from "lucide-react";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -29,13 +30,16 @@ export default function Header() {
 
           <div className="flex items-center gap-8">
             <nav className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <span className="text-foreground/80 hover:text-foreground transition-colors cursor-pointer" data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {link.label}
-                  </span>
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location === link.href;
+                return (
+                  <Link key={link.href} href={link.href}>
+                    <span className={`transition-colors cursor-pointer ${isActive ? 'font-bold text-primary' : 'text-foreground/80 hover:text-foreground'}`} data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                      {link.label}
+                    </span>
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="hidden md:flex items-center gap-4">
@@ -60,17 +64,20 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 backdrop-blur-xl bg-card/95 rounded-xl border border-primary/20 p-6">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <span 
-                    className="text-foreground/80 hover:text-foreground transition-colors py-2 cursor-pointer block"
-                    onClick={() => setMobileMenuOpen(false)}
-                    data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    {link.label}
-                  </span>
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location === link.href;
+                return (
+                  <Link key={link.href} href={link.href}>
+                    <span 
+                      className={`transition-colors py-2 cursor-pointer block ${isActive ? 'font-bold text-primary' : 'text-foreground/80 hover:text-foreground'}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {link.label}
+                    </span>
+                  </Link>
+                );
+              })}
               <Button className="mt-2" data-testid="button-mobile-quote">Request Quote</Button>
               <Link href="/login">
                 <Button 
