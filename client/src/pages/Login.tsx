@@ -116,7 +116,7 @@ export default function Login() {
           <div className="w-10" />
         </div>
 
-        <div className="relative w-full max-w-4xl mx-auto h-[550px]">
+        <div className="relative w-full max-w-5xl mx-auto h-[650px]">
           <Card className="w-full h-full backdrop-blur-xl bg-card/95 border-primary/20 shadow-[0_8px_32px_0_rgba(114,38,255,0.15)] overflow-hidden">
             <div className="flex h-full relative">
               {/* Left Section - Sign In Form */}
