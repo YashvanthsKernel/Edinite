@@ -261,26 +261,6 @@ export default function Services() {
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       
                       <div className="relative flex flex-col items-center text-center gap-4">
-                        <motion.div 
-                          className="relative"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <motion.div 
-                            className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-purple-500/15 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
-                            whileHover={{ rotate: 5 }}
-                          >
-                            <motion.div
-                              initial={{ scale: 0 }}
-                              whileInView={{ scale: 1 }}
-                              transition={{ duration: 0.4, delay: idx * 0.15 + 0.2 }}
-                              viewport={{ once: true }}
-                            >
-                              <metric.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                            </motion.div>
-                          </motion.div>
-                        </motion.div>
                         
                         <motion.div 
                           className="space-y-1"
