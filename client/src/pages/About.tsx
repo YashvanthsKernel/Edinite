@@ -696,7 +696,7 @@ export default function About() {
     {
       name: "Karthikeyan R",
       position: "Founder & CEO",
-      description: "Mechanical engineering innovator dedicated to making advanced design accessible",
+      description: "Karthikeyan R, Founder of Edinite, is a mechanical engineering innovator with expertise in CAD, simulation, and digital product development. He is committed to helping students, startups, and creators transform ideas into engineered, real-world solutions.",
       specialties: ["CAD Design", "ISRO Projects", "EV Systems"],
       initials: "KR",
       email: "rkarthikeyan135@gmail.com",
@@ -707,7 +707,7 @@ export default function About() {
     {
       name: "Shrivatsav Tamil Kumaran",
       position: "COO & CSO",
-      description: "Product design expert with strong passion for engineering solutions",
+      description: "Shrivatsav is a Mechanical Engineer passionate about product design and development, with a strong creative and problem-solving mindset. He contributes to effective design execution through leadership, teamwork, and operations management.",
       specialties: ["Product Design", "Leadership", "Strategy"],
       initials: "ST",
       email: "shrivatsavt2906@gmail.com",
@@ -718,7 +718,7 @@ export default function About() {
     {
       name: "Prasanth Kannan",
       position: "CFO & Sales Director",
-      description: "Driving financial vision and bridging technical needs with business solutions",
+      description: "Prasanth K is the CFO and Sales Director at Edinite, leading financial strategy and client engagement with clarity and precision. With a strong engineering background, he bridges technical expertise and business needs to drive growth and deliver high-value solutions.",
       specialties: ["Financial Planning", "Client Strategy", "Business Growth"],
       initials: "PK",
       email: "prasanthkannan0921@gmail.com",
@@ -729,7 +729,7 @@ export default function About() {
     {
       name: "Dhinessh Raj S",
       position: "Engineering Director",
-      description: "FEA, prototyping, and CAD expert transforming complex ideas into solutions",
+      description: "A dedicated Mechanical Engineer specializing in FEA, advanced CAD, and rapid prototyping, transforming concepts into precise, manufacturable solutions. Driven by innovation and continuous learning, he delivers high-performance mechanical designs that meet industry standards and real-world needs.",
       specialties: ["FEA Analysis", "Prototyping", "CAD Expertise"],
       initials: "DR",
       email: "dhinesshraj10@gmail.com",
