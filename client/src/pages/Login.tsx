@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Lock, ArrowRight, Eye, EyeOff, User, Building2, ArrowLeft } from "lucide-react";
+import { Mail, Lock, ArrowRight, Eye, EyeOff, User, Building2, ArrowLeft, Phone } from "lucide-react";
+import { SiGoogle } from "react-icons/si";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,7 +24,7 @@ const loginSchema = z.object({
 const signupSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  company: z.string().optional(),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
   password: z.string().min(8, "Password must be at least 8 characters")
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
     .regex(/[0-9]/, "Password must contain at least one number"),
@@ -56,7 +57,7 @@ export default function Login() {
     defaultValues: {
       fullName: "",
       email: "",
-      company: "",
+      phone: "",
       password: "",
       confirmPassword: "",
     },
@@ -224,6 +225,22 @@ export default function Login() {
                           "SIGN IN"
                         )}
                       </Button>
+
+                      <div className="relative flex items-center gap-3 mt-4">
+                        <div className="flex-1 h-px bg-border" />
+                        <span className="text-xs text-muted-foreground">Or</span>
+                        <div className="flex-1 h-px bg-border" />
+                      </div>
+
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full h-9 rounded-full font-medium gap-2"
+                        data-testid="button-google-signin"
+                      >
+                        <SiGoogle className="h-4 w-4" />
+                        Sign in with Google
+                      </Button>
                     </form>
                   </Form>
                 </div>
@@ -276,6 +293,29 @@ export default function Login() {
                                   placeholder="you@example.com"
                                   className="pl-10 h-9 bg-background/50 border-primary/30 focus:border-primary rounded-lg"
                                   data-testid="input-email-signup"
+                                />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={signupForm.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium">Phone Number</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <Phone className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+                                <Input
+                                  {...field}
+                                  type="tel"
+                                  placeholder="+1 (555) 000-0000"
+                                  className="pl-10 h-9 bg-background/50 border-primary/30 focus:border-primary rounded-lg"
+                                  data-testid="input-phone-signup"
                                 />
                               </div>
                             </FormControl>
@@ -360,6 +400,22 @@ export default function Login() {
                         ) : (
                           "SIGN UP"
                         )}
+                      </Button>
+
+                      <div className="relative flex items-center gap-3 mt-4">
+                        <div className="flex-1 h-px bg-border" />
+                        <span className="text-xs text-muted-foreground">Or</span>
+                        <div className="flex-1 h-px bg-border" />
+                      </div>
+
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="w-full h-9 rounded-full font-medium gap-2"
+                        data-testid="button-google-signup"
+                      >
+                        <SiGoogle className="h-4 w-4" />
+                        Sign up with Google
                       </Button>
                     </form>
                   </Form>
