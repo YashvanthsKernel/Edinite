@@ -307,7 +307,7 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
           </svg>
         </div>
 
-        <div className="relative space-y-6 md:space-y-0">
+        <div className="relative space-y-2 md:space-y-0">
           {values.map((value, index) => {
             const IconComponent = value.icon;
             const isActive = index === activeStep;
@@ -388,7 +388,7 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
               <div
                 key={index}
                 className={`
-                  relative transition-all duration-700 ease-out md:py-6
+                  relative transition-all duration-700 ease-out md:py-2
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
                 `}
                 style={{ transitionDelay: `${index * 200}ms` }}
