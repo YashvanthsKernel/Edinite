@@ -188,7 +188,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground uppercase tracking-wide mb-0.5">Hours</p>
-                        <p className="font-medium text-foreground">Mon-Fri · 9:00 AM - 6:00 PM IST</p>
+                        <p className="font-medium text-foreground">Mon-Sat · 9:00 AM - 6:00 PM IST</p>
                       </div>
                     </div>
 
