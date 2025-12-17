@@ -217,6 +217,14 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [values.length]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep(prev => (prev + 1) % values.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [values.length]);
+
   const stepDetails = [
     {
       deliverables: ["Initial concept sketches", "Requirements analysis", "Feasibility study"],
