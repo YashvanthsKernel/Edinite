@@ -95,7 +95,7 @@ export default function Login() {
       </div>
       
       <div className="relative z-10 w-full max-w-5xl">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-4">
           <Link href="/">
             <Button 
               variant="ghost" 
@@ -115,6 +115,13 @@ export default function Login() {
             />
           </Link>
           <div className="w-10" />
+        </div>
+
+        <div className="text-center mb-6" data-testid="div-login-intro">
+          <h1 className="text-2xl font-bold text-foreground mb-2">Welcome to Edinite</h1>
+          <p className="text-muted-foreground text-sm max-w-md mx-auto">
+            Your gateway to seamless learning and collaboration. Sign in to continue your journey or create an account to get started.
+          </p>
         </div>
 
         <div className="relative w-full max-w-5xl mx-auto h-[650px]">
