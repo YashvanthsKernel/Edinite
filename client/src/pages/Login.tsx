@@ -450,7 +450,7 @@ export default function Login() {
                   <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/20">
                     <Button 
                       variant="outline" 
-                      className="border-primary-foreground/50 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8 font-medium"
+                      className="border-2 border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8 font-medium shadow-[0_0_12px_rgba(255,255,255,0.3)]"
                       onClick={() => setIsSignup(!isSignup)}
                       data-testid={isSignup ? "button-overlay-signin" : "button-overlay-signup"}
                     >
