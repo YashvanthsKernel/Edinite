@@ -249,13 +249,13 @@ export default function Home() {
                 <Link href="/services">
                   <div className="group relative cursor-pointer">
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
-                    <div className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                    <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
                       <div className="absolute inset-0 rounded-full overflow-hidden">
                         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                       </div>
-                      <span className="text-lg font-semibold text-foreground group-hover:text-white transition-colors">Explore All Services</span>
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 group-hover:scale-110 transition-all">
-                        <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+                      <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">Explore All Services</span>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 group-hover:scale-110 transition-all">
+                        <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                       </div>
                     </div>
                   </div>
@@ -338,13 +338,13 @@ export default function Home() {
               <Link href="/portfolio">
                 <div className="group relative cursor-pointer">
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
-                  <div className="relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                  <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
                     <div className="absolute inset-0 rounded-full overflow-hidden">
                       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                     </div>
-                    <span className="text-lg font-semibold text-foreground group-hover:text-white transition-colors">View All Projects</span>
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 group-hover:scale-110 transition-all">
-                      <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">View All Projects</span>
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-purple-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 group-hover:scale-110 transition-all">
+                      <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
                 </div>
