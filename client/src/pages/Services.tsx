@@ -455,9 +455,6 @@ export default function Services() {
                             <div className={`relative w-24 h-24 rounded-3xl bg-gradient-to-br ${activeService.color} flex items-center justify-center shadow-2xl border border-white/20`}>
                               <activeService.icon className="w-12 h-12 text-white" />
                             </div>
-                            <div className="absolute -top-3 -right-3 px-3 py-1 bg-gradient-to-r from-white to-white/80 rounded-full shadow-xl border border-white/30">
-                              <Star className="w-4 h-4 text-primary fill-primary inline" />
-                            </div>
                           </div>
                           
                           <div className="flex-1">
