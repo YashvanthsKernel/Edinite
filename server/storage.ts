@@ -1,5 +1,5 @@
 import { users, type User, type UpsertUser } from "@shared/schema";
-import { db } from "./db";
+import { getDb } from "./db";
 import { eq } from "drizzle-orm";
 
 export interface IStorage {
@@ -9,12 +9,12 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
+    const [user] = await getDb().select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
   async upsertUser(userData: UpsertUser): Promise<User> {
-    const [user] = await db
+    const [user] = await getDb()
       .insert(users)
       .values(userData)
       .onConflictDoUpdate({
