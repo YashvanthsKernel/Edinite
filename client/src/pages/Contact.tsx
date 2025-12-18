@@ -65,7 +65,7 @@ const testimonials = [
     name: "Ananya Iyer",
     role: "Design Lead",
     company: "Precision Mfg",
-    quote: "Quick turnaround on our 3D printing prototypes. The team went above and beyond on DFM feedback.",
+    quote: "Quick turnaround on our rapid printing prototypes. The team went above and beyond on DFM feedback.",
     rating: 5,
   },
 ];

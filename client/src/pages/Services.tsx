@@ -71,12 +71,12 @@ const servicesDetails: ServiceDetail[] = [
   {
     id: "3d-printing",
     icon: Printer,
-    title: "3D Printing Services",
-    shortTitle: "3D Printing",
+    title: "Rapid Printing Services",
+    shortTitle: "Rapid Printing",
     description: "Rapid prototyping and additive manufacturing solutions with FDM, SLA, and SLS technologies for functional parts",
     tagline: "Prototype in days, not months",
     features: [
-      "FDM 3D printing for prototypes",
+      "FDM rapid printing for prototypes",
       "SLA resin printing for precision",
       "SLS powder printing for functional parts",
       "Material selection and optimization",

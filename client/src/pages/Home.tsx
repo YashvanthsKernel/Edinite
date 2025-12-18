@@ -22,7 +22,7 @@ export default function Home() {
   const services = [
     { title: "3D CAD Design", description: "Professional mechanical design services using industry-leading CAD software", href: "/services/cad", backgroundImage: cadImage },
     { title: "FEA/CFD Simulation", description: "Advanced structural and fluid dynamics analysis for optimal performance", href: "/services/fea", backgroundImage: feaImage },
-    { title: "3D Printing", description: "Rapid prototyping and additive manufacturing solutions", href: "/services/printing", backgroundImage: printingImage },
+    { title: "Rapid Printing", description: "Rapid prototyping and additive manufacturing solutions", href: "/services/printing", backgroundImage: printingImage },
     { title: "PCB Design", description: "Custom circuit board design and layout for electronic systems", href: "/services/pcb", backgroundImage: pcbImage },
     { title: "MATLAB & Simulink", description: "Control systems, data analysis, and simulation modeling", href: "/services/matlab", backgroundImage: matlabImage },
     { title: "Product Optimization", description: "Performance enhancement through advanced engineering analysis", href: "/services/optimization", backgroundImage: optimizationImage },

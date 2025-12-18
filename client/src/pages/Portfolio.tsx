@@ -39,7 +39,7 @@ export default function Portfolio() {
     },
     {
       title: "Industrial Robot Gripper",
-      category: "3D Printing",
+      category: "Rapid Printing",
       description: "Custom end-effector design with rapid prototyping for industrial automation applications.",
       image: printingImage,
       tools: ["Fusion 360", "Ultimaker Cura"],

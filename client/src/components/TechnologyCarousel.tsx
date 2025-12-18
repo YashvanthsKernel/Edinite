@@ -7,8 +7,8 @@ import image6 from "@assets/Rapid-Prototyping-printing_1765612582320.jpg";
 import image7 from "@assets/Untitled-design-54-1-1-1024x683_1765612582321.jpg";
 
 const galleryImages = [
-  { id: 1, src: image1, alt: "3D Printing Services" },
-  { id: 2, src: image2, alt: "3D Printing Process" },
+  { id: 1, src: image1, alt: "Rapid Printing Services" },
+  { id: 2, src: image2, alt: "Rapid Printing Process" },
   { id: 3, src: image3, alt: "CAD Design & Modeling" },
   { id: 4, src: image4, alt: "Model-Based Design" },
   { id: 5, src: image5, alt: "PCB Design" },

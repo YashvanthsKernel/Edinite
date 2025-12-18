@@ -75,7 +75,7 @@ export default function Footer() {
               {[
                 { label: "CAD Design", href: "/services/mechanical-cad" },
                 { label: "FEA/CFD Simulation", href: "/services/fea-cfd" },
-                { label: "3D Printing", href: "/services/3d-printing" },
+                { label: "Rapid Printing", href: "/services/3d-printing" },
                 { label: "PCB Design", href: "/services/pcb-design" },
                 { label: "MATLAB Solutions", href: "/services/matlab" },
               ].map((link, idx) => (
