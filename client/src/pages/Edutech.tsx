@@ -53,9 +53,9 @@ export default function Edutech() {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-muted/50 dark:bg-white/5 border border-orange-500/30 rounded-full px-4 py-2 mb-6">
+            <div className="inline-flex items-center gap-2 bg-orange-500/15 dark:bg-orange-500/20 border border-orange-500/50 rounded-full px-4 py-2 mb-6">
               <span className="inline-block w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-              <span className="text-sm text-orange-600 dark:text-orange-400 font-medium">Coming Soon</span>
+              <span className="text-sm text-orange-600 dark:text-orange-400 font-bold">Coming Soon</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-tight mb-6">
               EDUTECH
@@ -156,7 +156,7 @@ export default function Edutech() {
               Be Part of the Future of Engineering Education
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Edutech is under development. We're actively building this platform to make world-class engineering education accessible to everyone. If you're interested in being an early adopter or instructor, we'd love to hear from you.
+              Edutech is <span className="font-bold text-orange-500 dark:text-orange-400">under development</span>. We're actively building this platform to make world-class engineering education accessible to everyone. If you're interested in being an early adopter or instructor, we'd love to hear from you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">
