@@ -446,9 +446,11 @@ export default function Services() {
                     <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-cyan-400/20 rounded-3xl blur-2xl opacity-50" />
                     
                     <div className="relative backdrop-blur-3xl bg-background border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+                      <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url(${activeService.image})` }} />
+                      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/40" />
                       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                       
-                      <div className="p-6 md:p-10 lg:p-12">
+                      <div className="relative p-6 md:p-10 lg:p-12">
                         <div className="flex flex-col md:flex-row md:items-start gap-8 mb-10">
                           <div className="flex-1">
                             <div className="flex flex-wrap items-center gap-4 mb-4">
