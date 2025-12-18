@@ -1152,72 +1152,66 @@ export default function About() {
               </ScrollAnimation>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6 auto-rows-max">
               <ScrollAnimation delay={100}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-56 border border-primary/40 shadow-lg hover:shadow-2xl hover:border-primary/60 transition-all duration-300" data-testid="card-service-0">
-                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="dots" x="20" y="20" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="400" height="300" fill="url(%23dots)"/><path d="M100,150 Q200,100 300,150" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></svg>\')'}}>
-                        <div className="text-center">
-                          <h3 className="text-2xl font-bold text-white mb-2">3D CAD Design</h3>
-                        </div>
-                        <Cpu className="w-12 h-12 text-white opacity-80" />
-                      </div>
+                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-0">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 to-purple-600/40 rounded-2xl flex items-center justify-center">
+                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
+                      <Cpu className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
+                      <h3 className="text-sm md:text-base font-bold text-white">3D CAD Design</h3>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex flex-col items-center justify-center p-6 gap-4">
-                      <h4 className="text-white text-lg font-bold text-center">3D CAD Design</h4>
-                      <p className="text-white text-sm text-center leading-relaxed">Professional CAD modeling and photorealistic visualization that brings your concepts to life with precision and detail.</p>
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Professional CAD modeling and visualization that brings concepts to life</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={200}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-56 border border-primary/40 shadow-lg hover:shadow-2xl hover:border-primary/60 transition-all duration-300" data-testid="card-service-1">
-                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(59, 130, 246, 0.4)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="cubes" x="40" y="40" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M20,20 L40,10 L60,20 L40,30Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/></pattern></defs><rect width="400" height="300" fill="url(%23cubes)"/></svg>\')'}}>
-                        <h3 className="text-xl font-bold text-white">CFD & FEA Simulation</h3>
-                        <Layers className="w-10 h-10 text-white opacity-80" />
-                      </div>
+                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/40 to-blue-600/40 rounded-2xl flex items-center justify-center">
+                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
+                      <Layers className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
+                      <h3 className="text-sm md:text-base font-bold text-white">CFD & FEA</h3>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex flex-col items-center justify-center p-6 gap-4">
-                      <h4 className="text-white text-lg font-bold text-center">CFD & FEA Simulation</h4>
-                      <p className="text-white text-sm text-center">Advanced structural and thermal analysis for optimization and validation of your designs</p>
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Advanced structural and thermal analysis for design validation</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={300}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-56 border border-primary/40 shadow-lg hover:shadow-2xl hover:border-primary/60 transition-all duration-300" data-testid="card-service-2">
-                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(59, 130, 246, 0.5)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="books" x="50" y="50" width="100" height="100" patternUnits="userSpaceOnUse"><rect x="20" y="20" width="15" height="60" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/><rect x="40" y="25" width="15" height="60" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.2)"/><rect x="60" y="30" width="15" height="60" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/></pattern></defs><rect width="400" height="300" fill="url(%23books)"/></svg>\')'}}>
-                        <h3 className="text-xl font-bold text-white">Electronics & PCB</h3>
-                        <GraduationCap className="w-10 h-10 text-white opacity-80" />
-                      </div>
+                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-2">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-blue-600/40 rounded-2xl flex items-center justify-center">
+                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
+                      <GraduationCap className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
+                      <h3 className="text-sm md:text-base font-bold text-white">Electronics & PCB</h3>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex flex-col items-center justify-center p-6 gap-4">
-                      <h4 className="text-white text-lg font-bold text-center">Electronics & PCB</h4>
-                      <p className="text-white text-sm text-center">Complete circuit design and PCB layout for electronics projects and prototypes</p>
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Complete circuit design and PCB layout for projects</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={400}>
-                <div className="group relative overflow-hidden rounded-2xl cursor-pointer h-56 border border-primary/40 shadow-lg hover:shadow-2xl hover:border-primary/60 transition-all duration-300" data-testid="card-service-3">
-                  <div className="absolute inset-0 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    <div className="absolute inset-0 [backface-visibility:hidden]">
-                      <div className="w-full h-full bg-cover bg-center rounded-2xl flex flex-col items-center justify-between p-6" style={{backgroundImage: 'linear-gradient(135deg, rgba(249, 115, 22, 0.4), rgba(139, 92, 246, 0.4)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="sketches" x="40" y="40" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M30,30 Q40,20 50,30 T70,30" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/></pattern></defs><rect width="400" height="300" fill="url(%23sketches)"/></svg>\')'}}>
-                        <h3 className="text-xl font-bold text-white">Software Development</h3>
-                        <Pen className="w-10 h-10 text-white opacity-80" />
-                      </div>
+                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-3">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-purple-600/40 rounded-2xl flex items-center justify-center">
+                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
+                      <Pen className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
+                      <h3 className="text-sm md:text-base font-bold text-white">Software Dev</h3>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex flex-col items-center justify-center p-6 gap-4">
-                      <h4 className="text-white text-lg font-bold text-center">Software Development</h4>
-                      <p className="text-white text-sm text-center">Custom software development tailored to solve complex engineering problems and streamline workflows</p>
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Custom solutions for complex engineering problems</p>
                     </div>
                   </div>
                 </div>
