@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
 import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
@@ -43,7 +43,15 @@ export default function Header() {
             </nav>
 
             <div className="hidden md:flex items-center gap-4">
-              <Button data-testid="button-request-quote">More</Button>
+              <Link href="/contact">
+                <div className="group relative inline-flex">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
+                  <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">Get Quote</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
               <Link href="/login">
                 <Button size="icon" variant="ghost" className="text-foreground/80 hover:text-foreground" data-testid="button-user-login">
                   <User className="h-7 w-7" />
@@ -78,17 +86,25 @@ export default function Header() {
                   </Link>
                 );
               })}
-              <Button className="mt-2" data-testid="button-mobile-quote">Request Quote</Button>
+              <Link href="/contact">
+                <div className="group relative inline-flex w-full mt-2">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
+                  <div className="relative w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">Get Quote</span>
+                  </div>
+                </div>
+              </Link>
               <Link href="/login">
-                <Button 
-                  variant="outline" 
-                  className="mt-2 w-full"
+                <div 
+                  className="group relative inline-flex w-full mt-2"
                   onClick={() => setMobileMenuOpen(false)}
-                  data-testid="button-mobile-login"
                 >
-                  <User className="h-4 w-4 mr-2" />
-                  Login / Sign Up
-                </Button>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
+                  <div className="relative w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
+                    <User className="h-4 w-4" />
+                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">Login / Sign Up</span>
+                  </div>
+                </div>
               </Link>
             </nav>
           </div>
