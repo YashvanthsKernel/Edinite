@@ -425,77 +425,76 @@ export default function Services() {
               <ScrollAnimation delay={200}>
                 <div key={activeServiceId} className="animate-in fade-in slide-in-from-right-5 duration-500">
                   <div className="relative mb-6">
-                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/15 via-purple-500/15 to-cyan-400/15 rounded-3xl blur-2xl opacity-60" />
+                    <div className={`absolute -inset-3 bg-gradient-to-r ${activeService.color} rounded-3xl blur-3xl opacity-40`} />
+                    <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-cyan-400/20 rounded-3xl blur-2xl opacity-50" />
                     
-                    <div className="relative backdrop-blur-2xl bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden">
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                    <div className="relative backdrop-blur-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                       
-                      <div className="p-6 md:p-8 lg:p-10">
-                        <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+                      <div className="p-6 md:p-10 lg:p-12">
+                        <div className="flex flex-col md:flex-row md:items-start gap-8 mb-10">
                           <div className="relative flex-shrink-0">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${activeService.color} rounded-2xl blur-2xl opacity-60 animate-pulse`} style={{ animationDuration: '3s' }} />
-                            <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${activeService.color} flex items-center justify-center shadow-2xl`}>
-                              <activeService.icon className="w-10 h-10 text-white" />
+                            <div className={`absolute inset-0 bg-gradient-to-br ${activeService.color} rounded-3xl blur-3xl opacity-50 animate-pulse`} style={{ animationDuration: '3s' }} />
+                            <div className={`relative w-24 h-24 rounded-3xl bg-gradient-to-br ${activeService.color} flex items-center justify-center shadow-2xl border border-white/20`}>
+                              <activeService.icon className="w-12 h-12 text-white" />
                             </div>
-                            <div className="absolute -top-2 -right-2 px-2 py-0.5 bg-white rounded-full shadow-lg">
-                              <Star className="w-3 h-3 text-primary fill-primary inline" />
+                            <div className="absolute -top-3 -right-3 px-3 py-1 bg-gradient-to-r from-white to-white/80 rounded-full shadow-xl border border-white/30">
+                              <Star className="w-4 h-4 text-primary fill-primary inline" />
                             </div>
                           </div>
                           
                           <div className="flex-1">
-                            <div className="flex flex-wrap items-center gap-3 mb-3">
-                              <h1 className="text-3xl lg:text-4xl font-heading font-bold text-foreground">
+                            <div className="flex flex-wrap items-center gap-4 mb-4">
+                              <h1 className="text-4xl lg:text-5xl font-heading font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
                                 {activeService.title}
                               </h1>
-                              <Badge className={`bg-gradient-to-r ${activeService.color} text-white border-0 shadow-lg`}>
+                              <Badge className={`bg-gradient-to-r ${activeService.color} text-white border-0 shadow-lg text-xs font-bold px-4 py-1.5`}>
                                 {activeService.badge}
                               </Badge>
                             </div>
                             
-                            <p className="text-lg text-muted-foreground leading-relaxed">
+                            <p className="text-lg text-foreground/70 leading-relaxed mb-5">
                               {activeService.description}
                             </p>
 
-                            <div className="flex items-center gap-6 mt-4">
-                              <div className="flex items-center gap-2">
-                                <div className={`text-2xl font-bold bg-gradient-to-r ${activeService.color} bg-clip-text text-transparent`}>
+                            <div className="flex flex-wrap items-center gap-8">
+                              <div className="flex items-center gap-2 bg-white/[0.03] px-4 py-2 rounded-xl border border-white/10">
+                                <div className={`text-3xl font-bold bg-gradient-to-r ${activeService.color} bg-clip-text text-transparent`}>
                                   {activeService.stat}
                                 </div>
-                                <div className="text-xs text-muted-foreground">{activeService.statLabel}</div>
+                                <div className="text-xs text-foreground/60 font-medium">{activeService.statLabel}</div>
                               </div>
-                              <div className="w-px h-8 bg-white/10" />
-                              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                <Sparkles className="w-4 h-4 text-primary" />
-                                {activeService.tagline}
+                              <div className="flex items-center gap-2.5 text-foreground/70">
+                                <Sparkles className="w-5 h-5 text-primary" />
+                                <span className="font-medium">{activeService.tagline}</span>
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 mb-8">
                           <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-br from-primary/15 to-purple-500/15 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="relative backdrop-blur-xl bg-white/[0.02] border border-white/10 rounded-2xl p-6 h-full">
-                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                            <div className="absolute -inset-1.5 bg-gradient-to-br from-primary/25 to-purple-500/25 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                            <div className="relative backdrop-blur-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/15 rounded-2xl p-7 h-full shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
                               
-                              <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-3">
-                                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${activeService.color} flex items-center justify-center shadow-lg`}>
-                                  <CheckCircle className="w-5 h-5 text-white" />
+                              <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-3">
+                                <div className={`w-11 h-11 rounded-lg bg-gradient-to-br ${activeService.color} flex items-center justify-center shadow-lg border border-white/20`}>
+                                  <CheckCircle className="w-6 h-6 text-white" />
                                 </div>
-                                Key Features
+                                <span>Key Features</span>
                               </h3>
                               
-                              <ul className="space-y-3">
+                              <ul className="space-y-3.5">
                                 {activeService.features.map((feature, idx) => (
                                   <li 
                                     key={idx} 
-                                    className="flex items-start gap-3 p-2 rounded-lg hover:bg-white/[0.03] transition-colors group/item"
-                                    style={{ animationDelay: `${idx * 100}ms` }}
+                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/[0.06] transition-all group/item hover-elevate"
                                   >
-                                    <div className="flex-shrink-0 w-5 h-5 rounded-md bg-primary/15 flex items-center justify-center mt-0.5">
+                                    <div className="flex-shrink-0 w-5 h-5 rounded-md bg-primary/20 flex items-center justify-center mt-0.5 border border-primary/40">
                                       <CheckCircle className="w-3 h-3 text-primary" />
                                     </div>
-                                    <span className="text-sm text-foreground/70 group-hover/item:text-foreground transition-colors">{feature}</span>
+                                    <span className="text-sm text-foreground/75 group-hover/item:text-foreground transition-colors leading-relaxed">{feature}</span>
                                   </li>
                                 ))}
                               </ul>
@@ -503,22 +502,22 @@ export default function Services() {
                           </div>
 
                           <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-br from-purple-500/15 to-cyan-500/15 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="relative backdrop-blur-xl bg-white/[0.02] border border-white/10 rounded-2xl p-6 h-full">
-                              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
+                            <div className="absolute -inset-1.5 bg-gradient-to-br from-purple-500/25 to-cyan-500/25 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                            <div className="relative backdrop-blur-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/15 rounded-2xl p-7 h-full shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-400/40 to-transparent" />
                               
-                              <h3 className="text-lg font-bold text-foreground mb-5 flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-lg">
-                                  <Code className="w-5 h-5 text-white" />
+                              <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-3">
+                                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-lg border border-white/20">
+                                  <Code className="w-6 h-6 text-white" />
                                 </div>
-                                Software & Tools
+                                <span>Software & Tools</span>
                               </h3>
                               
                               <div className="flex flex-wrap gap-2">
                                 {activeService.tools.map((tool, idx) => (
                                   <span 
                                     key={idx}
-                                    className="px-4 py-2 rounded-xl text-sm font-medium backdrop-blur-sm bg-white/[0.03] border border-white/10 text-foreground/70 hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all cursor-default"
+                                    className="px-4 py-2.5 rounded-lg text-sm font-medium backdrop-blur-sm bg-white/[0.05] border border-white/15 text-foreground/75 hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all cursor-default shadow-sm hover:shadow-md hover-elevate"
                                   >
                                     {tool}
                                   </span>
@@ -529,17 +528,17 @@ export default function Services() {
                         </div>
 
                         <div className="relative mb-8">
-                          <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 rounded-2xl blur-xl opacity-50" />
-                          <div className="relative backdrop-blur-xl bg-white/[0.02] border border-white/10 rounded-2xl p-6">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className={`absolute -inset-1.5 bg-gradient-to-r ${activeService.color} rounded-2xl blur-xl opacity-20`} />
+                          <div className="relative backdrop-blur-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/15 rounded-2xl p-7 shadow-lg">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                               {deliverables.map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/[0.03] transition-colors group">
-                                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-purple-500/15 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <item.icon className="w-5 h-5 text-primary" />
+                                <div key={idx} className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/[0.06] transition-all group hover-elevate border border-white/0 hover:border-white/10">
+                                  <div className={`flex-shrink-0 w-14 h-14 rounded-lg bg-gradient-to-br ${activeService.color}/15 border border-white/15 flex items-center justify-center group-hover:scale-115 transition-transform group-hover:${activeService.color}/25`}>
+                                    <item.icon className="w-6 h-6 text-primary" />
                                   </div>
                                   <div>
-                                    <h4 className="font-semibold text-foreground text-sm">{item.title}</h4>
-                                    <p className="text-xs text-muted-foreground">{item.desc}</p>
+                                    <h4 className="font-bold text-foreground text-sm leading-tight">{item.title}</h4>
+                                    <p className="text-xs text-foreground/60 mt-1">{item.desc}</p>
                                   </div>
                                 </div>
                               ))}
@@ -548,25 +547,26 @@ export default function Services() {
                         </div>
 
                         <div className="relative">
-                          <div className={`absolute inset-0 bg-gradient-to-r ${activeService.color} rounded-xl blur-xl opacity-30`} />
+                          <div className={`absolute inset-0 bg-gradient-to-r ${activeService.color} rounded-xl blur-2xl opacity-40`} />
                           <Link href="/contact">
                             <Button 
                               size="lg" 
-                              className={`relative w-full group bg-gradient-to-r ${activeService.color} hover:shadow-2xl transition-all duration-300 border-0 h-14 text-base font-bold`}
+                              className={`relative w-full group bg-gradient-to-r ${activeService.color} hover:shadow-2xl transition-all duration-300 border-0 h-16 text-base font-bold rounded-xl shadow-xl`}
                               data-testid="button-get-quote"
                             >
-                              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                              <div className="absolute inset-0 rounded-xl border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                               <span className="relative flex items-center justify-center gap-3">
-                                <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                                <Zap className="w-5 h-5 group-hover:rotate-12 group-hover:scale-125 transition-all" />
                                 Start Your {activeService.shortTitle} Project
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                               </span>
                             </Button>
                           </Link>
                         </div>
                       </div>
                       
-                      <div className={`h-1 bg-gradient-to-r ${activeService.color}`} />
+                      <div className={`h-1.5 bg-gradient-to-r ${activeService.color}`} />
                     </div>
                   </div>
                 </div>
