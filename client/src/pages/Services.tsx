@@ -445,7 +445,7 @@ export default function Services() {
                     <div className={`absolute -inset-3 bg-gradient-to-r ${activeService.color} rounded-3xl blur-3xl opacity-40`} />
                     <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-cyan-400/20 rounded-3xl blur-2xl opacity-50" />
                     
-                    <div className="relative backdrop-blur-3xl border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="relative backdrop-blur-3xl bg-background border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
                       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                       
                       <div className="p-6 md:p-10 lg:p-12">
