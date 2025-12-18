@@ -164,6 +164,7 @@ export default function Services() {
   const activeIndex = servicesDetails.findIndex(s => s.id === activeServiceId);
 
   const handleServiceClick = (serviceId: string) => {
+    sessionStorage.setItem('servicesScrollY', String(window.scrollY));
     setLocation(`/services/${serviceId}`);
   };
 
@@ -175,10 +176,19 @@ export default function Services() {
   }, []);
 
   useEffect(() => {
+    const scrollY = sessionStorage.getItem('servicesScrollY');
+    if (scrollY !== null) {
+      window.scrollTo(0, parseInt(scrollY));
+      sessionStorage.removeItem('servicesScrollY');
+    }
+  }, [activeServiceId]);
+
+  useEffect(() => {
     if (!autoRotate) return;
 
     const timer = setInterval(() => {
       const nextIndex = (activeIndex + 1) % servicesDetails.length;
+      sessionStorage.setItem('servicesScrollY', String(window.scrollY));
       setLocation(`/services/${servicesDetails[nextIndex].id}`);
     }, 12000);
 
