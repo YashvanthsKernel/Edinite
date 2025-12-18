@@ -43,11 +43,11 @@ export default function Header() {
             </nav>
 
             <div className="hidden md:flex items-center gap-4">
-              <Link href="/contact">
+              <Link href="/edutech">
                 <div className="group relative inline-flex">
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
                   <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
-                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">Get Quote</span>
+                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">More</span>
                     <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -86,11 +86,11 @@ export default function Header() {
                   </Link>
                 );
               })}
-              <Link href="/contact">
-                <div className="group relative inline-flex w-full mt-2">
+              <Link href="/edutech">
+                <div className="group relative inline-flex w-full mt-2" onClick={() => setMobileMenuOpen(false)}>
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-70 blur-lg transition-all duration-500" />
                   <div className="relative w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-400/10 border border-primary/30 group-hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
-                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">Get Quote</span>
+                    <span className="text-sm font-semibold text-foreground group-hover:text-white transition-colors">More (Edutech)</span>
                   </div>
                 </div>
               </Link>
