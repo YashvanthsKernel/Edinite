@@ -1154,64 +1154,84 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-4 md:gap-6 auto-rows-max">
               <ScrollAnimation delay={100}>
-                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 to-purple-600/40 rounded-2xl flex items-center justify-center">
-                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
-                      <Cpu className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
-                      <h3 className="text-sm md:text-base font-bold text-white">3D CAD Design</h3>
+                <div className="group relative overflow-hidden rounded-3xl h-40 md:h-52 cursor-pointer" data-testid="card-service-0">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
+                  <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
+                    <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
+                      <Cpu className="w-7 h-7 text-white" />
                     </div>
+                    <h3 className="text-sm md:text-base font-bold text-white text-center">3D CAD Design</h3>
                   </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Professional CAD modeling and visualization that brings concepts to life</p>
+                  
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
+                    <div className="text-center px-6">
+                      <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Professional CAD modeling and visualization that brings concepts to life</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={200}>
-                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/40 to-blue-600/40 rounded-2xl flex items-center justify-center">
-                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
-                      <Layers className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
-                      <h3 className="text-sm md:text-base font-bold text-white">CFD & FEA</h3>
+                <div className="group relative overflow-hidden rounded-3xl h-40 md:h-52 cursor-pointer" data-testid="card-service-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500 via-emerald-500 to-cyan-500 rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
+                  <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
+                    <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
+                      <Layers className="w-7 h-7 text-white" />
                     </div>
+                    <h3 className="text-sm md:text-base font-bold text-white text-center">CFD & FEA</h3>
                   </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Advanced structural and thermal analysis for design validation</p>
+                  
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
+                    <div className="text-center px-6">
+                      <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Advanced structural and thermal analysis for design validation</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={300}>
-                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-2">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-blue-600/40 rounded-2xl flex items-center justify-center">
-                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
-                      <GraduationCap className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
-                      <h3 className="text-sm md:text-base font-bold text-white">Electronics & PCB</h3>
+                <div className="group relative overflow-hidden rounded-3xl h-40 md:h-52 cursor-pointer" data-testid="card-service-2">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-rose-500 rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
+                  <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
+                    <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
+                      <GraduationCap className="w-7 h-7 text-white" />
                     </div>
+                    <h3 className="text-sm md:text-base font-bold text-white text-center">Electronics & PCB</h3>
                   </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Complete circuit design and PCB layout for projects</p>
+                  
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
+                    <div className="text-center px-6">
+                      <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Complete circuit design and PCB layout for projects</p>
                     </div>
                   </div>
                 </div>
               </ScrollAnimation>
 
               <ScrollAnimation delay={400}>
-                <div className="group relative overflow-hidden rounded-2xl h-40 md:h-48 cursor-pointer" data-testid="card-service-3">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-purple-600/40 rounded-2xl flex items-center justify-center">
-                    <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6 text-center hover-elevate">
-                      <Pen className="w-8 h-8 md:w-10 md:h-10 text-white mb-3 opacity-90" />
-                      <h3 className="text-sm md:text-base font-bold text-white">Software Dev</h3>
+                <div className="group relative overflow-hidden rounded-3xl h-40 md:h-52 cursor-pointer" data-testid="card-service-3">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
+                  <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
+                    <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
+                      <Pen className="w-7 h-7 text-white" />
                     </div>
+                    <h3 className="text-sm md:text-base font-bold text-white text-center">Software Dev</h3>
                   </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <p className="text-xs md:text-sm text-white font-semibold leading-relaxed">Custom solutions for complex engineering problems</p>
+                  
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
+                    <div className="text-center px-6">
+                      <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Custom solutions for complex engineering problems</p>
                     </div>
                   </div>
                 </div>
