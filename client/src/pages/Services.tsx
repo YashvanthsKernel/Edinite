@@ -450,13 +450,6 @@ export default function Services() {
                       
                       <div className="p-6 md:p-10 lg:p-12">
                         <div className="flex flex-col md:flex-row md:items-start gap-8 mb-10">
-                          <div className="relative flex-shrink-0">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${activeService.color} rounded-3xl blur-3xl opacity-50 animate-pulse`} style={{ animationDuration: '3s' }} />
-                            <div className={`relative w-24 h-24 rounded-3xl bg-gradient-to-br ${activeService.color} flex items-center justify-center shadow-2xl border border-white/20`}>
-                              <activeService.icon className="w-12 h-12 text-white" />
-                            </div>
-                          </div>
-                          
                           <div className="flex-1">
                             <div className="flex flex-wrap items-center gap-4 mb-4">
                               <h1 className="text-4xl lg:text-5xl font-heading font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
