@@ -168,6 +168,13 @@ export default function Services() {
   };
 
   useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+    return () => {
+      window.history.scrollRestoration = 'auto';
+    };
+  }, []);
+
+  useEffect(() => {
     if (!autoRotate) return;
 
     const timer = setInterval(() => {
@@ -523,25 +530,6 @@ export default function Services() {
                                   </span>
                                 ))}
                               </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="relative mb-8">
-                          <div className={`absolute -inset-1.5 bg-gradient-to-r ${activeService.color} rounded-2xl blur-xl opacity-20`} />
-                          <div className="relative backdrop-blur-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/15 rounded-2xl p-7 shadow-lg">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                              {deliverables.map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-4 p-4 rounded-lg hover:bg-white/[0.06] transition-all group hover-elevate border border-white/0 hover:border-white/10">
-                                  <div className={`flex-shrink-0 w-14 h-14 rounded-lg bg-gradient-to-br ${activeService.color}/15 border border-white/15 flex items-center justify-center group-hover:scale-115 transition-transform group-hover:${activeService.color}/25`}>
-                                    <item.icon className="w-6 h-6 text-primary" />
-                                  </div>
-                                  <div>
-                                    <h4 className="font-bold text-foreground text-sm leading-tight">{item.title}</h4>
-                                    <p className="text-xs text-foreground/60 mt-1">{item.desc}</p>
-                                  </div>
-                                </div>
-                              ))}
                             </div>
                           </div>
                         </div>
