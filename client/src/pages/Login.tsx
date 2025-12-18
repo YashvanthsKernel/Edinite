@@ -244,6 +244,7 @@ export default function Login() {
                         variant="outline"
                         className="w-full h-9 rounded-full font-medium gap-2"
                         data-testid="button-google-signin"
+                        onClick={() => window.location.href = "/api/login"}
                       >
                         <SiGoogle className="h-4 w-4" />
                         Sign in with Google
@@ -420,6 +421,7 @@ export default function Login() {
                         variant="outline"
                         className="w-full h-9 rounded-full font-medium gap-2"
                         data-testid="button-google-signup"
+                        onClick={() => window.location.href = "/api/login"}
                       >
                         <SiGoogle className="h-4 w-4" />
                         Sign up with Google
