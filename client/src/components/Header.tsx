@@ -2,8 +2,9 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import logoImage from '@assets/Edinite Logo PNG_1764532314215.png';
 import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
+
+const logoImage = '/Edinite Logo.svg';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
