@@ -102,9 +102,7 @@ export default function Home() {
               <div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-tight">
                   BRING YOUR{" "}
-                  <span className="text-primary">IDEAS</span>
-                  <br />
-                  TO REALITY
+                  <span className="text-primary">IDEAS TO REALITY</span>
                 </h1>
               </div>
 

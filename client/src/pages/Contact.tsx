@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -13,7 +13,7 @@ import {
 import { Card } from "@/components/ui/card";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
-import { 
+import {
   Mail, MapPin, Clock, Phone, CheckCircle2, Send, MessageCircle, AlertCircle, Quote, Star
 } from "lucide-react";
 
@@ -90,7 +90,7 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setHasError(false);
-    
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -98,14 +98,14 @@ export default function Contact() {
         title: "Message received!",
         description: "Thanks for reaching out to Edinite. An engineer will review your details and respond within 1-2 business days.",
       });
-      setFormData({ 
-        name: "", 
-        email: "", 
-        company: "", 
-        helpType: "", 
-        message: "", 
-        timeline: "", 
-        budget: "" 
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        helpType: "",
+        message: "",
+        timeline: "",
+        budget: ""
       });
       setTimeout(() => setIsSubmitted(false), 5000);
     }, 1500);
@@ -146,14 +146,14 @@ export default function Contact() {
                     </div>
                     <h2 className="text-xl font-bold text-foreground">Prefer talking to a person?</h2>
                   </div>
-                  
+
                   <p className="text-muted-foreground mb-8 leading-relaxed">
                     Whether you're exploring a new product, debugging a design, or just want a second opinion on your simulation workflow, we're happy to listen first and suggest next steps — no hard sell.
                   </p>
 
                   <div className="space-y-5">
-                    <a 
-                      href="mailto:edinite.official@gmail.com" 
+                    <a
+                      href="mailto:edinite.official@gmail.com"
                       className="flex items-center gap-4 group"
                       data-testid="link-contact-email"
                     >
@@ -166,9 +166,9 @@ export default function Contact() {
                       </div>
                     </a>
 
-                    <a 
-                      href="https://wa.me/919876543210" 
-                      target="_blank" 
+                    <a
+                      href="https://wa.me/919876543210"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 group"
                       data-testid="link-contact-phone"
@@ -288,8 +288,8 @@ export default function Contact() {
 
                     <div>
                       <Label htmlFor="helpType" className="text-foreground font-medium">What do you need help with?</Label>
-                      <Select 
-                        value={formData.helpType} 
+                      <Select
+                        value={formData.helpType}
                         onValueChange={(value) => setFormData(prev => ({ ...prev, helpType: value }))}
                       >
                         <SelectTrigger className="mt-1.5" data-testid="select-help-type">
@@ -351,8 +351,8 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       size="lg"
                       className="w-full mt-2"
                       disabled={isSubmitting}
@@ -390,7 +390,7 @@ export default function Contact() {
           </div>
         </ScrollAnimation>
 
-        <div 
+        <div
           className="relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -399,7 +399,7 @@ export default function Contact() {
           <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
           <div className="flex overflow-hidden">
-            <div 
+            <div
               className={`flex gap-6 ${isPaused ? '' : 'animate-marquee'}`}
               style={{
                 animationDuration: '40s',
@@ -407,14 +407,14 @@ export default function Contact() {
               }}
             >
               {[...testimonials, ...testimonials].map((testimonial, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="flex-shrink-0 w-[320px] md:w-[380px]"
                   data-testid={`testimonial-card-${idx}`}
                 >
                   <div className="relative h-full backdrop-blur-xl bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:bg-white/[0.05] transition-colors group">
                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-                    
+
                     <div className="absolute top-4 right-4 text-primary/20 group-hover:text-primary/30 transition-colors">
                       <Quote className="w-8 h-8" />
                     </div>

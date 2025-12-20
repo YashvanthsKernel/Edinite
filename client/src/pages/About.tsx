@@ -1261,84 +1261,90 @@ export default function About() {
             </ScrollAnimation>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {leadership.map((leader, index) => (
               <ScrollAnimation key={index} delay={index * 100}>
-                <div className="group relative" data-testid={`card-leader-${index}`}>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                  <GlassPanel className="relative p-6 hover:border-primary/40 transition-colors overflow-hidden h-full">
-                    <div className="flex flex-col items-center text-center gap-4">
-                      <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0 overflow-hidden" data-testid={`photo-column-leader-${index}`}>
-                        {leader.image ? (
-                          <img
-                            src={leader.image}
-                            alt={leader.name}
-                            className="w-full h-full object-cover object-top"
-                            style={{ objectPosition: '50% 15%' }}
-                            data-testid={`img-leader-${index}`}
-                          />
-                        ) : (
-                          <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
-                            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                            </svg>
+                <div className="group relative h-full" data-testid={`card-leader-${index}`}>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-purple-600/30 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                  <GlassPanel className="relative p-5 hover:border-primary/40 transition-all duration-300 overflow-hidden h-full">
+                    <div className="flex gap-5 h-full">
+                      {/* Left Side: Photo, Name, Position, Social */}
+                      <div className="flex flex-col items-center text-center flex-shrink-0 w-28">
+                        <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-primary/20 to-purple-600/20 border-2 border-primary/30 flex items-center justify-center overflow-hidden shadow-lg group-hover:border-primary/50 transition-colors" data-testid={`photo-column-leader-${index}`}>
+                          {leader.image ? (
+                            <img
+                              src={leader.image}
+                              alt={leader.name}
+                              className="w-full h-full object-cover object-top"
+                              style={{ objectPosition: '50% 15%' }}
+                              data-testid={`img-leader-${index}`}
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
+                              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="mt-3 space-y-0.5">
+                          <h3 className="text-base font-heading font-bold text-foreground leading-tight" data-testid={`text-leader-name-${index}`}>
+                            {leader.name}
+                          </h3>
+                          <p className="text-primary font-medium text-xs" data-testid={`text-leader-position-${index}`}>
+                            {leader.position}
+                          </p>
+                        </div>
+
+                        {(leader.linkedin || leader.instagram || leader.email) && (
+                          <div className="flex items-center justify-center gap-2 mt-3">
+                            {leader.email && (
+                              <a
+                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${leader.email}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200"
+                                data-testid={`link-leader-email-${index}`}
+                                aria-label="Email"
+                              >
+                                <Mail className="w-3.5 h-3.5 text-primary group-hover:text-inherit" />
+                              </a>
+                            )}
+                            {leader.linkedin && (
+                              <a
+                                href={leader.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200"
+                                data-testid={`link-leader-linkedin-${index}`}
+                                aria-label="LinkedIn"
+                              >
+                                <SiLinkedin className="w-3.5 h-3.5 text-primary" />
+                              </a>
+                            )}
+                            {leader.instagram && (
+                              <a
+                                href={leader.instagram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200"
+                                data-testid={`link-leader-instagram-${index}`}
+                                aria-label="Instagram"
+                              >
+                                <SiInstagram className="w-3.5 h-3.5 text-primary" />
+                              </a>
+                            )}
                           </div>
                         )}
                       </div>
 
-                      <div className="space-y-2">
-                        <h3 className="text-2xl font-heading font-bold text-foreground leading-tight" data-testid={`text-leader-name-${index}`}>
-                          {leader.name}
-                        </h3>
-                        <p className="text-primary font-semibold text-base" data-testid={`text-leader-position-${index}`}>
-                          {leader.position}
+                      {/* Right Side: Description */}
+                      <div className="flex-1 flex flex-col justify-center relative pl-4 border-l border-primary/20">
+                        <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
+                          {leader.description}
                         </p>
                       </div>
-
-                      <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
-                        {leader.description}
-                      </p>
-
-                      {(leader.linkedin || leader.instagram || leader.email) && (
-                        <div className="flex items-center justify-center gap-3 pt-2">
-                          {leader.email && (
-                            <a
-                              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${leader.email}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                              data-testid={`link-leader-email-${index}`}
-                              aria-label="Email"
-                            >
-                              <Mail className="w-4 h-4 text-primary" />
-                            </a>
-                          )}
-                          {leader.linkedin && (
-                            <a
-                              href={leader.linkedin}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                              data-testid={`link-leader-linkedin-${index}`}
-                              aria-label="LinkedIn"
-                            >
-                              <SiLinkedin className="w-4 h-4 text-primary" />
-                            </a>
-                          )}
-                          {leader.instagram && (
-                            <a
-                              href={leader.instagram}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
-                              data-testid={`link-leader-instagram-${index}`}
-                              aria-label="Instagram"
-                            >
-                              <SiInstagram className="w-4 h-4 text-primary" />
-                            </a>
-                          )}
-                        </div>
-                      )}
                     </div>
                   </GlassPanel>
                 </div>

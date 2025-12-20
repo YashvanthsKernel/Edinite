@@ -24,8 +24,11 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center gap-3 cursor-pointer">
-              <img src={logoImage} alt="Edinite Logo" className="h-12 w-auto" />
-              <img src={logoNameImage} alt="Edinite Name" className="h-12 w-auto" />
+              <img
+                src={logoNameImage}
+                alt="Edinite"
+                className="h-14 w-auto object-contain"
+              />
             </div>
           </Link>
 
@@ -35,7 +38,7 @@ export default function Header() {
                 const isActive = location === link.href;
                 return (
                   <Link key={link.href} href={link.href}>
-                    <span className={`transition-colors cursor-pointer ${isActive ? 'font-bold text-primary' : 'text-foreground/80 hover:text-foreground'}`} data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <span className={`transition-colors cursor-pointer text-sm font-medium ${isActive ? 'text-primary' : 'text-foreground/80 hover:text-foreground'}`} data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
                       {link.label}
                     </span>
                   </Link>
@@ -77,7 +80,7 @@ export default function Header() {
                 const isActive = location === link.href;
                 return (
                   <Link key={link.href} href={link.href}>
-                    <span 
+                    <span
                       className={`transition-colors py-2 cursor-pointer block ${isActive ? 'font-bold text-primary' : 'text-foreground/80 hover:text-foreground'}`}
                       onClick={() => setMobileMenuOpen(false)}
                       data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
@@ -96,7 +99,7 @@ export default function Header() {
                 </div>
               </Link>
               <Link href="/login">
-                <div 
+                <div
                   className="group relative inline-flex w-full mt-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
