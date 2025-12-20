@@ -8,6 +8,7 @@ export default function ProjectCardExample() {
         <ProjectCard
           title="Automotive Suspension Design"
           category="Mechanical Design"
+          description="Complete suspension system design and optimization for high-performance vehicle applications with advanced kinematics analysis."
           image={heroImage}
           tools={["SolidWorks", "ANSYS", "MATLAB"]}
           onClick={() => console.log('Project clicked')}

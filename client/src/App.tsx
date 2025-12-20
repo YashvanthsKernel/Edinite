@@ -16,14 +16,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import SEOHead from "@/components/SEOHead";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 function ScrollToTop() {
   const [location] = useLocation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-  
+
   return null;
 }
 
@@ -56,22 +58,25 @@ function App() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="relative min-h-screen bg-background text-foreground">
-          {!isAuthPage && <FloatingOrbs />}
-          <div className="relative z-10">
-            {!isAuthPage && <Header />}
-            <main>
-              <Router />
-            </main>
-            {!isAuthPage && <Footer />}
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <SEOHead />
+          <div className="relative min-h-screen bg-background text-foreground">
+            {!isAuthPage && <FloatingOrbs />}
+            <div className="relative z-10">
+              {!isAuthPage && <Header />}
+              <main>
+                <Router />
+              </main>
+              {!isAuthPage && <Footer />}
+            </div>
+            <ScrollToTopButton />
           </div>
-          <ScrollToTopButton />
-        </div>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

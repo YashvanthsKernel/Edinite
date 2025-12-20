@@ -18,7 +18,7 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData, files);
+    // TODO: Implement actual form submission API call
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -110,7 +110,7 @@ export default function ContactForm() {
 
         <div>
           <Label className="text-foreground">File Upload</Label>
-          <div 
+          <div
             className="mt-2 border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover:border-primary/50 cursor-pointer transition-all"
             onClick={() => fileInputRef.current?.click()}
             onDrop={handleDrop}
@@ -137,8 +137,8 @@ export default function ContactForm() {
           {files.length > 0 && (
             <div className="mt-3 space-y-2">
               {files.map((file, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="flex items-center justify-between p-2 bg-primary/10 rounded-lg"
                   data-testid={`file-item-${index}`}
                 >
@@ -157,8 +157,8 @@ export default function ContactForm() {
           )}
         </div>
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full"
           data-testid="button-submit"
         >

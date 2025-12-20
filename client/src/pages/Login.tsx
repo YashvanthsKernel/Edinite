@@ -66,14 +66,14 @@ export default function Login() {
   const onLoginSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Login data:", data);
+    // TODO: Implement actual login API call
     setIsLoading(false);
   };
 
   const onSignupSubmit = async (data: SignupFormData) => {
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Signup data:", data);
+    // TODO: Implement actual signup API call
     setIsLoading(false);
   };
 
@@ -93,13 +93,13 @@ export default function Login() {
       <div className="absolute inset-0 opacity-15">
         <FloatingOrbs />
       </div>
-      
+
       <div className="relative z-10 w-full max-w-5xl">
         <div className="flex items-center justify-between mb-4">
           <Link href="/">
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               className="rounded-full"
               data-testid="button-back"
             >
@@ -107,10 +107,10 @@ export default function Login() {
             </Button>
           </Link>
           <Link href="/">
-            <img 
-              src={logoImage} 
-              alt="Edinite Logo" 
-              className="h-16 w-auto cursor-pointer" 
+            <img
+              src={logoImage}
+              alt="Edinite Logo"
+              className="h-16 w-auto cursor-pointer"
               data-testid="img-logo"
             />
           </Link>
@@ -134,7 +134,7 @@ export default function Login() {
                     <h2 className="text-2xl font-bold text-foreground">Sign In</h2>
                     <p className="text-sm text-muted-foreground mt-1">or use your account</p>
                   </div>
-                  
+
                   <Form {...loginForm}>
                     <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className="space-y-4">
                       <FormField
@@ -217,8 +217,8 @@ export default function Login() {
                         </Link>
                       </div>
 
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         className="w-full h-9 mt-4 rounded-full font-medium"
                         disabled={isLoading}
                         data-testid="button-login"
@@ -261,7 +261,7 @@ export default function Login() {
                     <h2 className="text-2xl font-bold text-foreground">Create Account</h2>
                     <p className="text-sm text-muted-foreground mt-1">or use your email for registration</p>
                   </div>
-                  
+
                   <Form {...signupForm}>
                     <form onSubmit={signupForm.handleSubmit(onSignupSubmit)} className="space-y-3">
                       <FormField
@@ -394,8 +394,8 @@ export default function Login() {
                         )}
                       />
 
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         className="w-full h-9 mt-3 rounded-full font-medium"
                         disabled={isLoading}
                         data-testid="button-signup"
@@ -450,14 +450,14 @@ export default function Login() {
                       {isSignup ? "Welcome Back!" : "Hey There!"}
                     </h2>
                     <p className="text-base text-primary-foreground/90 mt-4 leading-relaxed">
-                      {isSignup 
+                      {isSignup
                         ? "Stay connected by logging in with your credentials and continue your experience."
                         : "Begin your amazing journey by creating an account with us today."
                       }
                     </p>
                   </motion.div>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="border-2 border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8 font-medium shadow-[0_0_12px_rgba(255,255,255,0.3)]"
                     onClick={() => setIsSignup(!isSignup)}
                     data-testid={isSignup ? "button-overlay-signin" : "button-overlay-signup"}

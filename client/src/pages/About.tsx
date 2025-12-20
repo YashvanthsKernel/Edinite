@@ -1,5 +1,5 @@
-import { 
-  Palette, Waves, Cpu, GraduationCap, Target, Lightbulb, 
+import {
+  Palette, Waves, Cpu, GraduationCap, Target, Lightbulb,
   Users, Award, ArrowRight, ChevronRight, ChevronLeft, Sparkles,
   TrendingUp, Shield, Clock, CheckCircle2, Mail, Layers, Pen
 } from "lucide-react";
@@ -10,6 +10,7 @@ import GlassPanel from "@/components/GlassPanel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import HiddenSEO from "@/components/HiddenSEO";
 import { useState, useEffect, useRef } from "react";
 import karthikeyanImage from "@assets/Karthikeyan_Image_1765222199201.png";
 import shrivatsavImage from "@assets/Shrivatsav_Image_1765222427299.jpg";
@@ -65,10 +66,10 @@ function HexagonGrid() {
       <svg width="100%" height="100%" className="absolute inset-0">
         <defs>
           <pattern id="hexagons" width="50" height="43.4" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
-            <polygon 
-              points="25,0 50,14.4 50,43.4 25,57.7 0,43.4 0,14.4" 
-              fill="none" 
-              stroke="currentColor" 
+            <polygon
+              points="25,0 50,14.4 50,43.4 25,57.7 0,43.4 0,14.4"
+              fill="none"
+              stroke="currentColor"
               strokeWidth="0.5"
             />
           </pattern>
@@ -82,9 +83,9 @@ function HexagonGrid() {
 function TimelineConnector() {
   return (
     <div className="hidden lg:block absolute top-[6px] left-0 right-0 h-16 pointer-events-none">
-      <svg 
-        className="w-full h-full" 
-        viewBox="0 0 1000 60" 
+      <svg
+        className="w-full h-full"
+        viewBox="0 0 1000 60"
         preserveAspectRatio="none"
         fill="none"
       >
@@ -96,32 +97,32 @@ function TimelineConnector() {
             <stop offset="75%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
             <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
           </linearGradient>
-          
+
           <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
             <stop offset="40%" stopColor="hsl(var(--primary))" stopOpacity="1" />
             <stop offset="60%" stopColor="#a855f7" stopOpacity="1" />
             <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
           </linearGradient>
-          
+
           <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          
+
           <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
-        
+
         <path
           d="M 125 30 
              C 200 30, 220 8, 290 8
@@ -136,7 +137,7 @@ function TimelineConnector() {
           strokeLinecap="round"
           filter="url(#glow)"
         />
-        
+
         <path
           d="M 125 30 
              C 200 30, 220 8, 290 8
@@ -153,16 +154,16 @@ function TimelineConnector() {
           strokeDasharray="80 920"
           className="animate-timeline-pulse"
         />
-        
+
         <circle cx="125" cy="30" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s' }} />
         <circle cx="125" cy="30" r="3" fill="white" />
-        
+
         <circle cx="375" cy="8" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
         <circle cx="375" cy="8" r="3" fill="white" />
-        
+
         <circle cx="625" cy="52" r="6" fill="#a855f7" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '1s' }} />
         <circle cx="625" cy="52" r="3" fill="white" />
-        
+
         <circle cx="875" cy="30" r="6" fill="hsl(var(--primary))" filter="url(#strongGlow)" className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '1.5s' }} />
         <circle cx="875" cy="30" r="3" fill="white" />
       </svg>
@@ -266,9 +267,9 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
         <div className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-b from-[#6B3DF2] via-[#a855f7] to-[#00D4FF] opacity-30 rounded-full" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#6B3DF2] via-[#a855f7] to-[#00D4FF] opacity-60 rounded-full blur-sm" />
-          
-          <svg 
-            className="absolute inset-0 w-full h-full overflow-visible" 
+
+          <svg
+            className="absolute inset-0 w-full h-full overflow-visible"
             preserveAspectRatio="none"
           >
             <defs>
@@ -282,11 +283,11 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
               </filter>
             </defs>
             {[0, 1, 2, 3].map((i) => (
-              <circle 
-                key={`particle-center-${i}`} 
-                cx="2" 
-                r="5" 
-                fill="#00D4FF" 
+              <circle
+                key={`particle-center-${i}`}
+                cx="2"
+                r="5"
+                fill="#00D4FF"
                 filter="url(#particleGlowCenter)"
               >
                 <animate
@@ -296,19 +297,19 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                   repeatCount="indefinite"
                   begin={`${i * 1.25}s`}
                 />
-                <animate 
-                  attributeName="opacity" 
-                  values="0;0.8;1;0.8;0" 
-                  dur="5s" 
-                  repeatCount="indefinite" 
-                  begin={`${i * 1.25}s`} 
+                <animate
+                  attributeName="opacity"
+                  values="0;0.8;1;0.8;0"
+                  dur="5s"
+                  repeatCount="indefinite"
+                  begin={`${i * 1.25}s`}
                 />
-                <animate 
-                  attributeName="r" 
-                  values="3;6;5;6;3" 
-                  dur="5s" 
-                  repeatCount="indefinite" 
-                  begin={`${i * 1.25}s`} 
+                <animate
+                  attributeName="r"
+                  values="3;6;5;6;3"
+                  dur="5s"
+                  repeatCount="indefinite"
+                  begin={`${i * 1.25}s`}
                 />
               </circle>
             ))}
@@ -321,9 +322,9 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
             const isActive = index === activeStep;
             const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
             const isLeft = index % 2 === 0;
-            
+
             const CardContent = () => (
-              <div 
+              <div
                 className={`
                   cursor-pointer transition-all duration-500 ease-out
                   ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
@@ -337,33 +338,33 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                 onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
                 data-testid={`card-value-${valueId}`}
               >
-                <div 
+                <div
                   className={`
                     relative p-6 rounded-[18px] backdrop-blur-lg transition-all duration-500
-                    ${isActive 
-                      ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
+                    ${isActive
+                      ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]'
                       : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)] hover:shadow-[0_12px_35px_rgba(10,0,30,0.7)]'
                     }
                   `}
                   style={{
                     background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
-                    border: isActive 
-                      ? '1px solid rgba(160,80,255,0.35)' 
+                    border: isActive
+                      ? '1px solid rgba(160,80,255,0.35)'
                       : '1px solid rgba(255,255,255,0.06)',
                   }}
                 >
                   {isActive && (
-                    <div 
+                    <div
                       className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full"
                       style={{ background: 'linear-gradient(90deg, #6B3DF2, #00D4FF)' }}
                     />
                   )}
                   <div className="flex items-start justify-between mb-4 gap-4">
-                    <div 
+                    <div
                       className={`
                         w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300
-                        ${isActive 
-                          ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30' 
+                        ${isActive
+                          ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/30'
                           : 'bg-white/5 border border-white/10'
                         }
                       `}
@@ -391,7 +392,7 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                 </div>
               </div>
             );
-            
+
             return (
               <div
                 key={index}
@@ -405,28 +406,28 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                   <div className="hidden md:block flex-1 pr-10">
                     {isLeft && <CardContent />}
                   </div>
-                  
+
                   <div className="absolute left-4 md:relative md:left-auto md:flex-shrink-0 z-20">
-                    <div 
+                    <div
                       className={`
                         relative w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg
                         transition-all duration-500 cursor-pointer
-                        ${isActive 
-                          ? 'text-white scale-110' 
+                        ${isActive
+                          ? 'text-white scale-110'
                           : 'text-[#B9A9FF] border-2 border-[#6B3DF2]/40 hover:scale-105'
                         }
                       `}
                       style={{
-                        background: isActive 
-                          ? 'linear-gradient(135deg, #6B3DF2, #a855f7)' 
+                        background: isActive
+                          ? 'linear-gradient(135deg, #6B3DF2, #a855f7)'
                           : 'rgba(11, 7, 16, 0.95)'
                       }}
                       onClick={() => setActiveStep(index)}
                     >
                       {isActive && (
-                        <div 
+                        <div
                           className="absolute inset-[-5px] rounded-full animate-pulse"
-                          style={{ 
+                          style={{
                             background: 'linear-gradient(135deg, #6B3DF2, #00D4FF)',
                             filter: 'blur(12px)',
                             opacity: 0.8,
@@ -442,7 +443,7 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                     {!isLeft && <CardContent />}
                   </div>
 
-                  <div 
+                  <div
                     className={`
                       flex-1 ml-16 md:hidden cursor-pointer transition-all duration-500 ease-out
                       ${isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
@@ -453,27 +454,27 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                     onKeyDown={(e) => e.key === 'Enter' && setDetailOpen(true)}
                     data-testid={`card-value-mobile-${valueId}`}
                   >
-                    <div 
+                    <div
                       className={`
                         relative p-5 rounded-[18px] backdrop-blur-lg transition-all duration-500
-                        ${isActive 
-                          ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]' 
+                        ${isActive
+                          ? 'shadow-[0_8px_40px_rgba(107,61,242,0.35)]'
                           : 'shadow-[0_8px_30px_rgba(10,0,30,0.6)]'
                         }
                       `}
                       style={{
                         background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
-                        border: isActive 
-                          ? '1px solid rgba(160,80,255,0.35)' 
+                        border: isActive
+                          ? '1px solid rgba(160,80,255,0.35)'
                           : '1px solid rgba(255,255,255,0.06)',
                       }}
                     >
                       <div className="flex items-center gap-3 mb-3">
-                        <div 
+                        <div
                           className={`
                             w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300
-                            ${isActive 
-                              ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF]' 
+                            ${isActive
+                              ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF]'
                               : 'bg-white/5 border border-white/10'
                             }
                           `}
@@ -499,13 +500,13 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
       <div className="hidden px-4">
         <div className="relative">
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6B3DF2] via-[#a855f7] to-[#00D4FF] opacity-30" />
-          
+
           <div className="space-y-4">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               const isActive = index === activeStep;
               const valueId = value.title.toLowerCase().replace(/\s+/g, '-');
-              
+
               return (
                 <div
                   key={index}
@@ -515,12 +516,12 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                   `}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <div 
+                  <div
                     className={`
                       absolute left-4 w-5 h-5 rounded-full flex items-center justify-center
                       transition-all duration-300 z-10
-                      ${isActive 
-                        ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/40 scale-125' 
+                      ${isActive
+                        ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF] shadow-lg shadow-purple-500/40 scale-125'
                         : 'bg-white/10 border border-white/20'
                       }
                     `}
@@ -534,25 +535,25 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                     className={`
                       w-full text-left p-5 rounded-2xl backdrop-blur-lg
                       transition-all duration-300
-                      ${isActive 
-                        ? 'shadow-[0_8px_30px_rgba(107,61,242,0.3)]' 
+                      ${isActive
+                        ? 'shadow-[0_8px_30px_rgba(107,61,242,0.3)]'
                         : 'shadow-[0_4px_20px_rgba(10,0,30,0.4)]'
                       }
                     `}
                     style={{
                       background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
-                      border: isActive 
-                        ? '1px solid rgba(160,80,255,0.35)' 
+                      border: isActive
+                        ? '1px solid rgba(160,80,255,0.35)'
                         : '1px solid rgba(255,255,255,0.06)',
                     }}
                     data-testid={`card-value-mobile-${valueId}`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div 
+                      <div
                         className={`
                           w-10 h-10 rounded-xl flex items-center justify-center
-                          ${isActive 
-                            ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF]' 
+                          ${isActive
+                            ? 'bg-gradient-to-br from-[#6B3DF2] to-[#00D4FF]'
                             : 'bg-white/5 border border-white/10'
                           }
                         `}
@@ -565,11 +566,11 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
                         </span>
                         <h4 className="text-base font-semibold text-white">{value.title}</h4>
                       </div>
-                      <ChevronRight 
+                      <ChevronRight
                         className={`w-5 h-5 text-[#B9A9FF] transition-transform duration-300 ${isActive ? 'rotate-90' : ''}`}
                       />
                     </div>
-                    
+
                     {isActive && (
                       <div className="mt-3 pt-3 border-t border-white/10 space-y-3">
                         <p className="text-sm text-[#D7D3F6] leading-relaxed">{value.description}</p>
@@ -594,24 +595,24 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
       </div>
 
       {detailOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-4"
           onClick={() => setDetailOpen(false)}
         >
-          <div 
+          <div
             className="absolute inset-0 bg-black/60 backdrop-blur-md"
             style={{ animation: 'fadeIn 320ms ease-out' }}
           />
-          <div 
+          <div
             className="relative w-full max-w-lg bg-gradient-to-br from-[#0b0710] to-[#1a1025] rounded-t-3xl md:rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
             style={{ animation: 'slideUp 320ms ease-out' }}
           >
-            <div 
+            <div
               className="absolute top-0 left-0 right-0 h-1"
               style={{ background: 'linear-gradient(90deg, #6B3DF2, #a855f7, #00D4FF)' }}
             />
-            
+
             <div className="p-6 md:p-8">
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div className="flex items-center gap-3">
@@ -661,15 +662,15 @@ function RoadmapSection({ values }: { values: RoadmapValue[] }) {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button 
+                <Button
                   className="flex-1 bg-gradient-to-r from-[#6B3DF2] to-[#a855f7] hover:from-[#7c4ff5] hover:to-[#b366f9] text-white border-0"
                   data-testid="button-talk-engineer"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Talk to an engineer
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="flex-1 border-white/20 text-white hover:bg-white/10"
                   data-testid="button-see-samples"
                 >
@@ -813,14 +814,15 @@ export default function About() {
 
   return (
     <div className="min-h-screen pt-20 overflow-hidden">
+      <HiddenSEO page="about" />
       <section className="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-600/5" />
         <HexagonGrid />
-        
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse" 
-             style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-[120px] animate-pulse" 
-             style={{ animationDuration: '12s', animationDelay: '2s' }} />
+
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse"
+          style={{ animationDuration: '8s' }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-[120px] animate-pulse"
+          style={{ animationDuration: '12s', animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/10 to-purple-600/10 rounded-full blur-[150px]" />
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
@@ -830,7 +832,7 @@ export default function About() {
               <span className="text-sm font-medium text-primary">About Edinite</span>
             </div>
           </ScrollAnimation>
-          
+
           <ScrollAnimation delay={100}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-foreground mb-8 leading-tight">
               Transforming Ideas Into
@@ -844,7 +846,7 @@ export default function About() {
 
           <ScrollAnimation delay={200}>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-              Where engineering precision meets innovation. We craft validated designs, 
+              Where engineering precision meets innovation. We craft validated designs,
               simulations, and prototypes that set the foundation for tomorrow's products.
             </p>
           </ScrollAnimation>
@@ -887,7 +889,7 @@ export default function About() {
       </section>
       <section className="py-24 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollAnimation>
@@ -899,16 +901,16 @@ export default function About() {
                     <span className="block text-primary">Meets Innovation</span>
                   </h2>
                 </div>
-                
+
                 <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    <span className="text-foreground font-semibold">Edinite</span> is a digital engineering studio 
-                    dedicated to converting bold ideas into research-backed designs, CAD models, and validated 
+                    <span className="text-foreground font-semibold">Edinite</span> is a digital engineering studio
+                    dedicated to converting bold ideas into research-backed designs, CAD models, and validated
                     simulations — without the constraints of physical fabrication.
                   </p>
                   <p>
-                    We believe innovation begins on the computer. Our mission is to help students, startups, 
-                    and visionary innovators ensure their products achieve perfection in the virtual world 
+                    We believe innovation begins on the computer. Our mission is to help students, startups,
+                    and visionary innovators ensure their products achieve perfection in the virtual world
                     before any investment in production.
                   </p>
                 </div>
@@ -927,11 +929,11 @@ export default function About() {
             <ScrollAnimation delay={150}>
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-2xl opacity-50" />
-                
+
                 <GlassPanel className="relative p-8">
                   <div className="absolute top-0 left-0 w-20 h-20 bg-primary/10 rounded-br-3xl" />
                   <div className="absolute bottom-0 right-0 w-20 h-20 bg-purple-500/10 rounded-tl-3xl" />
-                  
+
                   <div className="relative space-y-6">
                     <div className="p-5 bg-gradient-to-r from-primary/10 to-transparent rounded-xl border border-primary/10">
                       <p className="text-lg text-foreground font-medium italic">
@@ -947,8 +949,8 @@ export default function About() {
                         "Comprehensive technical documentation",
                         "Client-focused collaboration"
                       ].map((item, index) => (
-                        <div 
-                          key={index} 
+                        <div
+                          key={index}
                           className="flex items-center gap-3 p-3 bg-background/50 rounded-lg group hover:bg-background transition-colors"
                         >
                           <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
@@ -967,7 +969,7 @@ export default function About() {
       </section>
       <section className="py-24 px-6 relative overflow-hidden">
         <HexagonGrid />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <ScrollAnimation>
@@ -991,7 +993,7 @@ export default function About() {
                   <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card/90 to-card/50 border border-primary/20 backdrop-blur-sm">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl" />
-                    
+
                     <div className="relative">
                       <div className="relative inline-flex mb-6">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-2xl blur-lg opacity-60 animate-pulse" style={{ animationDuration: '3s' }} />
@@ -1000,13 +1002,13 @@ export default function About() {
                         </div>
                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-ping" style={{ animationDuration: '2s' }} />
                       </div>
-                      
+
                       <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-vision-title">
                         Our Vision
                       </h3>
                       <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-vision-description">
-                        To become India's leading digital engineering studio, where ideas evolve into 
-                        validated designs with industry-standard precision, setting new benchmarks for 
+                        To become India's leading digital engineering studio, where ideas evolve into
+                        validated designs with industry-standard precision, setting new benchmarks for
                         engineering excellence across the nation.
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -1023,24 +1025,24 @@ export default function About() {
                   <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30 animate-spin" style={{ animationDuration: '20s' }} />
                   <div className="absolute inset-2 rounded-full border-2 border-dashed border-purple-500/30 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
                   <div className="absolute inset-4 rounded-full border border-primary/20" />
-                  
+
                   <div className="absolute inset-0">
                     <div className="absolute left-0 top-1/2 w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s', transform: 'translateX(-50%) translateY(-50%)' }} />
                     <div className="absolute right-0 top-1/2 w-3 h-3 bg-pink-500 rounded-full shadow-lg shadow-pink-500/50 animate-pulse" style={{ animationDuration: '2s', animationDelay: '1.5s', transform: 'translateX(50%) translateY(-50%)' }} />
                   </div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="absolute w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-primary/20 via-purple-500/20 to-primary/20 rounded-full blur-xl animate-pulse" style={{ animationDuration: '4s' }} />
                     <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-primary via-purple-500 to-primary flex items-center justify-center shadow-2xl shadow-primary/50 overflow-hidden">
-                      <img 
-                        src={ediniteLogoCenter} 
-                        alt="Edinite Logo" 
+                      <img
+                        src={ediniteLogoCenter}
+                        alt="Edinite Logo"
                         className="w-[60%] h-[60%] object-contain"
                         style={{ margin: 'auto' }}
                       />
                     </div>
                   </div>
-                  
+
                   <svg className="absolute inset-0 w-full h-full" viewBox="0 0 160 160">
                     <defs>
                       <linearGradient id="arcGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1052,7 +1054,7 @@ export default function About() {
                     <circle cx="80" cy="80" r="75" fill="none" stroke="url(#arcGradient1)" strokeWidth="2" strokeDasharray="100 370" className="animate-spin origin-center" style={{ animationDuration: '8s' }} />
                   </svg>
                 </div>
-                
+
                 <div className="hidden lg:block absolute left-full top-1/2 w-16 h-px">
                   <div className="w-full h-full bg-gradient-to-r from-purple-500 to-transparent" />
                   <div className="absolute top-0 left-0 w-4 h-px bg-purple-500 animate-pulse" style={{ animationDuration: '1s' }} />
@@ -1069,7 +1071,7 @@ export default function About() {
                   <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card/90 to-card/50 border border-purple-500/20 backdrop-blur-sm">
                     <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl" />
                     <div className="absolute bottom-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl" />
-                    
+
                     <div className="relative">
                       <div className="relative inline-flex mb-6">
                         <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-cyan-400 rounded-2xl blur-lg opacity-60 animate-pulse" style={{ animationDuration: '3s', animationDelay: '1.5s' }} />
@@ -1078,13 +1080,13 @@ export default function About() {
                         </div>
                         <div className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-ping" style={{ animationDuration: '2s', animationDelay: '1s' }} />
                       </div>
-                      
+
                       <h3 className="text-3xl font-heading font-bold text-foreground mb-4" data-testid="text-mission-title">
                         Our Mission
                       </h3>
                       <p className="text-base text-muted-foreground leading-relaxed mb-6" data-testid="text-mission-description">
-                        Make advanced design, simulation, and engineering R&D accessible to all — 
-                        enabling students, startups, and innovators to build smarter, optimized 
+                        Make advanced design, simulation, and engineering R&D accessible to all —
+                        enabling students, startups, and innovators to build smarter, optimized
                         solutions that shape the future of technology.
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -1096,7 +1098,7 @@ export default function About() {
                 </div>
               </ScrollAnimation>
             </div>
-            
+
             <div className="absolute top-1/4 left-10 w-2 h-2 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3s' }} />
             <div className="absolute top-3/4 left-20 w-1.5 h-1.5 bg-purple-500/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
             <div className="absolute top-1/3 right-16 w-2 h-2 bg-cyan-400/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2s', animationDelay: '1s' }} />
@@ -1105,7 +1107,7 @@ export default function About() {
 
           <div className="relative py-12">
             <TimelineConnector />
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:pt-16">
               {timeline.map((item, index) => {
                 const timelineId = item.year.toLowerCase();
@@ -1133,7 +1135,7 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-primary/5" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[150px]" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6 pt-8">
@@ -1158,14 +1160,14 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
                   <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
+
                   <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
                       <Cpu className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-sm md:text-base font-bold text-white text-center">3D CAD Design</h3>
                   </div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
                     <div className="text-center px-6">
                       <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Professional CAD modeling and visualization that brings concepts to life</p>
@@ -1179,14 +1181,14 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-br from-green-500 via-emerald-500 to-cyan-500 rounded-3xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
                   <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
+
                   <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
                       <Layers className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-sm md:text-base font-bold text-white text-center">CFD & FEA</h3>
                   </div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
                     <div className="text-center px-6">
                       <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Advanced structural and thermal analysis for design validation</p>
@@ -1200,14 +1202,14 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-rose-500 rounded-3xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
                   <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
+
                   <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
                       <GraduationCap className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-sm md:text-base font-bold text-white text-center">Electronics & PCB</h3>
                   </div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
                     <div className="text-center px-6">
                       <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Complete circuit design and PCB layout for projects</p>
@@ -1221,14 +1223,14 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 rounded-3xl" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-3xl" />
                   <div className="absolute -inset-px bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
+
                   <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-6">
                     <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-3 group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
                       <Pen className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-sm md:text-base font-bold text-white text-center">Software Dev</h3>
                   </div>
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl">
                     <div className="text-center px-6">
                       <p className="text-xs md:text-sm text-white font-medium leading-relaxed">Custom solutions for complex engineering problems</p>
@@ -1243,7 +1245,7 @@ export default function About() {
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[150px]" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <ScrollAnimation>
@@ -1268,8 +1270,8 @@ export default function About() {
                     <div className="flex flex-col items-center text-center gap-4">
                       <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-purple-600/20 border border-primary/30 flex items-center justify-center flex-shrink-0 overflow-hidden" data-testid={`photo-column-leader-${index}`}>
                         {leader.image ? (
-                          <img 
-                            src={leader.image} 
+                          <img
+                            src={leader.image}
                             alt={leader.name}
                             className="w-full h-full object-cover object-top"
                             style={{ objectPosition: '50% 15%' }}
@@ -1278,7 +1280,7 @@ export default function About() {
                         ) : (
                           <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white">
                             <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                             </svg>
                           </div>
                         )}
@@ -1292,7 +1294,7 @@ export default function About() {
                           {leader.position}
                         </p>
                       </div>
-                      
+
                       <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`text-leader-description-${index}`}>
                         {leader.description}
                       </p>
@@ -1348,7 +1350,7 @@ export default function About() {
       <section className="py-24 px-6 relative overflow-hidden" data-testid="section-cta">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-        
+
         <div className="max-w-4xl mx-auto relative z-10">
           <ScrollAnimation>
             <GlassPanel className="p-12 md:p-16 text-center relative overflow-visible" data-testid="card-cta">
@@ -1357,12 +1359,12 @@ export default function About() {
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6 mt-4" data-testid="text-cta-title">
                 Ready to <span className="text-primary">Collaborate?</span>
               </h2>
               <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed" data-testid="text-cta-description">
-                Transform your engineering ideas into reality with our expert team of digital 
+                Transform your engineering ideas into reality with our expert team of digital
                 engineers and innovators. Let's build something extraordinary together.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -1372,8 +1374,8 @@ export default function About() {
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a 
-                  href="mailto:edinite.official@gmail.com" 
+                <a
+                  href="mailto:edinite.official@gmail.com"
                   className="inline-flex items-center justify-center"
                 >
                   <Button size="lg" variant="outline" data-testid="link-email-button">

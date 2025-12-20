@@ -10,6 +10,9 @@ import MemoryStore from "memorystore";
 import { storage } from "./storage";
 import { isDatabaseAvailable } from "./db";
 
+// Check if we are running in a Replit environment
+const isReplitEnv = !!process.env.REPL_ID;
+
 const getOidcConfig = memoize(
   async () => {
     return await client.discovery(
@@ -22,9 +25,9 @@ const getOidcConfig = memoize(
 
 export function getSession() {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
-  
+
   let sessionStore: session.Store;
-  
+
   if (isDatabaseAvailable()) {
     const pgStore = connectPg(session);
     sessionStore = new pgStore({
@@ -34,19 +37,18 @@ export function getSession() {
       tableName: "sessions",
     });
   } else {
-    console.warn("DATABASE_URL not set. Using in-memory session store. Sessions will not persist across restarts.");
+    // Fallback for local dev without DB or when DB is not ready
     const MemStore = MemoryStore(session);
     sessionStore = new MemStore({
       checkPeriod: sessionTtl,
     });
   }
-  
-  if (!process.env.SESSION_SECRET) {
-    throw new Error("SESSION_SECRET must be set for secure session management.");
-  }
-  
+
+  // In local dev, we might not have a SESSION_SECRET, so provide a default
+  const secret = process.env.SESSION_SECRET || "local_dev_secret_key_change_me";
+
   return session({
-    secret: process.env.SESSION_SECRET,
+    secret,
     store: sessionStore,
     resave: false,
     saveUninitialized: false,
@@ -86,6 +88,60 @@ export async function setupAuth(app: Express) {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  passport.serializeUser((user: Express.User, cb) => cb(null, user));
+  passport.deserializeUser((user: Express.User, cb) => cb(null, user));
+
+  if (!isReplitEnv) {
+    // Mock Auth for Local Development
+    console.log("Running in local environment: Setting up Mock Auth");
+
+    // Create a mock user
+    const MOCK_USER = {
+      id: "local-user-1",
+      email: "dev@local.host",
+      firstName: "Local",
+      lastName: "Developer",
+      profileImageUrl: "https://placehold.co/400",
+    };
+
+    // Ensure mock user exists in storage
+    // We catch errors here in case DB isn't ready yet, it will retry on login
+    try {
+      await storage.upsertUser(MOCK_USER);
+    } catch (e) {
+      console.warn("Failed to upsert mock user (DB might be missing):", e);
+    }
+
+    app.use((req, res, next) => {
+      // Auto-login as mock user for every request if not logged in
+      if (!req.isAuthenticated()) {
+        req.login({
+          claims: {
+            sub: MOCK_USER.id,
+            email: MOCK_USER.email,
+            first_name: MOCK_USER.firstName,
+            last_name: MOCK_USER.lastName,
+            profile_image_url: MOCK_USER.profileImageUrl
+          },
+          expires_at: Math.floor(Date.now() / 1000) + 3600 // Valid for 1 hour
+        }, (err) => {
+          if (err) console.error("Mock login failed", err);
+          next();
+        });
+      } else {
+        next();
+      }
+    });
+
+    app.get("/api/login", (req, res) => res.redirect("/"));
+    app.get("/api/logout", (req, res) => {
+      req.logout(() => res.redirect("/"));
+    });
+
+    return; // Stop here, don't set up Replit auth
+  }
+
+  // --- Replit Auth Setup (Original Logic) ---
   const config = await getOidcConfig();
 
   const verify: VerifyFunction = async (
@@ -117,9 +173,6 @@ export async function setupAuth(app: Express) {
     }
   };
 
-  passport.serializeUser((user: Express.User, cb) => cb(null, user));
-  passport.deserializeUser((user: Express.User, cb) => cb(null, user));
-
   app.get("/api/login", (req, res, next) => {
     ensureStrategy(req.hostname);
     passport.authenticate(`replitauth:${req.hostname}`, {
@@ -149,6 +202,11 @@ export async function setupAuth(app: Express) {
 }
 
 export const isAuthenticated: RequestHandler = async (req, res, next) => {
+  if (!isReplitEnv) {
+    // Always authenticated in local mock mode
+    return next();
+  }
+
   const user = req.user as any;
 
   if (!req.isAuthenticated() || !user.expires_at) {

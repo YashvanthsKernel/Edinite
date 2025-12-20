@@ -8,7 +8,9 @@ import ProjectCard from "@/components/ProjectCard";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
 import ProjectModal from "@/components/ProjectModal";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import HiddenSEO from "@/components/HiddenSEO";
 import heroGearImage from '@assets/generated_images/dynamic_3d_mechanical_engineering_assembly.png';
+
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
 import printingImage from '@assets/generated_images/3D_printing_service_background_5fcbe0f4.png';
@@ -20,12 +22,12 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   const services = [
-    { title: "3D CAD Design", description: "Professional mechanical design services using industry-leading CAD software", href: "/services/cad", backgroundImage: cadImage },
-    { title: "FEA/CFD Simulation", description: "Advanced structural and fluid dynamics analysis for optimal performance", href: "/services/fea", backgroundImage: feaImage },
-    { title: "Rapid Printing", description: "Rapid prototyping and additive manufacturing solutions", href: "/services/printing", backgroundImage: printingImage },
-    { title: "PCB Design", description: "Custom circuit board design and layout for electronic systems", href: "/services/pcb", backgroundImage: pcbImage },
+    { title: "3D CAD Design", description: "Professional mechanical design services using industry-leading CAD software", href: "/services/mechanical-cad", backgroundImage: cadImage },
+    { title: "FEA/CFD Simulation", description: "Advanced structural and fluid dynamics analysis for optimal performance", href: "/services/fea-cfd", backgroundImage: feaImage },
+    { title: "Rapid Printing", description: "Rapid prototyping and additive manufacturing solutions", href: "/services/3d-printing", backgroundImage: printingImage },
+    { title: "PCB Design", description: "Custom circuit board design and layout for electronic systems", href: "/services/pcb-design", backgroundImage: pcbImage },
     { title: "MATLAB & Simulink", description: "Control systems, data analysis, and simulation modeling", href: "/services/matlab", backgroundImage: matlabImage },
-    { title: "Product Optimization", description: "Performance enhancement through advanced engineering analysis", href: "/services/optimization", backgroundImage: optimizationImage },
+    { title: "Product Optimization", description: "Performance enhancement through advanced engineering analysis", href: "/services/fea-cfd", backgroundImage: optimizationImage },
   ];
 
   const features = [
@@ -72,8 +74,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <HiddenSEO page="home" />
       <section className="relative min-h-[90vh] pt-24 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -83,7 +86,7 @@ export default function Home() {
             backgroundSize: '40px 40px'
           }}
         />
-        
+
         <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
             <div className="space-y-8">
@@ -106,7 +109,7 @@ export default function Home() {
               </div>
 
               <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-                Where engineering excellence meets innovation. From bold concepts to detailed designs, 
+                Where engineering excellence meets innovation. From bold concepts to detailed designs,
                 we transform your vision into professional CAD models, simulations, and prototypes.
               </p>
 
@@ -135,9 +138,9 @@ export default function Home() {
             <div className="relative flex items-center justify-center">
               <div className="relative">
                 <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-purple-500/10 to-transparent rounded-full blur-3xl" />
-                <img 
-                  src={heroGearImage} 
-                  alt="3D Engineering Visualization" 
+                <img
+                  src={heroGearImage}
+                  alt="3D Engineering Visualization"
                   className="relative z-10 w-full max-w-lg mx-auto drop-shadow-2xl animate-float"
                   data-testid="img-hero"
                 />
@@ -148,8 +151,8 @@ export default function Home() {
 
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path 
-              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" 
+            <path
+              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
               className="fill-primary"
             />
           </svg>
@@ -160,8 +163,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {features.map((feature) => (
-              <div 
-                key={feature.label} 
+              <div
+                key={feature.label}
                 className="flex items-center gap-4 text-primary-foreground group cursor-pointer"
                 data-testid={`feature-${feature.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -209,12 +212,12 @@ export default function Home() {
             <div className="absolute top-20 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
             <div className="absolute bottom-20 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/5 to-purple-500/5 rounded-full blur-[200px] pointer-events-none" />
-            
+
             <div className="absolute top-32 left-20 w-2 h-2 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3s' }} />
             <div className="absolute top-48 right-32 w-1.5 h-1.5 bg-purple-500/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
             <div className="absolute bottom-40 left-40 w-2 h-2 bg-cyan-400/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '2s', animationDelay: '1s' }} />
             <div className="absolute bottom-32 right-20 w-1.5 h-1.5 bg-primary/60 rounded-full animate-pulse hidden lg:block" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
-            
+
             <ScrollAnimation>
               <div className="text-center mb-16 relative">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
@@ -227,7 +230,7 @@ export default function Home() {
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Comprehensive engineering solutions from concept to validated design
                 </p>
-                
+
                 <div className="flex justify-center mt-6 gap-1">
                   <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full" />
                   <div className="w-3 h-1 bg-purple-500 rounded-full animate-pulse" />
@@ -235,7 +238,7 @@ export default function Home() {
                 </div>
               </div>
             </ScrollAnimation>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
               {services.map((service, index) => (
                 <ScrollAnimation key={service.title} delay={index * 80}>
@@ -243,7 +246,7 @@ export default function Home() {
                 </ScrollAnimation>
               ))}
             </div>
-            
+
             <ScrollAnimation delay={600}>
               <div className="mt-12 flex justify-center">
                 <Link href="/services">
@@ -270,7 +273,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/30 to-transparent" />
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollAnimation>
             <div className="text-center mb-8">
@@ -300,7 +303,7 @@ export default function Home() {
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute bottom-20 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <ScrollAnimation>
             <div className="text-center mb-16">
@@ -321,7 +324,7 @@ export default function Home() {
               </div>
             </div>
           </ScrollAnimation>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <ScrollAnimation key={project.title} delay={index * 150}>
@@ -332,7 +335,7 @@ export default function Home() {
               </ScrollAnimation>
             ))}
           </div>
-          
+
           <ScrollAnimation delay={400}>
             <div className="mt-16 flex justify-center">
               <Link href="/portfolio">

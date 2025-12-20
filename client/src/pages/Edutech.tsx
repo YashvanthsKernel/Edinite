@@ -1,6 +1,7 @@
 import { ArrowRight, BookOpen, Code, Users, Award, Target, Zap } from "lucide-react";
 import { Link } from "wouter";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import HiddenSEO from "@/components/HiddenSEO";
 import heroImage from '@assets/generated_images/Homepage_hero_engineering_montage_d31f5047.png';
 
 export default function Edutech() {
@@ -39,8 +40,9 @@ export default function Edutech() {
 
   return (
     <div className="min-h-screen pt-24">
+      <HiddenSEO page="edutech" />
       <section className="relative min-h-[80vh] py-20 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -108,9 +110,9 @@ export default function Edutech() {
             <div className="relative flex items-center justify-center">
               <div className="relative">
                 <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-purple-500/10 to-transparent rounded-full blur-3xl" />
-                <img 
-                  src={heroImage} 
-                  alt="Engineering Learning" 
+                <img
+                  src={heroImage}
+                  alt="Engineering Learning"
                   className="relative z-10 w-full max-w-lg mx-auto drop-shadow-2xl rounded-lg opacity-80"
                   data-testid="img-edutech-hero"
                 />

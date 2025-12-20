@@ -9,23 +9,33 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    const [user] = await getDb().select().from(users).where(eq(users.id, id));
-    return user || undefined;
+    try {
+      const [user] = await getDb().select().from(users).where(eq(users.id, id));
+      return user || undefined;
+    } catch (error) {
+      console.error(`[Storage] Error fetching user ${id}:`, error);
+      throw new Error('Failed to fetch user from database');
+    }
   }
 
   async upsertUser(userData: UpsertUser): Promise<User> {
-    const [user] = await getDb()
-      .insert(users)
-      .values(userData)
-      .onConflictDoUpdate({
-        target: users.id,
-        set: {
-          ...userData,
-          updatedAt: new Date(),
-        },
-      })
-      .returning();
-    return user;
+    try {
+      const [user] = await getDb()
+        .insert(users)
+        .values(userData)
+        .onConflictDoUpdate({
+          target: users.id,
+          set: {
+            ...userData,
+            updatedAt: new Date(),
+          },
+        })
+        .returning();
+      return user;
+    } catch (error) {
+      console.error(`[Storage] Error upserting user:`, error);
+      throw new Error('Failed to save user to database');
+    }
   }
 }
 
