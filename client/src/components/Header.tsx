@@ -4,7 +4,7 @@ import { Menu, X, User, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import logoNameImage from '@assets/Edinite Logo name_1764532314216.png';
 
-const logoImage = '/Edinite Logo .svg';
+const logoImage = '/Edinite Logo.svg';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
