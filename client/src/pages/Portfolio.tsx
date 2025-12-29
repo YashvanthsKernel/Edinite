@@ -30,6 +30,11 @@ import roverIsometricImg from "@assets/Isometric_View_1766992786226.png";
 import roverNxDesignImg from "@assets/NX_Cad_ISRO_Design_1766992786227.png";
 import roverTopViewImg from "@assets/Top_View_1766992786228.jpg";
 
+// Universal Fixture Assets
+import fixtureFrontImg from "@assets/Front_View_1766993306289.png";
+import fixtureIsometricImg from "@assets/Isometric_View_1766993306291.png";
+import fixturePocImg from "@assets/POC_1766993306291.png";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -51,6 +56,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Universal Fixture of Steering System",
+      category: "Mechanical Design",
+      description: "Industrial solution designed to eliminate the need for multiple dedicated fixtures in steering system assembly. This single-platform platform accommodates various steering configurations, significantly reducing changeover time and tooling costs.",
+      image: [fixtureIsometricImg, fixtureFrontImg, fixturePocImg],
+      tools: ["SolidWorks", "Fixture Design", "Industrial Problem-Solving"],
+      metrics: [
+        { label: "Changeover Time", value: "-65%" },
+        { label: "Tooling Cost", value: "-40%" }
+      ],
+      details: [
+        "Single fixture platform for multiple steering variants",
+        "Adjustable support plates for varying component lengths",
+        "Highly repeatable positioning for manufacturing precision",
+        "Modular design for easy integration into existing assembly lines"
       ]
     },
     {
