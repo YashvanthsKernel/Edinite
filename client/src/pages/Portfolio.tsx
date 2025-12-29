@@ -52,7 +52,7 @@ import cargoCycleIsometricImg from "@assets/Isometric_View_1766995252260.png";
 // Patient Shifter Assets
 import patientShifterDisassembleImg from "@assets/Disassemble_View_1766995721757.png";
 import patientShifterIsometricImg from "@assets/Isometric_View_1766995721758.png";
-import patientShifterRenderImg from "@assets/Render_Image_of_Project_1766995721759.JPG";
+import patientShifterRenderImg from "@assets/Render_Image_of_Project_1766995721759.jpg";
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
