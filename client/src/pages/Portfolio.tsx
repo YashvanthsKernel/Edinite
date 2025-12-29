@@ -78,7 +78,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-6">
             {projects.map((project, index) => (
               <ScrollAnimation key={project.title} delay={index * 100}>
                 <ProjectCard

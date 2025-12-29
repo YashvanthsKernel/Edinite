@@ -61,83 +61,70 @@ export default function ProjectCard({ title, category, description, image, tools
   return (
     <div 
       onClick={onClick} 
-      className="cursor-pointer group perspective-1000" 
+      className="cursor-pointer group bg-card hover:bg-accent/5 transition-colors border-b md:border md:rounded-lg overflow-hidden flex flex-col md:flex-row gap-4 md:gap-6 p-4 md:p-6" 
       data-testid={`card-project-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
-      <div className="relative transform-gpu transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2">
-        <div className={`absolute -inset-1 bg-gradient-to-r ${config.gradient} rounded-3xl opacity-0 group-hover:opacity-40 blur-xl transition-all duration-500`} />
-        <div className={`absolute -inset-px bg-gradient-to-r ${config.gradient} rounded-2xl opacity-0 group-hover:opacity-60 transition-all duration-300`} />
+      {/* Image Container */}
+      <div className="relative w-full md:w-72 lg:w-80 shrink-0 aspect-[4/3] md:aspect-square bg-muted rounded-lg overflow-hidden">
+        <img 
+          src={image} 
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
         
-        <div className="relative backdrop-blur-xl bg-white/[0.03] border border-white/10 rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] transition-all duration-500">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          
-          <div className="relative aspect-[16/10] overflow-hidden">
-            <img 
-              src={image} 
-              alt={title}
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
-            />
-            
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
-            <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-overlay`} />
-            
-            <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:left-[200%] transition-all duration-1000 ease-out" />
-            
-            <div className="absolute top-4 right-4 flex gap-2">
-              <div className={`px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-2`}>
-                <CategoryIcon className={`w-3.5 h-3.5 ${config.color}`} />
-                <span className={`text-xs font-bold ${config.color}`}>{category}</span>
-              </div>
-            </div>
-            
-            {metrics && metrics.length > 0 && (
-              <div className="absolute top-4 left-4 flex flex-col gap-2">
-                {metrics.map((metric, idx) => (
-                  <div key={idx} className="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-2">
-                    <Gauge className="w-3 h-3 text-green-400" />
-                    <span className="text-xs text-white/90">{metric.label}: <span className="font-bold text-green-400">{metric.value}</span></span>
-                  </div>
-                ))}
-              </div>
-            )}
-            
-            <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <div className="flex gap-1 mb-3">
-                <div className={`w-10 h-1 bg-gradient-to-r ${config.gradient} rounded-full`} />
-                <div className="w-3 h-1 bg-white/30 rounded-full group-hover:animate-pulse" />
-                <div className="w-1.5 h-1 bg-white/20 rounded-full" />
-              </div>
-              
-              <h3 className="text-xl lg:text-2xl font-heading font-bold text-white mb-2 drop-shadow-lg">
-                {title}
-              </h3>
-              
-              <p className="text-sm text-white/70 leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 line-clamp-2">
-                {description}
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                {tools.map((tool) => (
-                  <span 
-                    key={tool} 
-                    className={`px-3 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 text-white/90 text-xs rounded-lg flex items-center gap-1.5 group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-300`}
-                  >
-                    <span className={`${config.color} text-[10px]`}>{getToolIcon(tool)}</span>
-                    {tool}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200">
-                <span className={`text-sm font-semibold ${config.color}`}>View Case Study</span>
-                <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${config.gradient} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-white" />
-                </div>
-              </div>
-            </div>
+        <div className="absolute top-2 right-2">
+          <div className="px-2 py-1 rounded bg-black/60 backdrop-blur-sm border border-white/10 flex items-center gap-1.5">
+            <CategoryIcon className={`w-3 h-3 ${config.color}`} />
+            <span className="text-[10px] font-bold text-white uppercase tracking-wider">{category}</span>
           </div>
-          
-          <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${config.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+        </div>
+      </div>
+
+      {/* Content Container */}
+      <div className="flex flex-col flex-1 min-w-0">
+        <h3 className="text-lg md:text-xl font-heading font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-1">
+          {title}
+        </h3>
+        
+        <div className="flex items-center gap-2 mb-2">
+          <div className="flex text-yellow-400">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <span className="text-xs text-muted-foreground">4.8 (124)</span>
+        </div>
+
+        <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+          {description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {tools.map((tool) => (
+            <span 
+              key={tool} 
+              className="px-2 py-1 bg-secondary text-secondary-foreground text-[10px] font-medium rounded border border-border"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-border/50">
+          <div className="flex flex-wrap gap-3">
+            {metrics?.slice(0, 2).map((metric, idx) => (
+              <div key={idx} className="flex items-center gap-1.5">
+                <Gauge className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-medium">{metric.label}: {metric.value}</span>
+              </div>
+            ))}
+          </div>
+          <div className="hidden md:flex items-center gap-1 text-primary text-sm font-semibold">
+            Details
+            <ArrowUpRight className="w-4 h-4" />
+          </div>
         </div>
       </div>
     </div>
