@@ -19,6 +19,10 @@ import isroImg from "@assets/NX_Cad_ISRO_Design_1766991335735.png";
 import sihImg from "@assets/Rendered_Image_of_SIH_Project_1766991362475.png";
 import gyroImg from "@assets/Gyro_Transparent_View_1766991378999.png";
 import actuatorImg from "@assets/44ebb6c6-a51f-482e-8882-9ab73c55d926_1766991442800.jpg";
+import sihRailImg from "@assets/Design_of_Railway_Crack_Detection_System_1766992391804.png";
+import sihFabricationImg from "@assets/Fabrication_of_SIH_Project_1766992391805.jpg";
+import sihRenderImg from "@assets/Rendered_Image_of_SIH_Project_1766992391805.png";
+import sihRoughImg from "@assets/SIH_ICF_Bogie_Original_Rough_Design__1766992391806.jpg";
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -41,6 +45,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "AI Based Acoustic Wave Monitoring System of Rail Defects",
+      category: "AI/Software",
+      description: "This Smart India Hackathon (SIH) project proposes an AI-based acoustic wave monitoring system capable of detecting rail defects by analyzing acoustic signals generated during train movement, enabling predictive and condition-based maintenance. Focused on early detection of structural defects such as cracks, fractures, and wear.",
+      image: [sihRenderImg, sihRailImg, sihFabricationImg, sihRoughImg],
+      tools: ["AI/ML", "Acoustic Sensors", "Python", "Signal Processing"],
+      metrics: [
+        { label: "Project Type", value: "SIH Innovation" },
+        { label: "Category", value: "Infrastructure" }
+      ],
+      details: [
+        "Real-time acoustic signal acquisition during train movement",
+        "Deep learning models for defect classification and localization",
+        "Predictive maintenance scheduling based on defect severity",
+        "Integration with railway monitoring infrastructure"
       ]
     },
     {
