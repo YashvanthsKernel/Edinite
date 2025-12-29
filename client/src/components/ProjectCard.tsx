@@ -32,6 +32,11 @@ const categoryConfig: Record<string, { color: string; gradient: string; icon: an
     gradient: "from-purple-500/20 to-pink-500/5",
     icon: Code
   },
+  "Space Robotics": { 
+    color: "text-indigo-400", 
+    gradient: "from-indigo-500/20 to-violet-500/5",
+    icon: Cpu
+  },
   "Automotive Aerodynamics": { 
     color: "text-blue-400", 
     gradient: "from-blue-500/20 to-indigo-500/5",

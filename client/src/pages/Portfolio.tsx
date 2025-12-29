@@ -24,6 +24,12 @@ import sihFabricationImg from "@assets/Fabrication_of_SIH_Project_1766992391805.
 import sihRenderImg from "@assets/Rendered_Image_of_SIH_Project_1766992391805.png";
 import sihRoughImg from "@assets/SIH_ICF_Bogie_Original_Rough_Design__1766992391806.jpg";
 
+// ISRO Rover Assets
+import roverFabricationImg from "@assets/Fabrication_Image_1766992786226.jpg";
+import roverIsometricImg from "@assets/Isometric_View_1766992786226.png";
+import roverNxDesignImg from "@assets/NX_Cad_ISRO_Design_1766992786227.png";
+import roverTopViewImg from "@assets/Top_View_1766992786228.jpg";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -45,6 +51,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "ISRO ROVERT ROVER (IROC-U 2024)",
+      category: "Space Robotics",
+      description: "Planetary exploration rover developed for the ISRO Robotics Challenge (IROC-U 2024). Features a robust suspension system and lightweight rigid frame optimized for extreme terrain navigation.",
+      image: [roverIsometricImg, roverNxDesignImg, roverFabricationImg, roverTopViewImg],
+      tools: ["NX CAD", "Rapid Prototyping", "Python", "ROS"],
+      metrics: [
+        { label: "Competition", value: "IROC-U 2024" },
+        { label: "Organization", value: "ISRO" }
+      ],
+      details: [
+        "Lightweight rigid chassis optimized for off-road mobility",
+        "Rocker-bogie suspension for handling uneven terrain",
+        "Integration of multi-axis robotic arm and sensor suite",
+        "Structural analysis under simulated planetary gravity"
       ]
     },
     {
