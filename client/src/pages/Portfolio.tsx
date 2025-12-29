@@ -60,6 +60,9 @@ import waterTankSectionedImg from "@assets/Sectioned_View_1766996502503.png";
 import waterTankGyroImg from "@assets/Gyro_Mechanism_1766996502501.png";
 import waterTankGyroTransparentImg from "@assets/Gyro_Transparent_View_1766996502502.png";
 
+// Camera Slider Assets
+import cameraSliderImg from "@assets/Camera_Slider_1766996697363.jpg";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -81,6 +84,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Smart Sliding Camera with IOT",
+      category: "Robotics & IoT",
+      description: "Precise and automated camera movement system integrated with Arduino. Designed to enhance professional cinematography through programmable sliding motions and IOT-based remote control.",
+      image: [cameraSliderImg],
+      tools: ["Arduino", "Mechanical Design", "IOT Integration"],
+      metrics: [
+        { label: "Precision", value: "Sub-mm" },
+        { label: "Movement", value: "Smooth" }
+      ],
+      details: [
+        "Programmable sliding speed and distance via Arduino",
+        "Integrated IOT control for remote operation",
+        "Smooth, vibration-free movement for high-quality cinematography",
+        "Lightweight and portable aluminum extrusion frame"
       ]
     },
     {
