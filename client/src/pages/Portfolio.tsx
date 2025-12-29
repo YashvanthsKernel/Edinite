@@ -2,65 +2,45 @@ import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
-import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
-import printingImage from '@assets/generated_images/3D_printing_service_background_5fcbe0f4.png';
-import pcbImage from '@assets/generated_images/PCB_design_service_background_f2880d46.png';
+import simulinkImg from "@assets/Simulink_Result_of_CFD_1766989433000.png";
+import velocityImg from "@assets/Velocity_Magnitude_1766989433001.png";
+import fabricationImg from "@assets/Wind_Tunnel_Testing_Fabrication_Design_1766989433003.png";
+import dragCoeffImg from "@assets/Drag_Co-efficient_of_Our_Car_Design_1766989447148.png";
+import pathflowImg from "@assets/Pathflow_Simulation_in_Ansys_CFD_Fluent_1766989447149.png";
+import pressureImg from "@assets/Pressure_Magnitude_1766989447150.png";
+import blueprintImg from "@assets/Aether_Blueprint_1766989469508.png";
+import aetherCarImg from "@assets/Aether_GT-26_1766989469509.jpg";
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   const projects = [
     {
-      title: "Automotive Suspension Design",
-      category: "Mechanical Design",
-      description: "Complete suspension system design and optimization for high-performance vehicle applications with advanced kinematics analysis.",
-      image: cadImage,
-      tools: ["SolidWorks", "ANSYS", "MATLAB"],
+      title: "Reduction of Drag Coefficient in Electric Car Using CFD Analysis",
+      category: "Automotive Aerodynamics",
+      description: `Aerodynamic drag plays a critical role in determining the range, efficiency, and performance of electric vehicles. This project focuses on the reduction of drag coefficient (Cd) through systematic aerodynamic optimization using Computational Fluid Dynamics (CFD).
+
+Proud to showcase AETHER GT -26 = An Aerodynamically Optimized Electric Sedan, designed in Fusion 360 and rendered in Blender for a realistic visualization.
+
+Objective: Reduction of drag coefficient (Cd) using advanced Computational Fluid Dynamics (CFD) analysis to enhance EV efficiency.
+
+Design Approach:
+🔸 Optimized skateboard chassis for weight distribution
+🔸 Streamlined body contours for minimal aerodynamic drag
+🔸 CFD-driven airflow optimisation to enhance performance`,
+      image: [aetherCarImg, blueprintImg, velocityImg, pathflowImg, pressureImg, dragCoeffImg, simulinkImg, fabricationImg],
+      tools: ["ANSYS (CFD)", "Fusion 360", "Blender", "MATLAB", "Simulink"],
+      metrics: [
+        { label: "Drag Coefficient (Cd)", value: "0.243961" },
+        { label: "Pressure Coefficient (Cp)", value: "0.21964" },
+        { label: "Design Tools", value: "Fusion 360" }
+      ],
       details: [
-        "Detailed 3D CAD modeling of suspension components",
-        "Finite Element Analysis for stress optimization",
-        "Dynamic simulation and kinematics analysis",
-        "Manufacturing drawings and BOM generation"
-      ]
-    },
-    {
-      title: "Heat Exchanger CFD Analysis",
-      category: "Thermal Engineering",
-      description: "Computational fluid dynamics study for optimizing heat transfer efficiency in industrial heat exchangers.",
-      image: feaImage,
-      tools: ["ANSYS Fluent", "SolidWorks"],
-      details: [
-        "3D flow simulation and thermal analysis",
-        "Pressure drop optimization",
-        "Heat transfer coefficient calculations",
-        "Design iteration and performance comparison"
-      ]
-    },
-    {
-      title: "Industrial Robot Gripper",
-      category: "Rapid Printing",
-      description: "Custom end-effector design with rapid prototyping for industrial automation applications.",
-      image: printingImage,
-      tools: ["Fusion 360", "Ultimaker Cura"],
-      details: [
-        "Lightweight topology-optimized design",
-        "FDM 3D printing with carbon fiber reinforcement",
-        "Functional testing and iteration",
-        "Integration with robotic arm system"
-      ]
-    },
-    {
-      title: "IoT Sensor PCB Development",
-      category: "Electronics",
-      description: "Multi-layer PCB design for wireless environmental monitoring system with low power consumption.",
-      image: pcbImage,
-      tools: ["Altium Designer", "MATLAB"],
-      details: [
-        "4-layer PCB layout with impedance control",
-        "Signal integrity and EMI analysis",
-        "Component selection and BOM optimization",
-        "Firmware integration support"
+        "Aerodynamically Optimized Electric Sedan Design",
+        "Systematic reduction of Cd through iterative CFD loops",
+        "Optimized skateboard chassis for ideal weight distribution",
+        "High-fidelity rendering in Blender for visualization",
+        "Simulink results for overall vehicle system dynamics"
       ]
     },
   ];
@@ -78,7 +58,7 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-12">
             {projects.map((project, index) => (
               <ScrollAnimation key={project.title} delay={index * 100}>
                 <ProjectCard

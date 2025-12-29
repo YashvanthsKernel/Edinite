@@ -1,10 +1,11 @@
-import { ArrowUpRight, Layers, Thermometer, Cpu, Code, Gauge } from "lucide-react";
+import { ArrowUpRight, Layers, Thermometer, Cpu, Code, Gauge, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface ProjectCardProps {
   title: string;
   category: string;
   description: string;
-  image: string;
+  image: string | string[];
   tools: string[];
   metrics?: { label: string; value: string }[];
   onClick: () => void;
@@ -31,6 +32,11 @@ const categoryConfig: Record<string, { color: string; gradient: string; icon: an
     gradient: "from-purple-500 to-pink-500",
     icon: Code
   },
+  "Automotive Aerodynamics": { 
+    color: "text-blue-400", 
+    gradient: "from-blue-500 to-indigo-500",
+    icon: Gauge
+  }
 };
 
 const getToolIcon = (tool: string) => {
@@ -51,6 +57,17 @@ const getToolIcon = (tool: string) => {
 };
 
 export default function ProjectCard({ title, category, description, image, tools, metrics, onClick }: ProjectCardProps) {
+  const images = Array.isArray(image) ? image : [image];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const config = categoryConfig[category] || { 
     color: "text-primary", 
     gradient: "from-primary to-purple-600",
@@ -69,12 +86,27 @@ export default function ProjectCard({ title, category, description, image, tools
 
       {/* Image Container */}
       <div className="relative w-full md:w-80 lg:w-96 shrink-0 aspect-[16/10] md:aspect-auto overflow-hidden">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+        {images.map((img, idx) => (
+          <img 
+            key={idx}
+            src={img} 
+            alt={`${title} - image ${idx + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 transform ${idx === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20" />
+        
+        {images.length > 1 && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 px-2 py-1 rounded-full bg-black/40 backdrop-blur-md">
+            {images.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-primary w-4' : 'bg-white/40'}`} 
+              />
+            ))}
+          </div>
+        )}
+
         <div className="absolute top-3 left-3">
           <div className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-1.5 shadow-lg">
             <CategoryIcon className={`w-3.5 h-3.5 ${config.color}`} />
@@ -101,7 +133,7 @@ export default function ProjectCard({ title, category, description, image, tools
           </div>
         </div>
 
-        <p className="text-base text-white/60 leading-relaxed mb-6 line-clamp-2 md:line-clamp-3">
+        <p className="text-base text-white/60 leading-relaxed mb-6 whitespace-pre-line line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
           {description}
         </p>
 
@@ -118,7 +150,7 @@ export default function ProjectCard({ title, category, description, image, tools
 
         <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
           <div className="flex flex-wrap gap-6">
-            {metrics?.slice(0, 2).map((metric, idx) => (
+            {metrics?.slice(0, 3).map((metric, idx) => (
               <div key={idx} className="flex flex-col gap-0.5">
                 <span className="text-[10px] uppercase tracking-wider text-white/40 font-bold">{metric.label}</span>
                 <div className="flex items-center gap-2">
