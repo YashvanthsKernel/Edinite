@@ -261,23 +261,6 @@ export default function Portfolio() {
       ]
     },
     {
-      title: "ISRO Satellite Component Design & Structural Analysis",
-      category: "Mechanical Design",
-      description: "Precision engineering of high-strength aerospace components designed for satellite deployment systems. Focused on weight reduction and structural integrity under extreme conditions.",
-      image: [isroImg, blueprintNew],
-      tools: ["NX CAD", "ANSYS", "HyperMesh"],
-      metrics: [
-        { label: "Weight Reduction", value: "18%" },
-        { label: "Factor of Safety", value: "2.5" }
-      ],
-      details: [
-        "Topology optimization for mass reduction",
-        "Modal analysis for vibration control during launch",
-        "Thermal stress assessment in vacuum environments",
-        "Precision machining tolerance specifications"
-      ]
-    },
-    {
       title: "Automated Precision Camera Slider for Cinematic Motion",
       category: "AI/Software",
       description: "A multi-axis motion control system integrating stepper motors and custom firmware for perfectly repeatable camera movements.",
