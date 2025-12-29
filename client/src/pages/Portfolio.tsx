@@ -35,6 +35,9 @@ import fixtureFrontImg from "@assets/Front_View_1766993306289.png";
 import fixtureIsometricImg from "@assets/Isometric_View_1766993306291.png";
 import fixturePocImg from "@assets/POC_1766993306291.png";
 
+// Garbage Collector Assets
+import garbageCollectorImg from "@assets/Isometric_View_1766993949594.png";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -56,6 +59,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Water Body Garbage Collector",
+      category: "Sustainable Design",
+      description: "Award-winning sustainable engineering solution for removing floating waste from urban water bodies. Designed for India Design Week 2024, this system enables autonomous garbage collection using low-energy principles.",
+      image: [garbageCollectorImg],
+      tools: ["Product Design", "Concept Engineering", "Sustainability Analysis"],
+      metrics: [
+        { label: "India Design Week", value: "Best Design" },
+        { label: "Award Year", value: "2024" }
+      ],
+      details: [
+        "Autonomous floating waste collection system",
+        "Eco-friendly, low-energy design for long-term deployment",
+        "Scalable architecture for various water body sizes",
+        "Passive filtration mechanism for micro-plastic removal"
       ]
     },
     {
