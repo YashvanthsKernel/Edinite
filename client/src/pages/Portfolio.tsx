@@ -63,6 +63,10 @@ import waterTankGyroTransparentImg from "@assets/Gyro_Transparent_View_176699650
 // Camera Slider Assets
 import cameraSliderImg from "@assets/Camera_Slider_1766996697363.jpg";
 
+// Seeding Bot Assets
+import seedingBotIsometricImg from "@assets/Isometric_View_1766997034772.png";
+import seedingBotRearImg from "@assets/Rear_View_1766997034773.png";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -84,6 +88,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Sow Seeding Bot Design & Fabrication",
+      category: "Agricultural Robotics",
+      description: "Automated mobile agricultural robot designed for precise seed sowing. Features a robust mechanical mechanism for consistent seed spacing and efficient modular fabrication for small-scale farming.",
+      image: [seedingBotIsometricImg, seedingBotRearImg],
+      tools: ["SolidWorks", "Robotics", "Mechanical Design"],
+      metrics: [
+        { label: "Sowing Accuracy", value: "95%" },
+        { label: "Labor Efficiency", value: "+70%" }
+      ],
+      details: [
+        "Modular mechanical system for diverse seed types",
+        "Autonomous mobile platform for field navigation",
+        "Precisely timed seed release mechanism",
+        "Robust design for real-field durability"
       ]
     },
     {
