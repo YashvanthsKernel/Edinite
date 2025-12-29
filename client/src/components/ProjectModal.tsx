@@ -33,7 +33,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl bg-[#010030]/95 backdrop-blur-2xl border-white/10 text-white overflow-hidden p-0">
+      <DialogContent className="max-w-4xl bg-[#0a0a2a]/95 backdrop-blur-2xl border-white/10 text-white overflow-hidden p-0 shadow-[0_0_50px_-12px_rgba(114,38,255,0.3)]">
         <div className="flex flex-col lg:flex-row h-full max-h-[90vh]">
           {/* Image Section */}
           <div className="relative w-full lg:w-1/2 aspect-video lg:aspect-auto bg-black flex items-center justify-center overflow-hidden">
