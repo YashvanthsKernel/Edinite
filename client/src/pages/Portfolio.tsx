@@ -45,6 +45,10 @@ import wearableIsometricImg from "@assets/Isometric_View_1766994859110.png";
 import wearableTorsoImg from "@assets/Product_with_Torso_Body_1766994859111.png";
 import wearableTransparentImg from "@assets/Transparent_View_of_Product_1766994859111.png";
 
+// Cargo Cycle Assets
+import cargoCycleFrontImg from "@assets/Front_View_1766995252259.png";
+import cargoCycleIsometricImg from "@assets/Isometric_View_1766995252260.png";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -66,6 +70,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Cargo Cycle Design for Urban Logistics",
+      category: "Sustainable Mobility",
+      description: "Concept design of a low-cost, zero-emission cargo cycle intended for last-mile delivery. Focused on load stability, rider ergonomics, and urban usability to reduce dependence on fuel-based delivery vehicles.",
+      image: [cargoCycleIsometricImg, cargoCycleFrontImg],
+      tools: ["Fusion 360", "Mechanical Design", "Sustainable Mobility"],
+      metrics: [
+        { label: "Emission Reduction", value: "100%" },
+        { label: "Load Capacity", value: "80kg" }
+      ],
+      details: [
+        "Low-center-of-gravity frame design for cargo stability",
+        "Ergonomic rider positioning for long-distance urban use",
+        "Modular cargo box attachment system",
+        "Structural layout optimized for urban terrain navigation"
       ]
     },
     {

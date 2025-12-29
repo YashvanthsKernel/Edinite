@@ -42,6 +42,11 @@ const categoryConfig: Record<string, { color: string; gradient: string; icon: an
     gradient: "from-emerald-500/20 to-teal-500/5",
     icon: Wind
   },
+  "Sustainable Mobility": { 
+    color: "text-lime-400", 
+    gradient: "from-lime-500/20 to-emerald-500/5",
+    icon: Zap
+  },
   "Automotive Aerodynamics": { 
     color: "text-blue-400", 
     gradient: "from-blue-500/20 to-indigo-500/5",
