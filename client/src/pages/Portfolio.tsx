@@ -38,6 +38,13 @@ import fixturePocImg from "@assets/POC_1766993306291.png";
 // Garbage Collector Assets
 import garbageCollectorImg from "@assets/Isometric_View_1766993949594.png";
 
+// Wearable Sensor Assets
+import wearableBlueprintImg from "@assets/Blue_Print_of_Concept_1766994866347.png";
+import wearableDisassembledImg from "@assets/Disassembled_Position_Image_1766994859109.png";
+import wearableIsometricImg from "@assets/Isometric_View_1766994859110.png";
+import wearableTorsoImg from "@assets/Product_with_Torso_Body_1766994859111.png";
+import wearableTransparentImg from "@assets/Transparent_View_of_Product_1766994859111.png";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -59,6 +66,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Wearable AI Fall Detection System",
+      category: "AI/Software",
+      description: "AI-powered wearable device designed for the elderly to prevent falls through real-time monitoring and predictive alerts. Integrates high-precision sensors with deep learning models to enhance user safety and independence.",
+      image: [wearableBlueprintImg, wearableTransparentImg, wearableTorsoImg, wearableDisassembledImg, wearableIsometricImg],
+      tools: ["AI/ML", "Wearable Tech", "Python", "Mechanical Design"],
+      metrics: [
+        { label: "Alert Accuracy", value: "96.4%" },
+        { label: "Response Time", value: "<200ms" }
+      ],
+      details: [
+        "Real-time fall risk assessment using multi-sensor fusion",
+        "Deep learning model for gesture and posture classification",
+        "Compact mechanical design for long-term comfort",
+        "Cloud-integrated monitoring for healthcare providers"
       ]
     },
     {
