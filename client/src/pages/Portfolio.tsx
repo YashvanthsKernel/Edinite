@@ -75,7 +75,7 @@ Design Approach:
         <ProjectModal
           isOpen={true}
           onClose={() => setSelectedProject(null)}
-          project={projects[selectedProject]}
+          project={projects[selectedProject] as any}
         />
       )}
     </div>
