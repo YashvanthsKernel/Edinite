@@ -1,19 +1,31 @@
-import image1 from "@assets/3D-Printing-Services-3_1765612582309.jpg";
-import image2 from "@assets/3d-printing-services-miami-01b_(1)_1765612582310.jpg";
-import image3 from "@assets/1000_F_539188436_WYHqq4PKFjGoDlZfFKSoaeabLQMfcYHd_1765612582311.jpg";
-import image4 from "@assets/model-based-design-wp-landing-page-thumbnail_1765612582312.jpg";
-import image5 from "@assets/pcb-design-basics-zuken-us_1765612582318.webp";
-import image6 from "@assets/Rapid-Prototyping-printing_1765612582320.jpg";
-import image7 from "@assets/Untitled-design-54-1-1-1024x683_1765612582321.jpg";
+import image1 from "@assets/Aether_Blueprint_1766991280411.png";
+import image2 from "@assets/Isometric_View_1766991301982.png";
+import image3 from "@assets/Isometric_View_1766991317959.png";
+import image4 from "@assets/NX_Cad_ISRO_Design_1766991335735.png";
+import image5 from "@assets/Aether_GT-26_1766991348103.jpg";
+import image6 from "@assets/Rendered_Image_of_SIH_Project_1766991362475.png";
+import image7 from "@assets/Gyro_Transparent_View_1766991378999.png";
+import image8 from "@assets/Camera_Slider_1766991398844.JPG";
+import image9 from "@assets/Isometric_View_1766991418351.png";
+import image10 from "@assets/Isometric_View_1766991439522.png";
+import image11 from "@assets/44ebb6c6-a51f-482e-8882-9ab73c55d926_1766991442800.jpg";
+import image12 from "@assets/Isometric_View_1766991457308.png";
+import image13 from "@assets/Isometric_View_1766991480170.png";
 
 const galleryImages = [
-  { id: 1, src: image1, alt: "Rapid Printing Services" },
-  { id: 2, src: image2, alt: "Rapid Printing Process" },
-  { id: 3, src: image3, alt: "CAD Design & Modeling" },
-  { id: 4, src: image4, alt: "Model-Based Design" },
-  { id: 5, src: image5, alt: "PCB Design" },
-  { id: 6, src: image6, alt: "Rapid Prototyping" },
-  { id: 7, src: image7, alt: "PCB Manufacturing" },
+  { id: 1, src: image1, alt: "Aether GT-26 Blueprint" },
+  { id: 2, src: image2, alt: "Isometric Design View" },
+  { id: 3, src: image3, alt: "Technical Assembly" },
+  { id: 4, src: image4, alt: "NX CAD ISRO Design" },
+  { id: 5, src: image5, alt: "Aether GT-26 Render" },
+  { id: 6, src: image6, alt: "SIH Project Render" },
+  { id: 7, src: image7, alt: "Gyroscope Transparent View" },
+  { id: 8, src: image8, alt: "Automated Camera Slider" },
+  { id: 9, src: image9, alt: "Technical Component Isometric" },
+  { id: 10, src: image10, alt: "Mechanical Assembly View" },
+  { id: 11, src: image11, alt: "Precision Linear Actuator" },
+  { id: 12, src: image12, alt: "CAD Model Overview" },
+  { id: 13, src: image13, alt: "Final Product Rendering" },
 ];
 
 export default function TechnologyCarousel() {
