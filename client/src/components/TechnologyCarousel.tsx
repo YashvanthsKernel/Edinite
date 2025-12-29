@@ -5,7 +5,7 @@ import image4 from "@assets/NX_Cad_ISRO_Design_1766991335735.png";
 import image5 from "@assets/Aether_GT-26_1766991348103.jpg";
 import image6 from "@assets/Rendered_Image_of_SIH_Project_1766991362475.png";
 import image7 from "@assets/Gyro_Transparent_View_1766991378999.png";
-import image8 from "@assets/Camera_Slider_1766991398844.JPG";
+import image8 from "@assets/Camera_Slider_1766991398844.jpg";
 import image9 from "@assets/Isometric_View_1766991418351.png";
 import image10 from "@assets/Isometric_View_1766991439522.png";
 import image11 from "@assets/44ebb6c6-a51f-482e-8882-9ab73c55d926_1766991442800.jpg";
