@@ -78,7 +78,7 @@ export default function ProjectCard({ title, category, description, image, tools
   return (
     <div 
       onClick={onClick} 
-      className="cursor-pointer group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(114,38,255,0.3)] flex flex-col md:flex-row gap-4 md:gap-0" 
+      className="cursor-pointer group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(114,38,255,0.3)] flex flex-col md:flex-row gap-4 md:gap-0 h-auto" 
       data-testid={`card-project-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
       {/* Decorative Gradient Background */}
@@ -91,7 +91,7 @@ export default function ProjectCard({ title, category, description, image, tools
             key={idx}
             src={img} 
             alt={`${title} - image ${idx + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 transform ${idx === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 transform ${idx === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/20" />
