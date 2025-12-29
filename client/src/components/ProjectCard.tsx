@@ -1,4 +1,4 @@
-import { ArrowUpRight, Layers, Thermometer, Cpu, Code, Gauge, Wind } from "lucide-react";
+import { ArrowUpRight, Layers, Thermometer, Cpu, Code, Gauge, Wind, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface ProjectCardProps {
