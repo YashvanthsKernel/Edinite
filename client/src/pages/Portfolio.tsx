@@ -49,6 +49,11 @@ import wearableTransparentImg from "@assets/Transparent_View_of_Product_17669948
 import cargoCycleFrontImg from "@assets/Front_View_1766995252259.png";
 import cargoCycleIsometricImg from "@assets/Isometric_View_1766995252260.png";
 
+// Patient Shifter Assets
+import patientShifterDisassembleImg from "@assets/Disassemble_View_1766995721757.png";
+import patientShifterIsometricImg from "@assets/Isometric_View_1766995721758.png";
+import patientShifterRenderImg from "@assets/Render_Image_of_Project_1766995721759.JPG";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -70,6 +75,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Patient Shifter Scoop",
+      category: "Assistive Engineering",
+      description: "Assistive medical device designed for safe and comfortable patient transfer between beds, stretchers, or wheelchairs. Minimizes physical strain on caregivers through an ergonomic mechanical scoop mechanism.",
+      image: [patientShifterRenderImg, patientShifterIsometricImg, patientShifterDisassembleImg],
+      tools: ["SolidWorks", "Product Design", "Assistive Engineering"],
+      metrics: [
+        { label: "Transfer Safety", value: "High" },
+        { label: "Caregiver Strain", value: "-50%" }
+      ],
+      details: [
+        "Ergonomic scoop design for minimal patient discomfort",
+        "Lightweight yet high-strength structural frame",
+        "Easy-to-clean surfaces for hospital hygiene standards",
+        "Simple manual operation for emergency reliability"
       ]
     },
     {

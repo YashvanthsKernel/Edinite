@@ -37,6 +37,11 @@ const categoryConfig: Record<string, { color: string; gradient: string; icon: an
     gradient: "from-indigo-500/20 to-violet-500/5",
     icon: Cpu
   },
+  "Assistive Engineering": { 
+    color: "text-rose-400", 
+    gradient: "from-rose-500/20 to-pink-500/5",
+    icon: Zap
+  },
   "Sustainable Design": { 
     color: "text-emerald-400", 
     gradient: "from-emerald-500/20 to-teal-500/5",
