@@ -133,7 +133,7 @@ export default function ProjectCard({ title, category, description, image, tools
           </div>
         </div>
 
-        <p className="text-base text-white/60 leading-relaxed mb-6 whitespace-pre-line line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+        <p className="text-base text-white/60 leading-relaxed mb-6 whitespace-pre-line">
           {description}
         </p>
 
