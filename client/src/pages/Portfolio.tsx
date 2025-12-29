@@ -54,6 +54,12 @@ import patientShifterDisassembleImg from "@assets/Disassemble_View_1766995721757
 import patientShifterIsometricImg from "@assets/Isometric_View_1766995721758.png";
 import patientShifterRenderImg from "@assets/Render_Image_of_Project_1766995721759.jpg";
 
+// Water Tank Cleaner Assets
+import waterTankIsometricImg from "@assets/Isometric_View_1766996502502.png";
+import waterTankSectionedImg from "@assets/Sectioned_View_1766996502503.png";
+import waterTankGyroImg from "@assets/Gyro_Mechanism_1766996502501.png";
+import waterTankGyroTransparentImg from "@assets/Gyro_Transparent_View_1766996502502.png";
+
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
@@ -75,6 +81,23 @@ export default function Portfolio() {
         "Optimized skateboard chassis for ideal weight distribution",
         "High-fidelity rendering in Blender for visualization",
         "Simulink results for overall vehicle system dynamics"
+      ]
+    },
+    {
+      title: "Smart IOT Integrated Water Tank Cleaner",
+      category: "Mechanical Automation",
+      description: "Automatic water tank cleaning system featuring a gyro-based 360° rotation mechanism. Designed to improve hygiene and reduce manual labor in domestic and industrial water storage.",
+      image: [waterTankSectionedImg, waterTankIsometricImg, waterTankGyroImg, waterTankGyroTransparentImg],
+      tools: ["SolidWorks", "Mechanical Automation", "IOT Integration"],
+      metrics: [
+        { label: "Cleaning Coverage", value: "360°" },
+        { label: "Labor Reduction", value: "90%" }
+      ],
+      details: [
+        "Gyro-inspired rotating unit for full surface coverage",
+        "Automated cleaning cycle for consistent hygiene",
+        "Integrated IOT monitoring for tank status and alerts",
+        "Scalable design for various tank sizes and shapes"
       ]
     },
     {

@@ -42,6 +42,11 @@ const categoryConfig: Record<string, { color: string; gradient: string; icon: an
     gradient: "from-rose-500/20 to-pink-500/5",
     icon: Zap
   },
+  "Mechanical Automation": { 
+    color: "text-blue-400", 
+    gradient: "from-blue-500/20 to-cyan-500/5",
+    icon: Layers
+  },
   "Sustainable Design": { 
     color: "text-emerald-400", 
     gradient: "from-emerald-500/20 to-teal-500/5",
