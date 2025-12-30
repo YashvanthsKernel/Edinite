@@ -9,7 +9,7 @@ import TechnologyCarousel from "@/components/TechnologyCarousel";
 import ProjectModal from "@/components/ProjectModal";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import HiddenSEO from "@/components/HiddenSEO";
-import heroGearImage from '@assets/Screenshot_2025-12-30_121202_1767076939636.png';
+import heroGearImage from '@assets/image_1767077167010.png';
 
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
@@ -139,7 +139,7 @@ export default function Home() {
                 <img
                   src={heroGearImage}
                   alt="3D Engineering Visualization"
-                  className="relative z-10 w-full max-w-lg mx-auto drop-shadow-2xl animate-float"
+                  className="relative z-10 w-full max-w-3xl mx-auto drop-shadow-2xl animate-float"
                   data-testid="img-hero"
                 />
               </div>
