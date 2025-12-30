@@ -9,7 +9,7 @@ import TechnologyCarousel from "@/components/TechnologyCarousel";
 import ProjectModal from "@/components/ProjectModal";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import HiddenSEO from "@/components/HiddenSEO";
-import heroGearImage from '@assets/generated_images/dynamic_3d_mechanical_engineering_assembly.png';
+import heroGearImage from '@assets/Screenshot_2025-12-30_121202_1767076939636.png';
 
 import cadImage from '@assets/generated_images/CAD_design_service_background_19e6e5df.png';
 import feaImage from '@assets/generated_images/FEA_CFD_simulation_background_275ed2b3.png';
